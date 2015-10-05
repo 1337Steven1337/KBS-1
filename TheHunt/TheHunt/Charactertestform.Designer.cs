@@ -1,6 +1,6 @@
 ﻿namespace TheHunt
 {
-    partial class Character
+    partial class Charactertestform
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Character
+            // Charactertestform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 453);
-            this.Name = "Character";
+            this.BackgroundImage = null;
+            this.ClientSize = new System.Drawing.Size(773, 453);
+            this.Name = "Charactertestform";
             this.Text = "character";
             this.ResumeLayout(false);
 
