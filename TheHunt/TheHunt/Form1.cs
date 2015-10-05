@@ -16,5 +16,10 @@ namespace TheHunt
         {
             InitializeComponent();
         }
+
+        private void btn_StartGameClick(object sender, EventArgs e)
+        {
+            Map map = new Map();
+        }
     }
 }
