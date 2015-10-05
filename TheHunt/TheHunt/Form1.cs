@@ -17,6 +17,7 @@ namespace TheHunt
         {
             InitializeComponent();
             this.Size = new Size(1280,720);
+            this.button1.Location = new Point( (this.Size.Width/2 - button1.Width / 2) , (this.Size.Height / 2 - button1.Height / 2 ));
             //lol  
         }
 
