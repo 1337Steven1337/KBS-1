@@ -20,6 +20,7 @@ namespace TheHunt
             Application.Run(new Form1());
             //erwin kok 
             //Jullie zijn allemaal homo's
+            //okee
         }
     }
 }
