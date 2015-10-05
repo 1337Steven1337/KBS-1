@@ -17,6 +17,7 @@ namespace TheHunt
         {
             InitializeComponent();
             this.Size = new Size(1280,720);
+            //lol  
         }
     }
 }
