@@ -21,6 +21,7 @@ namespace TheHunt
 
         private void btn_StartGameClick(object sender, EventArgs e)
         {
+            //map laden
             Map map = new Map();
         }
     }
