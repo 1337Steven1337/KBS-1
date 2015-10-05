@@ -17,7 +17,8 @@ namespace TheHunt
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            //erwin kok
+            //erwin kok 
+            //Jullie zijn allemaal homo's
         }
     }
 }
