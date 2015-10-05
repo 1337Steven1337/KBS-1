@@ -17,11 +17,11 @@ namespace TheHunt
         {
             InitializeComponent();
             this.Size = new Size(1280,720);
+            //lol  
         }
 
         private void btn_StartGameClick(object sender, EventArgs e)
         {
-            //map laden
             Map map = new Map();
         }
     }
