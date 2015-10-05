@@ -22,7 +22,7 @@ namespace TheHunt
 
         private void btn_StartGameClick(object sender, EventArgs e)
         {
-            Map map = new Map();
+           // Map map = new Map();
         }
     }
 }
