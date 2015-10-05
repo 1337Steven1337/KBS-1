@@ -1,4 +1,6 @@
-﻿namespace TheHunt
+﻿using System;
+
+namespace TheHunt
 {
     partial class Form1
     {
@@ -34,6 +36,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.buttonSound = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -76,6 +79,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Options";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -87,12 +91,25 @@
             this.button5.Text = "Exit";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // buttonSound
+            // 
+            this.buttonSound.Location = new System.Drawing.Point(457, 102);
+            this.buttonSound.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSound.Name = "buttonSound";
+            this.buttonSound.Size = new System.Drawing.Size(267, 60);
+            this.buttonSound.TabIndex = 0;
+            this.buttonSound.Text = "Sound: On";
+            this.buttonSound.UseVisualStyleBackColor = true;
+            this.buttonSound.Click += new System.EventHandler(this.buttonSound_Click);
+            this.buttonSound.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.buttonSound);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -108,6 +125,28 @@
 
         }
 
+        private void buttonSound_Click(object sender, EventArgs e)
+        {
+            if(buttonSound.Text=="Sound: On")
+            {
+                buttonSound.Text = "Sound: Off";
+            }
+            else if(buttonSound.Text=="Sound: Off")
+            {
+                buttonSound.Text = "Sound: On";
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button5.Visible = false;
+            buttonSound.Visible = true;
+        }
+
         #endregion
 
         private System.Windows.Forms.Button button1;
@@ -115,6 +154,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonSound;
     }
 }
 
