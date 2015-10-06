@@ -22,7 +22,7 @@ namespace TheHunt
             pictureBox4.BackColor = Color.Transparent;
             pictureBox5.BackColor = Color.Transparent;
             OptionsButton.BackColor = Color.Transparent;
-            
+
 
             //zet Schermgrootte
             this.Size = new Size(1280, 720);
@@ -52,11 +52,10 @@ namespace TheHunt
             Application.Exit();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btn_PlayGame(object sender, EventArgs e)
         {
-            Charactertestform ch = new Charactertestform();
-            ch.Show();
-            
+            Map map = new Map();
+            map.Show();
         }
     }
 }
