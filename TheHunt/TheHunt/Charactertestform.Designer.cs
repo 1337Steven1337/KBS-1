@@ -1,4 +1,6 @@
-﻿namespace TheHunt
+﻿using System;
+
+namespace TheHunt
 {
     partial class Charactertestform
     {
@@ -34,7 +36,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = null;
             this.ClientSize = new System.Drawing.Size(773, 453);
             this.Name = "Charactertestform";
             this.Text = "character";
@@ -43,5 +44,6 @@
         }
 
         #endregion
+     
     }
 }
