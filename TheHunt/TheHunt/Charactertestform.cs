@@ -30,7 +30,13 @@ namespace TheHunt
         public int xSpeed { get; set; }
         public int ySpeed { get; set; }
 
-        
+        public Character() { }
+
+        public Character(int xPoint, int yPoint)
+        {
+            this.xPoint = xPoint;
+            this.yPoint = yPoint;
+        }
         public Character(int xPoint, int yPoint, int xSpeed, int ySpeed)
         {
             this.xPoint = xPoint;
@@ -51,6 +57,5 @@ namespace TheHunt
             // Fill rectangle to screen.
             e.Graphics.FillRectangle(blueBrush, characterShape);
         }
-       
     }
 }
