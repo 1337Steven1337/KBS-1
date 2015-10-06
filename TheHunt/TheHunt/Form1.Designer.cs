@@ -149,12 +149,7 @@ namespace TheHunt
 
         private void Options_click(object sender, EventArgs e)
         {
-            pictureBox1.Visible = false;
-            pictureBox2.Visible = false;
-            OptionsButton.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            buttonSnd.Visible = true;
+            visibilaty();
         }
 
         #endregion
@@ -164,6 +159,28 @@ namespace TheHunt
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button buttonSnd;
+
+        public void visibilaty()
+        {
+            bool tf = false;
+            bool ft = true;
+            if (pictureBox1.Visible)
+            {
+                tf = true;
+                ft = false;
+            }
+            pictureBox1.Visible = ft;
+            pictureBox2.Visible = ft;
+            OptionsButton.Visible = ft;
+            pictureBox4.Visible = ft;
+            pictureBox5.Visible = ft;
+            buttonSnd.Visible = tf;
+
+        }
+
     }
+
+
+
 }
 

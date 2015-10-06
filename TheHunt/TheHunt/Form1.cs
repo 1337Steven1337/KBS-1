@@ -49,7 +49,7 @@ namespace TheHunt
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-           Application.Exit();
+            Application.Exit();
         }
 
         private void btn_PlayGame(object sender, EventArgs e)
