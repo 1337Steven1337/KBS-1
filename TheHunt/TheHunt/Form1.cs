@@ -44,7 +44,7 @@ namespace TheHunt
         {
            Application.Exit();
         }
-
+       
         private void btn_PlayGame(object sender, EventArgs e)
         {
           //  Map map = new Map();
