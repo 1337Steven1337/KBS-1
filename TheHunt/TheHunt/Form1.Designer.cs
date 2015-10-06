@@ -1,4 +1,6 @@
-﻿namespace TheHunt
+﻿using System;
+
+namespace TheHunt
 {
     partial class Form1
     {
@@ -29,92 +31,139 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.OptionsButton = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.buttonSnd = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OptionsButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // pictureBox1
             // 
-            this.button1.Location = new System.Drawing.Point(514, 127);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(300, 75);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Start Game";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btn_StartGameClick);
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.pictureBox1.Image = global::TheHunt.Properties.Resources.Play;
+            this.pictureBox1.Location = new System.Drawing.Point(598, 65);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(818, 188);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.btn_PlayGame);
             // 
-            // button2
+            // pictureBox2
             // 
-            this.button2.Location = new System.Drawing.Point(514, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(300, 75);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Maak level";
-            this.button2.UseVisualStyleBackColor = true;
+            this.pictureBox2.Image = global::TheHunt.Properties.Resources.Levels;
+            this.pictureBox2.Location = new System.Drawing.Point(598, 265);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(818, 188);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
             // 
-            // button3
+            // OptionsButton
             // 
-            this.button3.Location = new System.Drawing.Point(514, 323);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(300, 75);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Highscores";
-            this.button3.UseVisualStyleBackColor = true;
+            this.OptionsButton.Image = global::TheHunt.Properties.Resources.Options;
+            this.OptionsButton.Location = new System.Drawing.Point(598, 463);
+            this.OptionsButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OptionsButton.Name = "OptionsButton";
+            this.OptionsButton.Size = new System.Drawing.Size(818, 190);
+            this.OptionsButton.TabIndex = 7;
+            this.OptionsButton.TabStop = false;
+            this.OptionsButton.Click += new System.EventHandler(this.Options_click);
             // 
-            // button4
+            // pictureBox4
             // 
-            this.button4.Location = new System.Drawing.Point(514, 437);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 75);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Options";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.pictureBox4.Image = global::TheHunt.Properties.Resources.Maak_Level;
+            this.pictureBox4.Location = new System.Drawing.Point(598, 665);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(818, 187);
+            this.pictureBox4.TabIndex = 8;
+            this.pictureBox4.TabStop = false;
             // 
-            // button5
+            // pictureBox5
             // 
-            this.button5.Location = new System.Drawing.Point(689, 437);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 75);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Exit";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.pictureBox5.Image = global::TheHunt.Properties.Resources.Exit;
+            this.pictureBox5.Location = new System.Drawing.Point(598, 863);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(818, 183);
+            this.pictureBox5.TabIndex = 9;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
+            // buttonSnd
+            // 
+            this.buttonSnd.Location = new System.Drawing.Point(198, 194);
+            this.buttonSnd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonSnd.Name = "buttonSnd";
+            this.buttonSnd.Size = new System.Drawing.Size(150, 44);
+            this.buttonSnd.TabIndex = 10;
+            this.buttonSnd.Text = "button1";
+            this.buttonSnd.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1920, 1125);
+            this.Controls.Add(this.buttonSnd);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.OptionsButton);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Hunt";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OptionsButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
 
-        #endregion
+        private void buttonSound_Click(object sender, EventArgs e)
+        {
+            if(buttonSnd.Text=="Sound: On")
+            {
+                buttonSnd.Text = "Sound: Off";
+            }
+            else if(buttonSnd.Text=="Sound: Off")
+            {
+                buttonSnd.Text = "Sound: On";
+            }
+        }
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private void Options_click(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = false;
+            pictureBox2.Visible = false;
+            OptionsButton.Visible = false;
+            pictureBox4.Visible = false;
+            pictureBox5.Visible = false;
+            buttonSnd.Visible = true;
+        }
+
+        #endregion
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox OptionsButton;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button buttonSnd;
     }
 }
 
