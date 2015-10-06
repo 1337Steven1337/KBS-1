@@ -49,9 +49,13 @@ namespace TheHunt
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-           Map map = new Map();
-           map.Show();
-            Application.Exit();
+           Application.Exit();
+        }
+
+        private void btn_PlayGame(object sender, EventArgs e)
+        {
+            Map map = new Map();
+            map.Show();
         }
     }
 }

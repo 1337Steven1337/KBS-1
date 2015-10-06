@@ -31,7 +31,6 @@ namespace TheHunt
             SolidBrush brush = new SolidBrush(Color.Red);
             Rectangle rect = new Rectangle(10, 10, height, width);
             g.FillRectangle(brush, rect);
-            //lol23
         }
 
     }
