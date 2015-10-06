@@ -1,6 +1,6 @@
 ﻿namespace TheHunt
 {
-    partial class Map
+    partial class Charactertestform
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Map
+            // Charactertestform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 1262);
-            this.Name = "Map";
-            this.Text = "Map";
+            this.BackgroundImage = null;
+            this.ClientSize = new System.Drawing.Size(773, 453);
+            this.Name = "Charactertestform";
+            this.Text = "character";
             this.ResumeLayout(false);
 
         }
