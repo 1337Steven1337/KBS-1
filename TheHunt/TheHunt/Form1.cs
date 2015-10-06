@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//lol
+
 namespace TheHunt
 {
     public partial class Form1 : Form
@@ -30,7 +33,6 @@ namespace TheHunt
             this.button1.Location = new Point((this.Size.Width / 2 - button1.Width / 2), (this.Size.Height / 2 - button1.Height / 2) - 2 * button1.Height - this.Size.Height / 50);
             this.button2.Location = new Point((this.Size.Width / 2 - button2.Width / 2), (this.Size.Height / 2 - button2.Height / 2) - 1 * button2.Height);
             this.button3.Location = new Point((this.Size.Width / 2 - button3.Width / 2), (this.Size.Height / 2 - button3.Height / 2) + this.Size.Height / 50);
-
             this.button4.Location = new Point((this.Size.Width / 2 - button1.Width / 2), (this.Size.Height / 2 - button4.Height / 2) + 1 * button4.Height + 2* (this.Size.Height / 50));
             this.button5.Location = new Point( (this.Size.Width/2 - button1.Width / 2) + button5.Width, (this.Size.Height / 2 - button5.Height / 2 )+ 1 * button5.Height + 2 * (this.Size.Height / 50));
 
@@ -40,6 +42,25 @@ namespace TheHunt
         private void btn_StartGameClick(object sender, EventArgs e)
         {
            // Map map = new Map();
+        }
+
+    private void button5_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button1.Hide();
+            button2.Hide();
+            button3.Hide();
+            button4.Hide();
+            button5.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
