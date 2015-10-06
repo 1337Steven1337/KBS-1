@@ -27,13 +27,6 @@ namespace TheHunt
             //zet Schermgrootte
             this.Size = new Size(1280, 720);
 
-            //zet Knopgrootte startmenu
-            //this.button1.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
-            //this.button2.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
-            //this.button3.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
-            //this.button4.Size = new Size(this.Size.Width / 10, this.Size.Height / 10);
-            //this.button5.Size = new Size(this.Size.Width / 10, this.Size.Height / 10);
-
             this.buttonSnd.Visible = false;
 
             //Bereken knoppen locaties
@@ -49,13 +42,23 @@ namespace TheHunt
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+           Application.Exit();
         }
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
           //  Map map = new Map();
           //  map.Show();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
