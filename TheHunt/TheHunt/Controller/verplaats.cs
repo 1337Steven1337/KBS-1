@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ObjectMoving
 {
-    public partial class FormView : Form
+    public partial class verplaats : Form
     {
         enum Position
         {
@@ -19,12 +19,10 @@ namespace ObjectMoving
         private int _x;
         private int _y;
         private Boolean piet;
-        private Timer timer1;
-        private IContainer components;
         private Position _objPosition;
 
 
-        public FormView()
+        public verplaats()
         {
             InitializeComponent();
             piet = true;
@@ -97,24 +95,6 @@ namespace ObjectMoving
                 _objPosition = Position.Down;
             }
             this.tmrMoving.Enabled = true;
-        }
-
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            // 
-            // FormView
-            // 
-            this.ClientSize = new System.Drawing.Size(282, 253);
-            this.Name = "FormView";
-            this.ResumeLayout(false);
-
         }
     }
 }
