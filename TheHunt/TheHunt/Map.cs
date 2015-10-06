@@ -15,7 +15,23 @@ namespace TheHunt
         public Map()
         {
             InitializeComponent();
-            /FUCKKKKK
+            Paint += new PaintEventHandler(DrawRect);
+            
         }
+
+        public void DrawRect(object sender, PaintEventArgs e)
+        {
+
+            var screen = Screen.PrimaryScreen.Bounds;
+            var width = screen.Width / 100;
+            var height = screen.Height / 100;
+
+
+            Graphics g = e.Graphics;
+            SolidBrush brush = new SolidBrush(Color.Red);
+            Rectangle rect = new Rectangle(10, 10, height, width);
+            g.FillRectangle(brush, rect);
+        }
+
     }
 }
