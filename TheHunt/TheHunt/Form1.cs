@@ -8,14 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+
 
 namespace TheHunt
 {
     public partial class Form1 : Form
     {
+        public static Boolean isMuted = false;
+        SoundPlayer bgm = new SoundPlayer(@"Sounds\bgm.wav");
         public Form1()
         {
             InitializeComponent();
+            bgm.PlayLooping();
+
+            
 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox2.BackColor = Color.Transparent;
@@ -45,16 +52,36 @@ namespace TheHunt
            Application.Exit();
         }
 
+        public void speelKlikGeluid()
+        {
+            if (!isMuted)
+            {
+                var klikgeluid = new WMPLib.WindowsMediaPlayer();
+                klikgeluid.URL = @"C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\bin\Debug\Sounds\klikgeluid.wav";
+                klikgeluid.controls.play();
+            }
+        }
+
+        public void muteGeluid()
+        {
+            isMuted = !isMuted;
+            if (isMuted)
+            {
+                bgm.Stop();
+            }
+            else
+            {
+                bgm.PlayLooping();
+            }
+        }
+
         private void btn_PlayGame(object sender, EventArgs e)
         {
             Map map = new Map();
             map.Show();
+            speelKlikGeluid();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -64,6 +91,11 @@ namespace TheHunt
         private void buttonSnd_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            muteGeluid();
         }
     }
 }
