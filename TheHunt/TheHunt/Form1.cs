@@ -9,9 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-//lol
-
 namespace TheHunt
 {
     public partial class Form1 : Form
@@ -19,48 +16,46 @@ namespace TheHunt
         public Form1()
         {
             InitializeComponent();
+
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox5.BackColor = Color.Transparent;
+            OptionsButton.BackColor = Color.Transparent;
+
+
             //zet Schermgrootte
-            this.Size = new Size(1280,720);
+            this.Size = new Size(1280, 720);
 
             //zet Knopgrootte startmenu
-            this.button1.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
-            this.button2.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
-            this.button3.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
-            this.button4.Size = new Size(this.Size.Width / 10, this.Size.Height / 10);
-            this.button5.Size = new Size(this.Size.Width / 10, this.Size.Height / 10);
+            //this.button1.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
+            //this.button2.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
+            //this.button3.Size = new Size(this.Size.Width / 5, this.Size.Height / 10);
+            //this.button4.Size = new Size(this.Size.Width / 10, this.Size.Height / 10);
+            //this.button5.Size = new Size(this.Size.Width / 10, this.Size.Height / 10);
+
+            this.buttonSnd.Visible = false;
 
             //Bereken knoppen locaties
-            this.button1.Location = new Point((this.Size.Width / 2 - button1.Width / 2), (this.Size.Height / 2 - button1.Height / 2) - 2 * button1.Height - this.Size.Height / 50);
-            this.button2.Location = new Point((this.Size.Width / 2 - button2.Width / 2), (this.Size.Height / 2 - button2.Height / 2) - 1 * button2.Height);
-            this.button3.Location = new Point((this.Size.Width / 2 - button3.Width / 2), (this.Size.Height / 2 - button3.Height / 2) + this.Size.Height / 50);
-            this.button4.Location = new Point((this.Size.Width / 2 - button1.Width / 2), (this.Size.Height / 2 - button4.Height / 2) + 1 * button4.Height + 2* (this.Size.Height / 50));
-            this.button5.Location = new Point( (this.Size.Width/2 - button1.Width / 2) + button5.Width, (this.Size.Height / 2 - button5.Height / 2 )+ 1 * button5.Height + 2 * (this.Size.Height / 50));
+            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - this.Size.Height / 50);
+            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height);
+            this.OptionsButton.Location = new Point((this.Size.Width / 2 - OptionsButton.Width / 2), (this.Size.Height / 2 - OptionsButton.Height / 2) + this.Size.Height / 50);
+
+            this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
+            this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
 
 
         }
 
-        private void btn_StartGameClick(object sender, EventArgs e)
+        private void pictureBox5_Click(object sender, EventArgs e)
         {
-           // Map map = new Map();
+           Application.Exit();
         }
 
-    private void button5_Click(object sender, EventArgs e)
+        private void btn_PlayGame(object sender, EventArgs e)
         {
-            Environment.Exit(0);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            button1.Hide();
-            button2.Hide();
-            button3.Hide();
-            button4.Hide();
-            button5.Hide();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            Map map = new Map();
+            map.Show();
         }
     }
 }
