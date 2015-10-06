@@ -16,7 +16,7 @@ namespace TheHunt
         {
             InitializeComponent();
             Character c1 = new Character();
-            Character c2 = new Character(30,30);
+            Character c2 = new Character(30, 30);
 
             Paint += new PaintEventHandler(c1.drawcharacter);
             Paint += new PaintEventHandler(c2.drawcharacter);
@@ -30,7 +30,7 @@ namespace TheHunt
         private int xSpeed { get; set; }
         private int ySpeed { get; set; }
 
-        public Character(){}
+        public Character() { }
 
         public Character(int xPoint, int yPoint)
         {
