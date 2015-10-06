@@ -48,10 +48,10 @@ namespace TheHunt
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.pictureBox1.Image = global::TheHunt.Properties.Resources.Play;
-            this.pictureBox1.Location = new System.Drawing.Point(598, 65);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(448, 52);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(818, 188);
+            this.pictureBox1.Size = new System.Drawing.Size(614, 150);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.btn_PlayGame);
@@ -59,20 +59,20 @@ namespace TheHunt
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TheHunt.Properties.Resources.Levels;
-            this.pictureBox2.Location = new System.Drawing.Point(598, 265);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(448, 212);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(818, 188);
+            this.pictureBox2.Size = new System.Drawing.Size(614, 150);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
             // OptionsButton
             // 
             this.OptionsButton.Image = global::TheHunt.Properties.Resources.Options;
-            this.OptionsButton.Location = new System.Drawing.Point(598, 463);
-            this.OptionsButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OptionsButton.Location = new System.Drawing.Point(448, 370);
+            this.OptionsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OptionsButton.Name = "OptionsButton";
-            this.OptionsButton.Size = new System.Drawing.Size(818, 190);
+            this.OptionsButton.Size = new System.Drawing.Size(614, 152);
             this.OptionsButton.TabIndex = 7;
             this.OptionsButton.TabStop = false;
             this.OptionsButton.Click += new System.EventHandler(this.Options_click);
@@ -80,40 +80,43 @@ namespace TheHunt
             // pictureBox4
             // 
             this.pictureBox4.Image = global::TheHunt.Properties.Resources.Maak_Level;
-            this.pictureBox4.Location = new System.Drawing.Point(598, 665);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox4.Location = new System.Drawing.Point(448, 532);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(818, 187);
+            this.pictureBox4.Size = new System.Drawing.Size(614, 150);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::TheHunt.Properties.Resources.Exit;
-            this.pictureBox5.Location = new System.Drawing.Point(598, 863);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox5.Location = new System.Drawing.Point(448, 690);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(818, 183);
+            this.pictureBox5.Size = new System.Drawing.Size(614, 146);
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // buttonSnd
             // 
-            this.buttonSnd.Location = new System.Drawing.Point(198, 194);
-            this.buttonSnd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonSnd.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSnd.Location = new System.Drawing.Point(49, 198);
+            this.buttonSnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSnd.Name = "buttonSnd";
-            this.buttonSnd.Size = new System.Drawing.Size(150, 44);
+            this.buttonSnd.Size = new System.Drawing.Size(113, 27);
             this.buttonSnd.TabIndex = 10;
-            this.buttonSnd.Text = "button1";
-            this.buttonSnd.UseVisualStyleBackColor = true;
+            this.buttonSnd.Text = "ButtonSnd";
+            this.buttonSnd.UseVisualStyleBackColor = false;
+            this.buttonSnd.Visible = false;
+            this.buttonSnd.Click += new System.EventHandler(this.buttonSnd_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1920, 1125);
+            this.ClientSize = new System.Drawing.Size(1440, 900);
             this.Controls.Add(this.buttonSnd);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -121,11 +124,12 @@ namespace TheHunt
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Hunt";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OptionsButton)).EndInit();
