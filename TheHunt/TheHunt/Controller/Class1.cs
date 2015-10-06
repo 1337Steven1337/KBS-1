@@ -11,6 +11,7 @@ namespace TheHunt
 {
     public partial class FormView : Form
     {
+
         enum Position
         {
             Left, Right, Up, Down
