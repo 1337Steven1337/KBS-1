@@ -74,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
@@ -86,12 +87,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Exit.psd" />
-    <None Include="Resources\Highscores.psd" />
-    <None Include="Resources\Levels.psd" />
-    <None Include="Resources\Maak Level.psd" />
-    <None Include="Resources\Options.psd" />
-    <None Include="Resources\Play.psd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -103,6 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\achtergrond.jpg" />
+    <Content Include="Resources\Exit.png" />
+    <Content Include="Resources\Highscores.png" />
+    <Content Include="Resources\Levels.png" />
+    <Content Include="Resources\Maak Level.png" />
+    <Content Include="Resources\Options.png" />
+    <Content Include="Resources\Play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
