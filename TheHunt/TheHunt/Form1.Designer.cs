@@ -412,10 +412,6 @@ namespace TheHunt
 
                 
                 buttonFuSc.Text = "Full Screen: On";
-
-                this.TopMost = true;
-                this.FormBorderStyle = FormBorderStyle.None;
-                this.WindowState = FormWindowState.Maximized;
             }
         }
 
