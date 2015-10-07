@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheHunt.Model;
 
 namespace TheHunt
 {
     public partial class Map : Form
     {
-        //variabelenn
-        public int x = 0;
-        public int y = 0;
+        private List<FieldObject> objects = new List<FieldObject>();
 
         public Map()
         {
@@ -23,32 +22,21 @@ namespace TheHunt
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            //roep base onpaint aan!
             base.OnPaint(e);
-
 
             Graphics g = e.Graphics;
             Pen pen = new Pen(Color.Red);
-            for (int x = 0; x < this.Width; x += 20)
+            for (int i = 0; i < objects.Count; i++)
             {
-                Rectangle rect = new Rectangle(x, y, 20, 20);
-                g.DrawRectangle(pen, rect);
-                if (x > this.Width)
-                {
-                    x = 0;
-                }
-                for (int y = 0; y < this.Height; y += 20)
-                {
-                    Rectangle rect2 = new Rectangle(x, y, 20, 20);
-                    g.DrawRectangle(pen, rect2);
-                }
+                FieldObject wall = objects[i];
+                Rectangle rect2 = new Rectangle(wall.x, wall.y, 100, 100);
+                g.DrawRectangle(pen, rect2);
             }
-
-
-
-
         }
 
-        
+        private void Map_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
