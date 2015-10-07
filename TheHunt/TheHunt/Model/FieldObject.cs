@@ -69,7 +69,7 @@ namespace TheHunt.Model
                     this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/wall.png");
                 }
                 else if (this.type == Type.Enemy)
-                {
+            {
                     this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/enemy.gif");
                 }
             }
