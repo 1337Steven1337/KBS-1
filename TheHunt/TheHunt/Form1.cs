@@ -95,7 +95,7 @@ namespace TheHunt
         {
             this.Hide();
             //Charactertestform map = new Charactertestform();
-            Map map = new Map();
+            Player map = new Player();
             map.Show();
             speelKlikGeluid();
 
