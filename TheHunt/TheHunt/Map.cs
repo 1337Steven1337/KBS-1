@@ -12,7 +12,7 @@ namespace TheHunt
 {
     public partial class Map : Form
     {
-
+        //variabelen
         public int x = 0;
         public int y = 0;
 
@@ -43,7 +43,10 @@ namespace TheHunt
                     g.DrawRectangle(pen, rect2);
                 }
             }
-            
+
+
+
+
         }
 
         

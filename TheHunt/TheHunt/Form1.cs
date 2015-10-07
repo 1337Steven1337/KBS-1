@@ -23,7 +23,7 @@ namespace TheHunt
             InitializeComponent();
             bgm.PlayLooping();
 
-            
+
 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox2.BackColor = System.Drawing.Color.Transparent;
