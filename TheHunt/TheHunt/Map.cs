@@ -38,5 +38,10 @@ namespace TheHunt
         {
 
         }
+
+        private void Map_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
