@@ -6,20 +6,30 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheHunt.Controller;
 using System.Windows.Forms;
 
 namespace TheHunt
 {
     public partial class Charactertestform : Form
     {
+        private Move m = new Move();
+        private Character c1 = new Character(30, 30, 20, 20);
         public Charactertestform()
         {
-           // InitializeComponent();
-            Character c1 = new Character(30,30,20,20);
+
+            InitializeComponent();
+
             Paint += new PaintEventHandler(c1.drawcharacter);
             c1.xPoint += 100;
             Paint += new PaintEventHandler(c1.drawcharacter);
             // FormView a = new FormView(c1.xPoint, c1.yPoint, c1.xSpeed, c1.ySpeed);
+        }
+
+        private void Charactertestform_KeyDown(object sender, KeyEventArgs e)
+        {
+            m.Moven(e, c1);
+            this.Refresh(); 
         }
     }
 
