@@ -94,8 +94,8 @@ namespace TheHunt
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
-            Charactertestform map = new Charactertestform();
-            
+            //Charactertestform map = new Charactertestform();
+            Map map = new Map();
             map.Show();
             speelKlikGeluid();
 
