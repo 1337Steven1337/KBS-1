@@ -31,6 +31,16 @@ namespace TheHunt
             m.Moven(e, c1);
             this.Refresh(); 
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_MouseMove(object sender, MouseEventArgs up)
+        {
+            ;
+        }
     }
 
     class Character
