@@ -9,10 +9,14 @@
     }
   ],
   "player": {
-    "img":  "ww1",
-    "start": {
+    "img": "ww1",
+    "position": {
       "x": 0,
       "y": 0
+    },
+    "speed": {
+      "x": 10,
+      "y":  10
     }
   }
 }
