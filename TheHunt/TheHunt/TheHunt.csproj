@@ -131,7 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BrockSprite1.bmp" />
-    <None Include="Resources\brockSprite1.png" />
+    <None Include="Resources\brockSprite1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\brockSprite2.png" />
     <None Include="Resources\brockSprite3.png" />
     <None Include="Resources\brockSprite4.png" />

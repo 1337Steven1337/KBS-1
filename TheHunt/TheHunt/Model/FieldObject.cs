@@ -16,8 +16,7 @@ namespace TheHunt.Model
         {
             Wall,
             Enemy,
-            Boss,
-            Character
+            Boss
         }
 
         public int x = 0;
