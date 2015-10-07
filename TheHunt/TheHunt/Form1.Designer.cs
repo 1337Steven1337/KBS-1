@@ -268,7 +268,7 @@ namespace TheHunt
             if (buttonSndEf.Text == "Soundeffects: On")
             {
                 buttonSndEf.Text = "Soundeffects: Off";
-            }
+        }
             else if (buttonSndEf.Text == "Soundeffects: Off")
             {
                 buttonSndEf.Text = "Soundeffects: On";
