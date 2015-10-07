@@ -121,6 +121,9 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\wall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\playBtn.png" />
     <None Include="bin\Debug\Sounds\bgm.wav" />
     <None Include="bin\Debug\Sounds\klikgeluid.wav" />

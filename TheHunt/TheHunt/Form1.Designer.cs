@@ -386,19 +386,36 @@ namespace TheHunt
         {
             if (buttonFuSc.Text == "Full Screen: On")
             {
-                this.WindowState = FormWindowState.Normal;
+                this.WindowState = FormWindowState.Maximized;
+
                 this.ClientSize = new System.Drawing.Size(1280, 768);
                 this.Size = new Size(1280, 768);
-                this.WindowState = FormWindowState.Maximized;
+
+                this.WindowState = FormWindowState.Normal;
+                this.Validate();
+
                 buttonFuSc.Text = "Full Screen: Off";
             }
             else if (buttonFuSc.Text == "Full Screen: Off")
             {
-                this.WindowState = FormWindowState.Normal;
-                this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-                this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
                 this.WindowState = FormWindowState.Maximized;
+
+                int h = Screen.PrimaryScreen.Bounds.Height;
+                int w = Screen.PrimaryScreen.Bounds.Width;
+                labelOptionsHeader.Text = "W : " + w + ", H: " + h;
+
+                this.ClientSize = new System.Drawing.Size(w, h);
+                this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+
+                this.WindowState = FormWindowState.Normal;
+                this.Validate();
+
+                
                 buttonFuSc.Text = "Full Screen: On";
+
+                this.TopMost = true;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
             }
         }
 

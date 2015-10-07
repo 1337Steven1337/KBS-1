@@ -18,6 +18,9 @@ namespace TheHunt
         public Map()
         {
             InitializeComponent();
+
+            FieldObject w1 = new FieldObject(100, 100, FieldObject.Type.Wall);
+            objects.Add(w1);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -29,8 +32,7 @@ namespace TheHunt
             for (int i = 0; i < objects.Count; i++)
             {
                 FieldObject wall = objects[i];
-                Rectangle rect2 = new Rectangle(wall.x, wall.y, 100, 100);
-                g.DrawRectangle(pen, rect2);
+                wall.draw(g);
             }
         }
 

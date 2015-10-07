@@ -34,10 +34,10 @@ namespace TheHunt
 
 
             //zet Schermgrootte
-            this.Size = new Size(1600, 900);
+            this.Size = new Size(1280, 768);
             this.TopMost = true;
             this.Location = new Point(0, 0);
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
 
             //Bereken knoppen locaties
@@ -94,8 +94,8 @@ namespace TheHunt
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
-            Charactertestform map = new Charactertestform();
-            
+            //Charactertestform map = new Charactertestform();
+            Map map = new Map();
             map.Show();
             speelKlikGeluid();
 
