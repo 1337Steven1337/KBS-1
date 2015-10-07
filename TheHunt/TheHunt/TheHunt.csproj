@@ -57,8 +57,11 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Class1.cs">
+    <Compile Include="Controller\verplaats.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\verplaats.Designer.cs">
+      <DependentUpon>verplaats.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -77,8 +80,8 @@
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\Class1.resx">
-      <DependentUpon>Class1.cs</DependentUpon>
+    <EmbeddedResource Include="Controller\verplaats.resx">
+      <DependentUpon>verplaats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
