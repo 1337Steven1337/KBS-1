@@ -21,9 +21,7 @@ namespace TheHunt
             InitializeComponent();
 
             Paint += new PaintEventHandler(c1.drawcharacter);
-            c1.xPoint += 100;
-            Paint += new PaintEventHandler(c1.drawcharacter);
-            // FormView a = new FormView(c1.xPoint, c1.yPoint, c1.xSpeed, c1.ySpeed);
+            
         }
 
         private void Charactertestform_KeyDown(object sender, KeyEventArgs e)
