@@ -72,8 +72,7 @@ namespace TheHunt.Model
             {
                     this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/enemy.gif");
                 }
-            }
-
+            }       
 
             return this.image;
 
