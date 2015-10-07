@@ -20,7 +20,7 @@ namespace TheHunt
         {
             InitializeComponent();
         }
-
+            
         protected override void OnPaint(PaintEventArgs e)
         {
             //roep base onpaint aan!
@@ -42,7 +42,7 @@ namespace TheHunt
                     Rectangle rect2 = new Rectangle(x, y, 20, 20);
                     g.DrawRectangle(pen, rect2);
                 }
-            }
+        }
 
 
 
