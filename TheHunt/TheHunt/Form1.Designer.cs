@@ -43,6 +43,12 @@ namespace TheHunt
             this.buttonContr = new System.Windows.Forms.Button();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.labelOptionsHeader = new System.Windows.Forms.Label();
+            this.labelControls = new System.Windows.Forms.Label();
+            this.buttonUp = new System.Windows.Forms.Button();
+            this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonRight = new System.Windows.Forms.Button();
+            this.buttonControlsOk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OptionsButton)).BeginInit();
@@ -183,12 +189,86 @@ namespace TheHunt
             this.labelOptionsHeader.Text = "Options";
             this.labelOptionsHeader.Visible = false;
             // 
+            // labelControls
+            // 
+            this.labelControls.AutoSize = true;
+            this.labelControls.BackColor = System.Drawing.Color.Transparent;
+            this.labelControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControls.ForeColor = System.Drawing.Color.White;
+            this.labelControls.Location = new System.Drawing.Point(246, 87);
+            this.labelControls.Name = "labelControls";
+            this.labelControls.Size = new System.Drawing.Size(129, 32);
+            this.labelControls.TabIndex = 18;
+            this.labelControls.Text = "Controls";
+            this.labelControls.Visible = false;
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.Location = new System.Drawing.Point(241, 122);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(150, 40);
+            this.buttonUp.TabIndex = 19;
+            this.buttonUp.Text = "Up: W";
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Visible = false;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            // 
+            // buttonDown
+            // 
+            this.buttonDown.Location = new System.Drawing.Point(241, 168);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(150, 40);
+            this.buttonDown.TabIndex = 20;
+            this.buttonDown.Text = "Down: S";
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Visible = false;
+            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Location = new System.Drawing.Point(241, 214);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(150, 40);
+            this.buttonLeft.TabIndex = 21;
+            this.buttonLeft.Text = "Left: A";
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Visible = false;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            // 
+            // buttonRight
+            // 
+            this.buttonRight.Location = new System.Drawing.Point(241, 260);
+            this.buttonRight.Name = "buttonRight";
+            this.buttonRight.Size = new System.Drawing.Size(150, 40);
+            this.buttonRight.TabIndex = 22;
+            this.buttonRight.Text = "Right: D";
+            this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.Visible = false;
+            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            // 
+            // buttonControlsOk
+            // 
+            this.buttonControlsOk.Location = new System.Drawing.Point(241, 306);
+            this.buttonControlsOk.Name = "buttonControlsOk";
+            this.buttonControlsOk.Size = new System.Drawing.Size(150, 40);
+            this.buttonControlsOk.TabIndex = 23;
+            this.buttonControlsOk.Text = "Ok";
+            this.buttonControlsOk.UseVisualStyleBackColor = true;
+            this.buttonControlsOk.Visible = false;
+            this.buttonControlsOk.Click += new System.EventHandler(this.buttonControlsOk_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.buttonControlsOk);
+            this.Controls.Add(this.buttonRight);
+            this.Controls.Add(this.buttonLeft);
+            this.Controls.Add(this.buttonDown);
+            this.Controls.Add(this.buttonUp);
+            this.Controls.Add(this.labelControls);
             this.Controls.Add(this.labelOptionsHeader);
             this.Controls.Add(this.buttonMenu);
             this.Controls.Add(this.buttonContr);
@@ -218,6 +298,51 @@ namespace TheHunt
 
         }
 
+        private void buttonControlsOk_Click(object sender, EventArgs e)
+        {
+            labelOptionsHeader.Visible = true;
+            buttonSnd.Visible = true;
+            buttonSndEf.Visible = true;
+            buttonSndMu.Visible = true;
+            buttonFuSc.Visible = true;
+            buttonContr.Visible = true;
+            buttonMenu.Visible = true;
+            labelControls.Visible = false;
+            buttonUp.Visible = false;
+            buttonDown.Visible = false;
+            buttonLeft.Visible = false;
+            buttonRight.Visible = false;
+            buttonControlsOk.Visible = false;
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            //buttonUp.Text = "Press a key...";
+            //string key = Console.ReadKey().Key.ToString();
+            //buttonUp.Text = "Up: " + key;
+        }
+
+        private void buttonDown_Click(object sender, EventArgs e)
+        {
+            //buttonDown.Text = "Press a key...";
+            //string key = Console.ReadKey().Key.ToString();
+            //buttonDown.Text = "Down: " + key;
+        }
+
+        private void buttonLeft_Click(object sender, EventArgs e)
+        {
+            //buttonLeft.Text = "Press a key...";
+            //string key = Console.ReadKey().Key.ToString();
+            //buttonLeft.Text = "Left: " + key;
+        }
+
+        private void buttonRight_Click(object sender, EventArgs e)
+        {
+            //buttonRight.Text = "Press a key...";
+            //string key = Console.ReadKey().Key.ToString();
+            //buttonRight.Text = "Right: " + key;
+        }
+
         private void buttonMenu_Click(object sender, EventArgs e)
         {
             buttonSnd.Visible = false;
@@ -236,7 +361,19 @@ namespace TheHunt
 
         private void buttonContr_Click(object sender, EventArgs e)
         {
-            
+            buttonSnd.Visible = false;
+            buttonSndEf.Visible = false;
+            buttonSndMu.Visible = false;
+            buttonFuSc.Visible = false;
+            buttonContr.Visible = false;
+            buttonMenu.Visible = false;
+            labelOptionsHeader.Visible = false;
+            labelControls.Visible = true;
+            buttonUp.Visible = true;
+            buttonDown.Visible = true;
+            buttonLeft.Visible = true;
+            buttonRight.Visible = true;
+            buttonControlsOk.Visible = true;
         }
 
         private void buttonFuSc_Click(object sender, EventArgs e)
@@ -317,6 +454,12 @@ namespace TheHunt
         private System.Windows.Forms.Button buttonContr;
         private System.Windows.Forms.Button buttonMenu;
         private System.Windows.Forms.Label labelOptionsHeader;
+        private System.Windows.Forms.Label labelControls;
+        private System.Windows.Forms.Button buttonUp;
+        private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.Button buttonControlsOk;
     }
 }
 
