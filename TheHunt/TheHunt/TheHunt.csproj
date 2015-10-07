@@ -121,6 +121,19 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BrockSprite1.bmp" />
+    <None Include="Resources\brockSprite1.png" />
+    <None Include="Resources\brockSprite2.png" />
+    <None Include="Resources\brockSprite3.png" />
+    <None Include="Resources\brockSprite4.png" />
+    <None Include="Resources\brockSprite5.png" />
+    <None Include="Resources\brockSprite6.png" />
+    <None Include="Resources\brockSprite7.png" />
+    <None Include="Resources\brockSprite8.png" />
+    <None Include="Resources\brockSprite9.png" />
+    <None Include="Resources\brockSprite10.png" />
+    <None Include="Resources\brockSprite11.png" />
+    <None Include="Resources\brockSprite12.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
