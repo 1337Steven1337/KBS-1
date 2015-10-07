@@ -16,6 +16,7 @@ namespace TheHunt
     {
         private World world = null;
 
+
         public Player()
         {
             InitializeComponent();
