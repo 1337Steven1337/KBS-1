@@ -21,6 +21,8 @@ namespace TheHunt
 
             FieldObject w1 = new FieldObject(100, 100, FieldObject.Type.Wall);
             objects.Add(w1);
+
+            Console.WriteLine(w1.collision(110, 110, 10, 10));
         }
 
         protected override void OnPaint(PaintEventArgs e)
