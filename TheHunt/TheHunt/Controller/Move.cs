@@ -12,27 +12,28 @@ namespace TheHunt.Controller
         //character needs to be fieldobject
         public void Moven(KeyEventArgs k, Character c)
         {
-           if(k.KeyCode == Keys.Down)
+            if (k.KeyCode == Keys.Down)
             {
                 c.yPoint += c.ySpeed;
-                
-            }else if(k.KeyCode == Keys.Up)
+
+            }
+            else if (k.KeyCode == Keys.Up)
             {
                 c.yPoint -= c.ySpeed;
             }
 
-           else if(k.KeyCode == Keys.Right)
+            else if (k.KeyCode == Keys.Right)
             {
                 c.xPoint += c.xSpeed;
             }
-           else if(k.KeyCode == Keys.Left)
+            else if (k.KeyCode == Keys.Left)
             {
                 c.xPoint -= c.xSpeed;
             }
-            }
-
-
         }
 
+
     }
+
+}
 

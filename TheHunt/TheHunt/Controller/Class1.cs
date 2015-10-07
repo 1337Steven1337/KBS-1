@@ -21,7 +21,6 @@ namespace TheHunt
         private int _y;
         private int x_Speed;
         private int y_Speed;
-        private Boolean piet;
         private Timer tmrMoving;
         private IContainer components;
         private Position _objPosition;
@@ -32,7 +31,6 @@ namespace TheHunt
             InitializeComponent();
             this.x_Speed = x_Speed;
             this.y_Speed = y_Speed;
-            piet = true;
             _x = x;
             _y = y;
 
@@ -71,8 +69,6 @@ namespace TheHunt
                     _y += y_Speed;
                 }
             }
-            if (piet == true) { piet = false; }
-            else { piet = true; }
             Invalidate();
             this.tmrMoving.Enabled = false;
         }
