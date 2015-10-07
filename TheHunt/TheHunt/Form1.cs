@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Windows.Media;
+using System.Runtime.InteropServices;
 
 
 namespace TheHunt
@@ -33,7 +34,11 @@ namespace TheHunt
 
 
             //zet Schermgrootte
-            this.Size = new Size(1280, 720);
+            this.Size = new Size(1600, 900);
+            this.TopMost = true;
+            this.Location = new Point(0, 0);
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             //Bereken knoppen locaties
             this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - this.Size.Height / 50);
