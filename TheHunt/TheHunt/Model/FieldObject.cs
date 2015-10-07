@@ -43,7 +43,6 @@ namespace TheHunt.Model
                 return Image.FromFile(Directory.GetCurrentDirectory()  + "../Resources/wall.png");
             }
             return null;
-
         }
     }
 }
