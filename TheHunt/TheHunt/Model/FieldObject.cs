@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,8 @@ namespace TheHunt.Model
         {
             Wall,
             Enemy,
-            Boss
+            Boss,
+            Character
         }
 
         public int x = 0;
@@ -37,7 +39,8 @@ namespace TheHunt.Model
         {
             if(this.type == Type.Wall)
             {
-                return Image.FromFile("Resources/wall.png");
+                Console.WriteLine(Directory.GetCurrentDirectory());
+                return Image.FromFile(Directory.GetCurrentDirectory()  + "../Resources/wall.png");
             }
             return null;
 
