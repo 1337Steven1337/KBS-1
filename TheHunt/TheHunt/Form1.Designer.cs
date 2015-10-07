@@ -53,10 +53,10 @@ namespace TheHunt
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox1.Image = global::TheHunt.Properties.Resources.playBtn;
-            this.pictureBox1.Location = new System.Drawing.Point(448, 52);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(597, 65);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(614, 150);
+            this.pictureBox1.Size = new System.Drawing.Size(819, 188);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.btn_PlayGame);
@@ -64,20 +64,20 @@ namespace TheHunt
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TheHunt.Properties.Resources.crlvBtn;
-            this.pictureBox2.Location = new System.Drawing.Point(448, 212);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox2.Location = new System.Drawing.Point(597, 265);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(614, 150);
+            this.pictureBox2.Size = new System.Drawing.Size(819, 188);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::TheHunt.Properties.Resources.highscores;
-            this.pictureBox3.Location = new System.Drawing.Point(448, 370);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox3.Location = new System.Drawing.Point(597, 462);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(614, 152);
+            this.pictureBox3.Size = new System.Drawing.Size(819, 190);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_click);
@@ -85,10 +85,10 @@ namespace TheHunt
             // pictureBox4
             // 
             this.pictureBox4.Image = global::TheHunt.Properties.Resources.optionsBtn;
-            this.pictureBox4.Location = new System.Drawing.Point(448, 532);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox4.Location = new System.Drawing.Point(597, 665);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(614, 150);
+            this.pictureBox4.Size = new System.Drawing.Size(819, 188);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
@@ -96,20 +96,20 @@ namespace TheHunt
             // pictureBox5
             // 
             this.pictureBox5.Image = global::TheHunt.Properties.Resources.exitBtn;
-            this.pictureBox5.Location = new System.Drawing.Point(448, 690);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox5.Location = new System.Drawing.Point(597, 862);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(614, 146);
+            this.pictureBox5.Size = new System.Drawing.Size(819, 182);
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // buttonSndEf
             // 
-            this.buttonSndEf.Location = new System.Drawing.Point(66, 210);
-            this.buttonSndEf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSndEf.Location = new System.Drawing.Point(88, 262);
+            this.buttonSndEf.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSndEf.Name = "buttonSndEf";
-            this.buttonSndEf.Size = new System.Drawing.Size(169, 50);
+            this.buttonSndEf.Size = new System.Drawing.Size(225, 62);
             this.buttonSndEf.TabIndex = 11;
             this.buttonSndEf.Text = "Soundeffects: On";
             this.buttonSndEf.UseVisualStyleBackColor = true;
@@ -118,10 +118,10 @@ namespace TheHunt
             // 
             // buttonSndMu
             // 
-            this.buttonSndMu.Location = new System.Drawing.Point(66, 268);
-            this.buttonSndMu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSndMu.Location = new System.Drawing.Point(88, 335);
+            this.buttonSndMu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSndMu.Name = "buttonSndMu";
-            this.buttonSndMu.Size = new System.Drawing.Size(169, 50);
+            this.buttonSndMu.Size = new System.Drawing.Size(225, 62);
             this.buttonSndMu.TabIndex = 12;
             this.buttonSndMu.Text = "Music: On";
             this.buttonSndMu.UseVisualStyleBackColor = true;
@@ -130,10 +130,10 @@ namespace TheHunt
             // 
             // buttonFuSc
             // 
-            this.buttonFuSc.Location = new System.Drawing.Point(66, 325);
-            this.buttonFuSc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonFuSc.Location = new System.Drawing.Point(88, 406);
+            this.buttonFuSc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonFuSc.Name = "buttonFuSc";
-            this.buttonFuSc.Size = new System.Drawing.Size(169, 50);
+            this.buttonFuSc.Size = new System.Drawing.Size(225, 62);
             this.buttonFuSc.TabIndex = 13;
             this.buttonFuSc.Text = "Full Screen: Off";
             this.buttonFuSc.UseVisualStyleBackColor = true;
@@ -142,10 +142,10 @@ namespace TheHunt
             // 
             // buttonContr
             // 
-            this.buttonContr.Location = new System.Drawing.Point(66, 382);
-            this.buttonContr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonContr.Location = new System.Drawing.Point(88, 478);
+            this.buttonContr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonContr.Name = "buttonContr";
-            this.buttonContr.Size = new System.Drawing.Size(169, 50);
+            this.buttonContr.Size = new System.Drawing.Size(225, 62);
             this.buttonContr.TabIndex = 14;
             this.buttonContr.Text = "Controls";
             this.buttonContr.UseVisualStyleBackColor = true;
@@ -154,10 +154,10 @@ namespace TheHunt
             // 
             // buttonMenu
             // 
-            this.buttonMenu.Location = new System.Drawing.Point(66, 440);
-            this.buttonMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonMenu.Location = new System.Drawing.Point(88, 550);
+            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(169, 50);
+            this.buttonMenu.Size = new System.Drawing.Size(225, 62);
             this.buttonMenu.TabIndex = 15;
             this.buttonMenu.Text = "Back To Menu";
             this.buttonMenu.UseVisualStyleBackColor = true;
@@ -170,19 +170,20 @@ namespace TheHunt
             this.labelOptionsHeader.BackColor = System.Drawing.Color.Transparent;
             this.labelOptionsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOptionsHeader.ForeColor = System.Drawing.Color.White;
-            this.labelOptionsHeader.Location = new System.Drawing.Point(84, 109);
+            this.labelOptionsHeader.Location = new System.Drawing.Point(112, 136);
+            this.labelOptionsHeader.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOptionsHeader.Name = "labelOptionsHeader";
-            this.labelOptionsHeader.Size = new System.Drawing.Size(137, 38);
+            this.labelOptionsHeader.Size = new System.Drawing.Size(180, 52);
             this.labelOptionsHeader.TabIndex = 17;
             this.labelOptionsHeader.Text = "Options";
             this.labelOptionsHeader.Visible = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1440, 900);
+            this.ClientSize = new System.Drawing.Size(1920, 1125);
             this.Controls.Add(this.labelOptionsHeader);
             this.Controls.Add(this.buttonMenu);
             this.Controls.Add(this.buttonContr);
@@ -194,8 +195,7 @@ namespace TheHunt
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

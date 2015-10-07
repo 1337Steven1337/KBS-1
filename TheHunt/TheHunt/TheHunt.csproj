@@ -57,7 +57,6 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Move.cs" />
     <Compile Include="Controller\verplaats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +93,7 @@
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
