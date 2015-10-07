@@ -113,7 +113,7 @@ namespace TheHunt
             this.buttonSnd.Text = "Sound: On";
             this.buttonSnd.UseVisualStyleBackColor = true;
             this.buttonSnd.Visible = false;
-            this.buttonSnd.Click += new System.EventHandler(this.buttonSnd_Click);
+            //this.buttonSnd.Click += new System.EventHandler(this.buttonSnd_Click);
             // 
             // buttonSndEf
             // 
@@ -275,17 +275,17 @@ namespace TheHunt
             }
         }
 
-        private void buttonSnd_Click(object sender, EventArgs e)
-        {
-            if(buttonSnd.Text=="Sound: On")
-            {
-                buttonSnd.Text = "Sound: Off";
-            }
-            else if(buttonSnd.Text=="Sound: Off")
-            {
-                buttonSnd.Text = "Sound: On";
-            }
-        }
+        //private void buttonSnd_Click(object sender, EventArgs e)
+        //{
+        //    if(buttonSnd.Text=="Sound: On")
+        //    {
+        //        buttonSnd.Text = "Sound: Off";
+        //    }
+        //    else if(buttonSnd.Text=="Sound: Off")
+        //    {
+        //        buttonSnd.Text = "Sound: On";
+        //    }
+        //}
 
 
         private void Options_click(object sender, EventArgs e)
