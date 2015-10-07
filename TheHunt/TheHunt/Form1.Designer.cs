@@ -38,23 +38,25 @@ namespace TheHunt
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.buttonSndEf = new System.Windows.Forms.Button();
-            this.buttonSndMu = new System.Windows.Forms.Button();
             this.buttonFuSc = new System.Windows.Forms.Button();
             this.buttonContr = new System.Windows.Forms.Button();
-            this.buttonMenu = new System.Windows.Forms.Button();
             this.labelOptionsHeader = new System.Windows.Forms.Label();
-            this.labelControls = new System.Windows.Forms.Label();
-            this.buttonUp = new System.Windows.Forms.Button();
-            this.buttonDown = new System.Windows.Forms.Button();
-            this.buttonLeft = new System.Windows.Forms.Button();
-            this.buttonRight = new System.Windows.Forms.Button();
-            this.buttonControlsOk = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -78,6 +80,7 @@ namespace TheHunt
             this.pictureBox2.Size = new System.Drawing.Size(819, 188);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.speelKlikGeluid);
             // 
             // pictureBox3
             // 
@@ -88,7 +91,7 @@ namespace TheHunt
             this.pictureBox3.Size = new System.Drawing.Size(819, 190);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_click);
+            this.pictureBox3.Click += new System.EventHandler(this.speelKlikGeluid);
             // 
             // pictureBox4
             // 
@@ -110,36 +113,13 @@ namespace TheHunt
             this.pictureBox5.Size = new System.Drawing.Size(819, 182);
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            // 
-            // buttonSndEf
-            // 
-            this.buttonSndEf.Location = new System.Drawing.Point(88, 262);
-            this.buttonSndEf.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonSndEf.Name = "buttonSndEf";
-            this.buttonSndEf.Size = new System.Drawing.Size(225, 62);
-            this.buttonSndEf.TabIndex = 11;
-            this.buttonSndEf.Text = "Soundeffects: On";
-            this.buttonSndEf.UseVisualStyleBackColor = true;
-            this.buttonSndEf.Visible = false;
-            this.buttonSndEf.Click += new System.EventHandler(this.buttonSndEf_Click);
-            // 
-            // buttonSndMu
-            // 
-            this.buttonSndMu.Location = new System.Drawing.Point(88, 335);
-            this.buttonSndMu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonSndMu.Name = "buttonSndMu";
-            this.buttonSndMu.Size = new System.Drawing.Size(225, 62);
-            this.buttonSndMu.TabIndex = 12;
-            this.buttonSndMu.Text = "Music: On";
-            this.buttonSndMu.UseVisualStyleBackColor = true;
-            this.buttonSndMu.Visible = false;
-            this.buttonSndMu.Click += new System.EventHandler(this.buttonSndMu_Click);
+            this.pictureBox5.Click += new System.EventHandler(this.Afsluiten);
             // 
             // buttonFuSc
             // 
-            this.buttonFuSc.Location = new System.Drawing.Point(88, 406);
-            this.buttonFuSc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonFuSc.AutoSize = true;
+            this.buttonFuSc.Location = new System.Drawing.Point(101, 504);
+            this.buttonFuSc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonFuSc.Name = "buttonFuSc";
             this.buttonFuSc.Size = new System.Drawing.Size(225, 62);
             this.buttonFuSc.TabIndex = 13;
@@ -150,8 +130,9 @@ namespace TheHunt
             // 
             // buttonContr
             // 
-            this.buttonContr.Location = new System.Drawing.Point(88, 478);
-            this.buttonContr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonContr.AutoSize = true;
+            this.buttonContr.Location = new System.Drawing.Point(389, 504);
+            this.buttonContr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonContr.Name = "buttonContr";
             this.buttonContr.Size = new System.Drawing.Size(225, 62);
             this.buttonContr.TabIndex = 14;
@@ -160,104 +141,106 @@ namespace TheHunt
             this.buttonContr.Visible = false;
             this.buttonContr.Click += new System.EventHandler(this.buttonContr_Click);
             // 
-            // buttonMenu
-            // 
-            this.buttonMenu.Location = new System.Drawing.Point(88, 550);
-            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(225, 62);
-            this.buttonMenu.TabIndex = 15;
-            this.buttonMenu.Text = "Back To Menu";
-            this.buttonMenu.UseVisualStyleBackColor = true;
-            this.buttonMenu.Visible = false;
-            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
-            // 
             // labelOptionsHeader
             // 
             this.labelOptionsHeader.AutoSize = true;
             this.labelOptionsHeader.BackColor = System.Drawing.Color.Transparent;
-            this.labelOptionsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOptionsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
             this.labelOptionsHeader.ForeColor = System.Drawing.Color.White;
-            this.labelOptionsHeader.Location = new System.Drawing.Point(112, 136);
-            this.labelOptionsHeader.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelOptionsHeader.Location = new System.Drawing.Point(33, 22);
             this.labelOptionsHeader.Name = "labelOptionsHeader";
-            this.labelOptionsHeader.Size = new System.Drawing.Size(180, 52);
+            this.labelOptionsHeader.Size = new System.Drawing.Size(296, 83);
             this.labelOptionsHeader.TabIndex = 17;
             this.labelOptionsHeader.Text = "Options";
+            this.labelOptionsHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelOptionsHeader.Visible = false;
             // 
-            // labelControls
+            // trackBar1
             // 
-            this.labelControls.AutoSize = true;
-            this.labelControls.BackColor = System.Drawing.Color.Transparent;
-            this.labelControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControls.ForeColor = System.Drawing.Color.White;
-            this.labelControls.Location = new System.Drawing.Point(219, 70);
-            this.labelControls.Name = "labelControls";
-            this.labelControls.Size = new System.Drawing.Size(129, 32);
-            this.labelControls.TabIndex = 18;
-            this.labelControls.Text = "Controls";
-            this.labelControls.Visible = false;
+            this.trackBar1.Location = new System.Drawing.Point(357, 191);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(300, 69);
+            this.trackBar1.TabIndex = 18;
+            this.trackBar1.Value = 10;
+            this.trackBar1.Visible = false;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // buttonUp
+            // panel1
             // 
-            this.buttonUp.Location = new System.Drawing.Point(214, 98);
-            this.buttonUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(133, 32);
-            this.buttonUp.TabIndex = 19;
-            this.buttonUp.Text = "Up: W";
-            this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Visible = false;
-            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            this.panel1.Controls.Add(this.trackBar3);
+            this.panel1.Controls.Add(this.trackBar2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labelOptionsHeader);
+            this.panel1.Controls.Add(this.trackBar1);
+            this.panel1.Controls.Add(this.buttonContr);
+            this.panel1.Controls.Add(this.buttonFuSc);
+            this.panel1.Location = new System.Drawing.Point(59, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1297, 630);
+            this.panel1.TabIndex = 19;
+            this.panel1.Visible = false;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // buttonDown
+            // trackBar3
             // 
-            this.buttonDown.Location = new System.Drawing.Point(214, 134);
-            this.buttonDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(133, 32);
-            this.buttonDown.TabIndex = 20;
-            this.buttonDown.Text = "Down: S";
-            this.buttonDown.UseVisualStyleBackColor = true;
-            this.buttonDown.Visible = false;
-            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
+            this.trackBar3.Location = new System.Drawing.Point(357, 373);
+            this.trackBar3.Maximum = 100;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(300, 69);
+            this.trackBar3.TabIndex = 23;
+            this.trackBar3.Value = 50;
+            this.trackBar3.Visible = false;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
-            // buttonLeft
+            // trackBar2
             // 
-            this.buttonLeft.Location = new System.Drawing.Point(214, 171);
-            this.buttonLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(133, 32);
-            this.buttonLeft.TabIndex = 21;
-            this.buttonLeft.Text = "Left: A";
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Visible = false;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            this.trackBar2.Location = new System.Drawing.Point(357, 282);
+            this.trackBar2.Maximum = 100;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(300, 69);
+            this.trackBar2.TabIndex = 22;
+            this.trackBar2.Value = 50;
+            this.trackBar2.Visible = false;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
-            // buttonRight
+            // label3
             // 
-            this.buttonRight.Location = new System.Drawing.Point(214, 208);
-            this.buttonRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(133, 32);
-            this.buttonRight.TabIndex = 22;
-            this.buttonRight.Text = "Right: D";
-            this.buttonRight.UseVisualStyleBackColor = true;
-            this.buttonRight.Visible = false;
-            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(47, 373);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(232, 37);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Effects Volume";
             // 
-            // buttonControlsOk
+            // label2
             // 
-            this.buttonControlsOk.Location = new System.Drawing.Point(214, 245);
-            this.buttonControlsOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonControlsOk.Name = "buttonControlsOk";
-            this.buttonControlsOk.Size = new System.Drawing.Size(133, 32);
-            this.buttonControlsOk.TabIndex = 23;
-            this.buttonControlsOk.Text = "Ok";
-            this.buttonControlsOk.UseVisualStyleBackColor = true;
-            this.buttonControlsOk.Visible = false;
-            this.buttonControlsOk.Click += new System.EventHandler(this.buttonControlsOk_Click);
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(43, 282);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(227, 37);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Music Volume:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(47, 191);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(241, 37);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Master Volume:";
             // 
             // Form1
             // 
@@ -265,26 +248,8 @@ namespace TheHunt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-
-            //int h = Screen.PrimaryScreen.WorkingArea.Height;
-            //int w = Screen.PrimaryScreen.WorkingArea.Width;
-            //this.ClientSize = new Size(w, h);
-
-            //this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-
-            this.ClientSize = new Size(1280, 768);
-            this.Controls.Add(this.buttonControlsOk);
-            this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonDown);
-            this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.labelControls);
-            this.Controls.Add(this.labelOptionsHeader);
-            this.Controls.Add(this.buttonMenu);
-            this.Controls.Add(this.buttonContr);
-            this.Controls.Add(this.buttonFuSc);
-            this.Controls.Add(this.buttonSndMu);
-            this.Controls.Add(this.buttonSndEf);
+            this.ClientSize = new System.Drawing.Size(1440, 900);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -302,25 +267,29 @@ namespace TheHunt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         private void buttonControlsOk_Click(object sender, EventArgs e)
         {
             labelOptionsHeader.Visible = true;
-            buttonSndEf.Visible = true;
-            buttonSndMu.Visible = true;
+            //buttonSndEf.Visible = true;
+            //buttonSndMu.Visible = true;
             buttonFuSc.Visible = true;
             buttonContr.Visible = true;
-            buttonMenu.Visible = true;
-            labelControls.Visible = false;
-            buttonUp.Visible = false;
-            buttonDown.Visible = false;
-            buttonLeft.Visible = false;
-            buttonRight.Visible = false;
-            buttonControlsOk.Visible = false;
+            //buttonMenu.Visible = true;
+            //labelControls.Visible = false;
+            //buttonUp.Visible = false;
+            //buttonDown.Visible = false;
+            //buttonLeft.Visible = false;
+            //buttonRight.Visible = false;
+            //buttonControlsOk.Visible = false;
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
@@ -344,106 +313,27 @@ namespace TheHunt
             //buttonLeft.Text = "Left: " + key;
         }
 
-        private void buttonRight_Click(object sender, EventArgs e)
-        {
-            //buttonRight.Text = "Press a key...";
-            //string key = Console.ReadKey().Key.ToString();
-            //buttonRight.Text = "Right: " + key;
-        }
-
-        private void buttonMenu_Click(object sender, EventArgs e)
-        {
-            buttonSndEf.Visible = false;
-            buttonSndMu.Visible = false;
-            buttonFuSc.Visible = false;
-            buttonContr.Visible = false;
-            buttonMenu.Visible = false;
-            labelOptionsHeader.Visible = false;
-            pictureBox1.Visible = true;
-            pictureBox2.Visible = true;
-            pictureBox3.Visible = true;
-            pictureBox4.Visible = true;
-            pictureBox5.Visible = true;
-        }
 
         private void buttonContr_Click(object sender, EventArgs e)
         {
-            buttonSndEf.Visible = false;
-            buttonSndMu.Visible = false;
-            buttonFuSc.Visible = false;
-            buttonContr.Visible = false;
-            buttonMenu.Visible = false;
-            labelOptionsHeader.Visible = false;
-            labelControls.Visible = true;
-            buttonUp.Visible = true;
-            buttonDown.Visible = true;
-            buttonLeft.Visible = true;
-            buttonRight.Visible = true;
-            buttonControlsOk.Visible = true;
+
         }
 
         private void buttonFuSc_Click(object sender, EventArgs e)
         {
             if (buttonFuSc.Text == "Full Screen: On")
             {
-                this.WindowState = FormWindowState.Maximized;
-
-                this.ClientSize = new System.Drawing.Size(1280, 768);
-                this.Size = new Size(1280, 768);
-
-                this.WindowState = FormWindowState.Normal;
-                this.Validate();
-
-                buttonFuSc.Text = "Full Screen: Off";
+                GoFullscreen(false);
             }
             else if (buttonFuSc.Text == "Full Screen: Off")
             {
-                this.WindowState = FormWindowState.Maximized;
-
-                int h = Screen.PrimaryScreen.Bounds.Height;
-                int w = Screen.PrimaryScreen.Bounds.Width;
-                labelOptionsHeader.Text = "W : " + w + ", H: " + h;
-
-                this.ClientSize = new System.Drawing.Size(w, h);
-                this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-
-                this.WindowState = FormWindowState.Normal;
-                this.Validate();
-
+                GoFullscreen(true);
+            }
+        }
                 
-                buttonFuSc.Text = "Full Screen: On";
 
-                this.TopMost = true;
-                this.FormBorderStyle = FormBorderStyle.None;
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
 
-        private void buttonSndMu_Click(object sender, EventArgs e)
-        {
-            muteGeluid();
-            if (buttonSndMu.Text == "Music: On")
-            {
-                buttonSndMu.Text = "Music: Off";
-            }
-            else if (buttonSndMu.Text == "Music: Off")
-            {
-                buttonSndMu.Text = "Music: On";
-                isMuted = false;
-            }
-        }
 
-        private void buttonSndEf_Click(object sender, EventArgs e)
-        {
-            if (buttonSndEf.Text == "Soundeffects: On")
-            {
-                buttonSndEf.Text = "Soundeffects: Off";
-        }
-            else if (buttonSndEf.Text == "Soundeffects: Off")
-            {
-                buttonSndEf.Text = "Soundeffects: On";
-            }
-        }
 
 
 
@@ -459,19 +349,16 @@ namespace TheHunt
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button buttonSndEf;
-        private System.Windows.Forms.Button buttonSndMu;
         private System.Windows.Forms.Button buttonFuSc;
         private System.Windows.Forms.Button buttonContr;
-        private System.Windows.Forms.Button buttonMenu;
         private System.Windows.Forms.Label labelOptionsHeader;
-        private System.Windows.Forms.Label labelControls;
-        private System.Windows.Forms.Button buttonUp;
-        private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.Button buttonLeft;
-        private System.Windows.Forms.Button buttonRight;
-        private System.Windows.Forms.Button buttonControlsOk;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TrackBar trackBar3;
+        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
-
 }
 
