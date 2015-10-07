@@ -27,7 +27,7 @@ namespace TheHunt
             bgm.MediaEnded += new EventHandler(bgmAfgelopen);
             bgm.Play();
 
-            
+
 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -71,7 +71,9 @@ namespace TheHunt
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            Player map = new Player(); //test
+            this.Hide();
+            //Charactertestform map = new Charactertestform();
+            Player map = new Player();
             map.Show();
         }
 
@@ -79,7 +81,7 @@ namespace TheHunt
             {
             bgm.Position = TimeSpan.Zero;
             bgm.Play();
-            }
+        }
 
         private void GoFullscreen(bool fullscreen)
         {
