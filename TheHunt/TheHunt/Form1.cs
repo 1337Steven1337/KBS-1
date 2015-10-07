@@ -24,7 +24,7 @@ namespace TheHunt
             InitializeComponent();
             bgm.PlayLooping();
 
-            
+
 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -93,9 +93,12 @@ namespace TheHunt
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            Map map = new Map();
+            this.Hide();
+            Charactertestform map = new Charactertestform();
+            
             map.Show();
             speelKlikGeluid();
+
         }
 
 

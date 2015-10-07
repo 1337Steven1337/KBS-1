@@ -1,6 +1,6 @@
-﻿namespace TheHunt
+﻿namespace ObjectMoving
 {
-    partial class Map
+    partial class verplaats
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.tmrMoving = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // Map
+            // tmrMoving
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.tmrMoving.Enabled = true;
+            this.tmrMoving.Interval = 100;
+            this.tmrMoving.Tick += new System.EventHandler(this.tmrMoving_Tick);
+            // 
+            // FormView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 454);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Map";
-            this.Text = "Map";
-            this.Load += new System.EventHandler(this.Map_Load);
+            this.ClientSize = new System.Drawing.Size(944, 732);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FormView";
+            this.Text = "Object Moving";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormView_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormView_KeyDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer tmrMoving;
     }
 }
+
