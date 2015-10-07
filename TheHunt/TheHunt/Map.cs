@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheHunt.Controller;
 
 namespace TheHunt
 {
     public partial class Map : Form
     {
+        Charactertestform character = new Charactertestform();
         public Map()
         {
             InitializeComponent();
             Paint += new PaintEventHandler(DrawRect);
-            
+           
         }
 
         public void DrawRect(object sender, PaintEventArgs e)
