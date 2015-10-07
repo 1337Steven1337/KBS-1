@@ -71,7 +71,7 @@ namespace TheHunt
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            Player map = new Player();
+            Player map = new Player(); //test
             map.Show();
         }
 
