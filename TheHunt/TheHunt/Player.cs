@@ -19,6 +19,7 @@ namespace TheHunt
         private World world = null;
         private System.Timers.Timer refreshTimer = null;
 
+
         public Player()
         {
             InitializeComponent();
