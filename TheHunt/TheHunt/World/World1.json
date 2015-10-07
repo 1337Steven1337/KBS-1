@@ -1,0 +1,18 @@
+﻿{
+  "FieldObjects": [
+    {
+      "x": 100,
+      "y": 100,
+      "height": 1,
+      "width": 10,
+      "type": "Wall"
+    }
+  ],
+  "player": {
+    "img":  "ww1",
+    "start": {
+      "x": 0,
+      "y": 0
+    }
+  }
+}
