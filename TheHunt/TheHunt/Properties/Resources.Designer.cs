@@ -61,11 +61,20 @@ namespace TheHunt.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bgm {
+            get {
+                return ResourceManager.GetStream("bgm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Exit {
+        internal static System.Drawing.Bitmap crlvBtn {
             get {
-                object obj = ResourceManager.GetObject("Exit", resourceCulture);
+                object obj = ResourceManager.GetObject("crlvBtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +82,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Levels {
+        internal static System.Drawing.Bitmap exitBtn {
             get {
-                object obj = ResourceManager.GetObject("Levels", resourceCulture);
+                object obj = ResourceManager.GetObject("exitBtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +92,28 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Maak_Level {
+        internal static System.Drawing.Bitmap highscores {
             get {
-                object obj = ResourceManager.GetObject("Maak Level", resourceCulture);
+                object obj = ResourceManager.GetObject("highscores", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream klikgeluid {
+            get {
+                return ResourceManager.GetStream("klikgeluid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap levelsBtn {
+            get {
+                object obj = ResourceManager.GetObject("levelsBtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +121,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Options {
+        internal static System.Drawing.Bitmap optionsBtn {
             get {
-                object obj = ResourceManager.GetObject("Options", resourceCulture);
+                object obj = ResourceManager.GetObject("optionsBtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +131,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Play {
+        internal static System.Drawing.Bitmap playBtn {
             get {
-                object obj = ResourceManager.GetObject("Play", resourceCulture);
+                object obj = ResourceManager.GetObject("playBtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
