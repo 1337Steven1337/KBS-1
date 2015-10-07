@@ -7,32 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheHunt.Model;
 
 namespace TheHunt
 {
     public partial class Map : Form
     {
+        private List<FieldObject> objects = new List<FieldObject>();
+
         public Map()
         {
             InitializeComponent();
-            Paint += new PaintEventHandler(DrawRect);
-            
+
+            FieldObject w1 = new FieldObject(100, 100, FieldObject.Type.Wall);
+            objects.Add(w1);
         }
 
-        public void DrawRect(object sender, PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
-
-            var screen = Screen.PrimaryScreen.Bounds;
-            var width = screen.Width / 100;
-            var height = screen.Height / 100;
-
+            base.OnPaint(e);
 
             Graphics g = e.Graphics;
-            SolidBrush brush = new SolidBrush(Color.Red);
-            Rectangle rect = new Rectangle(10, 10, height, width);
-            g.FillRectangle(brush, rect);
-            //yolo
+            Pen pen = new Pen(Color.Red);
+            for (int i = 0; i < objects.Count; i++)
+            {
+                FieldObject wall = objects[i];
+                wall.draw(g);
+            }
         }
 
+        private void Map_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Map_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
