@@ -32,11 +32,13 @@
             // 
             // Map
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 1262);
+            this.ClientSize = new System.Drawing.Size(1001, 669);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Map";
             this.Text = "Map";
+            this.Load += new System.EventHandler(this.Map_Load);
             this.ResumeLayout(false);
 
         }

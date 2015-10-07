@@ -54,7 +54,7 @@ namespace TheHunt
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            Map map = new Map();
+            Map map = new Map();            
             map.Show();
         }
     }
