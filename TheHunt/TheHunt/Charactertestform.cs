@@ -32,11 +32,11 @@ namespace TheHunt
 
         public Character() { }
 
-        public Character(int xPoint, int yPoint)
-        {
-            this.xPoint = xPoint;
-            this.yPoint = yPoint;
-        }
+        //public Character(int xPoint, int yPoint)
+        //{
+        //    this.xPoint = xPoint;
+        //    this.yPoint = yPoint;
+        //}
         public Character(int xPoint, int yPoint, int xSpeed, int ySpeed)
         {
             this.xPoint = xPoint;

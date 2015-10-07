@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace TheHunt
 {
@@ -33,10 +35,9 @@ namespace TheHunt
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.OptionsButton = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.buttonSnd = new System.Windows.Forms.Button();
             this.buttonSndEf = new System.Windows.Forms.Button();
             this.buttonSndMu = new System.Windows.Forms.Button();
             this.buttonFuSc = new System.Windows.Forms.Button();
@@ -51,17 +52,17 @@ namespace TheHunt
             this.buttonControlsOk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OptionsButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.pictureBox1.Image = global::TheHunt.Properties.Resources.Play;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.Image = global::TheHunt.Properties.Resources.playBtn;
             this.pictureBox1.Location = new System.Drawing.Point(398, 42);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(546, 120);
             this.pictureBox1.TabIndex = 5;
@@ -70,56 +71,46 @@ namespace TheHunt
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::TheHunt.Properties.Resources.Levels;
+            this.pictureBox2.Image = global::TheHunt.Properties.Resources.crlvBtn;
             this.pictureBox2.Location = new System.Drawing.Point(398, 170);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(546, 120);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
-            // OptionsButton
+            // pictureBox3
             // 
-            this.OptionsButton.Image = global::TheHunt.Properties.Resources.Options;
-            this.OptionsButton.Location = new System.Drawing.Point(398, 296);
-            this.OptionsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.OptionsButton.Name = "OptionsButton";
-            this.OptionsButton.Size = new System.Drawing.Size(546, 122);
-            this.OptionsButton.TabIndex = 7;
-            this.OptionsButton.TabStop = false;
-            this.OptionsButton.Click += new System.EventHandler(this.Options_click);
+            this.pictureBox3.Image = global::TheHunt.Properties.Resources.highscores;
+            this.pictureBox3.Location = new System.Drawing.Point(398, 296);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(546, 122);
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_click);
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::TheHunt.Properties.Resources.Maak_Level;
+            this.pictureBox4.Image = global::TheHunt.Properties.Resources.optionsBtn;
             this.pictureBox4.Location = new System.Drawing.Point(398, 426);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(546, 120);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::TheHunt.Properties.Resources.Exit;
+            this.pictureBox5.Image = global::TheHunt.Properties.Resources.exitBtn;
             this.pictureBox5.Location = new System.Drawing.Point(398, 552);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(546, 117);
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            // 
-            // buttonSnd
-            // 
-            this.buttonSnd.Location = new System.Drawing.Point(59, 122);
-            this.buttonSnd.Name = "buttonSnd";
-            this.buttonSnd.Size = new System.Drawing.Size(150, 40);
-            this.buttonSnd.TabIndex = 16;
-            this.buttonSnd.Text = "Sound: On";
-            this.buttonSnd.UseVisualStyleBackColor = true;
-            this.buttonSnd.Visible = false;
-            this.buttonSnd.Click += new System.EventHandler(this.buttonSnd_Click);
             // 
             // buttonSndEf
             // 
@@ -195,7 +186,7 @@ namespace TheHunt
             this.labelControls.BackColor = System.Drawing.Color.Transparent;
             this.labelControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControls.ForeColor = System.Drawing.Color.White;
-            this.labelControls.Location = new System.Drawing.Point(246, 87);
+            this.labelControls.Location = new System.Drawing.Point(219, 70);
             this.labelControls.Name = "labelControls";
             this.labelControls.Size = new System.Drawing.Size(129, 32);
             this.labelControls.TabIndex = 18;
@@ -204,9 +195,10 @@ namespace TheHunt
             // 
             // buttonUp
             // 
-            this.buttonUp.Location = new System.Drawing.Point(241, 122);
+            this.buttonUp.Location = new System.Drawing.Point(214, 98);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(150, 40);
+            this.buttonUp.Size = new System.Drawing.Size(133, 32);
             this.buttonUp.TabIndex = 19;
             this.buttonUp.Text = "Up: W";
             this.buttonUp.UseVisualStyleBackColor = true;
@@ -215,9 +207,10 @@ namespace TheHunt
             // 
             // buttonDown
             // 
-            this.buttonDown.Location = new System.Drawing.Point(241, 168);
+            this.buttonDown.Location = new System.Drawing.Point(214, 134);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(150, 40);
+            this.buttonDown.Size = new System.Drawing.Size(133, 32);
             this.buttonDown.TabIndex = 20;
             this.buttonDown.Text = "Down: S";
             this.buttonDown.UseVisualStyleBackColor = true;
@@ -226,9 +219,10 @@ namespace TheHunt
             // 
             // buttonLeft
             // 
-            this.buttonLeft.Location = new System.Drawing.Point(241, 214);
+            this.buttonLeft.Location = new System.Drawing.Point(214, 171);
+            this.buttonLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(150, 40);
+            this.buttonLeft.Size = new System.Drawing.Size(133, 32);
             this.buttonLeft.TabIndex = 21;
             this.buttonLeft.Text = "Left: A";
             this.buttonLeft.UseVisualStyleBackColor = true;
@@ -237,9 +231,10 @@ namespace TheHunt
             // 
             // buttonRight
             // 
-            this.buttonRight.Location = new System.Drawing.Point(241, 260);
+            this.buttonRight.Location = new System.Drawing.Point(214, 208);
+            this.buttonRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(150, 40);
+            this.buttonRight.Size = new System.Drawing.Size(133, 32);
             this.buttonRight.TabIndex = 22;
             this.buttonRight.Text = "Right: D";
             this.buttonRight.UseVisualStyleBackColor = true;
@@ -248,9 +243,10 @@ namespace TheHunt
             // 
             // buttonControlsOk
             // 
-            this.buttonControlsOk.Location = new System.Drawing.Point(241, 306);
+            this.buttonControlsOk.Location = new System.Drawing.Point(214, 245);
+            this.buttonControlsOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonControlsOk.Name = "buttonControlsOk";
-            this.buttonControlsOk.Size = new System.Drawing.Size(150, 40);
+            this.buttonControlsOk.Size = new System.Drawing.Size(133, 32);
             this.buttonControlsOk.TabIndex = 23;
             this.buttonControlsOk.Text = "Ok";
             this.buttonControlsOk.UseVisualStyleBackColor = true;
@@ -262,7 +258,15 @@ namespace TheHunt
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
+            //int h = Screen.PrimaryScreen.WorkingArea.Height;
+            //int w = Screen.PrimaryScreen.WorkingArea.Width;
+            //this.ClientSize = new Size(w, h);
+
+            //this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+
+            this.ClientSize = new Size(1280, 768);
             this.Controls.Add(this.buttonControlsOk);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
@@ -275,10 +279,9 @@ namespace TheHunt
             this.Controls.Add(this.buttonFuSc);
             this.Controls.Add(this.buttonSndMu);
             this.Controls.Add(this.buttonSndEf);
-            this.Controls.Add(this.buttonSnd);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.OptionsButton);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -290,7 +293,7 @@ namespace TheHunt
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OptionsButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
@@ -301,7 +304,6 @@ namespace TheHunt
         private void buttonControlsOk_Click(object sender, EventArgs e)
         {
             labelOptionsHeader.Visible = true;
-            buttonSnd.Visible = true;
             buttonSndEf.Visible = true;
             buttonSndMu.Visible = true;
             buttonFuSc.Visible = true;
@@ -345,7 +347,6 @@ namespace TheHunt
 
         private void buttonMenu_Click(object sender, EventArgs e)
         {
-            buttonSnd.Visible = false;
             buttonSndEf.Visible = false;
             buttonSndMu.Visible = false;
             buttonFuSc.Visible = false;
@@ -354,14 +355,13 @@ namespace TheHunt
             labelOptionsHeader.Visible = false;
             pictureBox1.Visible = true;
             pictureBox2.Visible = true;
-            OptionsButton.Visible = true;
+            pictureBox3.Visible = true;
             pictureBox4.Visible = true;
             pictureBox5.Visible = true;
         }
 
         private void buttonContr_Click(object sender, EventArgs e)
         {
-            buttonSnd.Visible = false;
             buttonSndEf.Visible = false;
             buttonSndMu.Visible = false;
             buttonFuSc.Visible = false;
@@ -380,16 +380,25 @@ namespace TheHunt
         {
             if (buttonFuSc.Text == "Full Screen: On")
             {
+                this.WindowState = FormWindowState.Normal;
+                this.ClientSize = new System.Drawing.Size(1280, 768);
+                this.Size = new Size(1280, 768);
+                this.WindowState = FormWindowState.Maximized;
                 buttonFuSc.Text = "Full Screen: Off";
             }
             else if (buttonFuSc.Text == "Full Screen: Off")
             {
+                this.WindowState = FormWindowState.Normal;
+                this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                this.WindowState = FormWindowState.Maximized;
                 buttonFuSc.Text = "Full Screen: On";
             }
         }
 
         private void buttonSndMu_Click(object sender, EventArgs e)
         {
+            muteGeluid();
             if (buttonSndMu.Text == "Music: On")
             {
                 buttonSndMu.Text = "Music: Off";
@@ -397,6 +406,7 @@ namespace TheHunt
             else if (buttonSndMu.Text == "Music: Off")
             {
                 buttonSndMu.Text = "Music: On";
+                isMuted = false;
             }
         }
 
@@ -412,42 +422,20 @@ namespace TheHunt
             }
         }
 
-        private void buttonSnd_Click(object sender, EventArgs e)
-        {
-            if(buttonSnd.Text=="Sound: On")
-            {
-                buttonSnd.Text = "Sound: Off";
-            }
-            else if(buttonSnd.Text=="Sound: Off")
-            {
-                buttonSnd.Text = "Sound: On";
-            }
-        }
 
 
-        private void Options_click(object sender, EventArgs e)
+
+        private void pictureBox3_click(object sender, EventArgs e)
         {
-            pictureBox1.Visible = false;
-            pictureBox2.Visible = false;
-            OptionsButton.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            labelOptionsHeader.Visible = true;
-            buttonSnd.Visible = true;
-            buttonSndEf.Visible = true;
-            buttonSndMu.Visible = true;
-            buttonFuSc.Visible = true;
-            buttonContr.Visible = true;
-            buttonMenu.Visible = true;
+
         }
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox OptionsButton;
+        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button buttonSnd;
         private System.Windows.Forms.Button buttonSndEf;
         private System.Windows.Forms.Button buttonSndMu;
         private System.Windows.Forms.Button buttonFuSc;
@@ -461,5 +449,6 @@ namespace TheHunt
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonControlsOk;
     }
+
 }
 
