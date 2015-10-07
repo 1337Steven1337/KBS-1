@@ -24,6 +24,6 @@ namespace TheHunt.Model
         public int x = 0;
         public int y = 0;
 
-        public Type type = Type.Wall;
+        public Type type = Type.Wall;//remco
     }
 }
