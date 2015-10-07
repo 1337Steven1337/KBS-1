@@ -34,9 +34,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 1262);
+            this.ClientSize = new System.Drawing.Size(1436, 873);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Map";
             this.Text = "Map";
+            this.Load += new System.EventHandler(this.Map_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Map_KeyDown);
             this.ResumeLayout(false);
 
         }
