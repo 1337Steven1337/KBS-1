@@ -49,7 +49,7 @@ namespace TheHunt
         {
             //var width = this.Width / 50;
             //var height = this.Height / 50;
-
+            
             // Create solid brush.
             SolidBrush blueBrush = new SolidBrush(Color.Red);
             // Create rectangle.

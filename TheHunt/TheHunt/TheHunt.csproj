@@ -116,6 +116,7 @@
     <Content Include="Resources\Maak Level.png" />
     <Content Include="Resources\Options.png" />
     <Content Include="Resources\Play.png" />
+    <Content Include="Resources\wall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
