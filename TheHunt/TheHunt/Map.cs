@@ -12,7 +12,7 @@ namespace TheHunt
 {
     public partial class Map : Form
     {
-        //variabelen
+        //variabelenn
         public int x = 0;
         public int y = 0;
 
