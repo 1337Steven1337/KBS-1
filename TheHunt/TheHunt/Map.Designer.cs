@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 1262);
+            this.ClientSize = new System.Drawing.Size(1514, 1262);
             this.Name = "Map";
             this.Text = "Map";
             this.ResumeLayout(false);
