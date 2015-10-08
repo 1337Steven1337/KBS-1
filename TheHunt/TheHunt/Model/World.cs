@@ -28,7 +28,7 @@ namespace TheHunt.Model
 
         public void draw(Graphics g)
         {
-            g.DrawImage(Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/brockSprite1.png"), this.position.x, this.position.y, 32, 32);
+            g.DrawImage(new Bitmap(TheHunt.Properties.Resources.brockSprite1), this.position.x, this.position.y, 32, 32);
         }
     }
 }
