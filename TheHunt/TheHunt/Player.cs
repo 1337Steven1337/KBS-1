@@ -17,8 +17,6 @@ namespace TheHunt
     public partial class Player : Form
     {
         private World world = null;
-        private System.Timers.Timer refreshTimer = null;
-
 
         public Player()
         {
@@ -59,30 +57,34 @@ namespace TheHunt
         {
             if (k.KeyCode == Keys.Down || k.KeyCode == Keys.Up || k.KeyCode == Keys.Left || k.KeyCode == Keys.Right)
             {
-                int newX = this.world.Player.position.x;
-                int newY = this.world.Player.position.y;
-
                 if (k.KeyCode == Keys.Down)
                 {
-                    newY += this.world.Player.speed.y;
+                    this.world.Player.position.y += this.world.Player.speed.y;
                 }
                 else if (k.KeyCode == Keys.Up)
                 {
-                    newY -= this.world.Player.speed.y;
+                    this.world.Player.position.y -= this.world.Player.speed.y;
                 }
 
                 else if (k.KeyCode == Keys.Right)
                 {
-                    newX += this.world.Player.speed.x;
+                    this.world.Player.position.x += this.world.Player.speed.x;
                 }
                 else if (k.KeyCode == Keys.Left)
                 {
-                    newX -= this.world.Player.speed.x;
-                }
+                    this.world.Player.position.x -= this.world.Player.speed.x;
+                }                
 
-                
+                foreach (var item in this.world.FieldObjects)
+                {
+                    if (item.collision(this.world.Player.position.x +2, this.world.Player.position.y +2, 32, 32))
+                    {
+                        world.Player.speed.x = 0;
+                        world.Player.speed.y = 0;
+                    }
 
                 this.Invalidate();
+                }
             }
         }
     }
