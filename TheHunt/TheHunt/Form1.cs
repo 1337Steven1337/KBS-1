@@ -22,7 +22,7 @@ namespace TheHunt
         {
             InitializeComponent();
             bgm.PlayLooping();
-
+            GameEngine g = new GameEngine();
 
 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;

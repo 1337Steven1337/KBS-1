@@ -49,6 +49,7 @@ namespace TheHunt
             this.pictureBox1.Size = new System.Drawing.Size(71, 69);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseDown);
             // 
             // pictureBox2
             // 
@@ -59,6 +60,7 @@ namespace TheHunt
             this.pictureBox2.Size = new System.Drawing.Size(72, 71);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseDown);
             // 
             // pictureBox3
             // 
@@ -69,6 +71,7 @@ namespace TheHunt
             this.pictureBox3.Size = new System.Drawing.Size(79, 73);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseDown);
             // 
             // pictureBox4
             // 
@@ -80,7 +83,8 @@ namespace TheHunt
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            this.pictureBox4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseMove);
+            this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseDown);
+            this.pictureBox4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseUp);
             // 
             // Charactertestform
             // 
