@@ -18,16 +18,20 @@ namespace TheHunt
     public partial class Form1 : Form
     {
         public static Boolean isMuted = false;
+        public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
         MediaPlayer klikMP = new MediaPlayer();
         public Form1()
         {
             InitializeComponent();
+            startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);
+            startRes.Height = (int)(Screen.PrimaryScreen.WorkingArea.Height * 0.8);
+            this.ClientSize = new Size(startRes.Width, startRes.Height);
             bgm.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/bgm.wav"));
             bgm.MediaEnded += new EventHandler(bgmAfgelopen);
             bgm.Play();
 
-
+            
 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -46,17 +50,20 @@ namespace TheHunt
 
         }
 
-
-        public static void CopyAudioToDisk(Stream input, Stream output)
+        /// <summary>
+        /// ONDERSTAANDE IS EEN FIX OM ERGE FLICKERING TE VOORKOMEN
+        /// </summary>
+        protected override CreateParams CreateParams
         {
-            byte[] buffer = new byte[8192];
-
-            int bytesRead;
-            while ((bytesRead = input.Read(buffer, 0, buffer.Length)) > 0)
+            get
             {
-                output.Write(buffer, 0, bytesRead);
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+
             }
         }
+
 
         public void speelKlikGeluid(object sender, EventArgs e)
         {
@@ -72,7 +79,6 @@ namespace TheHunt
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
-            //Charactertestform map = new Charactertestform();
             Player map = new Player();
             map.Show();
         }
@@ -81,29 +87,26 @@ namespace TheHunt
             {
             bgm.Position = TimeSpan.Zero;
             bgm.Play();
-        }
+            }
 
         private void GoFullscreen(bool fullscreen)
         {
             if (fullscreen)
             {
                 this.WindowState = FormWindowState.Normal;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 this.Bounds = Screen.PrimaryScreen.Bounds;
-
+                initOptionsPanel();
             }
             else
             {
-                this.WindowState = FormWindowState.Maximized;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                this.ClientSize = new Size(startRes.Width, startRes.Height);
+                this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - startRes.Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - startRes.Height) / 2);
+                initOptionsPanel();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1440,900);
-
-
             if (!Directory.Exists(Directory.GetCurrentDirectory() + "/SFX"))
             {
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/SFX");
@@ -147,10 +150,18 @@ namespace TheHunt
             }   
             }
 
+
             this.pictureBox1.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.pictureBox4.Click += new System.EventHandler(this.speelKlikGeluid);
         }
 
         private void Afsluiten(object sender, EventArgs e)
+        {
+            speelKlikGeluid(sender, e);
+            klikMP.MediaEnded += new EventHandler(eindeAfsluiten);
+        }
+
+        private void eindeAfsluiten(object sender, EventArgs e)
         {
             Environment.Exit(0);
             Close();
@@ -158,18 +169,23 @@ namespace TheHunt
 
         public void initOptionsPanel()
         {
-            pictureBox1.Visible = false;
+            pictureBox4.Visible = false;
             pictureBox2.Visible = false;
             pictureBox3.Visible = false;
             pictureBox4.Visible = false;
+            pictureBox6.Visible = true;
 
+            pictureBox6.BackgroundImage = Properties.Resources.uitleg;
+            pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            pictureBox6.Size = Properties.Resources.uitleg.Size;
+            pictureBox6.Location = new Point(panel1.Location.X + panel1.Width / 2, panel1.Location.Y);
 
             panel1.Width = (int)(this.Width * 0.8);
             panel1.Height = (int)(this.Height * 0.7);
             panel1.Location = new Point((int)(this.Width * 0.1), (int)(this.Height * 0.1));
 
 
-            labelOptionsHeader.Location = new Point((int)(this.panel1.Location.X + this.panel1.Width / 4), (int)(this.panel1.Location.Y));
+            labelOptionsHeader.Location = new Point((int)(this.panel1.Location.X + this.panel1.Width / 4), (int)(this.panel1.Location.Y - 50));
 
             labelOptionsHeader.Visible = true;
             buttonFuSc.Visible = true;
@@ -219,11 +235,17 @@ namespace TheHunt
             buttonFuSc.Visible = false;
             buttonContr.Visible = false;
             labelOptionsHeader.Visible = false;
+            pictureBox6.Visible = false;
             panel1.Visible = false;
 
-
+            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - this.Size.Height / 50);
+            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height);
+            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2) + this.Size.Height / 50);
+            this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
             pictureBox5.Image = global::TheHunt.Properties.Resources.exitBtn;
             pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
+
+
             this.pictureBox5.Click -= new System.EventHandler(this.GaTerugnaarMenu);
             this.pictureBox5.Click -= new System.EventHandler(this.speelKlikGeluid);
             this.pictureBox5.Click += new System.EventHandler(this.Afsluiten);

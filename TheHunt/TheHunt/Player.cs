@@ -46,7 +46,7 @@ namespace TheHunt
 
         private void Map_Load(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "../World/World1.json"))
+            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
             {
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
                 this.Invalidate();

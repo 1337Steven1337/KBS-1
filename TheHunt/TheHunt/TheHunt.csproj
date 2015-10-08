@@ -36,9 +36,8 @@
     <StartupObject>TheHunt.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\KBS-1-8e3060c45ac3ef51657505178c23418afd1ae2a8\TheHunt\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -61,9 +60,6 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Class1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -71,7 +67,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameEngine.cs" />
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Player.cs">
@@ -92,28 +87,24 @@
       <DependentUpon>Player.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="World\World1.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -122,13 +113,30 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\wall.png" />
-    <None Include="Resources\Arrow.jpg" />
-    <Content Include="Resources\Enemy.gif" />
-    <Content Include="Resources\pijl onder.png" />
-    <Content Include="Resources\Pijl rechts.png" />
+    <None Include="Resources\uitleg.png" />
     <None Include="Resources\Pijl bovenk.png" />
     <None Include="Resources\Pijl Links.png" />
+    <None Include="Resources\pijl onder.png" />
+    <None Include="Resources\Pijl rechts.png" />
+    <None Include="Resources\Arrow.jpg" />
+    <None Include="Resources\BrockSprite1.bmp" />
+    <None Include="Resources\brockSprite1.png" />
+    <None Include="Resources\brockSprite2.png" />
+    <None Include="Resources\brockSprite3.png" />
+    <None Include="Resources\brockSprite4.png" />
+    <None Include="Resources\brockSprite5.png" />
+    <None Include="Resources\brockSprite6.png" />
+    <None Include="Resources\brockSprite7.png" />
+    <None Include="Resources\brockSprite8.png" />
+    <None Include="Resources\brockSprite9.png" />
+    <None Include="Resources\brockSprite10.png" />
+    <None Include="Resources\brockSprite11.png" />
+    <None Include="Resources\brockSprite12.png" />
+    <None Include="Resources\Enemy.gif" />
+    <None Include="Resources\Pijl boven.png" />
+    <Content Include="Resources\wall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\playBtn.png" />
     <None Include="bin\Debug\Sounds\bgm.wav" />
     <None Include="bin\Debug\Sounds\klikgeluid.wav" />
