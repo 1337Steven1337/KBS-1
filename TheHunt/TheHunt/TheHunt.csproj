@@ -60,6 +60,7 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\GameEngine.cs" />
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
