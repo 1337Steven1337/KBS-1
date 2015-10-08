@@ -55,22 +55,22 @@ namespace TheHunt
 
         private void Map_KeyDown(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode == Keys.Down || k.KeyCode == Keys.Up || k.KeyCode == Keys.Left || k.KeyCode == Keys.Right)
+            if (k.KeyCode == Keys.Down || k.KeyCode == Keys.S || k.KeyCode == Keys.Up || k.KeyCode == Keys.W || k.KeyCode == Keys.Left || k.KeyCode == Keys.A || k.KeyCode == Keys.Right || k.KeyCode == Keys.D)
             {
-                if (k.KeyCode == Keys.Down)
+                if (k.KeyCode == Keys.Down || k.KeyCode == Keys.S)
                 {
                     this.world.Player.position.y += this.world.Player.speed.y;
                 }
-                else if (k.KeyCode == Keys.Up)
+                else if (k.KeyCode == Keys.Up || k.KeyCode == Keys.W)
                 {
                     this.world.Player.position.y -= this.world.Player.speed.y;
                 }
 
-                else if (k.KeyCode == Keys.Right)
+                else if (k.KeyCode == Keys.Right || k.KeyCode == Keys.D)
                 {
                     this.world.Player.position.x += this.world.Player.speed.x;
                 }
-                else if (k.KeyCode == Keys.Left)
+                else if (k.KeyCode == Keys.Left || k.KeyCode == Keys.A)
                 {
                     this.world.Player.position.x -= this.world.Player.speed.x;
                 }                
