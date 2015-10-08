@@ -63,6 +63,16 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap achtergrond {
+            get {
+                object obj = ResourceManager.GetObject("achtergrond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backBtn {
             get {
                 object obj = ResourceManager.GetObject("backBtn", resourceCulture);
@@ -144,6 +154,16 @@ namespace TheHunt.Properties {
         internal static System.Drawing.Bitmap playBtn {
             get {
                 object obj = ResourceManager.GetObject("playBtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uitleg {
+            get {
+                object obj = ResourceManager.GetObject("uitleg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
