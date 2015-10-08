@@ -70,10 +70,6 @@ namespace TheHunt
 
         }
 
-
-
-
-
         public void pictureBox1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
 
         {
@@ -137,23 +133,18 @@ namespace TheHunt
                 {
                     timer2.Enabled = false;
                 }
-
-
-
+                
                 Timer(this, e);
             }
-
-
         }
 
         protected virtual void OnTimered()
         {
-            if(Timered != null)
+            if (Timered != null)
             {
                 Timered(this, EventArgs.Empty);
             }
         }
-
         private void pictureBox4_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             timer2.Enabled = false;
