@@ -57,6 +57,9 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Class1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
