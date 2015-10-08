@@ -21,18 +21,19 @@ namespace TheHunt
             InitializeComponent();
 
             Paint += new PaintEventHandler(c1.drawcharacter);
-            
+
         }
 
         private void Charactertestform_KeyDown(object sender, KeyEventArgs e)
         {
             m.Moven(e, c1);
-            this.Refresh(); 
+            this.Refresh();
         }
     }
 
     class Character
     {
+        public Boolean walk { get; set; }
         public int xPoint { get; set; }
         public int yPoint { get; set; }
         public int xSpeed { get; set; }
@@ -61,9 +62,15 @@ namespace TheHunt
             // Create solid brush.
             SolidBrush blueBrush = new SolidBrush(Color.Red);
             // Create rectangle.
-            Rectangle characterShape = new Rectangle(xPoint, yPoint, 20, 20);
+            Rectangle characterShape;
+
+            characterShape = new Rectangle(xPoint, yPoint, 40, 40);
+            characterShape = new Rectangle(xPoint, yPoint, 20, 20);
+
             // Fill rectangle to screen.
             e.Graphics.FillRectangle(blueBrush, characterShape);
+
+
         }
     }
 }
