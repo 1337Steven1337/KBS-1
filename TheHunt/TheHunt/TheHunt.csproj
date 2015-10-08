@@ -65,9 +65,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameEngine.cs" />
-    <Compile Include="Map.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Map.cs" />
     <Compile Include="Map.Designer.cs">
       <DependentUpon>Map.cs</DependentUpon>
     </Compile>
