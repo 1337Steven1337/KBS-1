@@ -14,7 +14,7 @@ namespace TheHunt
     public partial class Charactertestform : Form
     {
         private Move m = new Move();
-        private Character c1 = new Character(30, 30, 20, 20);
+        private Character c1 = new Character(30, 30, 20, 20); 
         public Charactertestform()
         {
 
