@@ -65,11 +65,11 @@ namespace TheHunt.Model
             {
                 if (this.type == Type.Wall)
                 {
-                    this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/wall.png");
+                    this.image = new Bitmap(TheHunt.Properties.Resources.wall);
                 }
                 else if (this.type == Type.Enemy)
             {
-                    this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/enemy.gif");
+                    this.image = new Bitmap(TheHunt.Properties.Resources.Enemy);
                 }
             }
 
