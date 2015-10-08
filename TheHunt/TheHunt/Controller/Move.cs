@@ -42,7 +42,7 @@ namespace TheHunt.Controller
             {
                 up(c);
             }
-
+                
             else if (k == Direction.right)
             {
                 right(c);
@@ -53,26 +53,26 @@ namespace TheHunt.Controller
             }
         }
         public void up(Character c)
-        {
-            c.yPoint -= c.ySpeed;
-        }
+            {
+                c.yPoint -= c.ySpeed;
+            }
 
         public void down(Character c)
-        {
+            {
             c.yPoint += c.ySpeed;
-        }
+            }
 
         public void left(Character c)
-        {
-            c.xPoint -= c.xSpeed;
-        }
+            {
+                c.xPoint -= c.xSpeed;
+            }
 
         public void right(Character c)
         {
             c.xPoint += c.xSpeed;
         }
 
-    }
+        }
 
-}
+    }
 

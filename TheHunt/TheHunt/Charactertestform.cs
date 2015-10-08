@@ -40,11 +40,9 @@ namespace TheHunt
 
             InitializeComponent();
             Paint += new PaintEventHandler(c1.drawcharacter);
-            c1.xPoint += 100;
-            Paint += new PaintEventHandler(c1.drawcharacter);
-            // FormView a = new FormView(c1.xPoint, c1.yPoint, c1.xSpeed, c1.ySpeed);
+            
         }
-        
+
 
         private void Charactertestform_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
@@ -128,7 +126,7 @@ namespace TheHunt
                 Thread.Sleep(50);
                 g.move.Moven(richting,c1);
                 //Debug.WriteLine("test");
-                this.Refresh();
+            this.Refresh(); 
                 
                 if(e.Button == MouseButtons.Left)
                 {
