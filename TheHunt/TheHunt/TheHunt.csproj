@@ -36,6 +36,10 @@
     <StartupObject>TheHunt.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,9 +72,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameEngine.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="Map.Designer.cs">
-      <DependentUpon>Map.cs</DependentUpon>
+    <Compile Include="Model\FieldObject.cs" />
+    <Compile Include="Model\World.cs" />
+    <Compile Include="Player.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Player.Designer.cs">
+      <DependentUpon>Player.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\World.cs" />
@@ -127,6 +135,7 @@
   <ItemGroup>
     <Content Include="Resources\wall.png" />
     <None Include="Resources\Arrow.jpg" />
+    <Content Include="Resources\Enemy.gif" />
     <Content Include="Resources\pijl onder.png" />
     <Content Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Pijl bovenk.png" />
