@@ -14,26 +14,65 @@ namespace TheHunt.Controller
         {
             if (k.KeyCode == Keys.Down)
             {
-                c.yPoint += c.ySpeed;
+                down(c);
 
             }
             else if (k.KeyCode == Keys.Up)
             {
-                c.yPoint -= c.ySpeed;
+                up(c);
             }
 
             else if (k.KeyCode == Keys.Right)
             {
-                c.xPoint += c.xSpeed;
+                right(c);
             }
             else if (k.KeyCode == Keys.Left)
             {
-                c.xPoint -= c.xSpeed;
+                   left(c);
             }
         }
+        public void Moven(Direction k, Character c)
+        {
+            if (k == Direction.down)
+            {
+                down(c);
 
+            }
+            else if (k == Direction.up)
+            {
+                up(c);
+            }
+                
+            else if (k == Direction.right)
+            {
+                right(c);
+            }
+            else if (k == Direction.left)
+            {
+                left(c);
+            }
+        }
+        public void up(Character c)
+            {
+                c.yPoint -= c.ySpeed;
+            }
+
+        public void down(Character c)
+            {
+            c.yPoint += c.ySpeed;
+            }
+
+        public void left(Character c)
+            {
+                c.xPoint -= c.xSpeed;
+            }
+
+        public void right(Character c)
+        {
+            c.xPoint += c.xSpeed;
+        }
+
+        }
 
     }
-
-}
 
