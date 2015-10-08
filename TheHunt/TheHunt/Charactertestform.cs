@@ -15,7 +15,8 @@ using System.Windows.Input;
 
 namespace TheHunt
 {
-    public enum Direction {
+    public enum Direction
+    {
         up,
         left,
         right,
@@ -40,7 +41,9 @@ namespace TheHunt
 
             InitializeComponent();
             Paint += new PaintEventHandler(c1.drawcharacter);
-            
+            c1.xPoint += 100;
+            Paint += new PaintEventHandler(c1.drawcharacter);
+            // FormView a = new FormView(c1.xPoint, c1.yPoint, c1.xSpeed, c1.ySpeed);
         }
 
 
@@ -48,16 +51,19 @@ namespace TheHunt
         {
             Debug.WriteLine("test");
 
-            if(e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
                 richting = Direction.up;
             }
-            else if(e.KeyCode==Keys.Down){
+            else if (e.KeyCode == Keys.Down)
+            {
                 richting = Direction.down;
-            }else if(e.KeyCode == Keys.Left)
+            }
+            else if (e.KeyCode == Keys.Left)
             {
                 richting = Direction.left;
-            }else if (e.KeyCode == Keys.Right)
+            }
+            else if (e.KeyCode == Keys.Right)
             {
                 richting = Direction.right;
             }
@@ -97,17 +103,19 @@ namespace TheHunt
 
         public void pictureBox4_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if(sender== pictureBox1)
+            if (sender == pictureBox1)
             {
                 richting = Direction.up;
-            }else if(sender == pictureBox2)
+            }
+            else if (sender == pictureBox2)
             {
                 richting = Direction.left;
             }
-            else if(sender == pictureBox3)
+            else if (sender == pictureBox3)
             {
                 richting = Direction.down;
-            }else if(sender == pictureBox4)
+            }
+            else if (sender == pictureBox4)
             {
                 richting = Direction.right;
             }
@@ -118,22 +126,24 @@ namespace TheHunt
         private void Timer(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             
-            if (timer2.Enabled == true) {
+            if (timer2.Enabled == true)
+            {
                 Thread.Sleep(50);
-                g.move.Moven(richting,c1);
+                g.move.Moven(richting, c1);
                 //Debug.WriteLine("test");
             this.Refresh(); 
                 
-                if(e.Button == MouseButtons.Left)
+                if (e.Button == MouseButtons.Left)
                 {
 
                     timer2.Enabled = true;
 
-                }else
+                }
+                else
                 {
                     timer2.Enabled = false;
                 }
-                
+
                 Timer(this, e);
             }
         }
