@@ -121,6 +121,7 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\uitleg.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
