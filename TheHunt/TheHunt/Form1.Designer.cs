@@ -84,9 +84,9 @@ namespace TheHunt
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::TheHunt.Properties.Resources.highscores;
-            this.pictureBox3.Location = new System.Drawing.Point(597, 462);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.pictureBox3.Image = global::TheHunt.Properties.Resources.Highscores;
+            this.pictureBox3.Location = new System.Drawing.Point(448, 370);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(819, 190);
             this.pictureBox3.TabIndex = 7;
@@ -300,22 +300,22 @@ namespace TheHunt
         }
 
         private void buttonDown_Click(object sender, EventArgs e)
-        {
+            {
             //buttonDown.Text = "Press a key...";
             //string key = Console.ReadKey().Key.ToString();
             //buttonDown.Text = "Down: " + key;
         }
 
         private void buttonLeft_Click(object sender, EventArgs e)
-        {
+            {
             //buttonLeft.Text = "Press a key...";
             //string key = Console.ReadKey().Key.ToString();
             //buttonLeft.Text = "Left: " + key;
-        }
+            }
 
 
         private void buttonContr_Click(object sender, EventArgs e)
-        {
+            {
 
         }
 
@@ -324,13 +324,13 @@ namespace TheHunt
             if (buttonFuSc.Text == "Full Screen: On")
             {
                 GoFullscreen(false);
-            }
+        }
             else if (buttonFuSc.Text == "Full Screen: Off")
             {
                 GoFullscreen(true);
             }
         }
-                
+
 
 
 
