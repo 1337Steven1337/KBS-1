@@ -33,7 +33,7 @@ namespace TheHunt
         private Direction richting;
         private GameEngine g = new GameEngine();
         private Move m = new Move();
-        private Character c1 = new Character(30, 30, 20, 20);
+        private Character c1 = new Character(30, 30, 10, 10);
 
 
         public Charactertestform()
@@ -71,40 +71,6 @@ namespace TheHunt
             this.Refresh();
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
-        public void pictureBox1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-
-        {
-            timer2.Enabled = true;
-            //m.up(c1);
-            richting = Direction.up;
-            this.Refresh();
-        }
-
-        public void pictureBox2_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            timer2.Enabled = true;
-            m.left(c1);
-            richting = Direction.left;
-            this.Refresh();
-        }
-
-        public void pictureBox3_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            timer2.Enabled = true;
-            m.down(c1);
-            richting = Direction.down;
-            this.Refresh();
-        }
-
         public void pictureBox4_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (sender == pictureBox1)
@@ -123,55 +89,23 @@ namespace TheHunt
             {
                 richting = Direction.right;
             }
-            timer2.Enabled = true;
-            this.Timer(1, e);
+            timer1.Enabled = true;
+           
         }
 
-        private void Timer(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
-            if (timer2.Enabled == true)
+            if (timer1.Enabled == true)
             {
-                Thread.Sleep(50);
                 g.move.Moven(richting, c1);
-                //Debug.WriteLine("test");
                 this.Refresh();
-
-                if (e.Button == MouseButtons.Left)
-                {
-
-                    timer2.Enabled = true;
-
-                }
-                else
-                {
-                    timer2.Enabled = false;
-                }
-
-
-
-                Timer(this, e);
-            }
-
-
-        }
-
-        protected virtual void OnTimered()
-        {
-            if (Timered != null)
-            {
-                Timered(this, EventArgs.Empty);
             }
         }
-
+     
+       
         private void pictureBox4_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            timer2.Enabled = false;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
+            timer1.Enabled = false;
         }
     }
 
