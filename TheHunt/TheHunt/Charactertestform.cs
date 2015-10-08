@@ -17,7 +17,7 @@ namespace TheHunt
 {
     public enum Direction
     {
-        up,
+        up, 
         left,
         right,
         down
@@ -25,7 +25,7 @@ namespace TheHunt
 
     public partial class Charactertestform : Form
     {
-        System.Timers.Timer timer2 = new System.Timers.Timer(100);
+        public System.Timers.Timer timer2 = new System.Timers.Timer(100);
 
 
         public event EventHandler<EventArgs> Timered;
@@ -125,24 +125,16 @@ namespace TheHunt
 
         private void Timer(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            
+
             if (timer2.Enabled == true)
             {
+
+
                 Thread.Sleep(50);
                 g.move.Moven(richting, c1);
                 //Debug.WriteLine("test");
             this.Refresh(); 
-                
-                if (e.Button == MouseButtons.Left)
-                {
-
-                    timer2.Enabled = true;
-
-                }
-                else
-                {
-                    timer2.Enabled = false;
-                }
+               
 
                 Timer(this, e);
             }
