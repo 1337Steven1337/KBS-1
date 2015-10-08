@@ -78,7 +78,8 @@ namespace TheHunt
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            Map map = new Map();
+            this.Hide();
+            Player map = new Player();
             map.Show();
         }
 
@@ -92,8 +93,8 @@ namespace TheHunt
         {
             if (fullscreen)
             {
-                 this.WindowState = FormWindowState.Normal;
-                 this.Bounds = Screen.PrimaryScreen.Bounds;
+                this.WindowState = FormWindowState.Normal;
+                this.Bounds = Screen.PrimaryScreen.Bounds;
                 initOptionsPanel();
             }
             else
@@ -163,6 +164,7 @@ namespace TheHunt
         private void eindeAfsluiten(object sender, EventArgs e)
         {
             Environment.Exit(0);
+            Close();
         }
 
         public void initOptionsPanel()

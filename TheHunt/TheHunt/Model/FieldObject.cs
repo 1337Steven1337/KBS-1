@@ -10,18 +10,19 @@ namespace TheHunt.Model
 {
     class FieldObject
     {
+        private Image image = null;
+
         public enum Type
         {
             Wall,
             Enemy,
-            Boss,
-            Character
+            Boss
         }
 
         public int x = 0;
         public int y = 0;
-        private int height = 0;
-        private int width = 0;
+        public int height = 0;
+        public int width = 0;
 
         public Type type = Type.Wall;
 
@@ -30,19 +31,13 @@ namespace TheHunt.Model
             this.x = x;
             this.y = y;
             this.type = type;
-
-            if(this.type == Type.Wall)
-            {
-                this.height = 96;
-                this.width = 64;
-            }
         }
 
         public void draw(Graphics g)
         {
-            for(int x = 0; x < this.width; x+=32)
+            for(int x = 0; x < this.getImageSizeWidth(); x+=32)
             {
-                for(int y = 0; y < this.height; y+=32)
+                for(int y = 0; y < this.getImageSizeHeight(); y+=32)
                 {
                     g.DrawImage(getImage(), this.x + x, this.y + y, 32, 32);
                 }
@@ -51,18 +46,35 @@ namespace TheHunt.Model
 
         public bool collision(int x, int y, int width, int height)
         {
-            return ((x >= this.x && x <= this.x + this.width || x + width >= this.x && x + width <= this.x) &&
-               (y >= this.y && y <= this.y + this.height || y + height >= this.y && y + height <= this.y));
+            return ((x >= this.x && x <= this.x + this.getImageSizeWidth() || x + width >= this.x && x + width <= this.x) &&
+               (y >= this.y && y <= this.y + this.getImageSizeHeight() || y + height >= this.y && y + height <= this.y));
+        }
+
+        private int getImageSizeWidth()
+        {
+            return this.width * 32;
+        }
+        private int getImageSizeHeight()
+        {
+            return this.height * 32;
         }
 
         private Image getImage()
         {
-            if(this.type == Type.Wall)
+            if(this.image == null)
             {
-                Console.WriteLine(Directory.GetCurrentDirectory());
-                return Image.FromFile(Directory.GetCurrentDirectory()  + "../Resources/wall.png");
+                if (this.type == Type.Wall)
+                {
+                    this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/wall.png");
+                }
+                else if (this.type == Type.Enemy)
+            {
+                    this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/enemy.gif");
+                }
             }
-            return null;
+
+
+            return this.image;
 
         }
     }
