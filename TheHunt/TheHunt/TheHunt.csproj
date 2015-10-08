@@ -58,55 +58,40 @@
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\Move.cs" />
-    <Compile Include="Controller\verplaats.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controller\verplaats.Designer.cs">
-      <DependentUpon>verplaats.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Map.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="GameEngine.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Map.Designer.cs">
       <DependentUpon>Map.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\verplaats.resx">
-      <DependentUpon>verplaats.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Map.resx">
-      <DependentUpon>Map.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,12 +103,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\wall.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\Arrow.jpg" />
+    <Content Include="Resources\pijl onder.png" />
+    <Content Include="Resources\Pijl rechts.png" />
+    <None Include="Resources\Pijl bovenk.png" />
+    <None Include="Resources\Pijl Links.png" />
     <None Include="Resources\playBtn.png" />
     <None Include="bin\Debug\Sounds\bgm.wav" />
     <None Include="bin\Debug\Sounds\klikgeluid.wav" />

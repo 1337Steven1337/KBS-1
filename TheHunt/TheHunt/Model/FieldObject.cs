@@ -10,18 +10,21 @@ namespace TheHunt.Model
 {
     class FieldObject
     {
+        private Image image = null;
+
         public enum Type
         {
             Wall,
             Enemy,
-            Boss,
-            Character
+            Boss
         }
 
         public int x = 0;
         public int y = 0;
+        public int height = 0;
+        public int width = 0;
 
-        public Type type = Type.Wall;//remco
+        public Type type = Type.Wall;
 
         public FieldObject(int x, int y, Type type)
         {
@@ -32,17 +35,45 @@ namespace TheHunt.Model
 
         public void draw(Graphics g)
         {
-            g.DrawImage(getImage(),100,100);     
+            for(int x = 0; x < this.getImageSizeWidth(); x+=32)
+            {
+                for(int y = 0; y < this.getImageSizeHeight(); y+=32)
+                {
+                    g.DrawImage(getImage(), this.x + x, this.y + y, 32, 32);
+                }
+            }
+        }
+
+        public bool collision(int x, int y, int width, int height)
+        {
+            return ((x >= this.x && x <= this.x + this.getImageSizeWidth() || x + width >= this.x && x + width <= this.x) &&
+               (y >= this.y && y <= this.y + this.getImageSizeHeight() || y + height >= this.y && y + height <= this.y));
+        }
+
+        private int getImageSizeWidth()
+        {
+            return this.width * 32;
+        }
+        private int getImageSizeHeight()
+        {
+            return this.height * 32;
         }
 
         private Image getImage()
         {
-            if(this.type == Type.Wall)
+            if(this.image == null)
             {
-                Console.WriteLine(Directory.GetCurrentDirectory());
-                return Image.FromFile(Directory.GetCurrentDirectory()  + "../Resources/wall.png");
-            }
-            return null;
+                if (this.type == Type.Wall)
+                {
+                    this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/wall.png");
+                }
+                else if (this.type == Type.Enemy)
+            {
+                    this.image = Image.FromFile(Directory.GetCurrentDirectory() + "../Resources/enemy.gif");
+                }
+            }       
+
+            return this.image;
 
         }
     }
