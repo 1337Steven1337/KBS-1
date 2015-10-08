@@ -73,7 +73,7 @@ namespace TheHunt
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::TheHunt.Properties.Resources.highscores;
+            this.pictureBox3.Image = global::TheHunt.Properties.Resources.Highscores;
             this.pictureBox3.Location = new System.Drawing.Point(448, 370);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
