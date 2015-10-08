@@ -71,7 +71,8 @@ namespace TheHunt.Model
             {
                     this.image = new Bitmap(TheHunt.Properties.Resources.Enemy);
                 }
-            }       
+            }
+
 
             return this.image;
 

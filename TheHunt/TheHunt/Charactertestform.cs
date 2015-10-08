@@ -8,21 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TheHunt.Controller;
 using System.Windows.Forms;
-using System.Timers;
-using System.Diagnostics;
-using System.Threading;
-using System.Windows.Input;
 
 namespace TheHunt
 {
-    public enum Direction
-    {
-        up, 
-        left,
-        right,
-        down
-    }
-
     public partial class Charactertestform : Form
     {
         public System.Timers.Timer timer2 = new System.Timers.Timer(100);
@@ -34,50 +22,16 @@ namespace TheHunt
         private GameEngine g = new GameEngine();
         private Move m = new Move();
         private Character c1 = new Character(30, 30, 20, 20);
-
-        
         public Charactertestform()
         {
 
             InitializeComponent();
+
             Paint += new PaintEventHandler(c1.drawcharacter);
-            c1.xPoint += 100;
-            Paint += new PaintEventHandler(c1.drawcharacter);
-            // FormView a = new FormView(c1.xPoint, c1.yPoint, c1.xSpeed, c1.ySpeed);
-        }
-
-
-        private void Charactertestform_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            Debug.WriteLine("test");
-
-            if (e.KeyCode == Keys.Up)
-            {
-                richting = Direction.up;
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                richting = Direction.down;
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                richting = Direction.left;
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                richting = Direction.right;
-            }
-            m.Moven(richting, c1);
-            this.Refresh(); 
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
 
         }
 
-        public void pictureBox1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-
+        private void Charactertestform_KeyDown(object sender, KeyEventArgs e)
         {
             timer2.Enabled = true;
             //m.up(c1);
