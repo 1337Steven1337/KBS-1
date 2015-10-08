@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Windows.Input;
 
 namespace TheHunt.Controller
 {
     class Move
     {
         //character needs to be fieldobject
-        public void Moven(KeyEventArgs k, Character c)
+        public void Moven(System.Windows.Forms.KeyEventArgs k, Character c)
         {
             if (k.KeyCode == Keys.Down)
             {
@@ -34,6 +35,10 @@ namespace TheHunt.Controller
         }
         public void Moven(Direction k, Character c)
         {
+            {
+
+            }
+
             if (k == Direction.down)
             {
                 down(c);
