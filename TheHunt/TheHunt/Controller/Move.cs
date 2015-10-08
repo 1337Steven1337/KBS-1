@@ -30,6 +30,8 @@ namespace TheHunt.Controller
             {
                 c.xPoint -= c.xSpeed;
             }
+          
+
         }
 
 
