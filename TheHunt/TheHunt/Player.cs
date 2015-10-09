@@ -16,7 +16,7 @@ namespace TheHunt
     public partial class Player : Form
     {
         private World world = null;
-        private Controller.Move beweeg;
+        public event EventHandler<EventArgs> Timer;
         public Timer timer;
         public Timer spriteTimer;
         public int count;
@@ -24,14 +24,14 @@ namespace TheHunt
         public Boolean beweegNaarLinks = false;
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
-        
+        Rectangle nextPlayerMove;
+
         public Keys lastPressedKey;
 
 
         public Player()
         {
             InitializeComponent();
-            beweeg = new Controller.Move();
             timer = new Timer();
             spriteTimer = new Timer();
             timer.Interval = 1;
@@ -55,8 +55,8 @@ namespace TheHunt
             Pen pen = new Pen(Color.Red);
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
-                FieldObject wall = this.world.FieldObjects[i];
-                wall.draw(g);
+                FieldObject obj = this.world.FieldObjects[i];
+                obj.draw(g);
             }
 
             this.world.Player.draw(g);
@@ -73,6 +73,43 @@ namespace TheHunt
             
         }
 
+        private bool checkIntersect(Keys k)
+        {
+
+            int playerX = this.world.Player.position.x;
+            int playerY = this.world.Player.position.y;
+            
+
+
+            foreach (var item in this.world.FieldObjects)
+            {
+                Rectangle randomObj = new Rectangle(item.x, item.y, item.width * 32, item.height * 32);
+                
+                switch (k)
+                {
+                    
+                    case Keys.Up:
+                        this.nextPlayerMove = new Rectangle(playerX, playerY - this.world.Player.speed.y, 32, 32);
+                        break;
+                    case Keys.Down:
+                        this.nextPlayerMove = new Rectangle(playerX, playerY + this.world.Player.speed.y, 32, 32);
+                        break;
+                    case Keys.Left:
+                        this.nextPlayerMove = new Rectangle(playerX - this.world.Player.speed.x, playerY, 32, 32);
+                        break;
+                    case Keys.Right:
+                        this.nextPlayerMove = new Rectangle(playerX + this.world.Player.speed.x, playerY, 32, 32);
+                        break;
+                }
+
+                if (nextPlayerMove.IntersectsWith(randomObj))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
             this.lastPressedKey = k.KeyCode;
@@ -82,7 +119,7 @@ namespace TheHunt
             switch (k.KeyCode)
             {
                 case Keys.Up:
-                    this.beweegNaarBoven = true;
+                        this.beweegNaarBoven = true;               
                     break;
 
                 case Keys.Left:
@@ -252,23 +289,35 @@ namespace TheHunt
             }
             if (this.beweegNaarBoven)
             {
-                world.Player.position.y -= world.Player.speed.y;
+                if (!checkIntersect(Keys.Up))
+                {
+                    world.Player.position.y -= world.Player.speed.y;
+                }
 
             }
 
             if (this.beweegNaarLinks)
             {
-                world.Player.position.x -= world.Player.speed.x;
+                if (!checkIntersect(Keys.Left))
+                {
+                    world.Player.position.x -= world.Player.speed.x;
+                }
             }
 
             if (this.beweegNaarBeneden)
             {
-                world.Player.position.y += world.Player.speed.y;
+                if (!checkIntersect(Keys.Down))
+                {
+                    world.Player.position.y += world.Player.speed.y;
+                }
             }
 
             if (this.beweegNaarRechts)
             {
-                world.Player.position.x += world.Player.speed.x;
+                if (!checkIntersect(Keys.Right))
+                {
+                    world.Player.position.x += world.Player.speed.x;
+                }
             }
             
             this.Invalidate();

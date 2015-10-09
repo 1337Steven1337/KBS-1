@@ -31,8 +31,6 @@ namespace TheHunt
             bgm.MediaEnded += new EventHandler(bgmAfgelopen);
             bgm.Play();
 
-            this.trackBar3.Scroll += new EventHandler(speelKlikGeluid);
-
             
 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -44,11 +42,11 @@ namespace TheHunt
 
 
             //Bereken knoppen locaties
-            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - 30);
-            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height - 15);
-            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2));
-            this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + 15);
-            this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + 30);
+            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - this.Size.Height / 50);
+            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height);
+            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2) + this.Size.Height / 50);
+            this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
+            this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
 
         }
 
@@ -122,7 +120,7 @@ namespace TheHunt
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/SFX");
             }
 
-            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
             {
                 MemoryStream memStream = new MemoryStream();
 
@@ -134,14 +132,30 @@ namespace TheHunt
                 File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
                 memStream.SetLength(0);
                 }
-
-                if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
+                else if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
                 {
                 Properties.Resources.bgm.CopyTo(memStream);
                     byte[] byteArray = memStream.ToArray();
                 File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
                 memStream.SetLength(0);
                 }
+                else if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav") && !File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
+                {
+                    Properties.Resources.bgm.CopyTo(memStream);
+                    byte[] byteArray = memStream.ToArray();
+                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
+                    memStream.SetLength(0);
+
+                    Properties.Resources.klikgeluid.CopyTo(memStream);
+                    byteArray = memStream.ToArray();
+                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
+                    memStream.SetLength(0);
+
+            }
+                else
+            {
+                    //doe niks
+            }   
             }
 
 
@@ -183,6 +197,7 @@ namespace TheHunt
 
             labelOptionsHeader.Visible = true;
             buttonFuSc.Visible = true;
+            buttonContr.Visible = true;
 
             label1.Visible = true;
             label2.Visible = true;
@@ -196,6 +211,7 @@ namespace TheHunt
             panel1.Controls.Add(labelOptionsHeader);
 
             panel1.Controls.Add(buttonFuSc);
+            panel1.Controls.Add(buttonContr);
 
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
@@ -225,6 +241,7 @@ namespace TheHunt
         public void GaTerugnaarMenu(object sender, EventArgs e)
         {
             buttonFuSc.Visible = false;
+            buttonContr.Visible = false;
             labelOptionsHeader.Visible = false;
             pictureBox6.Visible = false;
             panel1.Visible = false;
@@ -256,31 +273,30 @@ namespace TheHunt
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            float percentage = trackBar1.Value;
-            float value1 = trackBar2.Value;
-            float value2 = trackBar3.Value;
-            bgm.Volume = value1 / 100 * (percentage / 100);
-            klikMP.Volume = value2 / 100 * (percentage / 100);
+            float value = trackBar1.Value;
+            bgm.Volume = value / 100;
+            klikMP.Volume = value / 100;
         }
 
 
         private void trackBar2_Scroll(object sender, EventArgs e)
-        { 
-        float percentage = trackBar1.Value;
-        float value1 = trackBar2.Value;
-        float value2 = trackBar3.Value;
-        bgm.Volume = value1 / 100 * (percentage / 100);
-        klikMP.Volume = value2 / 100 * (percentage / 100);
+        {
+            float value = trackBar2.Value;
+            if (value > trackBar1.Value)
+            {
+                value = trackBar1.Value;
+            }
+            bgm.Volume = value / 100;
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            float percentage = trackBar1.Value;
-            float value1 = trackBar2.Value;
-            float value2 = trackBar3.Value;
-            bgm.Volume = value1 / 100 * (percentage / 100);
-            klikMP.Volume = value2 / 100 * (percentage / 100);
-            
+            float value = trackBar3.Value;
+            if (value > trackBar1.Value)
+            {
+                value = trackBar1.Value;
+            }
+            klikMP.Volume = value / 100;
         }
     }
 }

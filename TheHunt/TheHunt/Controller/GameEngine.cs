@@ -16,7 +16,7 @@ namespace TheHunt
         static int i = 0;
         public Move move;
         public Timer timer;
-        //private static Charactertestform ctfrm;
+       // private static Charactertestform ctfrm;
 
 
         public GameEngine()
