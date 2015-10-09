@@ -35,7 +35,7 @@ namespace TheHunt
             beweeg = new Controller.Move();
             timer = new Timer();
             spriteTimer = new Timer();
-            timer.Interval = 1;
+            timer.Interval = 10;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
@@ -273,6 +273,29 @@ namespace TheHunt
             }
             
             this.Invalidate();
+        }
+
+        private void buttonQuitMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
+
+        private void buttonResume_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void buttonOptions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonQuitDesktop_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+            Close();
         }
     }
 }

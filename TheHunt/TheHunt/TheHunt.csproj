@@ -137,6 +137,7 @@
     <None Include="Resources\brockSprite12.png" />
     <None Include="Resources\Enemy.gif" />
     <None Include="Resources\Pijl boven.png" />
+    <None Include="Resources\options.jpg" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
