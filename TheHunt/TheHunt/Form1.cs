@@ -66,7 +66,7 @@ namespace TheHunt
             }
         }
 
-
+        //speel geluid af als het niet gemute is
         public void speelKlikGeluid(object sender, EventArgs e)
         {
             if (!isMuted)
