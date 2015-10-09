@@ -130,6 +130,7 @@ namespace TheHunt
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Player";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Map";
             this.Load += new System.EventHandler(this.Map_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Map_OnKeyDown);
