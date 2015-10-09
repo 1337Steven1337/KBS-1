@@ -21,6 +21,8 @@ namespace TheHunt
         public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
         MediaPlayer klikMP = new MediaPlayer();
+
+
         public Form1()
         {
             InitializeComponent();
@@ -63,7 +65,7 @@ namespace TheHunt
             }
         }
 
-
+        //speel geluid af als het niet gemute is
         public void speelKlikGeluid(object sender, EventArgs e)
         {
             if (!isMuted)
@@ -119,42 +121,24 @@ namespace TheHunt
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/SFX");
             }
 
-            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
             {
                 MemoryStream memStream = new MemoryStream();
 
                 if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
                 {
-
-                Properties.Resources.klikgeluid.CopyTo(memStream);
-                byte[] byteArray = memStream.ToArray();
-                File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
-                memStream.SetLength(0);
-                }
-                else if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
-                {
-                Properties.Resources.bgm.CopyTo(memStream);
+                    Properties.Resources.klikgeluid.CopyTo(memStream);
                     byte[] byteArray = memStream.ToArray();
-                File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
-                memStream.SetLength(0);
+                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
+                    memStream.SetLength(0);
                 }
-                else if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav") && !File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
+                if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
                 {
                     Properties.Resources.bgm.CopyTo(memStream);
                     byte[] byteArray = memStream.ToArray();
                     File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
                     memStream.SetLength(0);
-
-                    Properties.Resources.klikgeluid.CopyTo(memStream);
-                    byteArray = memStream.ToArray();
-                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
-                    memStream.SetLength(0);
-
-            }
-                else
-            {
-                    //doe niks
-            }   
+                }
             }
 
 
@@ -171,7 +155,7 @@ namespace TheHunt
         private void eindeAfsluiten(object sender, EventArgs e)
         {
             Environment.Exit(0);
-            Close();
+            this.Close();
         }
 
         public void initOptionsPanel()
