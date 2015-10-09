@@ -110,8 +110,6 @@ namespace TheHunt
                             {
                                 this.world.Player.position.x = item.x - 32;
                             }
-
-
                         }
                         break;
                         case Keys.Left:
@@ -126,14 +124,14 @@ namespace TheHunt
                             }
                             else
                             {
-                                this.world.Player.position.x = item.x + 32;
+                                this.world.Player.position.x = item.x * item.width + 32;
                             }
                         }
-                            break;
+                        break;
                         default:
-                            break;
+                        break;
                     
-                }
+                    }
                 this.Invalidate();
             }
         }

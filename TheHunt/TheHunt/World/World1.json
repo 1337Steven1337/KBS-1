@@ -2,9 +2,9 @@
   "FieldObjects": [
     {
       "x": 0,
-      "y": 0,
+      "y": 40,
       "height": 1,
-      "width":32,
+      "width":5,
       "type": "Wall"
     },
   ],
@@ -12,8 +12,8 @@
   "player": {
     "img": "ww1",
     "position": {
-      "x": 32,
-      "y": 40
+      "x": 0,
+      "y": 0
     },
     "speed": {
       "x": 10,

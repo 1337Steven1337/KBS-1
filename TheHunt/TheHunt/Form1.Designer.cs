@@ -6,8 +6,6 @@ namespace TheHunt
 {
     partial class Form1
     {
-        
-        
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -34,7 +32,6 @@ namespace TheHunt
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -340,12 +337,18 @@ namespace TheHunt
             
         }
 
-        //In de onderstaande variabele wordt actief bijgehouden of de applicatie fullscreen draait
-        private Boolean goFullScreen = true;
-
         private void buttonFuSc_Click(object sender, EventArgs e)
         {
-            GoFullscreen(goFullScreen);
+            if (buttonFuSc.Text == "Full Screen: On")
+            {
+                GoFullscreen(false);
+                buttonFuSc.Text = "Full Screen: Off";
+            }
+            else if (buttonFuSc.Text == "Full Screen: Off")
+            {
+                GoFullscreen(true);
+                buttonFuSc.Text = "Full Screen: On";
+            }
         }
 
 
