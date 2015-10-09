@@ -194,7 +194,7 @@ namespace TheHunt
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite111;
+                            Player1.bitmap = Properties.Resources.brockSprite1;
                             count = 2;
                             break;
                         case 2:
