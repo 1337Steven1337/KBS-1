@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
-using System.Windows.Forms;
 using TheHunt.Controller;
 
 namespace TheHunt
@@ -14,18 +13,19 @@ namespace TheHunt
     {
 
         public event EventHandler<EventArgs> Timer;
-
+        static int i = 0;
         public Move move;
-        public System.Timers.Timer timer;
-       // private static Charactertestform ctfrm;
+        public Timer timer;
+        private static Charactertestform ctfrm;
 
 
         public GameEngine()
         {
-            timer = new System.Timers.Timer(100);
+            timer = new Timer(100);
             move = new Move();
 
             timer.Elapsed += OnTimedEvent;
+
 
             timer.AutoReset = true;
 
@@ -35,7 +35,10 @@ namespace TheHunt
 
         public static void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
         {
-            //Doe iets
+            int x = 1;
+            //Debug.WriteLine(string.Format("Test {0}", i));
+            //ctfrm = new Charactertestform();
+            i += x;
         }
 
         protected virtual void OnTimerOff()

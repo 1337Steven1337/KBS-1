@@ -89,20 +89,28 @@ namespace TheHunt
             bgm.Play();
             }
 
-        private void GoFullscreen(bool fullscreen)
+        private void GoFullscreen(bool gofullscreen)
         {
-            if (fullscreen)
+
+            if (gofullscreen)
             {
+                //Fullscreen activeren
                 this.WindowState = FormWindowState.Normal;
                 this.Bounds = Screen.PrimaryScreen.Bounds;
                 initOptionsPanel();
+                buttonFuSc.Text = "Full Screen: On";
+                goFullScreen = false;
             }
             else
             {
+                //Fullscreen deactiveren
                 this.ClientSize = new Size(startRes.Width, startRes.Height);
                 this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - startRes.Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - startRes.Height) / 2);
                 initOptionsPanel();
+                buttonFuSc.Text = "Full Screen: Off";
+                goFullScreen = true;
             }
+            initOptionsPanel();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -169,7 +177,7 @@ namespace TheHunt
 
         public void initOptionsPanel()
         {
-            pictureBox4.Visible = false;
+            pictureBox1.Visible = false;
             pictureBox2.Visible = false;
             pictureBox3.Visible = false;
             pictureBox4.Visible = false;
@@ -180,8 +188,8 @@ namespace TheHunt
             pictureBox6.Size = Properties.Resources.uitleg.Size;
             pictureBox6.Location = new Point(panel1.Location.X + panel1.Width / 2, panel1.Location.Y);
 
-            panel1.Width = (int)(this.Width * 0.8);
-            panel1.Height = (int)(this.Height * 0.7);
+            panel1.Width = (int)(this.Width * 0.85);
+            panel1.Height = (int)(this.Height * 0.75);
             panel1.Location = new Point((int)(this.Width * 0.1), (int)(this.Height * 0.1));
 
 
