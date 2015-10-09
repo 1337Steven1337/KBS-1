@@ -23,6 +23,7 @@ namespace TheHunt.Model
         public int y = 0;
         public int height = 0;
         public int width = 0;
+        public static bool rightCollision, leftCollision, upCollision, downCollision;
 
         public Type type = Type.Wall;
 
@@ -46,8 +47,23 @@ namespace TheHunt.Model
 
         public bool collision(int x, int y, int width, int height)
         {
-            return ((x >= this.x && x <= this.x + this.getImageSizeWidth() || x + width >= this.x && x + width <= this.x) &&
-               (y >= this.y && y <= this.y + this.getImageSizeHeight() || y + height >= this.y && y + height <= this.y));
+            if(x >= this.x && x <= this.x + this.getImageSizeWidth())
+            {
+                return rightCollision = true;
+            }
+            else if (x + width >= this.x && x + width <= this.x)
+            {
+                return leftCollision = true;
+            }
+            else if (y >= this.y && y <= this.y + this.getImageSizeHeight())
+            {
+                return upCollision = true;
+            }
+            else if (y + height >= this.y && y + height <= this.y)
+            {
+                return downCollision = true;
+            }
+            return (x >= this.x && x <= this.x + this.getImageSizeWidth()) || (x + width >= this.x && x + width <= this.x) ;
         }
 
         private int getImageSizeWidth()

@@ -32,13 +32,13 @@
             // 
             // Player
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 753);
+            this.ClientSize = new System.Drawing.Size(1564, 1459);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Player";
             this.Text = "Map";
             this.Load += new System.EventHandler(this.Map_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Map_KeyDown);
             this.ResumeLayout(false);
 
         }

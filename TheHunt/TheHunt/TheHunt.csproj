@@ -74,6 +74,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameEngine.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Player.cs">
@@ -129,6 +132,8 @@
     <None Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Arrow.jpg" />
     <None Include="Resources\BrockSprite1.bmp" />
+    <None Include="Resources\Enemy.gif" />
+    <None Include="Resources\Pijl boven.png" />
     <None Include="Resources\brockSprite1.png" />
     <None Include="Resources\brockSprite2.png" />
     <None Include="Resources\brockSprite3.png" />
@@ -141,8 +146,6 @@
     <None Include="Resources\brockSprite10.png" />
     <None Include="Resources\brockSprite11.png" />
     <None Include="Resources\brockSprite12.png" />
-    <None Include="Resources\Enemy.gif" />
-    <None Include="Resources\Pijl boven.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
