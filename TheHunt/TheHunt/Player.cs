@@ -16,7 +16,6 @@ namespace TheHunt
     public partial class Player : Form
     {
         private World world = null;
-        public event EventHandler<EventArgs> Timer;
         private Controller.Move beweeg;
         public Timer timer;
         public Timer spriteTimer;
