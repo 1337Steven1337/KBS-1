@@ -63,6 +63,7 @@
     <Compile Include="Controller\Class1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Controller\GameEngine.cs" />
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Controller\verplaats.cs">
       <SubType>Form</SubType>
