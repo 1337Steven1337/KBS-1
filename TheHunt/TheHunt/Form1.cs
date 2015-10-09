@@ -47,7 +47,6 @@ namespace TheHunt
             this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2) + this.Size.Height / 50);
             this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
             this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
-
         }
 
         /// <summary>
@@ -235,7 +234,7 @@ namespace TheHunt
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             initOptionsPanel();
-
+            initOptionsPanel();
         }
 
         public void GaTerugnaarMenu(object sender, EventArgs e)
