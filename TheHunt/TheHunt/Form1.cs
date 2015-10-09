@@ -21,6 +21,8 @@ namespace TheHunt
         public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
         MediaPlayer klikMP = new MediaPlayer();
+
+
         public Form1()
         {
             InitializeComponent();

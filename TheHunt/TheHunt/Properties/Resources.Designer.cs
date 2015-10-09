@@ -102,9 +102,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BrockSprite1 {
+        internal static System.Drawing.Bitmap brockSprite1 {
             get {
-                object obj = ResourceManager.GetObject("BrockSprite1", resourceCulture);
+                object obj = ResourceManager.GetObject("brockSprite1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,16 +125,6 @@ namespace TheHunt.Properties {
         internal static System.Drawing.Bitmap brockSprite11 {
             get {
                 object obj = ResourceManager.GetObject("brockSprite11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap brockSprite111 {
-            get {
-                object obj = ResourceManager.GetObject("brockSprite111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
