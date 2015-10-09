@@ -25,7 +25,7 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         Rectangle nextPlayerMove;
-
+        
         public Keys lastPressedKey;
 
 
@@ -106,7 +106,7 @@ namespace TheHunt
                 {
                     return true;
                 }
-            }
+        }
             return false;
         }
 
@@ -119,7 +119,7 @@ namespace TheHunt
             switch (k.KeyCode)
             {
                 case Keys.Up:
-                        this.beweegNaarBoven = true;               
+                    this.beweegNaarBoven = true;
                     break;
 
                 case Keys.Left:
@@ -291,7 +291,7 @@ namespace TheHunt
             {
                 if (!checkIntersect(Keys.Up))
                 {
-                    world.Player.position.y -= world.Player.speed.y;
+                world.Player.position.y -= world.Player.speed.y;
                 }
 
             }
@@ -300,27 +300,50 @@ namespace TheHunt
             {
                 if (!checkIntersect(Keys.Left))
                 {
-                    world.Player.position.x -= world.Player.speed.x;
-                }
+                world.Player.position.x -= world.Player.speed.x;
+            }
             }
 
             if (this.beweegNaarBeneden)
             {
                 if (!checkIntersect(Keys.Down))
                 {
-                    world.Player.position.y += world.Player.speed.y;
-                }
+                world.Player.position.y += world.Player.speed.y;
+            }
             }
 
             if (this.beweegNaarRechts)
             {
                 if (!checkIntersect(Keys.Right))
                 {
-                    world.Player.position.x += world.Player.speed.x;
-                }
+                world.Player.position.x += world.Player.speed.x;
+            }
             }
             
             this.Invalidate();
+        }
+
+        private void buttonQuitMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
+
+        private void buttonResume_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void buttonOptions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonQuitDesktop_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+            Close();
         }
     }
 }
