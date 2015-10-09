@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
@@ -28,7 +29,8 @@ namespace TheHunt.Model
 
         public void draw(Graphics g)
         {
-            g.DrawImage(Properties.Resources.brockSprite11, this.position.x, this.position.y, 32, 32);
+            g.DrawImage(Properties.Resources.brockSprite11, this.position.x, this.position.y, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
     }
+
 }

@@ -5,11 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
     class FieldObject
-    {
+    {        
         private Image image = null;
 
         public enum Type
@@ -33,11 +34,17 @@ namespace TheHunt.Model
             this.type = type;
         }
 
+        public int screenWidth()
+        {
+            return Screen.PrimaryScreen.Bounds.Width;
+        }
+
+
         public void draw(Graphics g)
         {
-            for(int x = 0; x < this.getImageSizeWidth(); x+=32)
+            for (int x = 0; x < this.getImageSizeWidth(); x += 32)
             {
-                for(int y = 0; y < this.getImageSizeHeight(); y+=32)
+                for (int y = 0; y < this.getImageSizeHeight(); y+=32)
                 {
                     g.DrawImage(getImage(), this.x + x, this.y + y, 32, 32);
                 }
@@ -50,7 +57,7 @@ namespace TheHunt.Model
                (y >= this.y && y <= this.y + this.getImageSizeHeight() || y + height >= this.y && y + height <= this.y));
         }
 
-        private int getImageSizeWidth()
+        private int getImageSizeWidth() 
         {
             return this.width * 32;
         }
@@ -68,7 +75,7 @@ namespace TheHunt.Model
                     this.image = new Bitmap(TheHunt.Properties.Resources.wall);
                 }
                 else if (this.type == Type.Enemy)
-            {
+                {
                     this.image = new Bitmap(TheHunt.Properties.Resources.Enemy);
                 }
             }
