@@ -11,7 +11,7 @@ namespace TheHunt.Model
     class World
     {
         public List<FieldObject> FieldObjects = new List<FieldObject>();
-        public Player Player = new Player();
+        public Player1 Player = new Player1();
     }
 
     public struct Point
@@ -20,15 +20,16 @@ namespace TheHunt.Model
         public int y;
     }
 
-    public class Player
+    public class Player1
     {
         public string img;
         public Point position;
         public Point speed;
+        public static Bitmap bitmap = Properties.Resources.brockSprite11;
 
         public void draw(Graphics g)
         {
-            g.DrawImage(Properties.Resources.brockSprite11, this.position.x, this.position.y, 32, 32);
+            g.DrawImage(bitmap, this.position.x, this.position.y, 32, 32);
         }
     }
 }

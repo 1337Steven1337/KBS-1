@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 using TheHunt.Model;
 
@@ -17,10 +16,30 @@ namespace TheHunt
     public partial class Player : Form
     {
         private World world = null;
+        public event EventHandler<EventArgs> Timer;
+        private Controller.Move beweeg;
+        public Timer timer;
+        public Timer spriteTimer;
+        public int count;
+        public Boolean beweegNaarBoven = false;
+        public Boolean beweegNaarLinks = false;
+        public Boolean beweegNaarBeneden = false;
+        public Boolean beweegNaarRechts = false;
+        
+        public Keys lastPressedKey;
+
 
         public Player()
         {
             InitializeComponent();
+            beweeg = new Controller.Move();
+            timer = new Timer();
+            spriteTimer = new Timer();
+            timer.Interval = 1;
+            spriteTimer.Interval = 100;
+            spriteTimer.Tick += new EventHandler(beweegSprites);
+            timer.Tick += new EventHandler(timer_Tick);
+ 
 
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
@@ -51,41 +70,209 @@ namespace TheHunt
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
                 this.Invalidate();
             }
+            timer.Start();
+            
         }
 
-        private void Map_KeyDown(object sender, KeyEventArgs k)
+        public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode == Keys.Down || k.KeyCode == Keys.Up || k.KeyCode == Keys.Left || k.KeyCode == Keys.Right)
+            this.lastPressedKey = k.KeyCode;
+            spriteTimer.Start();
+            
+            
+            switch (k.KeyCode)
             {
-                if (k.KeyCode == Keys.Down)
-                {
-                    this.world.Player.position.y += this.world.Player.speed.y;
-                }
-                else if (k.KeyCode == Keys.Up)
-                {
-                    this.world.Player.position.y -= this.world.Player.speed.y;
-                }
+                case Keys.Up:
+                    this.beweegNaarBoven = true;
+                    break;
 
-                else if (k.KeyCode == Keys.Right)
-                {
-                    this.world.Player.position.x += this.world.Player.speed.x;
-                }
-                else if (k.KeyCode == Keys.Left)
-                {
-                    this.world.Player.position.x -= this.world.Player.speed.x;
-                }                
+                case Keys.Left:
+                    this.beweegNaarLinks = true;
+                    break;
 
-                foreach (var item in this.world.FieldObjects)
-                {
-                    if (item.collision(this.world.Player.position.x +2, this.world.Player.position.y +2, 32, 32))
-                    {
-                        world.Player.speed.x = 0;
-                        world.Player.speed.y = 0;
-                    }
+                case Keys.Down:
+                    this.beweegNaarBeneden = true;
+                    break;
 
-                this.Invalidate();
-                }
+                case Keys.Right:
+                    this.beweegNaarRechts = true;
+                    break;
             }
+            
+        }
+
+        public void Map_OnKeyUp(object sender, KeyEventArgs k)
+        {
+            
+            switch (lastPressedKey)
+                {
+                    case Keys.Up:
+                        Player1.bitmap = Properties.Resources.brockSprite4;
+                        break;
+
+                    case Keys.Left:
+                        Player1.bitmap = Properties.Resources.brockSprite10;
+                    break;
+
+                    case Keys.Down:
+                        Player1.bitmap = Properties.Resources.brockSprite11;
+                    break;
+
+                    case Keys.Right:
+                        Player1.bitmap = Properties.Resources.brockSprite7;
+                    break;
+            }
+         
+
+            switch (k.KeyCode)
+            {
+                case Keys.Up:
+                    this.beweegNaarBoven = false;
+                    break;
+
+                case Keys.Left:
+                    this.beweegNaarLinks = false;
+                    break;
+
+                case Keys.Down:
+                    this.beweegNaarBeneden = false;
+                    break;
+
+                case Keys.Right:
+                    this.beweegNaarRechts = false;
+                    break;
+            }
+        }
+
+
+        void beweegSprites(object sender, EventArgs e)
+        {
+            
+            switch (this.lastPressedKey)
+            {
+                case Keys.Left:
+                    switch (count)
+                    {
+                        case 0:
+                            Player1.bitmap = Properties.Resources.brockSprite10;
+                            count = 1;
+                            break;
+                        case 1:
+                            Player1.bitmap = Properties.Resources.brockSprite111;
+                            count = 2;
+                            break;
+                        case 2:
+                            Player1.bitmap = Properties.Resources.brockSprite12;
+                            count = 0;
+                            break;
+                    }
+                    break;
+                case Keys.Down:
+                    switch (count)
+                    {
+                        case 0:
+                            Player1.bitmap = Properties.Resources.brockSprite11;
+                            count = 1;
+                            break;
+                        case 1:
+                            Player1.bitmap = Properties.Resources.brockSprite2;
+                            count = 2;
+                            break;
+                        case 2:
+                            Player1.bitmap = Properties.Resources.brockSprite3;
+                            count = 0;
+                            break;
+                    }
+                    break;
+                case Keys.Right:
+                    switch (count)
+                    {
+                        case 0:
+                            Player1.bitmap = Properties.Resources.brockSprite7;
+                            count = 1;
+                            break;
+                        case 1:
+                            Player1.bitmap = Properties.Resources.brockSprite8;
+                            count = 2;
+                            break;
+                        case 2:
+                            Player1.bitmap = Properties.Resources.brockSprite9;
+                            count = 0;
+                            break;
+                    }
+                    break;
+                case Keys.Up:
+                    switch (count)
+                    {
+                        case 0:
+                            Player1.bitmap = Properties.Resources.brockSprite4;
+                            count = 1;
+                            break;
+                        case 1:
+                            Player1.bitmap = Properties.Resources.brockSprite5;
+                            count = 2;
+                            break;
+                        case 2:
+                            Player1.bitmap = Properties.Resources.brockSprite6;
+                            count = 0;
+                            break;
+                    }
+                    break;
+                case Keys.None:
+                    spriteTimer.Stop();
+
+                    break;
+            }
+            
+        }
+
+        public bool IsAnyKeyDown()
+        {
+            var values = Enum.GetValues(typeof(System.Windows.Input.Key));
+
+            foreach (var v in values)
+            {
+                if (((System.Windows.Input.Key)v) != System.Windows.Input.Key.None )
+                {
+                    if (System.Windows.Input.Keyboard.IsKeyDown((System.Windows.Input.Key)v))
+                    {
+                        return true;
+                    }
+                }
+
+            }
+            return false;
+        }
+
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (!IsAnyKeyDown())
+            {
+                lastPressedKey = Keys.None;
+            }
+            if (this.beweegNaarBoven)
+            {
+                world.Player.position.y -= world.Player.speed.y;
+
+            }
+
+            if (this.beweegNaarLinks)
+            {
+                world.Player.position.x -= world.Player.speed.x;
+            }
+
+            if (this.beweegNaarBeneden)
+            {
+                world.Player.position.y += world.Player.speed.y;
+            }
+
+            if (this.beweegNaarRechts)
+            {
+                world.Player.position.x += world.Player.speed.x;
+            }
+            
+            this.Invalidate();
         }
     }
 }
