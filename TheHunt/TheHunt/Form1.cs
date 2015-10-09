@@ -91,20 +91,28 @@ namespace TheHunt
             bgm.Play();
             }
 
-        private void GoFullscreen(bool fullscreen)
+        private void GoFullscreen(bool gofullscreen)
         {
-            if (fullscreen)
+
+            if (gofullscreen)
             {
+                //Fullscreen activeren
                 this.WindowState = FormWindowState.Normal;
                 this.Bounds = Screen.PrimaryScreen.Bounds;
                 initOptionsPanel();
+                buttonFuSc.Text = "Full Screen: On";
+                goFullScreen = false;
             }
             else
             {
+                //Fullscreen deactiveren
                 this.ClientSize = new Size(startRes.Width, startRes.Height);
                 this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - startRes.Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - startRes.Height) / 2);
                 initOptionsPanel();
+                buttonFuSc.Text = "Full Screen: Off";
+                goFullScreen = true;
             }
+            initOptionsPanel();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -114,42 +122,24 @@ namespace TheHunt
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/SFX");
             }
 
-            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
             {
                 MemoryStream memStream = new MemoryStream();
 
                 if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
                 {
-
-                Properties.Resources.klikgeluid.CopyTo(memStream);
-                byte[] byteArray = memStream.ToArray();
-                File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
-                memStream.SetLength(0);
-                }
-                else if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
-                {
-                Properties.Resources.bgm.CopyTo(memStream);
+                    Properties.Resources.klikgeluid.CopyTo(memStream);
                     byte[] byteArray = memStream.ToArray();
-                File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
-                memStream.SetLength(0);
+                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
+                    memStream.SetLength(0);
                 }
-                else if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav") && !File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
+                if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
                 {
                     Properties.Resources.bgm.CopyTo(memStream);
                     byte[] byteArray = memStream.ToArray();
                     File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
                     memStream.SetLength(0);
-
-                    Properties.Resources.klikgeluid.CopyTo(memStream);
-                    byteArray = memStream.ToArray();
-                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
-                    memStream.SetLength(0);
-
-            }
-                else
-            {
-                    //doe niks
-            }   
+                }
             }
 
 
@@ -171,7 +161,7 @@ namespace TheHunt
 
         public void initOptionsPanel()
         {
-            pictureBox4.Visible = false;
+            pictureBox1.Visible = false;
             pictureBox2.Visible = false;
             pictureBox3.Visible = false;
             pictureBox4.Visible = false;
@@ -182,8 +172,8 @@ namespace TheHunt
             pictureBox6.Size = Properties.Resources.uitleg.Size;
             pictureBox6.Location = new Point(panel1.Location.X + panel1.Width / 2, panel1.Location.Y);
 
-            panel1.Width = (int)(this.Width * 0.8);
-            panel1.Height = (int)(this.Height * 0.7);
+            panel1.Width = (int)(this.Width * 0.85);
+            panel1.Height = (int)(this.Height * 0.75);
             panel1.Location = new Point((int)(this.Width * 0.1), (int)(this.Height * 0.1));
 
 

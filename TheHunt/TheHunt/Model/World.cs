@@ -20,14 +20,12 @@ namespace TheHunt.Model
         public int y;
     }
 
-    
-
     public class Player1
     {
         public string img;
         public Point position;
         public Point speed;
-        public static Bitmap bitmap = Properties.Resources.brockSprite1;
+        public static Bitmap bitmap = Properties.Resources.brockSprite11;
 
         public void draw(Graphics g)
         {
