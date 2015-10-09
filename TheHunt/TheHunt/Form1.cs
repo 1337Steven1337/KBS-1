@@ -164,7 +164,7 @@ namespace TheHunt
         private void eindeAfsluiten(object sender, EventArgs e)
         {
             Environment.Exit(0);
-            Close();
+            this.Close();
         }
 
         public void initOptionsPanel()

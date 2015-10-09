@@ -1,22 +1,23 @@
 ﻿{
   "FieldObjects": [
     {
-      "x": 100,
-      "y": 100,
+      "x": 0,
+      "y": 0,
       "height": 1,
-      "width": 10,
+      "width":32,
       "type": "Wall"
-    }        
+    },
   ],
+  //up
   "player": {
     "img": "ww1",
     "position": {
-      "x": 0,
-      "y": 0
+      "x": 32,
+      "y": 40
     },
     "speed": {
       "x": 10,
-      "y":  10
+      "y": 10
     }
   }
 }
