@@ -34,14 +34,12 @@ namespace TheHunt
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.buttonFuSc = new System.Windows.Forms.Button();
-            this.buttonContr = new System.Windows.Forms.Button();
             this.labelOptionsHeader = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -137,19 +135,6 @@ namespace TheHunt
             this.buttonFuSc.Visible = false;
             this.buttonFuSc.Click += new System.EventHandler(this.buttonFuSc_Click);
             // 
-            // buttonContr
-            // 
-            this.buttonContr.AutoSize = true;
-            this.buttonContr.Location = new System.Drawing.Point(297, 412);
-            this.buttonContr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonContr.Name = "buttonContr";
-            this.buttonContr.Size = new System.Drawing.Size(169, 50);
-            this.buttonContr.TabIndex = 14;
-            this.buttonContr.Text = "Controls";
-            this.buttonContr.UseVisualStyleBackColor = true;
-            this.buttonContr.Visible = false;
-            this.buttonContr.Click += new System.EventHandler(this.buttonContr_Click);
-            // 
             // labelOptionsHeader
             // 
             this.labelOptionsHeader.AutoSize = true;
@@ -187,7 +172,6 @@ namespace TheHunt
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.labelOptionsHeader);
             this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Controls.Add(this.buttonContr);
             this.panel1.Controls.Add(this.buttonFuSc);
             this.panel1.Location = new System.Drawing.Point(253, 155);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -310,7 +294,6 @@ namespace TheHunt
         {
             labelOptionsHeader.Visible = true;
             buttonFuSc.Visible = true;
-            buttonContr.Visible = true;
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
@@ -367,7 +350,6 @@ namespace TheHunt
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button buttonFuSc;
-        private System.Windows.Forms.Button buttonContr;
         private System.Windows.Forms.Label labelOptionsHeader;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Panel panel1;
