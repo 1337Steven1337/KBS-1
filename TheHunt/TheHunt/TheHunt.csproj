@@ -158,6 +158,9 @@
     <None Include="Resources\Enemy.gif" />
     <None Include="Resources\Pijl boven.png" />
     <None Include="Resources\options.jpg" />
+    <None Include="Resources\Continuebutton.png" />
+    <None Include="Resources\ExitToDesktopButton.png" />
+    <None Include="Resources\ExitToMenuButton.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
