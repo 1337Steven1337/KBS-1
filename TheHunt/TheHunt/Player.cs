@@ -38,7 +38,7 @@ namespace TheHunt
             spriteTimer.Interval = 100;
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
-
+ 
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint |
