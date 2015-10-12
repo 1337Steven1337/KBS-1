@@ -133,6 +133,10 @@ namespace TheHunt
                 case Keys.Right:
                     this.beweegNaarRechts = true;
                     break;
+
+                case Keys.Escape:
+                    toggleMenu();
+                    break;
             }
             
         }
@@ -323,27 +327,24 @@ namespace TheHunt
             this.Invalidate();
         }
 
-        private void buttonQuitMenu_Click(object sender, EventArgs e)
+        private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 form1 = new Form1();
             form1.Show();
         }
 
-        private void buttonResume_Click(object sender, EventArgs e)
+        private void pictureBoxContinue_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            toggleMenu();
         }
 
-        private void buttonOptions_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonQuitDesktop_Click(object sender, EventArgs e)
+        private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
             Close();
         }
+
+
     }
 }
