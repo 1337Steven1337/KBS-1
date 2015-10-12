@@ -70,15 +70,17 @@ namespace TheHunt
         */
         protected override void WndProc(ref Message m)
         {
-            switch (m.Msg)
+            if (!Properties.Screen.Default.full)
             {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
+                switch (m.Msg)
+                {
+                    case 0x84:
+                        base.WndProc(ref m);
+                        if ((int)m.Result == 0x1)
+                            m.Result = (IntPtr)0x2;
+                        return;
+                }
             }
-
             base.WndProc(ref m);
         }
 
@@ -91,10 +93,10 @@ namespace TheHunt
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
                 FieldObject obj = this.world.FieldObjects[i];
-                obj.draw(g);
+                obj.draw(g, this.Size);
             }
 
-            this.world.Player.draw(g);
+            this.world.Player.draw(g, this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -135,7 +137,7 @@ namespace TheHunt
                     break;
             }
 
-            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, 32, 32);
+            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.Player.getOnScreenWidth(this.Size), (int)this.world.Player.getOnScreenHeight(this.Size));
 
             if(newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
             {
@@ -144,7 +146,7 @@ namespace TheHunt
 
             foreach (FieldObject item in this.world.FieldObjects)
             {
-                Rectangle randomObj = new Rectangle(item.x, item.y, item.width * 32, item.height * 32);
+                Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
                 if (newPlayerRectangle.IntersectsWith(randomObj))
                 {
@@ -159,7 +161,6 @@ namespace TheHunt
         {
             this.lastPressedKey = k.KeyCode;
             spriteTimer.Start();
-            
             
             switch (k.KeyCode)
             {
@@ -371,8 +372,11 @@ namespace TheHunt
         private void buttonQuitMenu_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form1 = new Form1();
-            form1.Show();
+            this.timer.Stop();
+            this.spriteTimer.Stop();
+
+            Form1 form = new Form1();
+            form.Show();
         }
 
         private void buttonResume_Click(object sender, EventArgs e)
@@ -383,6 +387,15 @@ namespace TheHunt
         private void buttonOptions_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Player_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                this.timer.Start();
+                this.spriteTimer.Start();
+            }
         }
 
         private void buttonQuitDesktop_Click(object sender, EventArgs e)

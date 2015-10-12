@@ -17,6 +17,7 @@ namespace TheHunt
 {
     public partial class Form1 : Form
     {
+        private Player player = null;
         public static Boolean isMuted = false;
         public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
@@ -108,9 +109,9 @@ namespace TheHunt
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            this.Close();
-            Player map = new Player();
-            map.Show();
+            Player player = new Player();
+            player.Show();
+            this.Hide();
         }
 
         private void bgmAfgelopen(object sender, EventArgs e)
@@ -124,8 +125,6 @@ namespace TheHunt
         private void buttonFuSc_Click(object sender, EventArgs e)
         {
             Properties.Screen.Default.full = !Properties.Screen.Default.full;
-
-            Console.WriteLine(Properties.Screen.Default.full);
             Properties.Screen.Default.Save();
         }
 
