@@ -33,6 +33,7 @@ namespace TheHunt
         public Player()
         {
             InitializeComponent();
+            
             this.FormBorderStyle = FormBorderStyle.None;
 
             if (Properties.Screen.Default.full)
