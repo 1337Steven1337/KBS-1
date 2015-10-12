@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class FieldObject
+    class FieldObject : ResizableObject
     {        
         private Image image = null;
 
@@ -40,24 +40,27 @@ namespace TheHunt.Model
         }
 
 
-        public void draw(Graphics g)
+        public void draw(Graphics g, Size screenSize)
         {
-            for (int x = 0; x < this.getImageSizeWidth(); x += 32)
+            for (int x = 0; x < this.width; x++)
             {
-                for (int y = 0; y < this.getImageSizeHeight(); y+=32)
+                for (int y = 0; y < this.height; y++)
                 {
-                    g.DrawImage(getImage(), this.x + x, this.y + y, 32, 32);
+                    float screenWidth = getOnScreenWidth(screenSize);
+                    float screenHeight = getOnScreenHeight(screenSize);
+
+                    g.DrawImage(getImage(), this.x + (screenWidth * x), this.y + (screenHeight * y), screenWidth, screenHeight);
                 }
             }
         }
 
-        private int getImageSizeWidth() 
+        public float getPixelWidth(Size screenSize) 
         {
-            return this.width * 32;
+            return this.width * this.getOnScreenHeight(screenSize);
         }
-        private int getImageSizeHeight()
+        public float getPixelHeight(Size screenSize)
         {
-            return this.height * 32;
+            return this.height * this.getOnScreenWidth(screenSize);
         }
 
         private Image getImage()

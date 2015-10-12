@@ -121,7 +121,7 @@ namespace TheHunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(960, 540);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -129,6 +129,7 @@ namespace TheHunt
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Map";
             this.Load += new System.EventHandler(this.Map_Load);
+            this.VisibleChanged += new System.EventHandler(this.Player_VisibleChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Map_OnKeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Map_OnKeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
