@@ -68,7 +68,6 @@ namespace TheHunt
 
         Source: http://stackoverflow.com/questions/1241812/how-to-move-a-windows-form-when-its-formborderstyle-property-is-set-to-none
         */
-
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -143,7 +142,7 @@ namespace TheHunt
                 return true;
             }
 
-            foreach (var item in this.world.FieldObjects)
+            foreach (FieldObject item in this.world.FieldObjects)
             {
                 Rectangle randomObj = new Rectangle(item.x, item.y, item.width * 32, item.height * 32);
 
