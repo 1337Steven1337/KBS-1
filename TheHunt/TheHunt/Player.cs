@@ -25,13 +25,17 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         Rectangle nextPlayerMove;
+        public Form form1;
         
         public Keys lastPressedKey;
 
 
-        public Player()
+        public Player(Form form)
         {
             InitializeComponent();
+            this.form1 = form;
+            this.Size = form1.Size;
+            this.StartPosition = form1.StartPosition;
             timer = new Timer();
             spriteTimer = new Timer();
             timer.Interval = 1;
@@ -67,7 +71,6 @@ namespace TheHunt
             using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
             {
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
-                this.Invalidate();
             }
             timer.Start();
             
@@ -110,6 +113,7 @@ namespace TheHunt
             return false;
         }
 
+
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
             this.lastPressedKey = k.KeyCode;
@@ -151,7 +155,7 @@ namespace TheHunt
                     break;
 
                     case Keys.Down:
-                        Player1.bitmap = Properties.Resources.brockSprite11;
+                        Player1.bitmap = Properties.Resources.brockSprite1;
                     break;
 
                     case Keys.Right:
@@ -194,7 +198,7 @@ namespace TheHunt
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite1;
+                            Player1.bitmap = Properties.Resources.brockSprite11;
                             count = 2;
                             break;
                         case 2:
@@ -207,7 +211,7 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite11;
+                            Player1.bitmap = Properties.Resources.brockSprite1;
                             count = 1;
                             break;
                         case 1:
@@ -319,15 +323,13 @@ namespace TheHunt
                 world.Player.position.x += world.Player.speed.x;
             }
             }
-            
+
             this.Invalidate();
         }
 
         private void buttonQuitMenu_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form1 = new Form1();
-            form1.Show();
         }
 
         private void buttonResume_Click(object sender, EventArgs e)
@@ -342,8 +344,10 @@ namespace TheHunt
 
         private void buttonQuitDesktop_Click(object sender, EventArgs e)
         {
+            form1.Close();
+            this.Close();
             Environment.Exit(0);
-            Close();
         }
+
     }
 }

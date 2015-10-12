@@ -17,7 +17,6 @@ namespace TheHunt
 {
     public partial class Form1 : Form
     {
-        public static Boolean isMuted = false;
         public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
         MediaPlayer klikMP = new MediaPlayer();
@@ -42,9 +41,9 @@ namespace TheHunt
 
 
             //Bereken knoppen locaties
-            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - this.Size.Height / 50);
-            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height);
-            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2) + this.Size.Height / 50);
+            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - 30);
+            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height - 15);
+            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2));
             this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
             this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
 
@@ -67,20 +66,21 @@ namespace TheHunt
 
         public void speelKlikGeluid(object sender, EventArgs e)
         {
-            if (!isMuted)
-            {
                 klikMP.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"));
-                klikMP.Play();
-            }
+                klikMP.Play();  
         }
-
 
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            this.Hide();
-            Player map = new Player();
+            Player map = new Player(this);
             map.Show();
+        }
+
+
+        public void pauzeerGame(object sender, EventArgs e)
+        {
+
         }
 
         private void bgmAfgelopen(object sender, EventArgs e)

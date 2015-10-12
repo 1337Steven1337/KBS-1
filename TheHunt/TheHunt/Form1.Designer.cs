@@ -34,7 +34,6 @@ namespace TheHunt
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -65,7 +64,7 @@ namespace TheHunt
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::TheHunt.Properties.Resources.playBtn;
             this.pictureBox1.Location = new System.Drawing.Point(448, 52);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -78,6 +77,7 @@ namespace TheHunt
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::TheHunt.Properties.Resources.crlvBtn;
             this.pictureBox2.Location = new System.Drawing.Point(448, 212);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -90,6 +90,7 @@ namespace TheHunt
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::TheHunt.Properties.Resources.highscores;
             this.pictureBox3.Location = new System.Drawing.Point(448, 370);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -102,6 +103,7 @@ namespace TheHunt
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::TheHunt.Properties.Resources.optionsBtn;
             this.pictureBox4.Location = new System.Drawing.Point(448, 532);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -114,6 +116,7 @@ namespace TheHunt
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = global::TheHunt.Properties.Resources.exitBtn;
             this.pictureBox5.Location = new System.Drawing.Point(448, 690);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -189,7 +192,7 @@ namespace TheHunt
             this.panel1.Controls.Add(this.trackBar1);
             this.panel1.Controls.Add(this.buttonContr);
             this.panel1.Controls.Add(this.buttonFuSc);
-            this.panel1.Location = new System.Drawing.Point(253, 155);
+            this.panel1.Location = new System.Drawing.Point(867, 381);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(973, 504);
