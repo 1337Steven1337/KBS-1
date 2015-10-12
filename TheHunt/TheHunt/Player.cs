@@ -33,6 +33,7 @@ namespace TheHunt
         public Player()
         {
             InitializeComponent();
+            
             this.FormBorderStyle = FormBorderStyle.None;
 
             if (Properties.Screen.Default.full)
@@ -72,14 +73,14 @@ namespace TheHunt
         {
             if (!Properties.Screen.Default.full)
             {
-                switch (m.Msg)
-                {
-                    case 0x84:
-                        base.WndProc(ref m);
-                        if ((int)m.Result == 0x1)
-                            m.Result = (IntPtr)0x2;
-                        return;
-                }
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
             }
             base.WndProc(ref m);
         }
@@ -178,6 +179,10 @@ namespace TheHunt
 
                 case Keys.Right:
                     this.beweegNaarRechts = true;
+                    break;
+
+                case Keys.Escape:
+                    toggleMenu();
                     break;
             }
             
@@ -369,7 +374,7 @@ namespace TheHunt
             this.Invalidate();
         }
 
-        private void buttonQuitMenu_Click(object sender, EventArgs e)
+        private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.timer.Stop();
@@ -379,29 +384,17 @@ namespace TheHunt
             form.Show();
         }
 
-        private void buttonResume_Click(object sender, EventArgs e)
+        private void pictureBoxContinue_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            toggleMenu();
         }
 
-        private void buttonOptions_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Player_VisibleChanged(object sender, EventArgs e)
-        {
-            if (this.Visible)
-            {
-                this.timer.Start();
-                this.spriteTimer.Start();
-            }
-        }
-
-        private void buttonQuitDesktop_Click(object sender, EventArgs e)
+        private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
             Close();
         }
+
+
     }
 }
