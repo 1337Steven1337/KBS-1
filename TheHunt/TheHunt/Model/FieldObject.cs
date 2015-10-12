@@ -51,12 +51,6 @@ namespace TheHunt.Model
             }
         }
 
-        public bool collision(int x, int y, int width, int height)
-        {
-            return ((x >= this.x && x <= this.x + this.getImageSizeWidth() || x + width >= this.x && x + width <= this.x) &&
-               (y >= this.y && y <= this.y + this.getImageSizeHeight() || y + height >= this.y && y + height <= this.y));
-        }
-
         private int getImageSizeWidth() 
         {
             return this.width * 32;
