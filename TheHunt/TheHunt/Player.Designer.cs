@@ -33,11 +33,11 @@ namespace TheHunt
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Player));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonResume = new System.Windows.Forms.Button();
-            this.buttonQuitDesktop = new System.Windows.Forms.Button();
-            this.buttonQuitMenu = new System.Windows.Forms.Button();
-            this.buttonOptions = new System.Windows.Forms.Button();
             this.labelMenu = new System.Windows.Forms.Label();
+            this.buttonOptions = new System.Windows.Forms.Button();
+            this.buttonQuitMenu = new System.Windows.Forms.Button();
+            this.buttonQuitDesktop = new System.Windows.Forms.Button();
+            this.buttonResume = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,35 +67,15 @@ namespace TheHunt
             this.panel1.TabIndex = 1;
             this.panel1.Visible = false;
             // 
-            // buttonResume
+            // labelMenu
             // 
-            this.buttonResume.Location = new System.Drawing.Point(45, 35);
-            this.buttonResume.Name = "buttonResume";
-            this.buttonResume.Size = new System.Drawing.Size(120, 30);
-            this.buttonResume.TabIndex = 4;
-            this.buttonResume.Text = "Continue";
-            this.buttonResume.UseVisualStyleBackColor = true;
-            this.buttonResume.Click += new System.EventHandler(this.buttonResume_Click);
-            // 
-            // buttonQuitDesktop
-            // 
-            this.buttonQuitDesktop.Location = new System.Drawing.Point(45, 143);
-            this.buttonQuitDesktop.Name = "buttonQuitDesktop";
-            this.buttonQuitDesktop.Size = new System.Drawing.Size(120, 30);
-            this.buttonQuitDesktop.TabIndex = 3;
-            this.buttonQuitDesktop.Text = "Exit To Desktop";
-            this.buttonQuitDesktop.UseVisualStyleBackColor = true;
-            this.buttonQuitDesktop.Click += new System.EventHandler(this.buttonQuitDesktop_Click);
-            // 
-            // buttonQuitMenu
-            // 
-            this.buttonQuitMenu.Location = new System.Drawing.Point(45, 107);
-            this.buttonQuitMenu.Name = "buttonQuitMenu";
-            this.buttonQuitMenu.Size = new System.Drawing.Size(120, 30);
-            this.buttonQuitMenu.TabIndex = 2;
-            this.buttonQuitMenu.Text = "Exit To Menu";
-            this.buttonQuitMenu.UseVisualStyleBackColor = true;
-            this.buttonQuitMenu.Click += new System.EventHandler(this.buttonQuitMenu_Click);
+            this.labelMenu.AutoSize = true;
+            this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenu.Location = new System.Drawing.Point(60, 0);
+            this.labelMenu.Name = "labelMenu";
+            this.labelMenu.Size = new System.Drawing.Size(90, 32);
+            this.labelMenu.TabIndex = 0;
+            this.labelMenu.Text = "Menu";
             // 
             // buttonOptions
             // 
@@ -107,23 +87,44 @@ namespace TheHunt
             this.buttonOptions.UseVisualStyleBackColor = true;
             this.buttonOptions.Click += new System.EventHandler(this.buttonOptions_Click);
             // 
-            // labelMenu
+            // buttonQuitMenu
             // 
-            this.labelMenu.AutoSize = true;
-            this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMenu.Location = new System.Drawing.Point(60, 0);
-            this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(90, 32);
-            this.labelMenu.TabIndex = 0;
-            this.labelMenu.Text = "Menu";
+            this.buttonQuitMenu.Location = new System.Drawing.Point(45, 107);
+            this.buttonQuitMenu.Name = "buttonQuitMenu";
+            this.buttonQuitMenu.Size = new System.Drawing.Size(120, 30);
+            this.buttonQuitMenu.TabIndex = 2;
+            this.buttonQuitMenu.Text = "Exit To Menu";
+            this.buttonQuitMenu.UseVisualStyleBackColor = true;
+            this.buttonQuitMenu.Click += new System.EventHandler(this.buttonQuitMenu_Click);
+            // 
+            // buttonQuitDesktop
+            // 
+            this.buttonQuitDesktop.Location = new System.Drawing.Point(45, 143);
+            this.buttonQuitDesktop.Name = "buttonQuitDesktop";
+            this.buttonQuitDesktop.Size = new System.Drawing.Size(120, 30);
+            this.buttonQuitDesktop.TabIndex = 3;
+            this.buttonQuitDesktop.Text = "Exit To Desktop";
+            this.buttonQuitDesktop.UseVisualStyleBackColor = true;
+            this.buttonQuitDesktop.Click += new System.EventHandler(this.buttonQuitDesktop_Click);
+            // 
+            // buttonResume
+            // 
+            this.buttonResume.Location = new System.Drawing.Point(45, 35);
+            this.buttonResume.Name = "buttonResume";
+            this.buttonResume.Size = new System.Drawing.Size(120, 30);
+            this.buttonResume.TabIndex = 4;
+            this.buttonResume.Text = "Continue";
+            this.buttonResume.UseVisualStyleBackColor = true;
+            this.buttonResume.Click += new System.EventHandler(this.buttonResume_Click);
             // 
             // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Player";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Map";
