@@ -17,10 +17,10 @@ namespace TheHunt
 {
     public partial class Form1 : Form
     {
-        public static Boolean isMuted = false;
         public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
         MediaPlayer klikMP = new MediaPlayer();
+
         public Form1()
         {
             InitializeComponent();
@@ -31,23 +31,52 @@ namespace TheHunt
             bgm.MediaEnded += new EventHandler(bgmAfgelopen);
             bgm.Play();
 
-            
-
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox2.BackColor = System.Drawing.Color.Transparent;
             pictureBox4.BackColor = System.Drawing.Color.Transparent;
             pictureBox5.BackColor = System.Drawing.Color.Transparent;
             pictureBox3.BackColor = System.Drawing.Color.Transparent;
 
-
-
             //Bereken knoppen locaties
-            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - this.Size.Height / 50);
-            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height);
-            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2) + this.Size.Height / 50);
+            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - 30);
+            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height - 15);
+            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2));
             this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
             this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
 
+            Properties.Screen.Default.PropertyChanged += Default_PropertyChanged;
+
+            ResizeScreen();
+            GaTerugnaarMenu(this, null);
+            this.pictureBox5.Click -= new System.EventHandler(this.Afsluiten);
+        }
+
+        private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {            
+            if(e.PropertyName == "full")
+            {
+                ResizeScreen();
+                initOptionsPanel();
+            }
+        }
+
+        private void ResizeScreen()
+        {
+
+            if (Properties.Screen.Default.full)
+            {
+                //Fullscreen activeren
+                this.WindowState = FormWindowState.Normal;
+                this.Bounds = Screen.PrimaryScreen.Bounds;
+                buttonFuSc.Text = "Full Screen: On";
+            }
+            else
+            {
+                //Fullscreen deactiveren
+                this.ClientSize = new Size(startRes.Width, startRes.Height);
+                this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - startRes.Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - startRes.Height) / 2);
+                buttonFuSc.Text = "Full Screen: Off";
+            }
         }
 
         /// <summary>
@@ -67,50 +96,37 @@ namespace TheHunt
 
         public void speelKlikGeluid(object sender, EventArgs e)
         {
-            if (!isMuted)
-            {
                 klikMP.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"));
-                klikMP.Play();
-            }
+                klikMP.Play();  
         }
-
 
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            this.Hide();
-            Player map = new Player();
+            Player map = new Player(this);
             map.Show();
         }
 
-        private void bgmAfgelopen(object sender, EventArgs e)
-            {
-            bgm.Position = TimeSpan.Zero;
-            bgm.Play();
-            }
 
-        private void GoFullscreen(bool gofullscreen)
+        public void pauzeerGame(object sender, EventArgs e)
         {
 
-            if (gofullscreen)
-            {
-                //Fullscreen activeren
-                this.WindowState = FormWindowState.Normal;
-                this.Bounds = Screen.PrimaryScreen.Bounds;
-                initOptionsPanel();
-                buttonFuSc.Text = "Full Screen: On";
-                goFullScreen = false;
-            }
-            else
-            {
-                //Fullscreen deactiveren
-                this.ClientSize = new Size(startRes.Width, startRes.Height);
-                this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - startRes.Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - startRes.Height) / 2);
-                initOptionsPanel();
-                buttonFuSc.Text = "Full Screen: Off";
-                goFullScreen = true;
-            }
-            initOptionsPanel();
+        }
+
+        private void bgmAfgelopen(object sender, EventArgs e)
+        {
+            bgm.Position = TimeSpan.Zero;
+            bgm.Play();
+        }
+
+
+
+        private void buttonFuSc_Click(object sender, EventArgs e)
+        {
+            Properties.Screen.Default.full = !Properties.Screen.Default.full;
+
+            Console.WriteLine(Properties.Screen.Default.full);
+            Properties.Screen.Default.Save();
         }
 
         private void Form1_Load(object sender, EventArgs e)
