@@ -13,11 +13,11 @@ namespace TheHunt.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    internal sealed partial class Screen : global::System.Configuration.ApplicationSettingsBase {
         
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        private static Screen defaultInstance = ((Screen)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Screen())));
         
-        public static Settings Default {
+        public static Screen Default {
             get {
                 return defaultInstance;
             }
@@ -26,24 +26,12 @@ namespace TheHunt.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool fullScreen {
+        public bool full {
             get {
-                return ((bool)(this["fullScreen"]));
+                return ((bool)(this["full"]));
             }
             set {
-                this["fullScreen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public decimal masterSound {
-            get {
-                return ((decimal)(this["masterSound"]));
-            }
-            set {
-                this["masterSound"] = value;
+                this["full"] = value;
             }
         }
     }

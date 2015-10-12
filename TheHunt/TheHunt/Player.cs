@@ -24,18 +24,22 @@ namespace TheHunt
         public Boolean beweegNaarLinks = false;
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
-        Rectangle nextPlayerMove;
-        public Form form1;
+
+        public int screenWidth, screenHeight;
         
         public Keys lastPressedKey;
 
 
-        public Player(Form form)
+        public Player()
         {
             InitializeComponent();
-            this.form1 = form;
-            this.Size = form1.Size;
-            this.StartPosition = form1.StartPosition;
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            if (Properties.Screen.Default.full)
+            {
+                this.Bounds = Screen.PrimaryScreen.Bounds;
+            }
+
             timer = new Timer();
             spriteTimer = new Timer();
             timer.Interval = 1;
@@ -43,12 +47,40 @@ namespace TheHunt
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
  
-
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer,
                 true);
+        }
+
+        /*
+        Constants in Windows API
+        0x84 = WM_NCHITTEST - Mouse Capture Test
+        0x1 = HTCLIENT - Application Client Area
+        0x2 = HTCAPTION - Application Title Bar
+
+        This function intercepts all the commands sent to the application. 
+        It checks to see of the message is a mouse click in the application. 
+        It passes the action to the base action by default. It reassigns 
+        the action to the title bar if it occured in the client area
+        to allow the drag and move behavior.
+
+        Source: http://stackoverflow.com/questions/1241812/how-to-move-a-windows-form-when-its-formborderstyle-property-is-set-to-none
+        */
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -71,9 +103,9 @@ namespace TheHunt
             using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
             {
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
+                this.Invalidate();
             }
-            timer.Start();
-            
+            timer.Start();            
         }
 
         private bool checkIntersect(Keys k)
@@ -81,38 +113,48 @@ namespace TheHunt
 
             int playerX = this.world.Player.position.x;
             int playerY = this.world.Player.position.y;
-            
 
+            Model.Point newPosition = new Model.Point();
+
+            switch (k)
+            {
+                case Keys.Up:
+                    newPosition.x = this.world.Player.position.x;
+                    newPosition.y = this.world.Player.position.y - this.world.Player.speed.y;
+                    break;
+                case Keys.Down:
+                    newPosition.x = this.world.Player.position.x;
+                    newPosition.y = this.world.Player.position.y + this.world.Player.speed.y;
+                    break;
+                case Keys.Left:
+                    newPosition.x = this.world.Player.position.x - this.world.Player.speed.x;
+                    newPosition.y = this.world.Player.position.y;
+                    break;
+                case Keys.Right:
+                    newPosition.x = this.world.Player.position.x + this.world.Player.speed.x;
+                    newPosition.y = this.world.Player.position.y;
+                    break;
+            }
+
+            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, 32, 32);
+
+            if(newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
+            {
+                return true;
+            }
 
             foreach (var item in this.world.FieldObjects)
             {
                 Rectangle randomObj = new Rectangle(item.x, item.y, item.width * 32, item.height * 32);
-                
-                switch (k)
-                {
-                    
-                    case Keys.Up:
-                        this.nextPlayerMove = new Rectangle(playerX, playerY - this.world.Player.speed.y, 32, 32);
-                        break;
-                    case Keys.Down:
-                        this.nextPlayerMove = new Rectangle(playerX, playerY + this.world.Player.speed.y, 32, 32);
-                        break;
-                    case Keys.Left:
-                        this.nextPlayerMove = new Rectangle(playerX - this.world.Player.speed.x, playerY, 32, 32);
-                        break;
-                    case Keys.Right:
-                        this.nextPlayerMove = new Rectangle(playerX + this.world.Player.speed.x, playerY, 32, 32);
-                        break;
-                }
 
-                if (nextPlayerMove.IntersectsWith(randomObj))
+                if (newPlayerRectangle.IntersectsWith(randomObj))
                 {
                     return true;
                 }
-        }
+            }
+
             return false;
         }
-
 
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
@@ -323,13 +365,15 @@ namespace TheHunt
                 world.Player.position.x += world.Player.speed.x;
             }
             }
-
+            
             this.Invalidate();
         }
 
         private void buttonQuitMenu_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Form1 form1 = new Form1();
+            form1.Show();
         }
 
         private void buttonResume_Click(object sender, EventArgs e)
@@ -344,10 +388,8 @@ namespace TheHunt
 
         private void buttonQuitDesktop_Click(object sender, EventArgs e)
         {
-            form1.Close();
-            this.Close();
             Environment.Exit(0);
+            Close();
         }
-
     }
 }

@@ -50,7 +50,6 @@ namespace TheHunt.Model
                 }
             }
         }
-        
 
         private int getImageSizeWidth() 
         {
