@@ -343,15 +343,6 @@ namespace TheHunt
             
         }
 
-        //In de onderstaande variabele wordt actief bijgehouden of de applicatie fullscreen draait
-        private Boolean goFullScreen = true;
-
-        private void buttonFuSc_Click(object sender, EventArgs e)
-        {
-            GoFullscreen(goFullScreen);
-        }
-
-
 
 
 
