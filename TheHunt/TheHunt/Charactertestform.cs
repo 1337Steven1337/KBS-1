@@ -8,26 +8,104 @@ using System.Text;
 using System.Threading.Tasks;
 using TheHunt.Controller;
 using System.Windows.Forms;
+using System.Timers;
+using System.Diagnostics;
+using System.Threading;
+using System.Windows.Input;
 
 namespace TheHunt
 {
+    public enum Direction
+    {
+        up,
+        left,
+        right,
+        down
+    }
+
     public partial class Charactertestform : Form
     {
+        System.Timers.Timer timer2 = new System.Timers.Timer(100);
+
+
+       // public event EventHandler<EventArgs> Timered;
+
+        private Direction richting;
+        private GameEngine g = new GameEngine();
         private Move m = new Move();
-        private Character c1 = new Character(30, 30, 20, 20);
+        private Character c1 = new Character(30, 30, 10, 10);
+
+
         public Charactertestform()
         {
 
             InitializeComponent();
-
             Paint += new PaintEventHandler(c1.drawcharacter);
-            
+            c1.xPoint += 100;
+            Paint += new PaintEventHandler(c1.drawcharacter);
+            // FormView a = new FormView(c1.xPoint, c1.yPoint, c1.xSpeed, c1.ySpeed);
         }
 
-        private void Charactertestform_KeyDown(object sender, KeyEventArgs e)
+
+        private void Charactertestform_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            m.Moven(e, c1);
-            this.Refresh(); 
+            Debug.WriteLine("test");
+
+            if (e.KeyCode == Keys.Up)
+            {
+                richting = Direction.up;
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                richting = Direction.down;
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                richting = Direction.left;
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                richting = Direction.right;
+            }
+            m.Moven(richting, c1);
+            this.Refresh();
+        }
+
+        public void pictureBox4_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (sender == pictureBox1)
+            {
+                richting = Direction.up;
+            }
+            else if (sender == pictureBox2)
+            {
+                richting = Direction.left;
+            }
+            else if (sender == pictureBox3)
+            {
+                richting = Direction.down;
+            }
+            else if (sender == pictureBox4)
+            {
+                richting = Direction.right;
+            }
+            timer1.Enabled = true;
+           
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (timer1.Enabled == true)
+            {
+                g.move.Moven(richting, c1);
+                this.Refresh();
+            }
+        }
+     
+       
+        private void pictureBox4_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            timer1.Enabled = false;
         }
     }
 
