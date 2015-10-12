@@ -24,7 +24,6 @@ namespace TheHunt.Model
         public int y = 0;
         public int height = 0;
         public int width = 0;
-        public static bool rightCollision, leftCollision, upCollision, downCollision;
 
         public Type type = Type.Wall;
 
@@ -50,27 +49,6 @@ namespace TheHunt.Model
                     g.DrawImage(getImage(), this.x + x, this.y + y, 32, 32);
                 }
             }
-        }
-
-        public bool collision(int x, int y, int width, int height)
-        {
-            if(x >= this.x && x <= this.x + this.getImageSizeWidth())
-            {
-                return rightCollision = true;
-            }
-            else if (x + width >= this.x && x + width <= this.x)
-            {
-                return leftCollision = true;
-            }
-            else if (y >= this.y && y <= this.y + this.getImageSizeHeight())
-            {
-                return upCollision = true;
-            }
-            else if (y + height >= this.y && y + height <= this.y)
-            {
-                return downCollision = true;
-            }
-            return (x >= this.x && x <= this.x + this.getImageSizeWidth()) || (x + width >= this.x && x + width <= this.x) ;
         }
 
         private int getImageSizeWidth() 
