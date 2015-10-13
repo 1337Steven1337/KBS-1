@@ -21,12 +21,12 @@ namespace TheHunt
         Direction GaNaar;
         public Buttons()
         {
-            
+
 
 
         }
 
-       
+
         public Control AddButton(Direction richting, int width, int height)
         {
             //checkt welke knop het is
@@ -35,19 +35,19 @@ namespace TheHunt
                 case Direction.down:
                     GaNaar = Direction.down;
                     return downButton(width, height);
-                    
+
                 case Direction.left:
                     GaNaar = Direction.left;
                     return leftButton(width, height);
-                    
+
                 case Direction.up:
                     GaNaar = Direction.up;
                     return upButton(width, height);
-                    
+
                 case Direction.right:
                     GaNaar = Direction.right;
                     return rightButton(width, height);
-                    
+
 
             }
             return null;
@@ -63,17 +63,17 @@ namespace TheHunt
             PictureBox Down = new PictureBox();
             Down.Size = new Size(75, 75);
             Down.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
-            Down.Location = new System.Drawing.Point(width - Down.Width*2 -20, heigt - Down.Height - 40);
+            Down.Location = new System.Drawing.Point(width - Down.Width * 2 - 20, heigt - Down.Height - 40);
             Down.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/pijl onder.png";
             Down.MouseDown += Button_release;
             Down.MouseUp += Button_push;
-            Down.Click += Down_Push ;
+            Down.Click += Down_Push;
             return Down;
-           
+
         }
 
         private void Down_Push(object sender, EventArgs e)
-        { 
+        {
             world.Player.position.y += world.Player.speed.y;
 
 
@@ -94,6 +94,7 @@ namespace TheHunt
         private void Button_release(object sender, MouseEventArgs e)
         {
             timer.Enabled = false;
+           
         }
 
         private void Button_push(object sender, EventArgs e)
@@ -106,7 +107,7 @@ namespace TheHunt
             PictureBox Up = new PictureBox();
             Up.Size = new Size(75, 75);
             Up.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
-            Up.Location = new System.Drawing.Point(width - Up.Width * 2 - 20, heigt - Up.Height *2 - 40);
+            Up.Location = new System.Drawing.Point(width - Up.Width * 2 - 20, heigt - Up.Height * 2 - 40);
             Up.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/Pijl bovenk.png";
             Up.MouseDown += Button_release;
             Up.MouseUp += Button_push;
@@ -129,7 +130,7 @@ namespace TheHunt
 
         public void timer_Tick(object sender, EventArgs e)
         {
-            if(timer.Enabled == true)
+            if (timer.Enabled == true)
             {
                 switch (GaNaar)
                 {

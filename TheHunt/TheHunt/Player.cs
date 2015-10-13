@@ -13,6 +13,7 @@ using TheHunt.Model;
 
 namespace TheHunt
 {
+    //in deze klasse wordt het character/ de speler  bewogen d.m.v het toetsenbord 
     public partial class Player : Form
     {
         private World world = null;
@@ -37,15 +38,15 @@ namespace TheHunt
             this.Size = form1.Size;
             this.form1 = form1;
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
-            this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width /2, this.Size.Height /2 - this.panel1.Height / 2);
-            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height /2);
+            this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
+            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height / 2);
             if (Properties.Screen.Default.full)
             {
                 this.Bounds = Screen.PrimaryScreen.Bounds;
             }
 
-            timer = new Timer();
-            spriteTimer = new Timer();
+            timer = new Timer();//timer voor de movement over het scherm
+            spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
             timer.Interval = 1;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += new EventHandler(beweegSprites);
@@ -58,8 +59,6 @@ namespace TheHunt
                 true);
         }
 
-
-
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -69,10 +68,10 @@ namespace TheHunt
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
                 FieldObject obj = this.world.FieldObjects[i];
-                obj.draw(g,this.Size);
+                obj.draw(g, this.Size);
             }
 
-            this.world.Player.draw(g,this.Size);
+            this.world.Player.draw(g, this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -85,6 +84,7 @@ namespace TheHunt
             timer.Start();            
         }
 
+        //controle of het character er mag/kan lopen
         private bool checkIntersect(Keys k)
         {
 
@@ -132,38 +132,43 @@ namespace TheHunt
 
             return false;
         }
-
+        // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
             this.lastPressedKey = k.KeyCode;
             spriteTimer.Start();
             
-            
+            //ook wordt er gezegt welke richting je oploopt
             switch (k.KeyCode)
             {
+                //naar boven
                 case Keys.Up:
                     this.beweegNaarBoven = true;
                     break;
 
+                //naar links
                 case Keys.Left:
                     this.beweegNaarLinks = true;
                     break;
 
+                //naar beneden
                 case Keys.Down:
                     this.beweegNaarBeneden = true;
                     break;
 
+                //naar rechts
                 case Keys.Right:
                     this.beweegNaarRechts = true;
                     break;
 
+                //openen menu
                 case Keys.Escape:
                     toggleMenu();
                     break;
             }
             
         }
-
+        // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
         {
             
@@ -186,28 +191,32 @@ namespace TheHunt
                     break;
             }
          
-
+            //bij het loslaten wordt de beweging gestopt in bijbehorende rinchting
             switch (k.KeyCode)
             {
+                //naar boven
                 case Keys.Up:
                     this.beweegNaarBoven = false;
                     break;
 
+                //naar links
                 case Keys.Left:
                     this.beweegNaarLinks = false;
                     break;
 
+                //naar beneden
                 case Keys.Down:
                     this.beweegNaarBeneden = false;
                     break;
 
+                //naar rechts
                 case Keys.Right:
                     this.beweegNaarRechts = false;
                     break;
             }
         }
 
-
+        //hier wordt de beweging van het character gegenereerd
         void beweegSprites(object sender, EventArgs e)
         {
             switch (this.lastPressedKey)
@@ -280,21 +289,21 @@ namespace TheHunt
                             break;
                     }
                     break;
+                //indien er geen toets is ingedrukt stopt de movement
                 case Keys.None:
                     spriteTimer.Stop();
-
                     break;
             }
             
         }
-
+        //controle of er een toets is ingedrukt
         public bool IsAnyKeyDown()
         {
             var values = Enum.GetValues(typeof(System.Windows.Input.Key));
 
             foreach (var v in values)
             {
-                if (((System.Windows.Input.Key)v) != System.Windows.Input.Key.None )
+                if (((System.Windows.Input.Key)v) != System.Windows.Input.Key.None)
                 {
                     if (System.Windows.Input.Keyboard.IsKeyDown((System.Windows.Input.Key)v))
                     {
@@ -306,7 +315,7 @@ namespace TheHunt
             return false;
         }
 
-
+        //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
         {
             if (!IsAnyKeyDown())
@@ -348,19 +357,19 @@ namespace TheHunt
             
             this.Invalidate();
         }
-
+        //hier keer je terug naar het hoofdmenu
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 form1 = new Form1();
             form1.Show();
         }
-
+        //hier keer je terug naar het spel
         private void pictureBoxContinue_Click(object sender, EventArgs e)
         {
             toggleMenu();
         }
-
+        //hier sluit je het programma af
         private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
             Application.Exit();
