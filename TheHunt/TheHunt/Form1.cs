@@ -99,12 +99,26 @@ namespace TheHunt
                 klikMP.Play();  
         }
 
+        static int GCD(int a, int b)
+        {
+            int Remainder;
+
+            while (b != 0)
+            {
+                Remainder = a % b;
+                a = b;
+                b = Remainder;
+            }
+
+            return a;
+        }
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
             Player map = new Player(this);
             map.Show();
+            MessageBox.Show(string.Format("{0}:{1}", this.Width / GCD(this.Width, this.Height), this.Height / GCD(this.Width, this.Height)));
         }
 
 
@@ -271,30 +285,31 @@ namespace TheHunt
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            float value = trackBar1.Value;
-            bgm.Volume = value / 100;
-            klikMP.Volume = value / 100;
+            float percentage = trackBar1.Value;
+            float value1 = trackBar2.Value;
+            float value2 = trackBar3.Value;
+            bgm.Volume = value1 / 100 * (percentage / 100);
+            klikMP.Volume = value2 / 100 * (percentage / 100);
         }
 
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            float value = trackBar2.Value;
-            if (value > trackBar1.Value)
-            {
-                value = trackBar1.Value;
-            }
-            bgm.Volume = value / 100;
+            float percentage = trackBar1.Value;
+            float value1 = trackBar2.Value;
+            float value2 = trackBar3.Value;
+            bgm.Volume = value1 / 100 * (percentage / 100);
+            klikMP.Volume = value2 / 100 * (percentage / 100);
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            float value = trackBar3.Value;
-            if (value > trackBar1.Value)
-            {
-                value = trackBar1.Value;
-            }
-            klikMP.Volume = value / 100;
+            float percentage = trackBar1.Value;
+            float value1 = trackBar2.Value;
+            float value2 = trackBar3.Value;
+            bgm.Volume = value1 / 100 * (percentage / 100);
+            klikMP.Volume = value2 / 100 * (percentage / 100);
+
         }
     }
 }
