@@ -32,4 +32,13 @@ namespace TheHunt.Model
             g.DrawImage(bitmap, this.position.x, this.position.y, getOnScreenWidth(screenSize), getOnScreenHeight(screenSize));
         }
     }
+
+    class NPC
+    {
+        public Point position;
+        public Point speed;
+        public Type type;
+
+        
+    }
 }

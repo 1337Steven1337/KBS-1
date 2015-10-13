@@ -44,13 +44,32 @@ namespace TheHunt
             this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
             this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
 
-            Properties.Screen.Default.PropertyChanged += Default_PropertyChanged;
+            Properties.Screen.Default.PropertyChanged += ScreenPropertyChanged;
+            Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
 
             ResizeScreen();
+            //SoundBars();
             GaTerugnaarMenu(this, null);
         }
 
-        private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void SoundPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {            
+            if(e.PropertyName == "music")
+            {
+                bgm.Volume = Properties.Sound.Default.music;
+            }
+            else if(e.PropertyName == "effects")
+            {
+                klikMP.Volume = Properties.Sound.Default.effects;
+            }
+        }
+
+        //private void SoundBars()
+        //{
+        //    trackBar2.Value = Properties.Sound.Default.music;
+        //}
+
+        private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            
             if(e.PropertyName == "full")
             {
@@ -99,26 +118,12 @@ namespace TheHunt
                 klikMP.Play();  
         }
 
-        static int GCD(int a, int b)
-        {
-            int Remainder;
-
-            while (b != 0)
-            {
-                Remainder = a % b;
-                a = b;
-                b = Remainder;
-            }
-
-            return a;
-        }
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
             Player map = new Player(this);
             map.Show();
-            MessageBox.Show(string.Format("{0}:{1}", this.Width / GCD(this.Width, this.Height), this.Height / GCD(this.Width, this.Height)));
         }
 
 
@@ -282,8 +287,6 @@ namespace TheHunt
             this.BackColor = System.Drawing.Color.White;
             panel1.BackColor = System.Drawing.Color.FromArgb(95, System.Drawing.Color.Black);
         }
-
-        //geluid
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
