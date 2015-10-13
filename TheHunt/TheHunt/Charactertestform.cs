@@ -18,7 +18,7 @@ namespace TheHunt
 {
     public enum Direction
     {
-        up,
+        up, 
         left,
         right,
         down
