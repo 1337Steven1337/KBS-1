@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace TheHunt
+﻿namespace TheHunt
 {
-    partial class Charactertestform
+    partial class Buttons
     {
         /// <summary>
         /// Required designer variable.
@@ -31,28 +29,10 @@ namespace TheHunt
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Charactertestform
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 368);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Charactertestform";
-            this.Text = "character";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Charactertestform_KeyDown);
-            this.ResumeLayout(false);
-
+            this.Text = "Buttons";
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
     }
 }
