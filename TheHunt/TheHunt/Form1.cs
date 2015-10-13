@@ -48,7 +48,7 @@ namespace TheHunt
             Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
 
             ResizeScreen();
-            //SoundBars();
+            SoundBars();
             GaTerugnaarMenu(this, null);
         }
 
@@ -64,10 +64,13 @@ namespace TheHunt
             }
         }
 
-        //private void SoundBars()
-        //{
-        //    trackBar2.Value = Properties.Sound.Default.music;
-        //}
+        //Values uit Properties Settings in trackbar laten zien
+        private void SoundBars()
+        {
+            trackBar1.Value = (int)Properties.Sound.Default.master;
+            trackBar2.Value = (int)Properties.Sound.Default.music;
+            trackBar3.Value = (int)Properties.Sound.Default.effects;
+        }
 
         private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            
@@ -295,6 +298,9 @@ namespace TheHunt
             float value2 = trackBar3.Value;
             bgm.Volume = value1 / 100 * (percentage / 100);
             klikMP.Volume = value2 / 100 * (percentage / 100);
+
+            Properties.Sound.Default.master = percentage;
+            Properties.Sound.Default.Save();
         }
 
 
@@ -305,6 +311,9 @@ namespace TheHunt
             float value2 = trackBar3.Value;
             bgm.Volume = value1 / 100 * (percentage / 100);
             klikMP.Volume = value2 / 100 * (percentage / 100);
+
+            Properties.Sound.Default.music = value1;
+            Properties.Sound.Default.Save();
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
@@ -315,6 +324,8 @@ namespace TheHunt
             bgm.Volume = value1 / 100 * (percentage / 100);
             klikMP.Volume = value2 / 100 * (percentage / 100);
 
+            Properties.Sound.Default.effects = value2;
+            Properties.Sound.Default.Save();
         }
     }
 }

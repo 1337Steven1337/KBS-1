@@ -46,5 +46,17 @@ namespace TheHunt.Properties {
                 this["effects"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public float master {
+            get {
+                return ((float)(this["master"]));
+            }
+            set {
+                this["master"] = value;
+            }
+        }
     }
 }
