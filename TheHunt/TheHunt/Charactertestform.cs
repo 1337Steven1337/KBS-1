@@ -13,33 +13,44 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Input;
 
+
 namespace TheHunt
 {
     public enum Direction
     {
-        up,
+        up, 
         left,
         right,
         down
     }
 
+
+
     public partial class Charactertestform : Form
     {
+        Direction down = Direction.down;
+        Direction right = Direction.right;
+        Direction up = Direction.up;
+        Direction left = Direction.left;
+        Buttons b = new Buttons();
         System.Timers.Timer timer2 = new System.Timers.Timer(100);
-
-
-       // public event EventHandler<EventArgs> Timered;
 
         private Direction richting;
         private GameEngine g = new GameEngine();
         private Move m = new Move();
         private Character c1 = new Character(30, 30, 10, 10);
 
-
         public Charactertestform()
         {
-
             InitializeComponent();
+            int width = Width;
+            int heigt = Height;
+            Controls.Add(b.AddButton(down, width, heigt));
+            Controls.Add(b.AddButton(left, width, heigt));
+            Controls.Add(b.AddButton(right, width, heigt));
+            Controls.Add(b.AddButton(up, width, heigt));
+            
+
             Paint += new PaintEventHandler(c1.drawcharacter);
             c1.xPoint += 100;
             Paint += new PaintEventHandler(c1.drawcharacter);
@@ -67,31 +78,31 @@ namespace TheHunt
             {
                 richting = Direction.right;
             }
-            m.Moven(richting, c1);
+            g.move.Moven(richting, c1);
             this.Refresh();
         }
+        
+        //public void pictureBox4_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        //{
+        //    if (sender == pictureBox1)
+        //    {
+        //        richting = Direction.up;
+        //    }
+        //    else if (sender == pictureBox2)
+        //    {
+        //        richting = Direction.left;
+        //    }
+        //    else if (sender == pictureBox3)
+        //    {
+        //        richting = Direction.down;
+        //    }
+        //    else if (sender == pictureBox4)
+        //    {
+        //        richting = Direction.right;
+        //    }
+        //    timer1.Enabled = true;
 
-        public void pictureBox4_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (sender == pictureBox1)
-            {
-                richting = Direction.up;
-            }
-            else if (sender == pictureBox2)
-            {
-                richting = Direction.left;
-            }
-            else if (sender == pictureBox3)
-            {
-                richting = Direction.down;
-            }
-            else if (sender == pictureBox4)
-            {
-                richting = Direction.right;
-            }
-            timer1.Enabled = true;
-           
-        }
+        //}
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -101,15 +112,15 @@ namespace TheHunt
                 this.Refresh();
             }
         }
-     
-       
+
+
         private void pictureBox4_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             timer1.Enabled = false;
         }
     }
 
-    class Character
+    public class Character
     {
         public int xPoint { get; set; }
         public int yPoint { get; set; }
@@ -137,7 +148,7 @@ namespace TheHunt
             //var height = this.Height / 50;
 
             // Create solid brush.
-            SolidBrush blueBrush = new SolidBrush(Color.Red);
+            SolidBrush blueBrush = new SolidBrush(Color.Blue);
             // Create rectangle.
             Rectangle characterShape = new Rectangle(xPoint, yPoint, 20, 20);
             // Fill rectangle to screen.
