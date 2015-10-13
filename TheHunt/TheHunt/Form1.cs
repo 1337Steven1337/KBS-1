@@ -48,7 +48,6 @@ namespace TheHunt
 
             ResizeScreen();
             GaTerugnaarMenu(this, null);
-            this.pictureBox5.Click -= new System.EventHandler(this.Afsluiten);
         }
 
         private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -103,7 +102,8 @@ namespace TheHunt
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            Player map = new Player();
+            this.Hide();
+            Player map = new Player(this);
             map.Show();
         }
 
@@ -170,7 +170,7 @@ namespace TheHunt
 
         private void eindeAfsluiten(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            Application.Exit();
             Close();
         }
 
@@ -180,12 +180,8 @@ namespace TheHunt
             pictureBox2.Visible = false;
             pictureBox3.Visible = false;
             pictureBox4.Visible = false;
+            pictureBox5.Visible = false;
             pictureBox6.Visible = true;
-
-            pictureBox6.BackgroundImage = Properties.Resources.uitleg;
-            pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            pictureBox6.Size = Properties.Resources.uitleg.Size;
-            pictureBox6.Location = new Point(panel1.Location.X + panel1.Width / 2, panel1.Location.Y);
 
             panel1.Width = (int)(this.Width * 0.85);
             panel1.Height = (int)(this.Height * 0.75);
@@ -194,9 +190,15 @@ namespace TheHunt
 
             labelOptionsHeader.Location = new Point((int)(this.panel1.Location.X + this.panel1.Width / 4), (int)(this.panel1.Location.Y - 50));
 
+            pictureBox6.BackgroundImage = Properties.Resources.uitleg;
+            pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            pictureBox6.Size = Properties.Resources.uitleg.Size;
+            pictureBox6.Location = new Point(panel1.Location.X + panel1.Width / 2, panel1.Location.Y);
+
             labelOptionsHeader.Visible = true;
             buttonFuSc.Visible = true;
-            buttonContr.Visible = true;
+            pictureBox6.Visible = true;
+            pictureBox7.Visible = true;
 
             label1.Visible = true;
             label2.Visible = true;
@@ -210,11 +212,12 @@ namespace TheHunt
             panel1.Controls.Add(labelOptionsHeader);
 
             panel1.Controls.Add(buttonFuSc);
-            panel1.Controls.Add(buttonContr);
 
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label3);
+
+            panel1.Controls.Add(pictureBox6);
 
             panel1.Controls.Add(trackBar1);
             panel1.Controls.Add(trackBar2);
@@ -223,11 +226,11 @@ namespace TheHunt
             panel1.Visible = true;
 
 
-            pictureBox5.Image = global::TheHunt.Properties.Resources.backBtn;
-            pictureBox5.Location = new Point((int)(panel1.Location.X + (panel1.Width / 2) - pictureBox1.Width / 2), (int)(panel1.Location.Y + (panel1.Height) + 0.15 * pictureBox1.Height));
-            this.pictureBox5.Click -= new System.EventHandler(this.Afsluiten);
-            this.pictureBox5.Click += new System.EventHandler(this.speelKlikGeluid);
-            this.pictureBox5.Click += new System.EventHandler(this.GaTerugnaarMenu);
+            pictureBox7.Image = global::TheHunt.Properties.Resources.backBtn;
+            pictureBox7.Location = new Point((int)(panel1.Location.X + (panel1.Width / 2) - pictureBox1.Width / 2), (int)(panel1.Location.Y + (panel1.Height) + 0.15 * pictureBox1.Height));
+            this.pictureBox7.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.pictureBox7.Click += new System.EventHandler(this.GaTerugnaarMenu);
+
 
         }
 
@@ -240,22 +243,18 @@ namespace TheHunt
         public void GaTerugnaarMenu(object sender, EventArgs e)
         {
             buttonFuSc.Visible = false;
-            buttonContr.Visible = false;
             labelOptionsHeader.Visible = false;
             pictureBox6.Visible = false;
+            pictureBox7.Visible = false;
             panel1.Visible = false;
 
-            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - this.Size.Height / 50);
-            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height);
-            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2) + this.Size.Height / 50);
-            this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
-            pictureBox5.Image = global::TheHunt.Properties.Resources.exitBtn;
-            pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
 
+            this.pictureBox1.Location = new Point((this.Size.Width / 2 - pictureBox1.Width / 2), (this.Size.Height / 2 - pictureBox1.Height / 2) - 2 * pictureBox1.Height - 30);
+            this.pictureBox2.Location = new Point((this.Size.Width / 2 - pictureBox2.Width / 2), (this.Size.Height / 2 - pictureBox2.Height / 2) - 1 * pictureBox2.Height - 15);
+            this.pictureBox3.Location = new Point((this.Size.Width / 2 - pictureBox3.Width / 2), (this.Size.Height / 2 - pictureBox3.Height / 2));
+            this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + 15);
+            this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + 30);
 
-            this.pictureBox5.Click -= new System.EventHandler(this.GaTerugnaarMenu);
-            this.pictureBox5.Click -= new System.EventHandler(this.speelKlikGeluid);
-            this.pictureBox5.Click += new System.EventHandler(this.Afsluiten);
 
             pictureBox1.Visible = true;
             pictureBox2.Visible = true;
