@@ -53,7 +53,7 @@ namespace TheHunt
         }
 
         private void SoundPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
+        {            
             if(e.PropertyName == "music")
             {
                 bgm.Volume = Properties.Sound.Default.music;
@@ -290,39 +290,31 @@ namespace TheHunt
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            float value = trackBar1.Value;
-            bgm.Volume = value / 100;
-            klikMP.Volume = value / 100;
-
-            Properties.Sound.Default.music = value / 100;
-            Properties.Sound.Default.effects = value / 100;
-            Properties.Sound.Default.Save();
+            float percentage = trackBar1.Value;
+            float value1 = trackBar2.Value;
+            float value2 = trackBar3.Value;
+            bgm.Volume = value1 / 100 * (percentage / 100);
+            klikMP.Volume = value2 / 100 * (percentage / 100);
         }
 
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            float value = trackBar2.Value;
-            if (value < trackBar1.Value)
-            {
-                value = trackBar1.Value;
-            }
-
-            Properties.Sound.Default.music = value / 100;
-            Properties.Sound.Default.Save();
+            float percentage = trackBar1.Value;
+            float value1 = trackBar2.Value;
+            float value2 = trackBar3.Value;
+            bgm.Volume = value1 / 100 * (percentage / 100);
+            klikMP.Volume = value2 / 100 * (percentage / 100);
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            float value = trackBar3.Value;
-            if (value > trackBar1.Value)
-            {
-                value = trackBar1.Value;
-            }
-            klikMP.Volume = value / 100;
+            float percentage = trackBar1.Value;
+            float value1 = trackBar2.Value;
+            float value2 = trackBar3.Value;
+            bgm.Volume = value1 / 100 * (percentage / 100);
+            klikMP.Volume = value2 / 100 * (percentage / 100);
 
-            Properties.Sound.Default.effects = value / 100;
-            Properties.Sound.Default.Save();
         }
     }
 }
