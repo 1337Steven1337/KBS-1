@@ -379,11 +379,6 @@ namespace TheHunt
         private Boolean optionsEnabled = false;
         private Boolean menuEnabled = false;
 
-        private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
-        {
-            toggleMenu();
-        }
-
         private void buttonFullScreen_Click(object sender, EventArgs e)
         {
 
