@@ -14,7 +14,7 @@ namespace TheHunt.Model
         public Player1 Player = new Player1();
     }
 
-    struct Point
+   struct Point
     {
         public int x;
         public int y;
@@ -27,7 +27,7 @@ namespace TheHunt.Model
         public Point speed;
         public static Bitmap bitmap = Properties.Resources.brockSprite11;
 
-        public void draw(Graphics g, Size screenSize)
+        public void draw(Graphics g,Size screenSize)
         {
             g.DrawImage(bitmap, this.position.x, this.position.y, getOnScreenWidth(screenSize), getOnScreenHeight(screenSize));
         }
