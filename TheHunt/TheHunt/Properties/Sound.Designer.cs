@@ -26,36 +26,24 @@ namespace TheHunt.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public decimal Master {
+        public float music {
             get {
-                return ((decimal)(this["Master"]));
+                return ((float)(this["music"]));
             }
             set {
-                this["Master"] = value;
+                this["music"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public decimal Music {
+        public float effects {
             get {
-                return ((decimal)(this["Music"]));
+                return ((float)(this["effects"]));
             }
             set {
-                this["Music"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public decimal Effects {
-            get {
-                return ((decimal)(this["Effects"]));
-            }
-            set {
-                this["Effects"] = value;
+                this["effects"] = value;
             }
         }
     }
