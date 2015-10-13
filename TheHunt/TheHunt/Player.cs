@@ -379,6 +379,7 @@ namespace TheHunt
         private Boolean optionsEnabled = false;
         private Boolean menuEnabled = false;
 
+
         private void buttonFullScreen_Click(object sender, EventArgs e)
         {
 
