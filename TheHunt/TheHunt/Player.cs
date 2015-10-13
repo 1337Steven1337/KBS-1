@@ -20,18 +20,30 @@ namespace TheHunt
         public Timer timer;
         public Timer spriteTimer;
         public int count;
+        public Form form1;
         public Boolean beweegNaarBoven = false;
         public Boolean beweegNaarLinks = false;
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
-        Rectangle nextPlayerMove;
+
+        public int screenWidth, screenHeight;
         
         public Keys lastPressedKey;
 
 
-        public Player()
+        public Player(Form form1)
         {
             InitializeComponent();
+            this.Size = form1.Size;
+            this.form1 = form1;
+            this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
+            this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width /2, this.Size.Height /2 - this.panel1.Height / 2);
+            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height /2);
+            if (Properties.Screen.Default.full)
+            {
+                this.Bounds = Screen.PrimaryScreen.Bounds;
+            }
+
             timer = new Timer();
             spriteTimer = new Timer();
             timer.Interval = 1;
@@ -39,13 +51,14 @@ namespace TheHunt
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
  
-
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer,
                 true);
         }
+
+
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -56,10 +69,10 @@ namespace TheHunt
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
                 FieldObject obj = this.world.FieldObjects[i];
-                obj.draw(g);
+                obj.draw(g,this.Size);
             }
 
-            this.world.Player.draw(g);
+            this.world.Player.draw(g,this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -69,8 +82,7 @@ namespace TheHunt
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
                 this.Invalidate();
             }
-            timer.Start();
-            
+            timer.Start();            
         }
 
         private bool checkIntersect(Keys k)
@@ -78,35 +90,46 @@ namespace TheHunt
 
             int playerX = this.world.Player.position.x;
             int playerY = this.world.Player.position.y;
-            
 
+            Model.Point newPosition = new Model.Point();
+
+            switch (k)
+            {
+                case Keys.Up:
+                    newPosition.x = this.world.Player.position.x;
+                    newPosition.y = this.world.Player.position.y - this.world.Player.speed.y;
+                    break;
+                case Keys.Down:
+                    newPosition.x = this.world.Player.position.x;
+                    newPosition.y = this.world.Player.position.y + this.world.Player.speed.y;
+                    break;
+                case Keys.Left:
+                    newPosition.x = this.world.Player.position.x - this.world.Player.speed.x;
+                    newPosition.y = this.world.Player.position.y;
+                    break;
+                case Keys.Right:
+                    newPosition.x = this.world.Player.position.x + this.world.Player.speed.x;
+                    newPosition.y = this.world.Player.position.y;
+                    break;
+            }
+
+            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.Player.getOnScreenWidth(this.Size), (int)this.world.Player.getOnScreenHeight(this.Size));
+
+            if (newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
+            {
+                return true;
+            }
 
             foreach (var item in this.world.FieldObjects)
             {
-                Rectangle randomObj = new Rectangle(item.x, item.y, item.width * 32, item.height * 32);
-                
-                switch (k)
-                {
-                    
-                    case Keys.Up:
-                        this.nextPlayerMove = new Rectangle(playerX, playerY - this.world.Player.speed.y, 32, 32);
-                        break;
-                    case Keys.Down:
-                        this.nextPlayerMove = new Rectangle(playerX, playerY + this.world.Player.speed.y, 32, 32);
-                        break;
-                    case Keys.Left:
-                        this.nextPlayerMove = new Rectangle(playerX - this.world.Player.speed.x, playerY, 32, 32);
-                        break;
-                    case Keys.Right:
-                        this.nextPlayerMove = new Rectangle(playerX + this.world.Player.speed.x, playerY, 32, 32);
-                        break;
-                }
+                Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
-                if (nextPlayerMove.IntersectsWith(randomObj))
+                if (newPlayerRectangle.IntersectsWith(randomObj))
                 {
                     return true;
                 }
-        }
+            }
+
             return false;
         }
 
@@ -133,6 +156,10 @@ namespace TheHunt
                 case Keys.Right:
                     this.beweegNaarRechts = true;
                     break;
+
+                case Keys.Escape:
+                    toggleMenu();
+                    break;
             }
             
         }
@@ -151,7 +178,7 @@ namespace TheHunt
                     break;
 
                     case Keys.Down:
-                        Player1.bitmap = Properties.Resources.brockSprite11;
+                        Player1.bitmap = Properties.Resources.brockSprite1;
                     break;
 
                     case Keys.Right:
@@ -183,7 +210,6 @@ namespace TheHunt
 
         void beweegSprites(object sender, EventArgs e)
         {
-            
             switch (this.lastPressedKey)
             {
                 case Keys.Left:
@@ -194,7 +220,7 @@ namespace TheHunt
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite1;
+                            Player1.bitmap = Properties.Resources.brockSprite11;
                             count = 2;
                             break;
                         case 2:
@@ -207,7 +233,7 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite11;
+                            Player1.bitmap = Properties.Resources.brockSprite1;
                             count = 1;
                             break;
                         case 1:
@@ -323,27 +349,24 @@ namespace TheHunt
             this.Invalidate();
         }
 
-        private void buttonQuitMenu_Click(object sender, EventArgs e)
+        private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 form1 = new Form1();
             form1.Show();
         }
 
-        private void buttonResume_Click(object sender, EventArgs e)
+        private void pictureBoxContinue_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            toggleMenu();
         }
 
-        private void buttonOptions_Click(object sender, EventArgs e)
+        private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonQuitDesktop_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
+            Application.Exit();
             Close();
         }
+
+
     }
 }

@@ -14,22 +14,22 @@ namespace TheHunt.Model
         public Player1 Player = new Player1();
     }
 
-    public struct Point
+   struct Point
     {
         public int x;
         public int y;
     }
 
-    public class Player1
+    class Player1 : ResizableObject
     {
         public string img;
         public Point position;
         public Point speed;
         public static Bitmap bitmap = Properties.Resources.brockSprite11;
 
-        public void draw(Graphics g)
+        public void draw(Graphics g,Size screenSize)
         {
-            g.DrawImage(bitmap, this.position.x, this.position.y, 32, 32);
+            g.DrawImage(bitmap, this.position.x, this.position.y, getOnScreenWidth(screenSize), getOnScreenHeight(screenSize));
         }
     }
 }
