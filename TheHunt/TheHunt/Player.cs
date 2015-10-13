@@ -384,6 +384,11 @@ namespace TheHunt
 
         }
 
+        private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
+        {
+            toggleMenu();
+        }
+
         private void buttonBackToMenu_Click(object sender, EventArgs e)
         {
             toggleOptions();
