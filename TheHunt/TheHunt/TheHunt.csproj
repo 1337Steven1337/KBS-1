@@ -71,6 +71,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
+    <Compile Include="Model\ResizeableObject.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Player.cs">
       <SubType>Form</SubType>
