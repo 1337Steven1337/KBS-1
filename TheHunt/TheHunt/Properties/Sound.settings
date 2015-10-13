@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TheHunt.Properties" GeneratedClassName="Sound">
+  <Profiles />
+  <Settings>
+    <Setting Name="music" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="effects" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="master" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
