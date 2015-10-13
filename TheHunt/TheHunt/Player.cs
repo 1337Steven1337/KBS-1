@@ -20,6 +20,7 @@ namespace TheHunt
         public Timer timer;
         public Timer spriteTimer;
         public int count;
+        public Form form1;
         public Boolean beweegNaarBoven = false;
         public Boolean beweegNaarLinks = false;
         public Boolean beweegNaarBeneden = false;
@@ -30,12 +31,14 @@ namespace TheHunt
         public Keys lastPressedKey;
 
 
-        public Player()
+        public Player(Form form1)
         {
             InitializeComponent();
-            
-            this.FormBorderStyle = FormBorderStyle.None;
-
+            this.Size = form1.Size;
+            this.form1 = form1;
+            this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
+            this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width /2, this.Size.Height /2 - this.panel1.Height / 2);
+            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height /2);
             if (Properties.Screen.Default.full)
             {
                 this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -55,34 +58,7 @@ namespace TheHunt
                 true);
         }
 
-        /*
-        Constants in Windows API
-        0x84 = WM_NCHITTEST - Mouse Capture Test
-        0x1 = HTCLIENT - Application Client Area
-        0x2 = HTCAPTION - Application Title Bar
-
-        This function intercepts all the commands sent to the application. 
-        It checks to see of the message is a mouse click in the application. 
-        It passes the action to the base action by default. It reassigns 
-        the action to the title bar if it occured in the client area
-        to allow the drag and move behavior.
-
-        Source: http://stackoverflow.com/questions/1241812/how-to-move-a-windows-form-when-its-formborderstyle-property-is-set-to-none
-        */
-
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
-            }
-
-            base.WndProc(ref m);
-        }
+ 
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -93,10 +69,10 @@ namespace TheHunt
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
                 FieldObject obj = this.world.FieldObjects[i];
-                obj.draw(g);
+                obj.draw(g,this.Size);
             }
 
-            this.world.Player.draw(g);
+            this.world.Player.draw(g,this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -137,16 +113,16 @@ namespace TheHunt
                     break;
             }
 
-            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, 32, 32);
+            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.Player.getOnScreenWidth(this.Size), (int)this.world.Player.getOnScreenHeight(this.Size));
 
-            if(newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
+            if (newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
             {
                 return true;
             }
 
             foreach (var item in this.world.FieldObjects)
             {
-                Rectangle randomObj = new Rectangle(item.x, item.y, item.width * 32, item.height * 32);
+                Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
                 if (newPlayerRectangle.IntersectsWith(randomObj))
                 {
@@ -234,7 +210,6 @@ namespace TheHunt
 
         void beweegSprites(object sender, EventArgs e)
         {
-            
             switch (this.lastPressedKey)
             {
                 case Keys.Left:
@@ -388,7 +363,7 @@ namespace TheHunt
 
         private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            Application.Exit();
             Close();
         }
 

@@ -179,7 +179,7 @@ namespace TheHunt
             this.panel1.Controls.Add(this.labelOptionsHeader);
             this.panel1.Controls.Add(this.trackBar1);
             this.panel1.Controls.Add(this.buttonFuSc);
-            this.panel1.Location = new System.Drawing.Point(1164, 332);
+            this.panel1.Location = new System.Drawing.Point(193, 52);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(973, 504);
@@ -264,7 +264,7 @@ namespace TheHunt
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Image = global::TheHunt.Properties.Resources.backBtn;
-            this.pictureBox7.Location = new System.Drawing.Point(-185, 372);
+            this.pictureBox7.Location = new System.Drawing.Point(303, 583);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(614, 150);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
