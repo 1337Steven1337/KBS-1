@@ -118,12 +118,26 @@ namespace TheHunt
                 klikMP.Play();  
         }
 
+        static int GCD(int a, int b)
+        {
+            int Remainder;
+
+            while (b != 0)
+            {
+                Remainder = a % b;
+                a = b;
+                b = Remainder;
+            }
+
+            return a;
+        }
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
             Player map = new Player(this);
             map.Show();
+            MessageBox.Show(string.Format("{0}:{1}", this.Width / GCD(this.Width, this.Height), this.Height / GCD(this.Width, this.Height)));
         }
 
 
@@ -293,23 +307,17 @@ namespace TheHunt
             float value = trackBar1.Value;
             bgm.Volume = value / 100;
             klikMP.Volume = value / 100;
-
-            Properties.Sound.Default.music = value / 100;
-            Properties.Sound.Default.effects = value / 100;
-            Properties.Sound.Default.Save();
         }
 
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             float value = trackBar2.Value;
-            if (value < trackBar1.Value)
+            if (value > trackBar1.Value)
             {
                 value = trackBar1.Value;
             }
-
-            Properties.Sound.Default.music = value / 100;
-            Properties.Sound.Default.Save();
+            bgm.Volume = value / 100;
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
@@ -320,9 +328,6 @@ namespace TheHunt
                 value = trackBar1.Value;
             }
             klikMP.Volume = value / 100;
-
-            Properties.Sound.Default.effects = value / 100;
-            Properties.Sound.Default.Save();
         }
     }
 }
