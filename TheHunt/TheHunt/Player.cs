@@ -367,6 +367,75 @@ namespace TheHunt
             Close();
         }
 
+        private Boolean optionsEnabled = false;
+        private Boolean menuEnabled = false;
 
+        private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
+        {
+            toggleMenu();
+        }
+
+        private void buttonFullScreen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBackToMenu_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void pictureBoxOptions_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void toggleMenu()
+        {
+            if (!menuEnabled)
+            {
+                if (!optionsEnabled)
+                {
+                    panel1.Visible = true;
+                    menuEnabled = true;
+                }
+            }
+            else
+            {
+                Clear();
+                panel1.Visible = false;
+                menuEnabled = false;
+            }
+        }
+
+        private void toggleOptions()
+        {
+
+            if (!optionsEnabled)
+            {
+                panelOptions.Visible = true;
+                optionsEnabled = true;
+            }
+            else
+            {
+                panelOptions.Visible = false;
+                optionsEnabled = false;
+            }
+            toggleMenu();
+        }
+
+        private void Clear()
+        {
+            panelOptions.Controls.Remove(buttonFullScreen);
+            panelOptions.Controls.Remove(buttonBackToMenu);
+            panelOptions.Controls.Remove(trackBarMasterVolume);
+            panelOptions.Controls.Remove(trackBarMusicVolume);
+            panelOptions.Controls.Remove(trackBarSoundEffects);
+            panelOptions.Controls.Add(buttonFullScreen);
+            panelOptions.Controls.Add(buttonBackToMenu);
+            panelOptions.Controls.Add(trackBarMasterVolume);
+            panelOptions.Controls.Add(trackBarMusicVolume);
+            panelOptions.Controls.Add(trackBarSoundEffects);
+        }
     }
 }
