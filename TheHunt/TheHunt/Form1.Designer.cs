@@ -6,6 +6,8 @@ namespace TheHunt
 {
     partial class Form1
     {
+        
+        
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -38,7 +40,6 @@ namespace TheHunt
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.buttonFuSc = new System.Windows.Forms.Button();
-            this.buttonContr = new System.Windows.Forms.Button();
             this.labelOptionsHeader = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,6 +49,7 @@ namespace TheHunt
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -58,11 +60,12 @@ namespace TheHunt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::TheHunt.Properties.Resources.playBtn;
             this.pictureBox1.Location = new System.Drawing.Point(448, 52);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -75,6 +78,7 @@ namespace TheHunt
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::TheHunt.Properties.Resources.crlvBtn;
             this.pictureBox2.Location = new System.Drawing.Point(448, 212);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -87,6 +91,7 @@ namespace TheHunt
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::TheHunt.Properties.Resources.highscores;
             this.pictureBox3.Location = new System.Drawing.Point(448, 370);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -99,6 +104,7 @@ namespace TheHunt
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::TheHunt.Properties.Resources.optionsBtn;
             this.pictureBox4.Location = new System.Drawing.Point(448, 532);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -111,6 +117,7 @@ namespace TheHunt
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = global::TheHunt.Properties.Resources.exitBtn;
             this.pictureBox5.Location = new System.Drawing.Point(448, 690);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -133,19 +140,6 @@ namespace TheHunt
             this.buttonFuSc.UseVisualStyleBackColor = true;
             this.buttonFuSc.Visible = false;
             this.buttonFuSc.Click += new System.EventHandler(this.buttonFuSc_Click);
-            // 
-            // buttonContr
-            // 
-            this.buttonContr.AutoSize = true;
-            this.buttonContr.Location = new System.Drawing.Point(297, 412);
-            this.buttonContr.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonContr.Name = "buttonContr";
-            this.buttonContr.Size = new System.Drawing.Size(169, 50);
-            this.buttonContr.TabIndex = 14;
-            this.buttonContr.Text = "Controls";
-            this.buttonContr.UseVisualStyleBackColor = true;
-            this.buttonContr.Visible = false;
-            this.buttonContr.Click += new System.EventHandler(this.buttonContr_Click);
             // 
             // labelOptionsHeader
             // 
@@ -184,9 +178,8 @@ namespace TheHunt
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.labelOptionsHeader);
             this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Controls.Add(this.buttonContr);
             this.panel1.Controls.Add(this.buttonFuSc);
-            this.panel1.Location = new System.Drawing.Point(253, 155);
+            this.panel1.Location = new System.Drawing.Point(193, 52);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(973, 504);
@@ -202,6 +195,7 @@ namespace TheHunt
             this.pictureBox6.Size = new System.Drawing.Size(341, 354);
             this.pictureBox6.TabIndex = 24;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Visible = false;
             // 
             // trackBar3
             // 
@@ -266,6 +260,18 @@ namespace TheHunt
             this.label1.TabIndex = 19;
             this.label1.Text = "Master Volume:";
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Image = global::TheHunt.Properties.Resources.backBtn;
+            this.pictureBox7.Location = new System.Drawing.Point(303, 583);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(614, 150);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox7.TabIndex = 25;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -274,6 +280,7 @@ namespace TheHunt
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -299,6 +306,7 @@ namespace TheHunt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -307,7 +315,6 @@ namespace TheHunt
         {
             labelOptionsHeader.Visible = true;
             buttonFuSc.Visible = true;
-            buttonContr.Visible = true;
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
@@ -337,21 +344,6 @@ namespace TheHunt
             
         }
 
-        private void buttonFuSc_Click(object sender, EventArgs e)
-        {
-            if (buttonFuSc.Text == "Full Screen: On")
-            {
-                GoFullscreen(false);
-                buttonFuSc.Text = "Full Screen: Off";
-            }
-            else if (buttonFuSc.Text == "Full Screen: Off")
-            {
-                GoFullscreen(true);
-                buttonFuSc.Text = "Full Screen: On";
-            }
-        }
-
-
 
 
 
@@ -370,7 +362,6 @@ namespace TheHunt
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button buttonFuSc;
-        private System.Windows.Forms.Button buttonContr;
         private System.Windows.Forms.Label labelOptionsHeader;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Panel panel1;
@@ -380,6 +371,7 @@ namespace TheHunt
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private PictureBox pictureBox6;
+        private PictureBox pictureBox7;
     }
 }
 

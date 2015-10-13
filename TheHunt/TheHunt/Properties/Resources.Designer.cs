@@ -102,9 +102,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BrockSprite1 {
+        internal static System.Drawing.Bitmap brockSprite1 {
             get {
-                object obj = ResourceManager.GetObject("BrockSprite1", resourceCulture);
+                object obj = ResourceManager.GetObject("brockSprite1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,16 +125,6 @@ namespace TheHunt.Properties {
         internal static System.Drawing.Bitmap brockSprite11 {
             get {
                 object obj = ResourceManager.GetObject("brockSprite11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap brockSprite111 {
-            get {
-                object obj = ResourceManager.GetObject("brockSprite111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -232,6 +222,16 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Continuebutton {
+            get {
+                object obj = ResourceManager.GetObject("Continuebutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap crlvBtn {
             get {
                 object obj = ResourceManager.GetObject("crlvBtn", resourceCulture);
@@ -255,6 +255,26 @@ namespace TheHunt.Properties {
         internal static System.Drawing.Bitmap exitBtn {
             get {
                 object obj = ResourceManager.GetObject("exitBtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExitToDesktopButton {
+            get {
+                object obj = ResourceManager.GetObject("ExitToDesktopButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExitToMenuButton {
+            get {
+                object obj = ResourceManager.GetObject("ExitToMenuButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -294,6 +314,16 @@ namespace TheHunt.Properties {
         internal static System.Drawing.Bitmap Maak_Level {
             get {
                 object obj = ResourceManager.GetObject("Maak_Level", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap options {
+            get {
+                object obj = ResourceManager.GetObject("options", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

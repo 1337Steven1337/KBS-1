@@ -16,8 +16,7 @@ namespace TheHunt
         {             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Charactertestform());
-            //bende
+            Application.Run(new Form1());
         }
     }
 }

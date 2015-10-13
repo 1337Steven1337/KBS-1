@@ -28,7 +28,7 @@ namespace TheHunt
         System.Timers.Timer timer2 = new System.Timers.Timer(100);
 
 
-        public event EventHandler<EventArgs> Timered;
+       // public event EventHandler<EventArgs> Timered;
 
         private Direction richting;
         private GameEngine g = new GameEngine();
