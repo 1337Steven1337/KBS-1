@@ -16,6 +16,7 @@ using System.Windows.Input;
 
 namespace TheHunt
 {
+    //hier wordt de enumerator van direction aangemmaakt
     public enum Direction
     {
         up, 
