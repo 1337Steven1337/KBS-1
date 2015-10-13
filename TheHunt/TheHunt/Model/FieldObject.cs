@@ -34,11 +34,8 @@ namespace TheHunt.Model
             {
                     for (int y = 0; y < this.height; y++)
                 {
-                    //float screenWidth = getOnScreenHeight(screenSize);
-                    //float screenHeight = getOnScreenHeight(screenSize);
-                    double getScreenRatio = screenSize.Width / screenSize.Height;
-                    float screenWidth = screenSize.Width / 50;
-                    float screenHeight = (float)(screenWidth * getScreenRatio);
+                    float screenWidth = getOnScreenHeight(screenSize);
+                    float screenHeight = getOnScreenHeight(screenSize);
 
                     g.DrawImage(getImage(), this.x + (screenWidth * x), this.y + (screenHeight * y), screenWidth, screenHeight);
                 }
