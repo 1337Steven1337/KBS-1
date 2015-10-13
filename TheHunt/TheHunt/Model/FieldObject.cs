@@ -9,8 +9,8 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class FieldObject
-    {        
+    class FieldObject : ResizableObject
+    {
         private Image image = null;
 
         public enum Type
@@ -24,62 +24,30 @@ namespace TheHunt.Model
         public int y = 0;
         public int height = 0;
         public int width = 0;
-        public static bool rightCollision, leftCollision, upCollision, downCollision;
 
-        public Type type = Type.Wall;
-
-        public FieldObject(int x, int y, Type type)
+        public Type type = Type.Wall; 
+ 
+       public void draw(Graphics g, Size screenSize)
         {
-            this.x = x;
-            this.y = y;
-            this.type = type;
-        }
-
-        public int screenWidth()
-        {
-            return Screen.PrimaryScreen.Bounds.Width;
-        }
-
-
-        public void draw(Graphics g)
-        {
-            for (int x = 0; x < this.getImageSizeWidth(); x += 32)
+                 for (int x = 0; x < this.width; x++)
             {
-                for (int y = 0; y < this.getImageSizeHeight(); y+=32)
+                    for (int y = 0; y < this.height; y++)
                 {
-                    g.DrawImage(getImage(), this.x + x, this.y + y, 32, 32);
+                    float screenWidth = getOnScreenHeight(screenSize);
+                    float screenHeight = getOnScreenHeight(screenSize);
+                    g.DrawImage(getImage(), this.x + (screenWidth * x), this.y + (screenHeight * y), screenWidth, screenHeight);
                 }
             }
         }
-
-        public bool collision(int x, int y, int width, int height)
+ 
+        public float getPixelWidth(Size screenSize)
         {
-            if(x >= this.x && x <= this.x + this.getImageSizeWidth())
-            {
-                return rightCollision = true;
-            }
-            else if (x + width >= this.x && x + width <= this.x)
-            {
-                return leftCollision = true;
-            }
-            else if (y >= this.y && y <= this.y + this.getImageSizeHeight())
-            {
-                return upCollision = true;
-            }
-            else if (y + height >= this.y && y + height <= this.y)
-            {
-                return downCollision = true;
-            }
-            return (x >= this.x && x <= this.x + this.getImageSizeWidth()) || (x + width >= this.x && x + width <= this.x) ;
+                      return this.width * this.getOnScreenHeight(screenSize);
         }
 
-        private int getImageSizeWidth() 
+        public float getPixelHeight(Size screenSize)
         {
-            return this.width * 32;
-        }
-        private int getImageSizeHeight()
-        {
-            return this.height * 32;
+                        return this.height * this.getOnScreenWidth(screenSize);
         }
 
         private Image getImage()
