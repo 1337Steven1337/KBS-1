@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Controller
 {
-    class Move
+    public class Move
     {
         //character needs to be fieldobject
         public void Moven(KeyEventArgs k, Character c)

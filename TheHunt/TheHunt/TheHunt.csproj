@@ -55,6 +55,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buttons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buttons.Designer.cs">
+      <DependentUpon>Buttons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Charactertestform.cs">
       <SubType>Form</SubType>
     </Compile>
