@@ -28,7 +28,7 @@ namespace TheHunt
         public Boolean beweegNaarRechts = false;
 
         public int screenWidth, screenHeight;
-
+        
         public Keys lastPressedKey;
 
 
@@ -51,7 +51,7 @@ namespace TheHunt
             spriteTimer.Interval = 100;
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
-
+ 
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint |
@@ -81,7 +81,7 @@ namespace TheHunt
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
                 this.Invalidate();
             }
-            timer.Start();
+            timer.Start();            
         }
 
         //controle of het character er mag/kan lopen
@@ -137,7 +137,7 @@ namespace TheHunt
         {
             this.lastPressedKey = k.KeyCode;
             spriteTimer.Start();
-
+            
             //ook wordt er gezegt welke richting je oploopt
             switch (k.KeyCode)
             {
@@ -166,31 +166,31 @@ namespace TheHunt
                     toggleMenu();
                     break;
             }
-
+            
         }
         // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
         {
-
+            
             switch (lastPressedKey)
-            {
-                case Keys.Up:
-                    Player1.bitmap = Properties.Resources.brockSprite4;
+                {
+                    case Keys.Up:
+                        Player1.bitmap = Properties.Resources.brockSprite4;
+                        break;
+
+                    case Keys.Left:
+                        Player1.bitmap = Properties.Resources.brockSprite10;
                     break;
 
-                case Keys.Left:
-                    Player1.bitmap = Properties.Resources.brockSprite10;
+                    case Keys.Down:
+                        Player1.bitmap = Properties.Resources.brockSprite1;
                     break;
 
-                case Keys.Down:
-                    Player1.bitmap = Properties.Resources.brockSprite1;
-                    break;
-
-                case Keys.Right:
-                    Player1.bitmap = Properties.Resources.brockSprite7;
+                    case Keys.Right:
+                        Player1.bitmap = Properties.Resources.brockSprite7;
                     break;
             }
-
+         
             //bij het loslaten wordt de beweging gestopt in bijbehorende rinchting
             switch (k.KeyCode)
             {
@@ -294,7 +294,7 @@ namespace TheHunt
                     spriteTimer.Stop();
                     break;
             }
-
+            
         }
         //controle of er een toets is ingedrukt
         public bool IsAnyKeyDown()
@@ -326,7 +326,7 @@ namespace TheHunt
             {
                 if (!checkIntersect(Keys.Up))
                 {
-                    world.Player.position.y -= world.Player.speed.y;
+                world.Player.position.y -= world.Player.speed.y;
                 }
 
             }
@@ -335,26 +335,26 @@ namespace TheHunt
             {
                 if (!checkIntersect(Keys.Left))
                 {
-                    world.Player.position.x -= world.Player.speed.x;
-                }
+                world.Player.position.x -= world.Player.speed.x;
+            }
             }
 
             if (this.beweegNaarBeneden)
             {
                 if (!checkIntersect(Keys.Down))
                 {
-                    world.Player.position.y += world.Player.speed.y;
-                }
+                world.Player.position.y += world.Player.speed.y;
+            }
             }
 
             if (this.beweegNaarRechts)
             {
                 if (!checkIntersect(Keys.Right))
                 {
-                    world.Player.position.x += world.Player.speed.x;
-                }
+                world.Player.position.x += world.Player.speed.x;
             }
-
+            }
+            
             this.Invalidate();
         }
         //hier keer je terug naar het hoofdmenu
@@ -374,6 +374,72 @@ namespace TheHunt
         {
             Application.Exit();
             Close();
+        }
+
+        private Boolean optionsEnabled = false;
+        private Boolean menuEnabled = false;
+
+        private void buttonFullScreen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBackToMenu_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void pictureBoxOptions_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void toggleMenu()
+        {
+            if (!menuEnabled)
+            {
+                if (!optionsEnabled)
+                {
+                    panel1.Visible = true;
+                    menuEnabled = true;
+                }
+            }
+            else
+            {
+                Clear();
+                panel1.Visible = false;
+                menuEnabled = false;
+            }
+        }
+
+        private void toggleOptions()
+        {
+
+            if (!optionsEnabled)
+            {
+                panelOptions.Visible = true;
+                optionsEnabled = true;
+            }
+            else
+            {
+                panelOptions.Visible = false;
+                optionsEnabled = false;
+            }
+            toggleMenu();
+        }
+
+        private void Clear()
+        {
+            panelOptions.Controls.Remove(buttonFullScreen);
+            panelOptions.Controls.Remove(buttonBackToMenu);
+            panelOptions.Controls.Remove(trackBarMasterVolume);
+            panelOptions.Controls.Remove(trackBarMusicVolume);
+            panelOptions.Controls.Remove(trackBarSoundEffects);
+            panelOptions.Controls.Add(buttonFullScreen);
+            panelOptions.Controls.Add(buttonBackToMenu);
+            panelOptions.Controls.Add(trackBarMasterVolume);
+            panelOptions.Controls.Add(trackBarMusicVolume);
+            panelOptions.Controls.Add(trackBarSoundEffects);
         }
     }
 }
