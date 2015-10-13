@@ -69,12 +69,11 @@
     </Compile>
     <Compile Include="Controller\GameEngine.cs" />
     <Compile Include="Controller\Move.cs" />
-    <Compile Include="Controller\Settings.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_startscreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_startscreen.Designer.cs">
+      <DependentUpon>Form_startscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
@@ -100,8 +99,8 @@
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Form_startscreen.resx">
+      <DependentUpon>Form_startscreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player.resx">
       <DependentUpon>Player.cs</DependentUpon>

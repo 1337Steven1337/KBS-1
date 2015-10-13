@@ -361,7 +361,7 @@ namespace TheHunt
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form1 = new Form1();
+            Form_startscreen form1 = new Form_startscreen();
             form1.Show();
         }
         //hier keer je terug naar het spel
