@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace TheHunt.Model
 {
     class FieldObject : ResizableObject
-    {        
+    {
         private Image image = null;
 
         public enum Type
@@ -25,42 +25,29 @@ namespace TheHunt.Model
         public int height = 0;
         public int width = 0;
 
-        public Type type = Type.Wall;
-
-        public FieldObject(int x, int y, Type type)
+        public Type type = Type.Wall; 
+ 
+       public void draw(Graphics g, Size screenSize)
         {
-            this.x = x;
-            this.y = y;
-            this.type = type;
-        }
-
-        public int screenWidth()
-        {
-            return Screen.PrimaryScreen.Bounds.Width;
-        }
-
-
-        public void draw(Graphics g, Size screenSize)
-        {
-            for (int x = 0; x < this.width; x++)
+                 for (int x = 0; x < this.width; x++)
             {
-                for (int y = 0; y < this.height; y++)
+                    for (int y = 0; y < this.height; y++)
                 {
-                    float screenWidth = getOnScreenWidth(screenSize);
+                    float screenWidth = getOnScreenHeight(screenSize);
                     float screenHeight = getOnScreenHeight(screenSize);
-
                     g.DrawImage(getImage(), this.x + (screenWidth * x), this.y + (screenHeight * y), screenWidth, screenHeight);
                 }
             }
         }
-
-        public float getPixelWidth(Size screenSize) 
+ 
+        public float getPixelWidth(Size screenSize)
         {
-            return this.width * this.getOnScreenHeight(screenSize);
+                      return this.width * this.getOnScreenHeight(screenSize);
         }
+
         public float getPixelHeight(Size screenSize)
         {
-            return this.height * this.getOnScreenWidth(screenSize);
+                        return this.height * this.getOnScreenWidth(screenSize);
         }
 
         private Image getImage()

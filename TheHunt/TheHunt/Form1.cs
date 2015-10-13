@@ -17,8 +17,6 @@ namespace TheHunt
 {
     public partial class Form1 : Form
     {
-        private Player player = null;
-        public static Boolean isMuted = false;
         public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
         MediaPlayer klikMP = new MediaPlayer();
@@ -98,15 +96,15 @@ namespace TheHunt
         public void speelKlikGeluid(object sender, EventArgs e)
         {
                 klikMP.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"));
-                klikMP.Play();
-            }
+                klikMP.Play();  
+        }
 
 
         private void btn_PlayGame(object sender, EventArgs e)
         {
-            Player player = new Player();
-            player.Show();
             this.Hide();
+            Player map = new Player(this);
+            map.Show();
         }
 
 
@@ -126,6 +124,8 @@ namespace TheHunt
         private void buttonFuSc_Click(object sender, EventArgs e)
         {
             Properties.Screen.Default.full = !Properties.Screen.Default.full;
+
+            Console.WriteLine(Properties.Screen.Default.full);
             Properties.Screen.Default.Save();
         }
 
