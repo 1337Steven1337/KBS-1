@@ -44,13 +44,32 @@ namespace TheHunt
             this.pictureBox4.Location = new Point((this.Size.Width / 2 - pictureBox4.Width / 2), (this.Size.Height / 2 - pictureBox4.Height / 2) + 1 * pictureBox4.Height + (15));
             this.pictureBox5.Location = new Point((this.Size.Width / 2 - pictureBox5.Width / 2), (this.Size.Height / 2 - pictureBox5.Height / 2) + 2 * pictureBox5.Height + (30));
 
-            Properties.Screen.Default.PropertyChanged += Default_PropertyChanged;
+            Properties.Screen.Default.PropertyChanged += ScreenPropertyChanged;
+            Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
 
             ResizeScreen();
+            //SoundBars();
             GaTerugnaarMenu(this, null);
         }
 
-        private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void SoundPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "music")
+            {
+                bgm.Volume = Properties.Sound.Default.music;
+            }
+            else if(e.PropertyName == "effects")
+            {
+                klikMP.Volume = Properties.Sound.Default.effects;
+            }
+        }
+
+        //private void SoundBars()
+        //{
+        //    trackBar2.Value = Properties.Sound.Default.music;
+        //}
+
+        private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            
             if(e.PropertyName == "full")
             {
@@ -274,17 +293,23 @@ namespace TheHunt
             float value = trackBar1.Value;
             bgm.Volume = value / 100;
             klikMP.Volume = value / 100;
+
+            Properties.Sound.Default.music = value / 100;
+            Properties.Sound.Default.effects = value / 100;
+            Properties.Sound.Default.Save();
         }
 
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             float value = trackBar2.Value;
-            if (value > trackBar1.Value)
+            if (value < trackBar1.Value)
             {
                 value = trackBar1.Value;
             }
-            bgm.Volume = value / 100;
+
+            Properties.Sound.Default.music = value / 100;
+            Properties.Sound.Default.Save();
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
@@ -295,6 +320,9 @@ namespace TheHunt
                 value = trackBar1.Value;
             }
             klikMP.Volume = value / 100;
+
+            Properties.Sound.Default.effects = value / 100;
+            Properties.Sound.Default.Save();
         }
     }
 }
