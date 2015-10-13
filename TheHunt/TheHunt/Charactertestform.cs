@@ -35,7 +35,6 @@ namespace TheHunt
         private Move m = new Move();
         private Character c1 = new Character(30, 30, 10, 10);
 
-
         public Charactertestform()
         {
 
