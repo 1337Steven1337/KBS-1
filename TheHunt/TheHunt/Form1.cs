@@ -283,6 +283,8 @@ namespace TheHunt
             panel1.BackColor = System.Drawing.Color.FromArgb(95, System.Drawing.Color.Black);
         }
 
+        //geluid
+
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             float percentage = trackBar1.Value;
