@@ -370,8 +370,7 @@ namespace TheHunt
             {
                 WelkeKeyIsDown();
             }
-
-            label1.Text = "" + lastPressedKey; 
+            
 
 
             if (isRunning)
