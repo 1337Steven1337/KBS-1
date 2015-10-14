@@ -23,6 +23,9 @@ namespace TheHunt.Controller
             player_background.MediaEnded += LoopBackgroundMusic;
             player_background.MediaOpened += LoopBackgroundMusic;
 
+            this.setBackgroundVolume();
+            this.setEffectVolume();
+
             player_background.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/bgm.wav"));
             player_click.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"));
         }
@@ -62,6 +65,7 @@ namespace TheHunt.Controller
         public void click()
         {
             player_click.Play();
+            player_click.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"));
         }
 
         public static Sound Instance

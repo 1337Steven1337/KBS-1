@@ -19,8 +19,6 @@ namespace TheHunt
     public partial class form_startscreen : Form
     {
         public static Size startRes = new Size();
-        MediaPlayer bgm = new MediaPlayer();
-        MediaPlayer klikMP = new MediaPlayer();
         private Sound sound = null;
 
         public form_startscreen()
@@ -30,9 +28,6 @@ namespace TheHunt
             startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);
             startRes.Height = (int)(Screen.PrimaryScreen.WorkingArea.Height * 0.8);
             this.ClientSize = new Size(startRes.Width, startRes.Height);
-            bgm.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/bgm.wav"));
-            bgm.MediaEnded += new EventHandler(bgmAfgelopen);
-            bgm.Play();
 
             PlayBtn.BackColor = System.Drawing.Color.Transparent;
             CreateLvlBtn.BackColor = System.Drawing.Color.Transparent;
@@ -48,38 +43,25 @@ namespace TheHunt
             this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + (30));
 
             Properties.Screen.Default.PropertyChanged += ScreenPropertyChanged;
-            Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
 
             ResizeScreen();
             //SoundBars();
             GaTerugnaarMenu(this, null);
         }
 
-        private void SoundPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {            
-            if(e.PropertyName == "music")
-            {
-                bgm.Volume = Properties.Sound.Default.music;
-            }
-            else if(e.PropertyName == "effects")
-            {
-                klikMP.Volume = Properties.Sound.Default.effects;
-            }
-        }
-
-
         private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            
             if(e.PropertyName == "full")
             {
                 ResizeScreen();
-                initOptionsPanel();
+                //initOptionsPanel();
+                Validate();
             }
         }
 
         private void ResizeScreen()
         {
-
+             
             if (Properties.Screen.Default.full)
             {
                 //Fullscreen activeren
@@ -134,13 +116,6 @@ namespace TheHunt
         {
 
         }
-
-        private void bgmAfgelopen(object sender, EventArgs e)
-        {
-            bgm.Position = TimeSpan.Zero;
-            bgm.Play();
-        }
-
 
 
         private void buttonFuSc_Click(object sender, EventArgs e)
@@ -256,8 +231,56 @@ namespace TheHunt
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            initOptionsPanel();
+            //initOptionsPanel();
+            this.speelKlikGeluid(sender, e);
+            this.Options();
+            
 
+        }
+
+        private void Options()
+        {
+            OptionsDialog Options = new OptionsDialog(false);
+            Options.ShowDialog();
+            if (Options.getChangeFullScreen())
+            {
+                GaTerugnaarMenu();
+
+                if (Options.getClosed())
+                {
+                    Options.Close();
+                    Options = null;
+                }
+
+            }
+            else if (Options.getClosed())
+            {
+                Options.Close();
+                Options = null; 
+            }
+        }
+
+        private void GaTerugnaarMenu()
+        {
+            buttonFuSc.Visible = false;
+            labelOptionsHeader.Visible = false;
+            uitlegPictureBox.Visible = false;
+            backBtn.Visible = false;
+            optionPanel.Visible = false;
+
+
+            this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
+            this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
+            this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
+            this.optionBtn.Location = new Point((this.Size.Width / 2 - optionBtn.Width / 2), (this.Size.Height / 2 - optionBtn.Height / 2) + 1 * optionBtn.Height + 15);
+            this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + 30);
+
+
+            PlayBtn.Visible = true;
+            CreateLvlBtn.Visible = true;
+            HighscoreBtn.Visible = true;
+            optionBtn.Visible = true;
+            exitBtn.Visible = true;
         }
 
         public void GaTerugnaarMenu(object sender, EventArgs e)
@@ -289,23 +312,23 @@ namespace TheHunt
             optionPanel.BackColor = System.Drawing.Color.FromArgb(95, System.Drawing.Color.Black);
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            Properties.Sound.Default.master = MasterTrackBar.Value;
-            Properties.Sound.Default.Save();
-        }
+        //private void trackBar1_Scroll(object sender, EventArgs e)
+        //{
+        //    Properties.Sound.Default.master = MasterTrackBar.Value;
+        //    Properties.Sound.Default.Save();
+        //}
 
 
-        private void trackBar2_Scroll(object sender, EventArgs e)
-        {
-            Properties.Sound.Default.music = MusicTrackBar.Value;
-            Properties.Sound.Default.Save();
-        }
+        //private void trackBar2_Scroll(object sender, EventArgs e)
+        //{
+        //    Properties.Sound.Default.music = MusicTrackBar.Value;
+        //    Properties.Sound.Default.Save();
+        //}
 
-        private void trackBar3_Scroll(object sender, EventArgs e)
-        {
-            Properties.Sound.Default.effects = EffectsTrackbar.Value;
-            Properties.Sound.Default.Save();
-        }
+        //private void trackBar3_Scroll(object sender, EventArgs e)
+        //{
+        //    Properties.Sound.Default.effects = EffectsTrackbar.Value;
+        //    Properties.Sound.Default.Save();
+        //}
     }
 }
