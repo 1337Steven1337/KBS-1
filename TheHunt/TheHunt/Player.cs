@@ -30,7 +30,7 @@ namespace TheHunt
         
         //dasd
         public int screenWidth, screenHeight;
-
+        private Buttons gamepad = null;
         public Keys lastPressedKey;
         public Keys ingedrukteKey;
 
@@ -39,6 +39,15 @@ namespace TheHunt
             InitializeComponent();
             this.Size = form1.Size;
             this.form1 = form1;
+            this.gamepad = new Buttons(this);
+            Control up = gamepad.AddButton(Direction.up, Width, Height);
+            Control left = gamepad.AddButton(Direction.left, Width, Height);
+            Control down = gamepad.AddButton(Direction.down, Width, Height);
+            Control right = gamepad.AddButton(Direction.right, Width, Height);
+            Controls.Add(up);
+            Controls.Add(left);
+            Controls.Add(down);
+            Controls.Add(right);
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
             this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
             this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height / 2);
@@ -134,47 +143,63 @@ namespace TheHunt
 
             return false;
         }
+        public void switchStatements(Keys keycode)
+        {
+            this.lastPressedKey = keycode;
+            spriteTimer.Start();
+
+            switch (keycode)
+            {
+                //naar boven
+                case Keys.F21:
+                    this.beweegNaarBoven = false;
+                    break;
+
+                case Keys.F22:
+                    this.beweegNaarBeneden = false;
+                    break;
+
+                case Keys.F23:
+                    this.beweegNaarLinks = false;
+                    break;
+
+                case Keys.F24:
+                    this.beweegNaarRechts = false;
+                    break;
+
+                case Keys.Up:
+                    this.beweegNaarBoven = true;
+                    break;
+
+                //naar links
+                case Keys.Left:
+                    this.beweegNaarLinks = true;
+                    break;
+
+                //naar beneden
+                case Keys.Down:
+                    this.beweegNaarBeneden = true;
+                    break;
+
+                //naar rechts
+                case Keys.Right:
+                    this.beweegNaarRechts = true;
+                    break;
+
+                case Keys.ShiftKey:
+                    isRunning = true;
+                    break;
+
+                //openen menu
+                case Keys.Escape:
+                    toggleMenu();
+                    break;
+            } 
+        } 
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode != Keys.ShiftKey)
-            {
-                this.lastPressedKey = k.KeyCode;
-            }
-            
-
-            spriteTimer.Start();
-
-            if (k.KeyCode == Keys.ShiftKey)
-            {
-                isRunning = true;
-            }
-
-            if (k.KeyCode == Keys.Up)
-            {
-                this.beweegNaarBoven = true;
-            }
-
-            if (k.KeyCode == Keys.Left)
-            {
-                this.beweegNaarLinks = true;
-            }
-
-            if (k.KeyCode == Keys.Down)
-            {
-                this.beweegNaarBeneden = true;
-            }
-
-            if (k.KeyCode == Keys.Right)
-            {
-                this.beweegNaarRechts = true;
-            }
-
-            if (k.KeyCode == Keys.Escape)
-            {
-                toggleMenu();
-            }
-
+            this.switchStatements(k.KeyCode);
 
         }
         // bij het loslaten van de toets 
@@ -353,7 +378,7 @@ namespace TheHunt
         //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
         {
-            if (!IsAnyKeyDown())
+            if (!IsAnyKeyDown() && !gamepad.isPressed)
             {
                 lastPressedKey = Keys.None;
             }
@@ -361,12 +386,7 @@ namespace TheHunt
             {
                 WelkeKeyIsDown();
             }
-
-            if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
-            {
-                spriteTimer.Stop();
-            }
-
+             
 
             if (isRunning)
             {
@@ -378,57 +398,46 @@ namespace TheHunt
                 spriteTimer.Interval = 100;
                 this.world.Player.speed = this.world.Player.movement.walk;
             }
-
-            switch (lastPressedKey)
+             
+            if (this.beweegNaarBoven)
             {
-                case Keys.Up:
-                    if (beweegNaarBoven)
-                    {
-
-                        if (!checkIntersect(Keys.Up))
-                        {
-                            world.Player.position.y -= world.Player.speed.y;
-                        }
-                    }
-
-                    break;
-                case Keys.Left:
-                    if (beweegNaarLinks)
-                    {
-                        if (!checkIntersect(Keys.Left))
-                        {
-                            world.Player.position.x -= world.Player.speed.x;
-                        }
-                    }
-                    break;
-                case Keys.Down:
-                    if (beweegNaarBeneden)
-                    {
-                        if (!checkIntersect(Keys.Down))
-                        {
-                            world.Player.position.y += world.Player.speed.y;
-                        }
-                    }
-                    break;
-                case Keys.Right:
-                    if (beweegNaarRechts)
-                    {
-                        if (!checkIntersect(Keys.Right))
-                        {
-                            world.Player.position.x += world.Player.speed.x;
-                        }
-                    }
-                    break;
-
-                case Keys.None:
-                    spriteTimer.Stop();
-                    break;
+                if (!checkIntersect(Keys.Up))
+                {
+                    world.Player.position.y -= world.Player.speed.y;
+                }
 
             }
 
 
+           else  if (this.beweegNaarLinks)
+            {
+                if (!checkIntersect(Keys.Left))
+                {
+                    world.Player.position.x -= world.Player.speed.x;
+                }
+            }
+
+           else if (this.beweegNaarBeneden)
+            {
+                if (!checkIntersect(Keys.Down))
+                {
+                    world.Player.position.y += world.Player.speed.y;
+                }
+            }
+
+           else if (this.beweegNaarRechts)
+            {
+                if (!checkIntersect(Keys.Right))
+                {
+                    world.Player.position.x += world.Player.speed.x;
+                }
+            }
+            gamepad.isPressed = false;
             this.Invalidate();
         }
+
+
+
         //hier keer je terug naar het hoofdmenu
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
