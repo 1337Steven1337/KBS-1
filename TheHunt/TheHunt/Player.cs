@@ -21,6 +21,8 @@ namespace TheHunt
         public Timer timer;
         public Timer spriteTimer;
         public int count;
+        public int playerX;
+        public int playerY;
         public Form form1;
         public Boolean beweegNaarBoven = false;
         public Boolean beweegNaarLinks = false;
@@ -101,8 +103,8 @@ namespace TheHunt
         private bool checkIntersect(Keys k)
         {
 
-            int playerX = this.world.Player.position.x;
-            int playerY = this.world.Player.position.y;
+            playerX = this.world.Player.position.x;
+            playerY = this.world.Player.position.y;
 
             Model.Point newPosition = new Model.Point();
 
