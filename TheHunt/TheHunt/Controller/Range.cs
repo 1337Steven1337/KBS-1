@@ -14,8 +14,8 @@ namespace TheHunt.Controller
             bool inrange = false;
             int PythagorasX;
             int Pythagorasy;
-            //int px = player.Width / 2 + player.playerX;
-            //int py = player.Height / 2 + player.playerY;
+            int px = player.Width / 2 + player.playerX;
+            int py = player.Height / 2 + player.playerY;
             int ex = x; //moet nog worden verandert als de xlocatie van enemy bekend is
             int ey = y; //moet nog worden verandert als de ylocatie van enemy bekend is
 
