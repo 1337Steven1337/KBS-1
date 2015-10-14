@@ -258,6 +258,7 @@ namespace TheHunt
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             //initOptionsPanel();
+            this.speelKlikGeluid(sender, e);
             this.Options();
             
 
