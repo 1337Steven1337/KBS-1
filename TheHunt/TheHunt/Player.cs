@@ -31,6 +31,8 @@ namespace TheHunt
         //dasd
         public int screenWidth, screenHeight;
         private Buttons gamepad = null;
+        public int playerY;
+        public int playerX;
         public Keys lastPressedKey;
         public Keys ingedrukteKey;
 
@@ -99,8 +101,8 @@ namespace TheHunt
         private bool checkIntersect(Keys k)
         {
 
-            int playerX = this.world.Player.position.x;
-            int playerY = this.world.Player.position.y;
+            playerX = this.world.Player.position.x;
+            playerY = this.world.Player.position.y;
 
             Model.Point newPosition = new Model.Point();
 

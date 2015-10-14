@@ -46,6 +46,11 @@ namespace TheHunt
             this.trackBarMasterVolume.Name = "trackBarMasterVolume";
             this.trackBarMasterVolume.Size = new System.Drawing.Size(104, 56);
             this.trackBarMasterVolume.TabIndex = 0;
+            this.trackBarMasterVolume.Maximum = 100;
+            this.trackBarMasterVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarMasterVolume.TabIndex = 18;
+            this.trackBarMasterVolume.Value = 10;
+            //this.trackBarMasterVolume.Scroll += new System.EventHandler(this.trackBarMasterVolume_Scroll);
             // 
             // trackBarMusicVolume
             // 
@@ -53,6 +58,11 @@ namespace TheHunt
             this.trackBarMusicVolume.Name = "trackBarMusicVolume";
             this.trackBarMusicVolume.Size = new System.Drawing.Size(104, 56);
             this.trackBarMusicVolume.TabIndex = 1;
+            this.trackBarMusicVolume.Maximum = 100;
+            this.trackBarMusicVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarMusicVolume.TabIndex = 18;
+            this.trackBarMusicVolume.Value = 10;
+            //this.trackBarMusicVolume.Scroll += new System.EventHandler(this.trackBarMusicVolume_Scroll);
             // 
             // trackBarEffectsVolume
             // 
@@ -60,6 +70,11 @@ namespace TheHunt
             this.trackBarEffectsVolume.Name = "trackBarEffectsVolume";
             this.trackBarEffectsVolume.Size = new System.Drawing.Size(104, 56);
             this.trackBarEffectsVolume.TabIndex = 2;
+            this.trackBarEffectsVolume.Maximum = 100;
+            this.trackBarEffectsVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarEffectsVolume.TabIndex = 18;
+            this.trackBarEffectsVolume.Value = 10;
+            //this.trackBarEffectsVolume.Scroll += new System.EventHandler(this.trackBarEffectsVolume_Scroll);
             // 
             // buttonFullScreen
             // 
