@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheHunt.Model;
+using TheHunt.Model; 
 
 namespace TheHunt
 {
@@ -27,21 +27,17 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
-        
-        //dasd
-        public int screenWidth, screenHeight;
-
         public Keys lastPressedKey;
         public Keys ingedrukteKey;
 
         public Player(Form form1)
         {
+
             InitializeComponent();
             this.Size = form1.Size;
             this.form1 = form1;
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
             this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
-            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height / 2);
             if (Properties.Screen.Default.full)
             {
                 this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -447,5 +443,19 @@ namespace TheHunt
             Application.Exit();
             Close();
         }
+
+
+
+        private void Options()
+        {
+            OptionsDialog Options = new OptionsDialog(true);
+            Options.ShowDialog();
+            if (Options.getClosed())
+            {
+                Options.Close();
+                Options = null;
+            }
+        }       
+
     }
 }
