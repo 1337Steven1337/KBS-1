@@ -12,7 +12,8 @@ using System.Media;
 using System.Windows.Media;
 using System.Runtime.InteropServices;
 using TheHunt.Controller;
-//hoi
+using TheHunt.Designer;
+
 namespace TheHunt
 {
     public partial class form_startscreen : Form
@@ -116,7 +117,7 @@ namespace TheHunt
 
         public void openDesigner(object sender,EventArgs e)
         {
-            Designer designwindow = new Designer(this);
+            Designer.Designer designwindow = new Designer.Designer(this);
         }
 
         public void speelKlikGeluid(object sender, EventArgs e)
