@@ -12,7 +12,7 @@ using System.Media;
 using System.Windows.Media;
 using System.Runtime.InteropServices;
 using TheHunt.Controller;
-
+//hoi
 namespace TheHunt
 {
     public partial class form_startscreen : Form
