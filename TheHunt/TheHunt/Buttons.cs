@@ -24,7 +24,7 @@ namespace TheHunt
         public Buttons(Player player)
         {
             this.player = player;
-            timer.Interval = 30;
+            timer.Interval = 1;
             timer.Tick += timer_Tick;
 
             timer.Start();
@@ -94,7 +94,6 @@ namespace TheHunt
             Left.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             Left.Location = new System.Drawing.Point(width - Left.Width * 3 - 20, heigt - Left.Height - 40);
             Left.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/Pijl Links.png";
-            Left.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/Pijl Links.png";
             Left.MouseDown += Button_push;
             Left.MouseDown += gotoleft;
             Left.MouseUp += Button_release;
@@ -116,12 +115,19 @@ namespace TheHunt
         private void Button_release(object sender, MouseEventArgs e)
         {
             timer.Enabled = false;
-            Debug.WriteLine(timer.Enabled);
 
         }
         private void Button_push(object sender, EventArgs e)
         {
-            timer.Enabled = true;
+            if (!Player.isMoving)
+            {
+                timer.Enabled = true;
+            }
+            else
+            {
+                timer.Enabled = false;
+            }
+            
         }
         private Control upButton(int width, int heigt)
         {
@@ -176,24 +182,26 @@ namespace TheHunt
         {
             if (timer.Enabled == true)
             {
+
                 switch (GaNaar)
                 {
+                    
                     case Direction.right:
                         this.player.switchStatements(Keys.Right);
-                        isPressed = true;
-                        break;
+                    isPressed = true;
+                    break;
                     case Direction.left:
                         this.player.switchStatements(Keys.Left);
-                        isPressed = true;
-                        break;
+                    isPressed = true;
+                    break;
                     case Direction.down:
                         this.player.switchStatements(Keys.Down);
-                        isPressed = true;
-                        break;
+                    isPressed = true;
+                    break;
                     case Direction.up:
                         this.player.switchStatements(Keys.Up);
-                        isPressed = true;
-                        break;
+                    isPressed = true;
+                    break;
                 }
             }
         }
