@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
+using TheHunt.Controller;
+using TheHunt.Designer;
 
 namespace TheHunt
 { 
+
     public partial class  OptionsDialog : Form
     {
+
         private Boolean isClosed = false;
         private Boolean changeFullScreen = false;
          
@@ -76,5 +81,6 @@ namespace TheHunt
             Properties.Sound.Default.effects = trackBarEffectsVolume.Value;
             Properties.Sound.Default.Save();
         }
+
     }
 }
