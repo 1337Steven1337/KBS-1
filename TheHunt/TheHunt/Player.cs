@@ -26,11 +26,13 @@ namespace TheHunt
         public Boolean beweegNaarLinks = false;
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
-
-        public int screenWidth, screenHeight;
+        public Boolean isRunning = false;
         
-        public Keys lastPressedKey;
+        //dasd
+        public int screenWidth, screenHeight;
 
+        public Keys lastPressedKey;
+        public Keys ingedrukteKey;
 
         public Player(Form form1)
         {
@@ -51,7 +53,7 @@ namespace TheHunt
             spriteTimer.Interval = 100;
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
- 
+
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint |
@@ -62,20 +64,15 @@ namespace TheHunt
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
             Graphics g = e.Graphics;
             Pen pen = new Pen(Color.Red);
-            //Teken blokken
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
                 FieldObject obj = this.world.FieldObjects[i];
                 obj.draw(g, this.Size);
             }
-            //Teken NPC's
-            for (int i = 0; i < this.world.NPC.Count; i++)
-            {
-                NPC npc = this.world.NPC[i];
-                npc.draw(g, this.Size);
-            }
+
             this.world.Player.draw(g, this.Size);
         }
 
@@ -86,12 +83,13 @@ namespace TheHunt
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
                 this.Invalidate();
             }
-            timer.Start();            
+            timer.Start();
         }
 
         //controle of het character er mag/kan lopen
         private bool checkIntersect(Keys k)
         {
+
             int playerX = this.world.Player.position.x;
             int playerY = this.world.Player.position.y;
 
@@ -117,14 +115,13 @@ namespace TheHunt
                     break;
             }
 
-            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.Player.getOnScreenWidth(this.Size), (int)this.world.Player.getOnScreenHeight(this.Size));
+            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.Player.sizeBreedte, (int)this.world.Player.sizeHoogte);
 
             if (newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
             {
                 return true;
             }
 
-            //check for collision with objects (walls)..
             foreach (var item in this.world.FieldObjects)
             {
                 Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
@@ -135,77 +132,79 @@ namespace TheHunt
                 }
             }
 
-            //check for collision with NPS's...
-            foreach (var item in this.world.NPC)
-            {
-                Rectangle randomObj = new Rectangle(item.position.x, item.position.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
-
-                if (newPlayerRectangle.IntersectsWith(randomObj))
-                {
-                    return true;
-                }
-            }
             return false;
         }
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
-            this.lastPressedKey = k.KeyCode;
-            spriteTimer.Start();
-            
-            //ook wordt er gezegt welke richting je oploopt
-            switch (k.KeyCode)
+            if (k.KeyCode != Keys.ShiftKey)
             {
-                //naar boven
-                case Keys.Up:
-                    this.beweegNaarBoven = true;
-                    break;
-
-                //naar links
-                case Keys.Left:
-                    this.beweegNaarLinks = true;
-                    break;
-
-                //naar beneden
-                case Keys.Down:
-                    this.beweegNaarBeneden = true;
-                    break;
-
-                //naar rechts
-                case Keys.Right:
-                    this.beweegNaarRechts = true;
-                    break;
-
-                //openen menu
-                case Keys.Escape:
-                    toggleMenu();
-                    break;
+                this.lastPressedKey = k.KeyCode;
             }
             
+
+            spriteTimer.Start();
+
+            if (k.KeyCode == Keys.ShiftKey)
+            {
+                isRunning = true;
+            }
+
+            if (k.KeyCode == Keys.Up)
+            {
+                this.beweegNaarBoven = true;
+            }
+
+            if (k.KeyCode == Keys.Left)
+            {
+                this.beweegNaarLinks = true;
+            }
+
+            if (k.KeyCode == Keys.Down)
+            {
+                this.beweegNaarBeneden = true;
+            }
+
+            if (k.KeyCode == Keys.Right)
+            {
+                this.beweegNaarRechts = true;
+            }
+
+            if (k.KeyCode == Keys.Escape)
+            {
+                toggleMenu();
+            }
+
+
         }
         // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
         {
-            
+            if (k.KeyCode == Keys.ShiftKey)
+            {
+                isRunning = false;
+            }
+
+
             switch (lastPressedKey)
-                {
-                    case Keys.Up:
-                        Player1.bitmap = Properties.Resources.brockSprite4;
-                        break;
-
-                    case Keys.Left:
-                        Player1.bitmap = Properties.Resources.brockSprite10;
+            {
+                case Keys.Up:
+                    Player1.bitmap = Properties.Resources.brockSprite4;
                     break;
 
-                    case Keys.Down:
-                        Player1.bitmap = Properties.Resources.brockSprite1;
+                case Keys.Left:
+                    Player1.bitmap = Properties.Resources.brockSprite10;
                     break;
 
-                    case Keys.Right:
-                        Player1.bitmap = Properties.Resources.brockSprite7;
+                case Keys.Down:
+                    Player1.bitmap = Properties.Resources.brockSprite1;
+                    break;
+
+                case Keys.Right:
+                    Player1.bitmap = Properties.Resources.brockSprite7;
                     break;
             }
-         
+
             //bij het loslaten wordt de beweging gestopt in bijbehorende rinchting
             switch (k.KeyCode)
             {
@@ -304,12 +303,13 @@ namespace TheHunt
                             break;
                     }
                     break;
+
                 //indien er geen toets is ingedrukt stopt de movement
                 case Keys.None:
                     spriteTimer.Stop();
                     break;
             }
-            
+
         }
         //controle of er een toets is ingedrukt
         public bool IsAnyKeyDown()
@@ -330,6 +330,26 @@ namespace TheHunt
             return false;
         }
 
+        //controle welke toets er is ingedrukt
+        public void WelkeKeyIsDown()
+        {
+            var values = Enum.GetValues(typeof(System.Windows.Input.Key));
+
+            foreach (var v in values)
+            {
+                if (((System.Windows.Input.Key)v) != System.Windows.Input.Key.None)
+                {
+                    System.Windows.Input.Key pressed = (System.Windows.Input.Key)Enum.Parse(typeof(System.Windows.Input.Key), ((System.Windows.Input.Key)v).ToString());
+                    if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
+                    {
+                      
+                        this.lastPressedKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
+
+                    }
+                }
+            }
+        }
+
         //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
         {
@@ -337,46 +357,83 @@ namespace TheHunt
             {
                 lastPressedKey = Keys.None;
             }
-            if (this.beweegNaarBoven)
+            else if (lastPressedKey == Keys.None)
             {
-                if (!checkIntersect(Keys.Up))
-                {
-                world.Player.position.y -= world.Player.speed.y;
-                }
+                WelkeKeyIsDown();
+            }
+
+            if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
+            {
+                spriteTimer.Stop();
+            }
+
+
+            if (isRunning)
+            {
+                spriteTimer.Interval = 50;
+                this.world.Player.speed = this.world.Player.movement.run;
+            }
+            else
+            {
+                spriteTimer.Interval = 100;
+                this.world.Player.speed = this.world.Player.movement.walk;
+            }
+
+            switch (lastPressedKey)
+            {
+                case Keys.Up:
+                    if (beweegNaarBoven)
+                    {
+
+                        if (!checkIntersect(Keys.Up))
+                        {
+                            world.Player.position.y -= world.Player.speed.y;
+                        }
+                    }
+
+                    break;
+                case Keys.Left:
+                    if (beweegNaarLinks)
+                    {
+                        if (!checkIntersect(Keys.Left))
+                        {
+                            world.Player.position.x -= world.Player.speed.x;
+                        }
+                    }
+                    break;
+                case Keys.Down:
+                    if (beweegNaarBeneden)
+                    {
+                        if (!checkIntersect(Keys.Down))
+                        {
+                            world.Player.position.y += world.Player.speed.y;
+                        }
+                    }
+                    break;
+                case Keys.Right:
+                    if (beweegNaarRechts)
+                    {
+                        if (!checkIntersect(Keys.Right))
+                        {
+                            world.Player.position.x += world.Player.speed.x;
+                        }
+                    }
+                    break;
+
+                case Keys.None:
+                    spriteTimer.Stop();
+                    break;
 
             }
 
-            if (this.beweegNaarLinks)
-            {
-                if (!checkIntersect(Keys.Left))
-                {
-                world.Player.position.x -= world.Player.speed.x;
-            }
-            }
 
-            if (this.beweegNaarBeneden)
-            {
-                if (!checkIntersect(Keys.Down))
-                {
-                world.Player.position.y += world.Player.speed.y;
-            }
-            }
-
-            if (this.beweegNaarRechts)
-            {
-                if (!checkIntersect(Keys.Right))
-                {
-                world.Player.position.x += world.Player.speed.x;
-            }
-            }
-            
             this.Invalidate();
         }
         //hier keer je terug naar het hoofdmenu
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_startscreen form1 = new Form_startscreen();
+            form_startscreen form1 = new form_startscreen();
             form1.Show();
         }
         //hier keer je terug naar het spel
@@ -389,78 +446,6 @@ namespace TheHunt
         {
             Application.Exit();
             Close();
-        }
-
-        private Boolean optionsEnabled = false;
-        private Boolean menuEnabled = false;
-
-
-        private void buttonFullScreen_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
-        {
-            toggleMenu();
-        }
-
-        private void buttonBackToMenu_Click(object sender, EventArgs e)
-        {
-            toggleOptions();
-        }
-
-        private void pictureBoxOptions_Click(object sender, EventArgs e)
-        {
-            toggleOptions();
-        }
-
-        private void toggleMenu()
-        {
-            if (!menuEnabled)
-            {
-                if (!optionsEnabled)
-                {
-                    panel1.Visible = true;
-                    menuEnabled = true;
-                }
-            }
-            else
-            {
-                Clear();
-                panel1.Visible = false;
-                menuEnabled = false;
-            }
-        }
-
-        private void toggleOptions()
-        {
-
-            if (!optionsEnabled)
-            {
-                panelOptions.Visible = true;
-                optionsEnabled = true;
-            }
-            else
-            {
-                panelOptions.Visible = false;
-                optionsEnabled = false;
-            }
-            toggleMenu();
-        }
-
-        private void Clear()
-        {
-            panelOptions.Controls.Remove(buttonFullScreen);
-            panelOptions.Controls.Remove(buttonBackToMenu);
-            panelOptions.Controls.Remove(trackBarMasterVolume);
-            panelOptions.Controls.Remove(trackBarMusicVolume);
-            panelOptions.Controls.Remove(trackBarSoundEffects);
-            panelOptions.Controls.Add(buttonFullScreen);
-            panelOptions.Controls.Add(buttonBackToMenu);
-            panelOptions.Controls.Add(trackBarMasterVolume);
-            panelOptions.Controls.Add(trackBarMusicVolume);
-            panelOptions.Controls.Add(trackBarSoundEffects);
         }
     }
 }

@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\The-Hunt\TheHunt\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -67,16 +67,22 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\GameEngine.cs" />
     <Compile Include="Controller\Move.cs" />
-    <Compile Include="Form_startscreen.cs">
+    <Compile Include="Controller\Settings.cs" />
+    <Compile Include="Controller\Sound.cs" />
+    <Compile Include="Designer\Designer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_startscreen.Designer.cs">
-      <DependentUpon>Form_startscreen.cs</DependentUpon>
+    <Compile Include="Designer\Designer.Designer.cs">
+      <DependentUpon>Designer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_startscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_startscreen.Designer.cs">
+      <DependentUpon>form_startscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
-    <Compile Include="Model\NPC.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Player.cs">
@@ -100,8 +106,11 @@
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_startscreen.resx">
-      <DependentUpon>Form_startscreen.cs</DependentUpon>
+    <EmbeddedResource Include="Designer\Designer.resx">
+      <DependentUpon>Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_startscreen.resx">
+      <DependentUpon>form_startscreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player.resx">
       <DependentUpon>Player.cs</DependentUpon>

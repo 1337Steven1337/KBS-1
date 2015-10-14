@@ -37,7 +37,7 @@ namespace TheHunt
         System.Timers.Timer timer2 = new System.Timers.Timer(100);
 
         private Direction richting;
-        private GameEngine g = new GameEngine();
+        private Object g = null;
         private Move m = new Move();
         private Character c1 = new Character(30, 30, 10, 10);
 
@@ -79,7 +79,7 @@ namespace TheHunt
             {
                 richting = Direction.right;
             }
-            g.move.Moven(richting, c1);
+            //g.move.Moven(richting, c1);
             this.Refresh();
         }
         
@@ -109,7 +109,7 @@ namespace TheHunt
         {
             if (timer1.Enabled == true)
             {
-                g.move.Moven(richting, c1);
+              //  g.move.Moven(richting, c1);
                 this.Refresh();
             }
         }

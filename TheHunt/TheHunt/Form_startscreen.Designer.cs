@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace TheHunt
 {
-    partial class Form_startscreen
+    partial class form_startscreen
     {
-        
-        
+
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -34,288 +34,287 @@ namespace TheHunt
         /// </summary>
         private void InitializeComponent()
         {
-            this.picturebox_play_game_btn = new System.Windows.Forms.PictureBox();
-            this.picturebox_create_level_btn = new System.Windows.Forms.PictureBox();
-            this.picturebox_highscore_btn = new System.Windows.Forms.PictureBox();
-            this.picturebox_options_btn = new System.Windows.Forms.PictureBox();
-            this.picturebox_exit_game = new System.Windows.Forms.PictureBox();
-            this.fullscreen_btn = new System.Windows.Forms.Button();
-            this.label_options_header = new System.Windows.Forms.Label();
-            this.mastervol_trackbar = new System.Windows.Forms.TrackBar();
-            this.panel_options = new System.Windows.Forms.Panel();
-            this.picturebox_infotext = new System.Windows.Forms.PictureBox();
-            this.effectvol_trackbar = new System.Windows.Forms.TrackBar();
-            this.musicvol_trackbar = new System.Windows.Forms.TrackBar();
-            this.label_effects_volume = new System.Windows.Forms.Label();
-            this.label_music_volume = new System.Windows.Forms.Label();
-            this.label_master_volume = new System.Windows.Forms.Label();
-            this.picturebox_back_btn = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_play_game_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_create_level_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_highscore_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_options_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_exit_game)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mastervol_trackbar)).BeginInit();
-            this.panel_options.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_infotext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.effectvol_trackbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.musicvol_trackbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_back_btn)).BeginInit();
+            this.PlayBtn = new System.Windows.Forms.PictureBox();
+            this.CreateLvlBtn = new System.Windows.Forms.PictureBox();
+            this.HighscoreBtn = new System.Windows.Forms.PictureBox();
+            this.optionBtn = new System.Windows.Forms.PictureBox();
+            this.exitBtn = new System.Windows.Forms.PictureBox();
+            this.buttonFuSc = new System.Windows.Forms.Button();
+            this.labelOptionsHeader = new System.Windows.Forms.Label();
+            this.MasterTrackBar = new System.Windows.Forms.TrackBar();
+            this.optionPanel = new System.Windows.Forms.Panel();
+            this.uitlegPictureBox = new System.Windows.Forms.PictureBox();
+            this.EffectsTrackbar = new System.Windows.Forms.TrackBar();
+            this.MusicTrackBar = new System.Windows.Forms.TrackBar();
+            this.EffectsVolumeLabel = new System.Windows.Forms.Label();
+            this.MusicVolumeLabel = new System.Windows.Forms.Label();
+            this.MasterVolumeLabel = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreateLvlBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HighscoreBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.optionBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MasterTrackBar)).BeginInit();
+            this.optionPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uitlegPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EffectsTrackbar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.SuspendLayout();
             // 
-            // picturebox_play_game_btn
+            // PlayBtn
             // 
-            this.picturebox_play_game_btn.BackColor = System.Drawing.Color.Transparent;
-            this.picturebox_play_game_btn.Image = global::TheHunt.Properties.Resources.playBtn;
-            this.picturebox_play_game_btn.Location = new System.Drawing.Point(398, 42);
-            this.picturebox_play_game_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.picturebox_play_game_btn.Name = "picturebox_play_game_btn";
-            this.picturebox_play_game_btn.Size = new System.Drawing.Size(546, 120);
-            this.picturebox_play_game_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picturebox_play_game_btn.TabIndex = 5;
-            this.picturebox_play_game_btn.TabStop = false;
-            this.picturebox_play_game_btn.Click += new System.EventHandler(this.btn_PlayGame);
+            this.PlayBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PlayBtn.Image = global::TheHunt.Properties.Resources.playBtn;
+            this.PlayBtn.Location = new System.Drawing.Point(448, 52);
+            this.PlayBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PlayBtn.Name = "PlayBtn";
+            this.PlayBtn.Size = new System.Drawing.Size(614, 150);
+            this.PlayBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PlayBtn.TabIndex = 5;
+            this.PlayBtn.TabStop = false;
+            this.PlayBtn.Click += new System.EventHandler(this.btn_PlayGame);
             // 
-            // picturebox_create_level_btn
+            // CreateLvlBtn
             // 
-            this.picturebox_create_level_btn.BackColor = System.Drawing.Color.Transparent;
-            this.picturebox_create_level_btn.Image = global::TheHunt.Properties.Resources.crlvBtn;
-            this.picturebox_create_level_btn.Location = new System.Drawing.Point(398, 170);
-            this.picturebox_create_level_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.picturebox_create_level_btn.Name = "picturebox_create_level_btn";
-            this.picturebox_create_level_btn.Size = new System.Drawing.Size(546, 120);
-            this.picturebox_create_level_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picturebox_create_level_btn.TabIndex = 6;
-            this.picturebox_create_level_btn.TabStop = false;
-            this.picturebox_create_level_btn.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.CreateLvlBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CreateLvlBtn.Image = global::TheHunt.Properties.Resources.crlvBtn;
+            this.CreateLvlBtn.Location = new System.Drawing.Point(448, 212);
+            this.CreateLvlBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CreateLvlBtn.Name = "CreateLvlBtn";
+            this.CreateLvlBtn.Size = new System.Drawing.Size(614, 150);
+            this.CreateLvlBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.CreateLvlBtn.TabIndex = 6;
+            this.CreateLvlBtn.TabStop = false;
+            this.CreateLvlBtn.Click += new System.EventHandler(this.openDesigner);
             // 
-            // picturebox_highscore_btn
+            // HighscoreBtn
             // 
-            this.picturebox_highscore_btn.BackColor = System.Drawing.Color.Transparent;
-            this.picturebox_highscore_btn.Image = global::TheHunt.Properties.Resources.highscores;
-            this.picturebox_highscore_btn.Location = new System.Drawing.Point(398, 296);
-            this.picturebox_highscore_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.picturebox_highscore_btn.Name = "picturebox_highscore_btn";
-            this.picturebox_highscore_btn.Size = new System.Drawing.Size(546, 122);
-            this.picturebox_highscore_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picturebox_highscore_btn.TabIndex = 7;
-            this.picturebox_highscore_btn.TabStop = false;
-            this.picturebox_highscore_btn.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.HighscoreBtn.BackColor = System.Drawing.Color.Transparent;
+            this.HighscoreBtn.Image = global::TheHunt.Properties.Resources.highscores;
+            this.HighscoreBtn.Location = new System.Drawing.Point(448, 370);
+            this.HighscoreBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.HighscoreBtn.Name = "HighscoreBtn";
+            this.HighscoreBtn.Size = new System.Drawing.Size(614, 152);
+            this.HighscoreBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.HighscoreBtn.TabIndex = 7;
+            this.HighscoreBtn.TabStop = false;
+            this.HighscoreBtn.Click += new System.EventHandler(this.speelKlikGeluid);
             // 
-            // picturebox_options_btn
+            // optionBtn
             // 
-            this.picturebox_options_btn.BackColor = System.Drawing.Color.Transparent;
-            this.picturebox_options_btn.Image = global::TheHunt.Properties.Resources.optionsBtn;
-            this.picturebox_options_btn.Location = new System.Drawing.Point(398, 426);
-            this.picturebox_options_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.picturebox_options_btn.Name = "picturebox_options_btn";
-            this.picturebox_options_btn.Size = new System.Drawing.Size(546, 120);
-            this.picturebox_options_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picturebox_options_btn.TabIndex = 8;
-            this.picturebox_options_btn.TabStop = false;
-            this.picturebox_options_btn.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.optionBtn.BackColor = System.Drawing.Color.Transparent;
+            this.optionBtn.Image = global::TheHunt.Properties.Resources.optionsBtn;
+            this.optionBtn.Location = new System.Drawing.Point(448, 532);
+            this.optionBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.optionBtn.Name = "optionBtn";
+            this.optionBtn.Size = new System.Drawing.Size(614, 150);
+            this.optionBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.optionBtn.TabIndex = 8;
+            this.optionBtn.TabStop = false;
+            this.optionBtn.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // picturebox_exit_game
+            // exitBtn
             // 
-            this.picturebox_exit_game.BackColor = System.Drawing.Color.Transparent;
-            this.picturebox_exit_game.Image = global::TheHunt.Properties.Resources.exitBtn;
-            this.picturebox_exit_game.Location = new System.Drawing.Point(398, 552);
-            this.picturebox_exit_game.Margin = new System.Windows.Forms.Padding(4);
-            this.picturebox_exit_game.Name = "picturebox_exit_game";
-            this.picturebox_exit_game.Size = new System.Drawing.Size(546, 117);
-            this.picturebox_exit_game.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picturebox_exit_game.TabIndex = 9;
-            this.picturebox_exit_game.TabStop = false;
-            this.picturebox_exit_game.Click += new System.EventHandler(this.Afsluiten);
+            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.Image = global::TheHunt.Properties.Resources.exitBtn;
+            this.exitBtn.Location = new System.Drawing.Point(448, 690);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(614, 146);
+            this.exitBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.exitBtn.TabIndex = 9;
+            this.exitBtn.TabStop = false;
+            this.exitBtn.Click += new System.EventHandler(this.Afsluiten);
             // 
-            // fullscreen_btn
+            // buttonFuSc
             // 
-            this.fullscreen_btn.AutoSize = true;
-            this.fullscreen_btn.Location = new System.Drawing.Point(72, 330);
-            this.fullscreen_btn.Margin = new System.Windows.Forms.Padding(2);
-            this.fullscreen_btn.Name = "fullscreen_btn";
-            this.fullscreen_btn.Size = new System.Drawing.Size(150, 40);
-            this.fullscreen_btn.TabIndex = 13;
-            this.fullscreen_btn.Text = "Full Screen: Off";
-            this.fullscreen_btn.UseVisualStyleBackColor = true;
-            this.fullscreen_btn.Visible = false;
-            this.fullscreen_btn.Click += new System.EventHandler(this.buttonFuSc_Click);
+            this.buttonFuSc.AutoSize = true;
+            this.buttonFuSc.Location = new System.Drawing.Point(81, 412);
+            this.buttonFuSc.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonFuSc.Name = "buttonFuSc";
+            this.buttonFuSc.Size = new System.Drawing.Size(169, 50);
+            this.buttonFuSc.TabIndex = 13;
+            this.buttonFuSc.Text = "Full Screen: Off";
+            this.buttonFuSc.UseVisualStyleBackColor = true;
+            this.buttonFuSc.Visible = false;
+            this.buttonFuSc.Click += new System.EventHandler(this.buttonFuSc_Click);
             // 
-            // label_options_header
+            // labelOptionsHeader
             // 
-            this.label_options_header.AutoSize = true;
-            this.label_options_header.BackColor = System.Drawing.Color.Transparent;
-            this.label_options_header.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
-            this.label_options_header.ForeColor = System.Drawing.Color.White;
-            this.label_options_header.Location = new System.Drawing.Point(22, 14);
-            this.label_options_header.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_options_header.Name = "label_options_header";
-            this.label_options_header.Size = new System.Drawing.Size(248, 70);
-            this.label_options_header.TabIndex = 17;
-            this.label_options_header.Text = "Options";
-            this.label_options_header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_options_header.Visible = false;
+            this.labelOptionsHeader.AutoSize = true;
+            this.labelOptionsHeader.BackColor = System.Drawing.Color.Transparent;
+            this.labelOptionsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
+            this.labelOptionsHeader.ForeColor = System.Drawing.Color.White;
+            this.labelOptionsHeader.Location = new System.Drawing.Point(25, 18);
+            this.labelOptionsHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelOptionsHeader.Name = "labelOptionsHeader";
+            this.labelOptionsHeader.Size = new System.Drawing.Size(296, 83);
+            this.labelOptionsHeader.TabIndex = 17;
+            this.labelOptionsHeader.Text = "Options";
+            this.labelOptionsHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOptionsHeader.Visible = false;
             // 
-            // mastervol_trackbar
+            // MasterTrackBar
             // 
-            this.mastervol_trackbar.Location = new System.Drawing.Point(238, 133);
-            this.mastervol_trackbar.Margin = new System.Windows.Forms.Padding(2);
-            this.mastervol_trackbar.Maximum = 100;
-            this.mastervol_trackbar.Name = "mastervol_trackbar";
-            this.mastervol_trackbar.Size = new System.Drawing.Size(200, 56);
-            this.mastervol_trackbar.TabIndex = 18;
-            this.mastervol_trackbar.Value = 10;
-            this.mastervol_trackbar.Visible = false;
-            this.mastervol_trackbar.Scroll += new System.EventHandler(this.mastervol_trackbar_Scroll);
+            this.MasterTrackBar.Location = new System.Drawing.Point(268, 166);
+            this.MasterTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.MasterTrackBar.Maximum = 100;
+            this.MasterTrackBar.Name = "MasterTrackBar";
+            this.MasterTrackBar.Size = new System.Drawing.Size(225, 69);
+            this.MasterTrackBar.TabIndex = 18;
+            this.MasterTrackBar.Value = 10;
+            this.MasterTrackBar.Visible = false;
+            this.MasterTrackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // panel_options
+            // optionPanel
             // 
-            this.panel_options.Controls.Add(this.picturebox_infotext);
-            this.panel_options.Controls.Add(this.effectvol_trackbar);
-            this.panel_options.Controls.Add(this.musicvol_trackbar);
-            this.panel_options.Controls.Add(this.label_effects_volume);
-            this.panel_options.Controls.Add(this.label_music_volume);
-            this.panel_options.Controls.Add(this.label_master_volume);
-            this.panel_options.Controls.Add(this.label_options_header);
-            this.panel_options.Controls.Add(this.mastervol_trackbar);
-            this.panel_options.Controls.Add(this.fullscreen_btn);
-            this.panel_options.Location = new System.Drawing.Point(940, 75);
-            this.panel_options.Margin = new System.Windows.Forms.Padding(2);
-            this.panel_options.Name = "panel_options";
-            this.panel_options.Size = new System.Drawing.Size(865, 403);
-            this.panel_options.TabIndex = 19;
-            this.panel_options.Visible = false;
-            this.panel_options.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.optionPanel.Controls.Add(this.uitlegPictureBox);
+            this.optionPanel.Controls.Add(this.EffectsTrackbar);
+            this.optionPanel.Controls.Add(this.MusicTrackBar);
+            this.optionPanel.Controls.Add(this.EffectsVolumeLabel);
+            this.optionPanel.Controls.Add(this.MusicVolumeLabel);
+            this.optionPanel.Controls.Add(this.MasterVolumeLabel);
+            this.optionPanel.Controls.Add(this.labelOptionsHeader);
+            this.optionPanel.Controls.Add(this.MasterTrackBar);
+            this.optionPanel.Controls.Add(this.buttonFuSc);
+            this.optionPanel.Location = new System.Drawing.Point(902, 318);
+            this.optionPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.optionPanel.Name = "optionPanel";
+            this.optionPanel.Size = new System.Drawing.Size(973, 504);
+            this.optionPanel.TabIndex = 19;
+            this.optionPanel.Visible = false;
+            this.optionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // picturebox_infotext
+            // uitlegPictureBox
             // 
-            this.picturebox_infotext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picturebox_infotext.Location = new System.Drawing.Point(513, 86);
-            this.picturebox_infotext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picturebox_infotext.Name = "picturebox_infotext";
-            this.picturebox_infotext.Size = new System.Drawing.Size(303, 283);
-            this.picturebox_infotext.TabIndex = 24;
-            this.picturebox_infotext.TabStop = false;
-            this.picturebox_infotext.Visible = false;
+            this.uitlegPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.uitlegPictureBox.Location = new System.Drawing.Point(577, 108);
+            this.uitlegPictureBox.Name = "uitlegPictureBox";
+            this.uitlegPictureBox.Size = new System.Drawing.Size(341, 354);
+            this.uitlegPictureBox.TabIndex = 24;
+            this.uitlegPictureBox.TabStop = false;
+            this.uitlegPictureBox.Visible = false;
             // 
-            // effectvol_trackbar
+            // EffectsTrackbar
             // 
-            this.effectvol_trackbar.Location = new System.Drawing.Point(238, 230);
-            this.effectvol_trackbar.Margin = new System.Windows.Forms.Padding(2);
-            this.effectvol_trackbar.Maximum = 100;
-            this.effectvol_trackbar.Name = "effectvol_trackbar";
-            this.effectvol_trackbar.Size = new System.Drawing.Size(200, 56);
-            this.effectvol_trackbar.TabIndex = 23;
-            this.effectvol_trackbar.Value = 50;
-            this.effectvol_trackbar.Visible = false;
-            this.effectvol_trackbar.Scroll += new System.EventHandler(this.effectsvol_trackbar_Scroll);
+            this.EffectsTrackbar.Location = new System.Drawing.Point(268, 287);
+            this.EffectsTrackbar.Margin = new System.Windows.Forms.Padding(2);
+            this.EffectsTrackbar.Maximum = 100;
+            this.EffectsTrackbar.Name = "EffectsTrackbar";
+            this.EffectsTrackbar.Size = new System.Drawing.Size(225, 69);
+            this.EffectsTrackbar.TabIndex = 23;
+            this.EffectsTrackbar.Value = 50;
+            this.EffectsTrackbar.Visible = false;
+            this.EffectsTrackbar.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
-            // musicvol_trackbar
+            // MusicTrackBar
             // 
-            this.musicvol_trackbar.Location = new System.Drawing.Point(238, 181);
-            this.musicvol_trackbar.Margin = new System.Windows.Forms.Padding(2);
-            this.musicvol_trackbar.Maximum = 100;
-            this.musicvol_trackbar.Name = "musicvol_trackbar";
-            this.musicvol_trackbar.Size = new System.Drawing.Size(200, 56);
-            this.musicvol_trackbar.TabIndex = 22;
-            this.musicvol_trackbar.Value = 50;
-            this.musicvol_trackbar.Visible = false;
-            this.musicvol_trackbar.Scroll += new System.EventHandler(this.musicvol_trackbar_Scroll);
+            this.MusicTrackBar.Location = new System.Drawing.Point(268, 226);
+            this.MusicTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.MusicTrackBar.Maximum = 100;
+            this.MusicTrackBar.Name = "MusicTrackBar";
+            this.MusicTrackBar.Size = new System.Drawing.Size(225, 69);
+            this.MusicTrackBar.TabIndex = 22;
+            this.MusicTrackBar.Value = 50;
+            this.MusicTrackBar.Visible = false;
+            this.MusicTrackBar.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
-            // label_effects_volume
+            // EffectsVolumeLabel
             // 
-            this.label_effects_volume.AutoSize = true;
-            this.label_effects_volume.BackColor = System.Drawing.Color.Transparent;
-            this.label_effects_volume.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label_effects_volume.ForeColor = System.Drawing.Color.White;
-            this.label_effects_volume.Location = new System.Drawing.Point(16, 238);
-            this.label_effects_volume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_effects_volume.Name = "label_effects_volume";
-            this.label_effects_volume.Size = new System.Drawing.Size(197, 31);
-            this.label_effects_volume.TabIndex = 21;
-            this.label_effects_volume.Text = "Effects Volume";
+            this.EffectsVolumeLabel.AutoSize = true;
+            this.EffectsVolumeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.EffectsVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.EffectsVolumeLabel.ForeColor = System.Drawing.Color.White;
+            this.EffectsVolumeLabel.Location = new System.Drawing.Point(18, 298);
+            this.EffectsVolumeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.EffectsVolumeLabel.Name = "EffectsVolumeLabel";
+            this.EffectsVolumeLabel.Size = new System.Drawing.Size(232, 37);
+            this.EffectsVolumeLabel.TabIndex = 21;
+            this.EffectsVolumeLabel.Text = "Effects Volume";
             // 
-            // label_music_volume
+            // MusicVolumeLabel
             // 
-            this.label_music_volume.AutoSize = true;
-            this.label_music_volume.BackColor = System.Drawing.Color.Transparent;
-            this.label_music_volume.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label_music_volume.ForeColor = System.Drawing.Color.White;
-            this.label_music_volume.Location = new System.Drawing.Point(16, 181);
-            this.label_music_volume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_music_volume.Name = "label_music_volume";
-            this.label_music_volume.Size = new System.Drawing.Size(191, 31);
-            this.label_music_volume.TabIndex = 20;
-            this.label_music_volume.Text = "Music Volume:";
+            this.MusicVolumeLabel.AutoSize = true;
+            this.MusicVolumeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MusicVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.MusicVolumeLabel.ForeColor = System.Drawing.Color.White;
+            this.MusicVolumeLabel.Location = new System.Drawing.Point(18, 226);
+            this.MusicVolumeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MusicVolumeLabel.Name = "MusicVolumeLabel";
+            this.MusicVolumeLabel.Size = new System.Drawing.Size(227, 37);
+            this.MusicVolumeLabel.TabIndex = 20;
+            this.MusicVolumeLabel.Text = "Music Volume:";
             // 
-            // label_master_volume
+            // MasterVolumeLabel
             // 
-            this.label_master_volume.AutoSize = true;
-            this.label_master_volume.BackColor = System.Drawing.Color.Transparent;
-            this.label_master_volume.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label_master_volume.ForeColor = System.Drawing.Color.White;
-            this.label_master_volume.Location = new System.Drawing.Point(16, 133);
-            this.label_master_volume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_master_volume.Name = "label_master_volume";
-            this.label_master_volume.Size = new System.Drawing.Size(203, 31);
-            this.label_master_volume.TabIndex = 19;
-            this.label_master_volume.Text = "Master Volume:";
+            this.MasterVolumeLabel.AutoSize = true;
+            this.MasterVolumeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MasterVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.MasterVolumeLabel.ForeColor = System.Drawing.Color.White;
+            this.MasterVolumeLabel.Location = new System.Drawing.Point(18, 166);
+            this.MasterVolumeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MasterVolumeLabel.Name = "MasterVolumeLabel";
+            this.MasterVolumeLabel.Size = new System.Drawing.Size(241, 37);
+            this.MasterVolumeLabel.TabIndex = 19;
+            this.MasterVolumeLabel.Text = "Master Volume:";
             // 
-            // picturebox_back_btn
+            // backBtn
             // 
-            this.picturebox_back_btn.BackColor = System.Drawing.Color.Transparent;
-            this.picturebox_back_btn.Image = global::TheHunt.Properties.Resources.backBtn;
-            this.picturebox_back_btn.Location = new System.Drawing.Point(269, 466);
-            this.picturebox_back_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picturebox_back_btn.Name = "picturebox_back_btn";
-            this.picturebox_back_btn.Size = new System.Drawing.Size(546, 120);
-            this.picturebox_back_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picturebox_back_btn.TabIndex = 25;
-            this.picturebox_back_btn.TabStop = false;
-            this.picturebox_back_btn.Visible = false;
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.Image = global::TheHunt.Properties.Resources.backBtn;
+            this.backBtn.Location = new System.Drawing.Point(-134, 544);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(614, 150);
+            this.backBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.backBtn.TabIndex = 25;
+            this.backBtn.TabStop = false;
+            this.backBtn.Visible = false;
             // 
-            // form_startsreen
+            // form_startscreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheHunt.Properties.Resources.achtergrond;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1138, 576);
-            this.Controls.Add(this.picturebox_back_btn);
-            this.Controls.Add(this.panel_options);
-            this.Controls.Add(this.picturebox_exit_game);
-            this.Controls.Add(this.picturebox_options_btn);
-            this.Controls.Add(this.picturebox_highscore_btn);
-            this.Controls.Add(this.picturebox_create_level_btn);
-            this.Controls.Add(this.picturebox_play_game_btn);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.backBtn);
+            this.Controls.Add(this.optionPanel);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.optionBtn);
+            this.Controls.Add(this.HighscoreBtn);
+            this.Controls.Add(this.CreateLvlBtn);
+            this.Controls.Add(this.PlayBtn);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "form_startsreen";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "form_startscreen";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Hunt";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_play_game_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_create_level_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_highscore_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_options_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_exit_game)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mastervol_trackbar)).EndInit();
-            this.panel_options.ResumeLayout(false);
-            this.panel_options.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_infotext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.effectvol_trackbar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.musicvol_trackbar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturebox_back_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreateLvlBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HighscoreBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.optionBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exitBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MasterTrackBar)).EndInit();
+            this.optionPanel.ResumeLayout(false);
+            this.optionPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uitlegPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EffectsTrackbar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MusicTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         private void buttonControlsOk_Click(object sender, EventArgs e)
         {
-            label_options_header.Visible = true;
-            fullscreen_btn.Visible = true;
+            labelOptionsHeader.Visible = true;
+            buttonFuSc.Visible = true;
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
@@ -342,7 +341,7 @@ namespace TheHunt
 
         private void buttonContr_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -357,22 +356,22 @@ namespace TheHunt
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox picturebox_play_game_btn;
-        private System.Windows.Forms.PictureBox picturebox_create_level_btn;
-        private System.Windows.Forms.PictureBox picturebox_highscore_btn;
-        private System.Windows.Forms.PictureBox picturebox_options_btn;
-        private System.Windows.Forms.PictureBox picturebox_exit_game;
-        private System.Windows.Forms.Button fullscreen_btn;
-        private System.Windows.Forms.Label label_options_header;
-        private System.Windows.Forms.TrackBar mastervol_trackbar;
-        private System.Windows.Forms.Panel panel_options;
-        private System.Windows.Forms.TrackBar effectvol_trackbar;
-        private System.Windows.Forms.TrackBar musicvol_trackbar;
-        private System.Windows.Forms.Label label_effects_volume;
-        private System.Windows.Forms.Label label_music_volume;
-        private System.Windows.Forms.Label label_master_volume;
-        private PictureBox picturebox_infotext;
-        private PictureBox picturebox_back_btn;
+        private System.Windows.Forms.PictureBox PlayBtn;
+        private System.Windows.Forms.PictureBox CreateLvlBtn;
+        private System.Windows.Forms.PictureBox HighscoreBtn;
+        private System.Windows.Forms.PictureBox optionBtn;
+        private System.Windows.Forms.PictureBox exitBtn;
+        private System.Windows.Forms.Button buttonFuSc;
+        private System.Windows.Forms.Label labelOptionsHeader;
+        private System.Windows.Forms.TrackBar MasterTrackBar;
+        private System.Windows.Forms.Panel optionPanel;
+        private System.Windows.Forms.TrackBar EffectsTrackbar;
+        private System.Windows.Forms.TrackBar MusicTrackBar;
+        private System.Windows.Forms.Label EffectsVolumeLabel;
+        private System.Windows.Forms.Label MusicVolumeLabel;
+        private System.Windows.Forms.Label MasterVolumeLabel;
+        private PictureBox uitlegPictureBox;
+        private PictureBox backBtn;
     }
 }
 

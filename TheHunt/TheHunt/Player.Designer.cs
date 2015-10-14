@@ -8,7 +8,8 @@ namespace TheHunt
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        
+        private Boolean optionsEnabled = false;
+        private Boolean menuEnabled = false;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -285,7 +286,60 @@ namespace TheHunt
 
         }
 
-        
+        private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
+        {
+            toggleMenu();
+        }
+
+        private void buttonFullScreen_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonBackToMenu_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void pictureBoxOptions_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void toggleMenu()
+        {
+            if (!menuEnabled)
+            {
+                pictureBoxOptionsButton.Visible = false;
+                panel1.Visible = true;
+                menuEnabled = true;
+            }
+            else
+            {
+                if(optionsEnabled == true)
+                {
+                    pictureBoxOptionsButton.Visible = true;
+                }
+                
+                panel1.Visible = false;
+                menuEnabled = false;
+            }
+        }
+
+        private void toggleOptions()
+        {
+            toggleMenu();
+            if (!optionsEnabled)
+            {
+                panelOptions.Visible = true;
+                optionsEnabled = true;
+            }
+            else
+            {
+                panelOptions.Visible = false;
+                optionsEnabled = false;
+            }
+        }
 
         #endregion
         private System.Windows.Forms.Panel panel1;

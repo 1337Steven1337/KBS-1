@@ -11,19 +11,22 @@ using System.Windows.Forms;
 using System.Media;
 using System.Windows.Media;
 using System.Runtime.InteropServices;
-
+using TheHunt.Controller;
+using TheHunt.Designer;
 
 namespace TheHunt
 {
-    public partial class Form_startscreen : Form
+    public partial class form_startscreen : Form
     {
         public static Size startRes = new Size();
         MediaPlayer bgm = new MediaPlayer();
         MediaPlayer klikMP = new MediaPlayer();
+        private Sound sound = null;
 
-        public Form_startscreen()
+        public form_startscreen()
         {
             InitializeComponent();
+            this.sound = Sound.Instance;
             startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);
             startRes.Height = (int)(Screen.PrimaryScreen.WorkingArea.Height * 0.8);
             this.ClientSize = new Size(startRes.Width, startRes.Height);
@@ -31,24 +34,24 @@ namespace TheHunt
             bgm.MediaEnded += new EventHandler(bgmAfgelopen);
             bgm.Play();
 
-            picturebox_play_game_btn.BackColor = System.Drawing.Color.Transparent;
-            picturebox_create_level_btn.BackColor = System.Drawing.Color.Transparent;
-            picturebox_options_btn.BackColor = System.Drawing.Color.Transparent;
-            picturebox_exit_game.BackColor = System.Drawing.Color.Transparent;
-            picturebox_highscore_btn.BackColor = System.Drawing.Color.Transparent;
+            PlayBtn.BackColor = System.Drawing.Color.Transparent;
+            CreateLvlBtn.BackColor = System.Drawing.Color.Transparent;
+            optionBtn.BackColor = System.Drawing.Color.Transparent;
+            exitBtn.BackColor = System.Drawing.Color.Transparent;
+            HighscoreBtn.BackColor = System.Drawing.Color.Transparent;
 
             //Bereken knoppen locaties
-            this.picturebox_play_game_btn.Location = new Point((this.Size.Width / 2 - picturebox_play_game_btn.Width / 2), (this.Size.Height / 2 - picturebox_play_game_btn.Height / 2) - 2 * picturebox_play_game_btn.Height - 30);
-            this.picturebox_create_level_btn.Location = new Point((this.Size.Width / 2 - picturebox_create_level_btn.Width / 2), (this.Size.Height / 2 - picturebox_create_level_btn.Height / 2) - 1 * picturebox_create_level_btn.Height - 15);
-            this.picturebox_highscore_btn.Location = new Point((this.Size.Width / 2 - picturebox_highscore_btn.Width / 2), (this.Size.Height / 2 - picturebox_highscore_btn.Height / 2));
-            this.picturebox_options_btn.Location = new Point((this.Size.Width / 2 - picturebox_options_btn.Width / 2), (this.Size.Height / 2 - picturebox_options_btn.Height / 2) + 1 * picturebox_options_btn.Height + (15));
-            this.picturebox_exit_game.Location = new Point((this.Size.Width / 2 - picturebox_exit_game.Width / 2), (this.Size.Height / 2 - picturebox_exit_game.Height / 2) + 2 * picturebox_exit_game.Height + (30));
+            this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
+            this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
+            this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
+            this.optionBtn.Location = new Point((this.Size.Width / 2 - optionBtn.Width / 2), (this.Size.Height / 2 - optionBtn.Height / 2) + 1 * optionBtn.Height + (15));
+            this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + (30));
 
             Properties.Screen.Default.PropertyChanged += ScreenPropertyChanged;
             Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
 
             ResizeScreen();
-            SoundBars();
+            //SoundBars();
             GaTerugnaarMenu(this, null);
         }
 
@@ -64,13 +67,10 @@ namespace TheHunt
             }
         }
 
-        //Values uit Properties Settings in trackbar laten zien
-        private void SoundBars()
-        {
-            mastervol_trackbar.Value = (int)Properties.Sound.Default.master;
-            musicvol_trackbar.Value = (int)Properties.Sound.Default.music;
-            effectvol_trackbar.Value = (int)Properties.Sound.Default.effects;
-        }
+        //private void SoundBars()
+        //{
+        //    trackBar2.Value = Properties.Sound.Default.music;
+        //}
 
         private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            
@@ -89,14 +89,14 @@ namespace TheHunt
                 //Fullscreen activeren
                 this.WindowState = FormWindowState.Normal;
                 this.Bounds = Screen.PrimaryScreen.Bounds;
-                fullscreen_btn.Text = "Full Screen: On";
+                buttonFuSc.Text = "Full Screen: On";
             }
             else
             {
                 //Fullscreen deactiveren
                 this.ClientSize = new Size(startRes.Width, startRes.Height);
                 this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - startRes.Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - startRes.Height) / 2);
-                fullscreen_btn.Text = "Full Screen: Off";
+                buttonFuSc.Text = "Full Screen: Off";
             }
         }
 
@@ -115,10 +115,14 @@ namespace TheHunt
         }
 
 
+        public void openDesigner(object sender,EventArgs e)
+        {
+            Designer.Designer designwindow = new Designer.Designer(this);
+        }
+
         public void speelKlikGeluid(object sender, EventArgs e)
         {
-                klikMP.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"));
-                klikMP.Play();  
+            sound.click();
         }
 
 
@@ -180,78 +184,76 @@ namespace TheHunt
             }
 
 
-            this.picturebox_play_game_btn.Click += new System.EventHandler(this.speelKlikGeluid);
-            this.picturebox_options_btn.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.PlayBtn.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.optionBtn.Click += new System.EventHandler(this.speelKlikGeluid);
         }
 
         private void Afsluiten(object sender, EventArgs e)
         {
-            speelKlikGeluid(sender, e);
-            klikMP.MediaEnded += new EventHandler(eindeAfsluiten);
-        }
+            sound.click();
 
-        private void eindeAfsluiten(object sender, EventArgs e)
-        {
             Application.Exit();
             Close();
         }
 
+
+
         public void initOptionsPanel()
         {
-            picturebox_play_game_btn.Visible = false;
-            picturebox_create_level_btn.Visible = false;
-            picturebox_highscore_btn.Visible = false;
-            picturebox_options_btn.Visible = false;
-            picturebox_exit_game.Visible = false;
-            picturebox_infotext.Visible = true;
+            PlayBtn.Visible = false;
+            CreateLvlBtn.Visible = false;
+            HighscoreBtn.Visible = false;
+            optionBtn.Visible = false;
+            exitBtn.Visible = false;
+            uitlegPictureBox.Visible = true;
 
-            panel_options.Width = (int)(this.Width * 0.85);
-            panel_options.Height = (int)(this.Height * 0.75);
-            panel_options.Location = new Point((int)(this.Width * 0.1), (int)(this.Height * 0.1));
-
-
-            label_options_header.Location = new Point((int)(this.panel_options.Location.X + this.panel_options.Width / 4), (int)(this.panel_options.Location.Y - 50));
-
-            picturebox_infotext.BackgroundImage = Properties.Resources.uitleg;
-            picturebox_infotext.BackColor = System.Drawing.Color.Transparent;
-            picturebox_infotext.Size = Properties.Resources.uitleg.Size;
-            picturebox_infotext.Location = new Point(panel_options.Location.X + panel_options.Width / 2, panel_options.Location.Y);
-
-            label_options_header.Visible = true;
-            fullscreen_btn.Visible = true;
-            picturebox_infotext.Visible = true;
-            picturebox_back_btn.Visible = true;
-
-            label_master_volume.Visible = true;
-            label_music_volume.Visible = true;
-            label_effects_volume.Visible = true;
-
-            mastervol_trackbar.Visible = true;
-            musicvol_trackbar.Visible = true;
-            effectvol_trackbar.Visible = true;
+            optionPanel.Width = (int)(this.Width * 0.85);
+            optionPanel.Height = (int)(this.Height * 0.75);
+            optionPanel.Location = new Point((int)(this.Width * 0.1), (int)(this.Height * 0.1));
 
 
-            panel_options.Controls.Add(label_options_header);
+            labelOptionsHeader.Location = new Point((int)(this.optionPanel.Location.X + this.optionPanel.Width / 4), (int)(this.optionPanel.Location.Y - 50));
 
-            panel_options.Controls.Add(fullscreen_btn);
+            uitlegPictureBox.BackgroundImage = Properties.Resources.uitleg;
+            uitlegPictureBox.BackColor = System.Drawing.Color.Transparent;
+            uitlegPictureBox.Size = Properties.Resources.uitleg.Size;
+            uitlegPictureBox.Location = new Point(optionPanel.Location.X + optionPanel.Width / 2, optionPanel.Location.Y);
 
-            panel_options.Controls.Add(label_master_volume);
-            panel_options.Controls.Add(label_music_volume);
-            panel_options.Controls.Add(label_effects_volume);
+            labelOptionsHeader.Visible = true;
+            buttonFuSc.Visible = true;
+            uitlegPictureBox.Visible = true;
+            backBtn.Visible = true;
 
-            panel_options.Controls.Add(picturebox_infotext);
+            MasterVolumeLabel.Visible = true;
+            MusicVolumeLabel.Visible = true;
+            EffectsVolumeLabel.Visible = true;
 
-            panel_options.Controls.Add(mastervol_trackbar);
-            panel_options.Controls.Add(musicvol_trackbar);
-            panel_options.Controls.Add(effectvol_trackbar);
-
-            panel_options.Visible = true;
+            MasterTrackBar.Visible = true;
+            MusicTrackBar.Visible = true;
+            EffectsTrackbar.Visible = true;
 
 
-            picturebox_back_btn.Image = global::TheHunt.Properties.Resources.backBtn;
-            picturebox_back_btn.Location = new Point((int)(panel_options.Location.X + (panel_options.Width / 2) - picturebox_play_game_btn.Width / 2), (int)(panel_options.Location.Y + (panel_options.Height) + 0.15 * picturebox_play_game_btn.Height));
-            this.picturebox_back_btn.Click += new System.EventHandler(this.speelKlikGeluid);
-            this.picturebox_back_btn.Click += new System.EventHandler(this.GaTerugnaarMenu);
+            optionPanel.Controls.Add(labelOptionsHeader);
+
+            optionPanel.Controls.Add(buttonFuSc);
+
+            optionPanel.Controls.Add(MasterVolumeLabel);
+            optionPanel.Controls.Add(MusicVolumeLabel);
+            optionPanel.Controls.Add(EffectsVolumeLabel);
+
+            optionPanel.Controls.Add(uitlegPictureBox);
+
+            optionPanel.Controls.Add(MasterTrackBar);
+            optionPanel.Controls.Add(MusicTrackBar);
+            optionPanel.Controls.Add(EffectsTrackbar);
+
+            optionPanel.Visible = true;
+
+
+            backBtn.Image = global::TheHunt.Properties.Resources.backBtn;
+            backBtn.Location = new Point((int)(optionPanel.Location.X + (optionPanel.Width / 2) - PlayBtn.Width / 2), (int)(optionPanel.Location.Y + (optionPanel.Height) + 0.15 * PlayBtn.Height));
+            this.backBtn.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.backBtn.Click += new System.EventHandler(this.GaTerugnaarMenu);
 
 
         }
@@ -264,66 +266,49 @@ namespace TheHunt
 
         public void GaTerugnaarMenu(object sender, EventArgs e)
         {
-            fullscreen_btn.Visible = false;
-            label_options_header.Visible = false;
-            picturebox_infotext.Visible = false;
-            picturebox_back_btn.Visible = false;
-            panel_options.Visible = false;
+            buttonFuSc.Visible = false;
+            labelOptionsHeader.Visible = false;
+            uitlegPictureBox.Visible = false;
+            backBtn.Visible = false;
+            optionPanel.Visible = false;
 
 
-            this.picturebox_play_game_btn.Location = new Point((this.Size.Width / 2 - picturebox_play_game_btn.Width / 2), (this.Size.Height / 2 - picturebox_play_game_btn.Height / 2) - 2 * picturebox_play_game_btn.Height - 30);
-            this.picturebox_create_level_btn.Location = new Point((this.Size.Width / 2 - picturebox_create_level_btn.Width / 2), (this.Size.Height / 2 - picturebox_create_level_btn.Height / 2) - 1 * picturebox_create_level_btn.Height - 15);
-            this.picturebox_highscore_btn.Location = new Point((this.Size.Width / 2 - picturebox_highscore_btn.Width / 2), (this.Size.Height / 2 - picturebox_highscore_btn.Height / 2));
-            this.picturebox_options_btn.Location = new Point((this.Size.Width / 2 - picturebox_options_btn.Width / 2), (this.Size.Height / 2 - picturebox_options_btn.Height / 2) + 1 * picturebox_options_btn.Height + 15);
-            this.picturebox_exit_game.Location = new Point((this.Size.Width / 2 - picturebox_exit_game.Width / 2), (this.Size.Height / 2 - picturebox_exit_game.Height / 2) + 2 * picturebox_exit_game.Height + 30);
+            this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
+            this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
+            this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
+            this.optionBtn.Location = new Point((this.Size.Width / 2 - optionBtn.Width / 2), (this.Size.Height / 2 - optionBtn.Height / 2) + 1 * optionBtn.Height + 15);
+            this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + 30);
 
-            picturebox_play_game_btn.Visible = true;
-            picturebox_create_level_btn.Visible = true;
-            picturebox_highscore_btn.Visible = true;
-            picturebox_options_btn.Visible = true;
-            picturebox_exit_game.Visible = true;
+
+            PlayBtn.Visible = true;
+            CreateLvlBtn.Visible = true;
+            HighscoreBtn.Visible = true;
+            optionBtn.Visible = true;
+            exitBtn.Visible = true;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             this.BackColor = System.Drawing.Color.White;
-            panel_options.BackColor = System.Drawing.Color.FromArgb(95, System.Drawing.Color.Black);
+            optionPanel.BackColor = System.Drawing.Color.FromArgb(95, System.Drawing.Color.Black);
         }
 
-        private void mastervol_trackbar_Scroll(object sender, EventArgs e)
+        private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            float master_vol = mastervol_trackbar.Value;
-            float music_vol = musicvol_trackbar.Value;
-            float effects_vol = effectvol_trackbar.Value;
-            bgm.Volume = music_vol / 100 * (master_vol / 100);
-            klikMP.Volume = effects_vol / 100 * (master_vol / 100);
-
-            Properties.Sound.Default.master = master_vol;
+            Properties.Sound.Default.master = MasterTrackBar.Value;
             Properties.Sound.Default.Save();
         }
 
 
-        private void musicvol_trackbar_Scroll(object sender, EventArgs e)
+        private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            float master_vol = mastervol_trackbar.Value;
-            float music_vol = musicvol_trackbar.Value;
-            float effects_vol = effectvol_trackbar.Value;
-            bgm.Volume = music_vol / 100 * (master_vol / 100);
-            klikMP.Volume = effects_vol / 100 * (master_vol / 100);
-
-            Properties.Sound.Default.music = music_vol;
+            Properties.Sound.Default.music = MusicTrackBar.Value;
             Properties.Sound.Default.Save();
         }
 
-        private void effectsvol_trackbar_Scroll(object sender, EventArgs e)
+        private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            float master_vol = mastervol_trackbar.Value;
-            float music_vol = musicvol_trackbar.Value;
-            float effects_vol = effectvol_trackbar.Value;
-            bgm.Volume = music_vol / 100 * (master_vol / 100);
-            klikMP.Volume = effects_vol / 100 * (master_vol / 100);
-
-            Properties.Sound.Default.effects = effects_vol;
+            Properties.Sound.Default.effects = EffectsTrackbar.Value;
             Properties.Sound.Default.Save();
         }
     }

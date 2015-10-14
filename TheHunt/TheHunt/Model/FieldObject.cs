@@ -13,6 +13,7 @@ namespace TheHunt.Model
     {
         private Image image = null;
 
+
         public enum Type
         {
             Wall,
@@ -33,9 +34,8 @@ namespace TheHunt.Model
             {
                     for (int y = 0; y < this.height; y++)
                 {
-                    float screenWidth = getOnScreenHeight(screenSize);
-                    float screenHeight = getOnScreenHeight(screenSize);
-
+                    float screenWidth = screenSize.Width/ 40;
+                    float screenHeight = screenSize.Height / 20;
                     g.DrawImage(getImage(), this.x + (screenWidth * x), this.y + (screenHeight * y), screenWidth, screenHeight);
                 }
             }
@@ -43,15 +43,12 @@ namespace TheHunt.Model
 
         public float getPixelWidth(Size screenSize)
         {
-            double getScreenRatio = screenSize.Width / screenSize.Height;
-            float screenWidth = 32;
-            float screenHeight = (float)(screenWidth * getScreenRatio);
-            return this.width * this.getOnScreenHeight(screenSize);
+            return this.width * screenSize.Width/40;
         }
 
         public float getPixelHeight(Size screenSize)
         {
-            return this.height * this.getOnScreenWidth(screenSize);
+            return this.height * screenSize.Height / 20;
         }
 
         private Image getImage()
