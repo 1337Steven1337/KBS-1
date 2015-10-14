@@ -166,7 +166,7 @@ namespace TheHunt
             this.MasterTrackBar.TabIndex = 18;
             this.MasterTrackBar.Value = 10;
             this.MasterTrackBar.Visible = false;
-            this.MasterTrackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            //this.MasterTrackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // optionPanel
             // 
@@ -208,7 +208,7 @@ namespace TheHunt
             this.EffectsTrackbar.TabIndex = 23;
             this.EffectsTrackbar.Value = 50;
             this.EffectsTrackbar.Visible = false;
-            this.EffectsTrackbar.Scroll += new System.EventHandler(this.trackBar3_Scroll);
+            //this.EffectsTrackbar.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
             // MusicTrackBar
             // 
@@ -220,7 +220,7 @@ namespace TheHunt
             this.MusicTrackBar.TabIndex = 22;
             this.MusicTrackBar.Value = 50;
             this.MusicTrackBar.Visible = false;
-            this.MusicTrackBar.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            //this.MusicTrackBar.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // EffectsVolumeLabel
             // 
