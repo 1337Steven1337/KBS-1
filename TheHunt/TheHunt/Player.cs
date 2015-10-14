@@ -16,7 +16,7 @@ namespace TheHunt
     //in deze klasse wordt het character/ de speler  bewogen d.m.v het toetsenbord 
     public partial class Player : Form
     {
-        private World world = null;
+        private static World world = null;
         public event EventHandler<EventArgs> Timer;
         public Timer timer;
         public Timer spriteTimer;
@@ -60,7 +60,7 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-            timer.Interval = 1;
+            timer.Interval = 1000/120;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
@@ -216,19 +216,19 @@ namespace TheHunt
             switch (lastPressedKey)
             {
                 case Keys.Up:
-                    Player1.bitmap = Properties.Resources.brockSprite4;
+                    Player1.bitmap = Player1.PlayerSprites[4];
                     break;
 
                 case Keys.Left:
-                    Player1.bitmap = Properties.Resources.brockSprite10;
+                    Player1.bitmap = Player1.PlayerSprites[10];
                     break;
 
                 case Keys.Down:
-                    Player1.bitmap = Properties.Resources.brockSprite1;
+                    Player1.bitmap = Player1.PlayerSprites[1];
                     break;
 
                 case Keys.Right:
-                    Player1.bitmap = Properties.Resources.brockSprite7;
+                    Player1.bitmap = Player1.PlayerSprites[7];
                     break;
             }
 
