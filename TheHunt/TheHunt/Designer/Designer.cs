@@ -32,6 +32,9 @@ namespace TheHunt.Designer
 
             // Keep reference to the start form
             this.startForm = startform;
+
+            // Set double buffer to prevent flickering
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
         }
 
         private void Designer_Load(object sender, EventArgs e)
