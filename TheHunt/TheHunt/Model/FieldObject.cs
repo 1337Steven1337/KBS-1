@@ -70,5 +70,10 @@ namespace TheHunt.Model
             return this.image;
 
         }
+
+        public FieldObject clone()
+        {
+            return (FieldObject)this.MemberwiseClone();
+        }
     }
 }
