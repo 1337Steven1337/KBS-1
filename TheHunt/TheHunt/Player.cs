@@ -27,7 +27,7 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
-        
+
         //dasd
         public int screenWidth, screenHeight;
 
@@ -137,15 +137,14 @@ namespace TheHunt
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode != Keys.ShiftKey)
+            if (k.KeyCode != Keys.ShiftKey && k.KeyCode != Keys.LShiftKey && k.KeyCode != Keys.RShiftKey && k.KeyCode != Keys.Shift)
             {
                 this.lastPressedKey = k.KeyCode;
             }
-            
 
-            spriteTimer.Start();
 
-            if (k.KeyCode == Keys.ShiftKey)
+
+            if (k.KeyCode == Keys.ShiftKey || k.KeyCode == Keys.LShiftKey || k.KeyCode == Keys.RShiftKey || k.KeyCode == Keys.Shift)
             {
                 isRunning = true;
             }
@@ -153,21 +152,29 @@ namespace TheHunt
             if (k.KeyCode == Keys.Up)
             {
                 this.beweegNaarBoven = true;
+
+                spriteTimer.Start();
             }
 
             if (k.KeyCode == Keys.Left)
             {
                 this.beweegNaarLinks = true;
+
+                spriteTimer.Start();
             }
 
             if (k.KeyCode == Keys.Down)
             {
                 this.beweegNaarBeneden = true;
+
+                spriteTimer.Start();
             }
 
             if (k.KeyCode == Keys.Right)
             {
                 this.beweegNaarRechts = true;
+
+                spriteTimer.Start();
             }
 
             if (k.KeyCode == Keys.Escape)
@@ -180,7 +187,7 @@ namespace TheHunt
         // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode == Keys.ShiftKey)
+            if (k.KeyCode == Keys.ShiftKey || k.KeyCode == Keys.LShiftKey || k.KeyCode == Keys.RShiftKey || k.KeyCode == Keys.Shift)
             {
                 isRunning = false;
             }
@@ -330,7 +337,7 @@ namespace TheHunt
             return false;
         }
 
-        //controle welke toets er is ingedrukt
+        //controle welke toets er is ingedrukt en veranderd de lastPressedKey
         public void WelkeKeyIsDown()
         {
             var values = Enum.GetValues(typeof(System.Windows.Input.Key));
@@ -342,13 +349,15 @@ namespace TheHunt
                     System.Windows.Input.Key pressed = (System.Windows.Input.Key)Enum.Parse(typeof(System.Windows.Input.Key), ((System.Windows.Input.Key)v).ToString());
                     if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
                     {
-                      
-                        this.lastPressedKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
+
+                        this.ingedrukteKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
 
                     }
                 }
             }
         }
+
+
 
         //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
@@ -357,15 +366,12 @@ namespace TheHunt
             {
                 lastPressedKey = Keys.None;
             }
-            else if (lastPressedKey == Keys.None)
+            else if(lastPressedKey == Keys.None)
             {
                 WelkeKeyIsDown();
             }
 
-            if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
-            {
-                spriteTimer.Stop();
-            }
+            label1.Text = "" + lastPressedKey; 
 
 
             if (isRunning)
@@ -390,6 +396,10 @@ namespace TheHunt
                             world.Player.position.y -= world.Player.speed.y;
                         }
                     }
+                    else
+                    {
+                        spriteTimer.Stop();
+                    }
 
                     break;
                 case Keys.Left:
@@ -400,6 +410,11 @@ namespace TheHunt
                             world.Player.position.x -= world.Player.speed.x;
                         }
                     }
+                    else
+                    {
+                        spriteTimer.Stop();
+                    }
+
                     break;
                 case Keys.Down:
                     if (beweegNaarBeneden)
@@ -409,6 +424,11 @@ namespace TheHunt
                             world.Player.position.y += world.Player.speed.y;
                         }
                     }
+                    else
+                    {
+                        spriteTimer.Stop();
+                    }
+
                     break;
                 case Keys.Right:
                     if (beweegNaarRechts)
@@ -418,6 +438,11 @@ namespace TheHunt
                             world.Player.position.x += world.Player.speed.x;
                         }
                     }
+                    else
+                    {
+                        spriteTimer.Stop();
+                    }
+
                     break;
 
                 case Keys.None:
@@ -432,7 +457,7 @@ namespace TheHunt
         //hier keer je terug naar het hoofdmenu
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             form_startscreen form1 = new form_startscreen();
             form1.Show();
         }

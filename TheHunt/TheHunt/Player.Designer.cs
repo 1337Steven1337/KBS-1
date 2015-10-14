@@ -49,6 +49,7 @@ namespace TheHunt
             this.buttonFullScreen = new System.Windows.Forms.Button();
             this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.pictureBoxOptionsButton = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContinue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExitToMenu)).BeginInit();
@@ -253,11 +254,21 @@ namespace TheHunt
             this.pictureBoxOptionsButton.TabStop = false;
             this.pictureBoxOptionsButton.Click += new System.EventHandler(this.pictureBoxOptionsButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(774, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
             // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 941);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxOptionsButton);
             this.Controls.Add(this.panelOptions);
             this.Controls.Add(this.panel1);
@@ -283,6 +294,7 @@ namespace TheHunt
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSoundEffects)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOptionsButton)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -359,5 +371,6 @@ namespace TheHunt
         private System.Windows.Forms.PictureBox pictureBoxOptions;
         private System.Windows.Forms.PictureBox pictureBoxExitToDesktop;
         private System.Windows.Forms.PictureBox pictureBoxOptionsButton;
+        private System.Windows.Forms.Label label1;
     }
 }
