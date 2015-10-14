@@ -11,13 +11,22 @@ namespace TheHunt.Model
     class World
     {
         public List<FieldObject> FieldObjects = new List<FieldObject>();
-        public Player1 Player = new Player1();
+        public List<NPC> NPC = new List<NPC>();
+        public Player1 Player = new Player1();        
     }
 
    struct Point
     {
         public int x;
         public int y;
+        private int v1;
+        private int v2;
+
+        public Point(int v1, int v2) : this()
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+        }
     }
 
     class Player1 : ResizableObject
@@ -31,14 +40,5 @@ namespace TheHunt.Model
         {
             g.DrawImage(bitmap, this.position.x, this.position.y, getOnScreenWidth(screenSize), getOnScreenHeight(screenSize));
         }
-    }
-
-    class NPC
-    {
-        public Point position;
-        public Point speed;
-        public Type type;
-
-        
     }
 }

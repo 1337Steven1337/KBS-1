@@ -62,15 +62,20 @@ namespace TheHunt
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
             Graphics g = e.Graphics;
             Pen pen = new Pen(Color.Red);
+            //Teken blokken
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
                 FieldObject obj = this.world.FieldObjects[i];
                 obj.draw(g, this.Size);
             }
-
+            //Teken NPC's
+            for (int i = 0; i < this.world.NPC.Count; i++)
+            {
+                NPC npc = this.world.NPC[i];
+                npc.draw(g, this.Size);
+            }
             this.world.Player.draw(g, this.Size);
         }
 
@@ -87,7 +92,6 @@ namespace TheHunt
         //controle of het character er mag/kan lopen
         private bool checkIntersect(Keys k)
         {
-
             int playerX = this.world.Player.position.x;
             int playerY = this.world.Player.position.y;
 
@@ -120,6 +124,7 @@ namespace TheHunt
                 return true;
             }
 
+            //check for collision with objects (walls)..
             foreach (var item in this.world.FieldObjects)
             {
                 Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
@@ -130,6 +135,16 @@ namespace TheHunt
                 }
             }
 
+            //check for collision with NPS's...
+            foreach (var item in this.world.NPC)
+            {
+                Rectangle randomObj = new Rectangle(item.position.x, item.position.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
+
+                if (newPlayerRectangle.IntersectsWith(randomObj))
+                {
+                    return true;
+                }
+            }
             return false;
         }
         // bij het indrukken van de toets wordt de timer gestart

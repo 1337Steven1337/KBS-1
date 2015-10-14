@@ -8,9 +8,21 @@
       "type": "Wall"
     },
   ],
+  "NPC": [
+    {
+      "type":  "Enemy",
+      "position": {
+        "x": 150,
+        "y": 100
+      },
+      "speed": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ],
   //up
   "player": {
-    "img": "ww1",
     "position": {
       "x": 300,
       "y": 300
