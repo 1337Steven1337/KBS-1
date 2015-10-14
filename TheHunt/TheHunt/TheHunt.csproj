@@ -68,6 +68,7 @@
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\Move.cs" />
+    <Compile Include="Controller\Range.cs" />
     <Compile Include="Controller\Settings.cs" />
     <Compile Include="Controller\Sound.cs" />
     <Compile Include="Designer\Designer.cs">
@@ -85,6 +86,12 @@
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
     <Compile Include="Model\World.cs" />
+    <Compile Include="OptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsDialog.Designer.cs">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_startscreen.resx">
       <DependentUpon>form_startscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsDialog.resx">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player.resx">
       <DependentUpon>Player.cs</DependentUpon>
@@ -149,6 +159,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PlayerSprites\" />
+    <Folder Include="Resources\Player\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
