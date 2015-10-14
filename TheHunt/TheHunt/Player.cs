@@ -246,15 +246,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite10;
+                            Player1.bitmap = Player1.PlayerSprites[10];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite11;
+                            Player1.bitmap = Player1.PlayerSprites[11];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite12;
+                            Player1.bitmap = Player1.PlayerSprites[12];
                             count = 0;
                             break;
                     }
@@ -263,15 +263,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite1;
+                            Player1.bitmap = Player1.PlayerSprites[1];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite2;
+                            Player1.bitmap = Player1.PlayerSprites[2];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite3;
+                            Player1.bitmap = Player1.PlayerSprites[3];
                             count = 0;
                             break;
                     }
@@ -280,15 +280,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite7;
+                            Player1.bitmap = Player1.PlayerSprites[7];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite8;
+                            Player1.bitmap = Player1.PlayerSprites[8];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite9;
+                            Player1.bitmap = Player1.PlayerSprites[9];
                             count = 0;
                             break;
                     }
@@ -297,15 +297,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite4;
+                            Player1.bitmap = Player1.PlayerSprites[4];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite5;
+                            Player1.bitmap = Player1.PlayerSprites[5];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite6;
+                            Player1.bitmap = Player1.PlayerSprites[6];
                             count = 0;
                             break;
                     }
