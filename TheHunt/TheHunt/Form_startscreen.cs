@@ -19,8 +19,6 @@ namespace TheHunt
     public partial class form_startscreen : Form
     {
         public static Size startRes = new Size();
-        MediaPlayer bgm = new MediaPlayer();
-        MediaPlayer klikMP = new MediaPlayer();
         private Sound sound = null;
 
         public form_startscreen()
@@ -30,9 +28,6 @@ namespace TheHunt
             startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);
             startRes.Height = (int)(Screen.PrimaryScreen.WorkingArea.Height * 0.8);
             this.ClientSize = new Size(startRes.Width, startRes.Height);
-            bgm.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/bgm.wav"));
-            bgm.MediaEnded += new EventHandler(bgmAfgelopen);
-            bgm.Play();
 
             PlayBtn.BackColor = System.Drawing.Color.Transparent;
             CreateLvlBtn.BackColor = System.Drawing.Color.Transparent;
@@ -48,25 +43,11 @@ namespace TheHunt
             this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + (30));
 
             Properties.Screen.Default.PropertyChanged += ScreenPropertyChanged;
-            Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
 
             ResizeScreen();
             //SoundBars();
             GaTerugnaarMenu(this, null);
         }
-
-        private void SoundPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {            
-            if(e.PropertyName == "music")
-            {
-                bgm.Volume = Properties.Sound.Default.music;
-            }
-            else if(e.PropertyName == "effects")
-            {
-                klikMP.Volume = Properties.Sound.Default.effects;
-            }
-        }
-
 
         private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            
@@ -135,13 +116,6 @@ namespace TheHunt
         {
 
         }
-
-        private void bgmAfgelopen(object sender, EventArgs e)
-        {
-            bgm.Position = TimeSpan.Zero;
-            bgm.Play();
-        }
-
 
 
         private void buttonFuSc_Click(object sender, EventArgs e)
