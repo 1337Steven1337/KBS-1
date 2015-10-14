@@ -27,7 +27,7 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
-        
+
         //dasd
         public int screenWidth, screenHeight;
         private Buttons gamepad = null;
@@ -194,8 +194,8 @@ namespace TheHunt
                 case Keys.Escape:
                     toggleMenu();
                     break;
-            } 
-        } 
+            }
+        }
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
@@ -205,7 +205,7 @@ namespace TheHunt
         // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode == Keys.ShiftKey)
+            if (k.KeyCode == Keys.ShiftKey || k.KeyCode == Keys.LShiftKey || k.KeyCode == Keys.RShiftKey || k.KeyCode == Keys.Shift)
             {
                 isRunning = false;
             }
@@ -355,7 +355,7 @@ namespace TheHunt
             return false;
         }
 
-        //controle welke toets er is ingedrukt
+        //controle welke toets er is ingedrukt en veranderd de lastPressedKey
         public void WelkeKeyIsDown()
         {
             var values = Enum.GetValues(typeof(System.Windows.Input.Key));
@@ -367,8 +367,8 @@ namespace TheHunt
                     System.Windows.Input.Key pressed = (System.Windows.Input.Key)Enum.Parse(typeof(System.Windows.Input.Key), ((System.Windows.Input.Key)v).ToString());
                     if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
                     {
-                      
-                        this.lastPressedKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
+
+                        this.ingedrukteKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
 
                     }
                 }
@@ -386,7 +386,12 @@ namespace TheHunt
             {
                 WelkeKeyIsDown();
             }
-             
+
+            if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
+            {
+                spriteTimer.Stop();
+            }
+
 
             if (isRunning)
             {
@@ -398,7 +403,7 @@ namespace TheHunt
                 spriteTimer.Interval = 100;
                 this.world.Player.speed = this.world.Player.movement.walk;
             }
-             
+
             if (this.beweegNaarBoven)
             {
                 if (!checkIntersect(Keys.Up))
@@ -406,30 +411,48 @@ namespace TheHunt
                     world.Player.position.y -= world.Player.speed.y;
                 }
 
+                else
+                {
+                    spriteTimer.Stop();
+                }
             }
 
 
-           else  if (this.beweegNaarLinks)
+            else if (this.beweegNaarLinks)
             {
                 if (!checkIntersect(Keys.Left))
                 {
                     world.Player.position.x -= world.Player.speed.x;
                 }
-            }
 
-           else if (this.beweegNaarBeneden)
+                else
+                {
+                    spriteTimer.Stop();
+                }
+            }
+            else if (this.beweegNaarBeneden)
             {
                 if (!checkIntersect(Keys.Down))
                 {
                     world.Player.position.y += world.Player.speed.y;
                 }
+
+                else
+                {
+                    spriteTimer.Stop();
+                }
             }
 
-           else if (this.beweegNaarRechts)
+            else if (this.beweegNaarRechts)
             {
                 if (!checkIntersect(Keys.Right))
                 {
                     world.Player.position.x += world.Player.speed.x;
+                }
+
+                else
+                {
+                    spriteTimer.Stop();
                 }
             }
             gamepad.isPressed = false;
@@ -441,7 +464,7 @@ namespace TheHunt
         //hier keer je terug naar het hoofdmenu
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             form_startscreen form1 = new form_startscreen();
             form1.Show();
         }
