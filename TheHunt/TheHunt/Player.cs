@@ -362,6 +362,12 @@ namespace TheHunt
                 WelkeKeyIsDown();
             }
 
+            if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
+            {
+                spriteTimer.Stop();
+            }
+
+
             if (isRunning)
             {
                 spriteTimer.Interval = 50;
@@ -417,6 +423,7 @@ namespace TheHunt
                 case Keys.None:
                     spriteTimer.Stop();
                     break;
+
             }
 
 

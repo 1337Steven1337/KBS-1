@@ -114,6 +114,11 @@ namespace TheHunt
         }
 
 
+        public void openDesigner(object sender,EventArgs e)
+        {
+            Designer designwindow = new Designer(this);
+        }
+
         public void speelKlikGeluid(object sender, EventArgs e)
         {
             sound.click();

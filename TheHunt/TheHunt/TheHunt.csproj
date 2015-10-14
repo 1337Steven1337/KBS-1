@@ -70,6 +70,12 @@
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Controller\Settings.cs" />
     <Compile Include="Controller\Sound.cs" />
+    <Compile Include="Designer\Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Designer\Designer.Designer.cs">
+      <DependentUpon>Designer.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_startscreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\Designer.resx">
+      <DependentUpon>Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_startscreen.resx">
       <DependentUpon>form_startscreen.cs</DependentUpon>
