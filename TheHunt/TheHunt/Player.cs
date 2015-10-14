@@ -369,8 +369,9 @@ namespace TheHunt
             else if(lastPressedKey == Keys.None)
             {
                 WelkeKeyIsDown();
+
             }
-            
+            //gfdsfgd
 
 
             if (isRunning)
