@@ -290,7 +290,7 @@ namespace TheHunt
             else if (Options.getClosed())
             {
                 Options.Close();
-                Options = null;
+                Options = null; 
             }
         }
 
