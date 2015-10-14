@@ -59,7 +59,7 @@ namespace TheHunt.Designer
             if(this.items.active != null)
             {
                 //FieldObject o = FieldObject.DeepCopy(this.items.active);
-                this.world.FieldObjects.Add(o);
+                //this.world.FieldObjects.Add(o);
             }
         }
 
