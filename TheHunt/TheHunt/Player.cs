@@ -27,6 +27,9 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
+
+        //dasd
+        public int screenWidth, screenHeight;
         private Buttons gamepad = null;
         public int playerY;
         public int playerX;
@@ -35,7 +38,6 @@ namespace TheHunt
 
         public Player(Form form1)
         {
-
             InitializeComponent();
             this.Size = form1.Size;
             this.form1 = form1;
@@ -50,6 +52,7 @@ namespace TheHunt
             Controls.Add(right);
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
             this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
+            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height / 2);
             if (Properties.Screen.Default.full)
             {
                 this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -153,7 +156,7 @@ namespace TheHunt
                 case Keys.F21:
                     this.beweegNaarBoven = false;
                     break;
-            
+
                 case Keys.F22:
                     this.beweegNaarBeneden = false;
                     break;
@@ -167,22 +170,22 @@ namespace TheHunt
                     break;
 
                 case Keys.Up:
-                this.beweegNaarBoven = true;
+                    this.beweegNaarBoven = true;
                     break;
 
                 //naar links
                 case Keys.Left:
-                this.beweegNaarLinks = true;
+                    this.beweegNaarLinks = true;
                     break;
 
                 //naar beneden
                 case Keys.Down:
-                this.beweegNaarBeneden = true;
+                    this.beweegNaarBeneden = true;
                     break;
 
                 //naar rechts
                 case Keys.Right:
-                this.beweegNaarRechts = true;
+                    this.beweegNaarRechts = true;
                     break;
 
                 case Keys.ShiftKey:
@@ -191,7 +194,7 @@ namespace TheHunt
 
                 //openen menu
                 case Keys.Escape:
-                toggleMenu();
+                    toggleMenu();
                     break;
             }
         } 
@@ -366,7 +369,7 @@ namespace TheHunt
                     System.Windows.Input.Key pressed = (System.Windows.Input.Key)Enum.Parse(typeof(System.Windows.Input.Key), ((System.Windows.Input.Key)v).ToString());
                     if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
                     {
-                      
+
                         this.ingedrukteKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
 
                     }
@@ -404,50 +407,50 @@ namespace TheHunt
             }
 
             if (this.beweegNaarBoven)
-                    {
-                        if (!checkIntersect(Keys.Up))
-                        {
-                            world.Player.position.y -= world.Player.speed.y;
-                        }
+            {
+                if (!checkIntersect(Keys.Up))
+                {
+                    world.Player.position.y -= world.Player.speed.y;
+                }
 
                 else
                 {
                     spriteTimer.Stop();
                 }
-                    }
+            }
 
 
             else if (this.beweegNaarLinks)
-                    {
-                        if (!checkIntersect(Keys.Left))
-                        {
-                            world.Player.position.x -= world.Player.speed.x;
-                        }
+            {
+                if (!checkIntersect(Keys.Left))
+                {
+                    world.Player.position.x -= world.Player.speed.x;
+                }
 
                 else
                 {
                     spriteTimer.Stop();
                 }
-                    }
+            }
             else if (this.beweegNaarBeneden)
-                    {
-                        if (!checkIntersect(Keys.Down))
-                        {
-                            world.Player.position.y += world.Player.speed.y;
-                        }
+            {
+                if (!checkIntersect(Keys.Down))
+                {
+                    world.Player.position.y += world.Player.speed.y;
+                }
 
                 else
                 {
                     spriteTimer.Stop();
                 }
-                    }
+            }
 
             else if (this.beweegNaarRechts)
-                    {
-                        if (!checkIntersect(Keys.Right))
-                        {
-                            world.Player.position.x += world.Player.speed.x;
-                        }
+            {
+                if (!checkIntersect(Keys.Right))
+                {
+                    world.Player.position.x += world.Player.speed.x;
+                }
 
                 else
                 {
@@ -478,19 +481,5 @@ namespace TheHunt
             Application.Exit();
             Close();
         }
-
-
-
-        private void Options()
-        {
-            OptionsDialog Options = new OptionsDialog(true);
-            Options.ShowDialog();
-            if (Options.getClosed())
-            {
-                Options.Close();
-                Options = null;
-            }
-        }       
-
     }
 }
