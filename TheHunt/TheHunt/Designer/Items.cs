@@ -16,8 +16,10 @@ namespace TheHunt.Designer
     public partial class Items : Form
     {
         private List<FieldObject> fieldObjects = new List<FieldObject>();
-        internal FieldObject active = null;
-
+        private string mode = "FieldObject";
+        private object active = null;
+        
+        
         public Items()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace TheHunt.Designer
                 PictureBox box = new PictureBox();
 
                 box.Click += Item_Click;
-                box.Tag = i;
+                box.Tag = "FieldObject-" + i;
                 box.Image = item.getImage();
 
                 flowLayout.Controls.Add(box);
@@ -43,7 +45,13 @@ namespace TheHunt.Designer
         private void Item_Click(object sender, EventArgs e)
         {
             PictureBox s = (PictureBox)sender;
-            this.active = fieldObjects[(int)s.Tag];
+            string[] parts = s.Tag.ToString().Split('-');
+            this.mode = parts[0];
+
+            if (this.mode == "FieldObject")
+            {
+                this.active = fieldObjects[int.Parse(parts[1])];
+            }
         }
 
         private void loadObjects()
@@ -53,6 +61,21 @@ namespace TheHunt.Designer
             wall.x = wall.y = wall.width = wall.height = 1;
 
             this.fieldObjects.Add(wall);
+        }
+
+        internal bool isSelected()
+        {
+            return this.active != null;
+        }
+
+        internal string getMode()
+        {
+            return mode;
+        }
+
+        internal T getActive<T>()
+        {
+            return (T)active;
         }
     }
 }

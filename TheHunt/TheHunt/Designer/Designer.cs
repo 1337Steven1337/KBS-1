@@ -46,20 +46,34 @@ namespace TheHunt.Designer
             Properties.Screen.Default.PropertyChanged += setFullScreenSize;
 
             // Add onclick listener
-            this.Click += Designer_Click;
+            this.MouseClick += Designer_Click;
 
+            // Create the form to hold the items
             this.items = new Items();
             this.items.Disposed += Items_Disposed;
 
+            // Show the item form
             this.items.Show();
         }
 
-        private void Designer_Click(object sender, EventArgs e)
+        private void Designer_Click(object sender, MouseEventArgs e)
         {
-            if(this.items.active != null)
+            // Make sure something is selected
+            if(this.items.isSelected())
             {
-                //FieldObject o = FieldObject.DeepCopy(this.items.active);
-                //this.world.FieldObjects.Add(o);
+                // Calculate the X and Y of the new object
+                int x = (int)Math.Floor(e.X / cellSizeX);
+                int y = (int)Math.Floor(e.Y / cellSizeY);
+
+                if (this.items.getMode() == "FieldObject")
+                {
+                    FieldObject fieldObject = this.items.getActive<FieldObject>().clone();
+                    fieldObject.x = (int)(x * cellSizeX);
+                    fieldObject.y = (int)(y * cellSizeY);
+                    this.world.FieldObjects.Add(fieldObject);
+                }
+
+                this.Invalidate();
             }
         }
 
@@ -69,8 +83,10 @@ namespace TheHunt.Designer
             this.Close();
         }
 
+        // Function to handle the full screen option
         private void setFullScreenSize(object sender, PropertyChangedEventArgs e)
         {
+            // Check if e == null (intial call) or the propertyname fullscreen is changed
             if (e == null || e.PropertyName == "full")
             {
                 if (Properties.Screen.Default.full)
@@ -86,6 +102,7 @@ namespace TheHunt.Designer
                 this.cellSizeX = (float)this.Size.Width / (float)cellLayout.X;
                 this.cellSizeY = (float)this.Size.Height / (float)cellLayout.Y;
 
+                // Redraw the form
                 this.Invalidate();
             }
         }
@@ -113,7 +130,15 @@ namespace TheHunt.Designer
             Graphics graphics = e.Graphics;
             Pen pencil = new Pen(Color.Black);
 
+            // Paint the grid
             this.paintGrid(graphics, pencil);
+
+            // Draw the field objects
+            for (int i = 0; i < this.world.FieldObjects.Count; i++)
+            {
+                FieldObject obj = this.world.FieldObjects[i];
+                obj.draw(graphics, this.Size);
+            }
         }
     }
 }
