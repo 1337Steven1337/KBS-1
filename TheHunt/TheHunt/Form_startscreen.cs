@@ -157,6 +157,14 @@ namespace TheHunt
 
             this.PlayBtn.Click += new System.EventHandler(this.speelKlikGeluid);
             this.optionBtn.Click += new System.EventHandler(this.speelKlikGeluid);
+            this.CreateLvlBtn.Click += CreateLvlBtn_Click;
+        }
+
+        private void CreateLvlBtn_Click(object sender, EventArgs e)
+        {
+            Designer.Designer designer = new Designer.Designer(this);
+            designer.Show();
+            this.Hide();
         }
 
         private void Afsluiten(object sender, EventArgs e)

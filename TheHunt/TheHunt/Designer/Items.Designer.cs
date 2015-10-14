@@ -1,6 +1,6 @@
 ﻿namespace TheHunt.Designer
 {
-    partial class Designer
+    partial class Items
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // Designer
+            // flowLayout
+            // 
+            this.flowLayout.AutoScroll = true;
+            this.flowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayout.Location = new System.Drawing.Point(0, 0);
+            this.flowLayout.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayout.Name = "flowLayout";
+            this.flowLayout.Size = new System.Drawing.Size(338, 312);
+            this.flowLayout.TabIndex = 0;
+            // 
+            // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(185, 159);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Designer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Designer";
-            this.Load += new System.EventHandler(this.Designer_Load);
+            this.ClientSize = new System.Drawing.Size(338, 312);
+            this.Controls.Add(this.flowLayout);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Items";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Items";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.Items_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.FlowLayoutPanel flowLayout;
     }
 }
