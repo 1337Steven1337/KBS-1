@@ -76,6 +76,7 @@
       <DependentUpon>Form_startscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
+    <Compile Include="Model\NPC.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Player.cs">

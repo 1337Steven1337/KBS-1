@@ -13,7 +13,6 @@ namespace TheHunt.Model
     {
         private Image image = null;
 
-
         public enum Type
         {
             Wall,
@@ -52,7 +51,7 @@ namespace TheHunt.Model
 
         public float getPixelHeight(Size screenSize)
         {
-                        return this.height * this.getOnScreenWidth(screenSize);
+            return this.height * this.getOnScreenWidth(screenSize);
         }
 
         private Image getImage()
