@@ -34,7 +34,7 @@ namespace TheHunt.Model
         public Movement movement;
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
-        public static Bitmap bitmap = Properties.Resources.brockSprite11;
+        public static Bitmap bitmap = Properties.Resources.brockSprite1;
 
         public void draw(Graphics g,Size screenSize)
         {
