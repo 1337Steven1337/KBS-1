@@ -311,24 +311,5 @@ namespace TheHunt
             this.BackColor = System.Drawing.Color.White;
             optionPanel.BackColor = System.Drawing.Color.FromArgb(95, System.Drawing.Color.Black);
         }
-
-        //private void trackBar1_Scroll(object sender, EventArgs e)
-        //{
-        //    Properties.Sound.Default.master = MasterTrackBar.Value;
-        //    Properties.Sound.Default.Save();
-        //}
-
-
-        //private void trackBar2_Scroll(object sender, EventArgs e)
-        //{
-        //    Properties.Sound.Default.music = MusicTrackBar.Value;
-        //    Properties.Sound.Default.Save();
-        //}
-
-        //private void trackBar3_Scroll(object sender, EventArgs e)
-        //{
-        //    Properties.Sound.Default.effects = EffectsTrackbar.Value;
-        //    Properties.Sound.Default.Save();
-        //}
     }
 }

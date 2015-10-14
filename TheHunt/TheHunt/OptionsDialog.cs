@@ -16,17 +16,12 @@ namespace TheHunt
 
     public partial class  OptionsDialog : Form
     {
-        MediaPlayer bgm = new MediaPlayer();
-        MediaPlayer klikMP = new MediaPlayer();
-        private Sound sound = null;
 
         private Boolean isClosed = false;
         private Boolean changeFullScreen = false;
          
         public OptionsDialog(Boolean inGame)
         { 
-            this.sound = Sound.Instance;
-            //Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
             InitializeComponent();
             if (inGame)
             {
@@ -34,18 +29,6 @@ namespace TheHunt
             }
             //this.Visible = true;
         }
-
-        //private void SoundPropertyChanged(object sender, PropertyChangedEventArgs e)
-        //{
-        //    if (e.PropertyName == "music")
-        //    {
-        //        bgm.Volume = Properties.Sound.Default.music;
-        //    }
-        //    else if (e.PropertyName == "effects")
-        //    {
-        //        klikMP.Volume = Properties.Sound.Default.effects;
-        //    }
-        //}
 
         private void OptionsDialog_Load(object sender, EventArgs e)
         {
@@ -83,19 +66,19 @@ namespace TheHunt
 
         private void trackBarMasterVolume_Scroll(object sender, EventArgs e)
         {
-            Properties.Sound.Default.master = MasterTrackBar.Value;
+            Properties.Sound.Default.master = trackBarMasterVolume.Value;
             Properties.Sound.Default.Save();
         }
 
         private void trackBarMusicVolume_Scroll(object sender, EventArgs e)
         {
-            Properties.Sound.Default.music = MusicTrackBar.Value;
+            Properties.Sound.Default.music = trackBarMusicVolume.Value;
             Properties.Sound.Default.Save();
         }
 
         private void trackBarEffectsVolume_Scroll(object sender, EventArgs e)
         {
-            Properties.Sound.Default.effects = EffectsTrackbar.Value;
+            Properties.Sound.Default.effects = trackBarEffectsVolume.Value;
             Properties.Sound.Default.Save();
         }
 

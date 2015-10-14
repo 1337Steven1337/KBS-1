@@ -130,8 +130,5 @@ namespace TheHunt
         private System.Windows.Forms.TrackBar trackBarEffectsVolume;
         private System.Windows.Forms.Button buttonFullScreen;
         private System.Windows.Forms.Button buttonBackToMenu;
-        private System.Windows.Forms.TrackBar MasterTrackBar;
-        private System.Windows.Forms.TrackBar EffectsTrackbar;
-        private System.Windows.Forms.TrackBar MusicTrackBar;
     }
 }
