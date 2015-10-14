@@ -67,10 +67,6 @@ namespace TheHunt
             }
         }
 
-        //private void SoundBars()
-        //{
-        //    trackBar2.Value = Properties.Sound.Default.music;
-        //}
 
         private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            

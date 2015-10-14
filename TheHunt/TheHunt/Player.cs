@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheHunt.Model; 
+using TheHunt.Model;
 
 namespace TheHunt
 {
@@ -27,6 +27,7 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
+        private Buttons gamepad = null;
         public Keys lastPressedKey;
         public Keys ingedrukteKey;
 
@@ -36,6 +37,15 @@ namespace TheHunt
             InitializeComponent();
             this.Size = form1.Size;
             this.form1 = form1;
+            this.gamepad = new Buttons(this);
+            Control up = gamepad.AddButton(Direction.up, Width, Height);
+            Control left = gamepad.AddButton(Direction.left, Width, Height);
+            Control down = gamepad.AddButton(Direction.down, Width, Height);
+            Control right = gamepad.AddButton(Direction.right, Width, Height);
+            Controls.Add(up);
+            Controls.Add(left);
+            Controls.Add(down);
+            Controls.Add(right);
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
             this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
             if (Properties.Screen.Default.full)
@@ -130,53 +140,69 @@ namespace TheHunt
 
             return false;
         }
+        public void switchStatements(Keys keycode)
+        {
+            this.lastPressedKey = keycode;
+            spriteTimer.Start();
+
+            switch (keycode)
+            {
+                //naar boven
+                case Keys.F21:
+                    this.beweegNaarBoven = false;
+                    break;
+            
+                case Keys.F22:
+                    this.beweegNaarBeneden = false;
+                    break;
+
+                case Keys.F23:
+                    this.beweegNaarLinks = false;
+                    break;
+
+                case Keys.F24:
+                    this.beweegNaarRechts = false;
+                    break;
+
+                case Keys.Up:
+                this.beweegNaarBoven = true;
+                    break;
+
+                //naar links
+                case Keys.Left:
+                this.beweegNaarLinks = true;
+                    break;
+
+                //naar beneden
+                case Keys.Down:
+                this.beweegNaarBeneden = true;
+                    break;
+
+                //naar rechts
+                case Keys.Right:
+                this.beweegNaarRechts = true;
+                    break;
+
+                case Keys.ShiftKey:
+                    isRunning = true;
+                    break;
+
+                //openen menu
+                case Keys.Escape:
+                toggleMenu();
+                    break;
+            }
+        }
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode != Keys.ShiftKey)
-            {
-                this.lastPressedKey = k.KeyCode;
-            }
-            
-
-            spriteTimer.Start();
-
-            if (k.KeyCode == Keys.ShiftKey)
-            {
-                isRunning = true;
-            }
-
-            if (k.KeyCode == Keys.Up)
-            {
-                this.beweegNaarBoven = true;
-            }
-
-            if (k.KeyCode == Keys.Left)
-            {
-                this.beweegNaarLinks = true;
-            }
-
-            if (k.KeyCode == Keys.Down)
-            {
-                this.beweegNaarBeneden = true;
-            }
-
-            if (k.KeyCode == Keys.Right)
-            {
-                this.beweegNaarRechts = true;
-            }
-
-            if (k.KeyCode == Keys.Escape)
-            {
-                toggleMenu();
-            }
-
+            this.switchStatements(k.KeyCode);
 
         }
         // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode == Keys.ShiftKey)
+            if (k.KeyCode == Keys.ShiftKey || k.KeyCode == Keys.LShiftKey || k.KeyCode == Keys.RShiftKey || k.KeyCode == Keys.Shift)
             {
                 isRunning = false;
             }
@@ -235,15 +261,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite10;
+                            Player1.bitmap = Player1.PlayerSprites[10];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite11;
+                            Player1.bitmap = Player1.PlayerSprites[11];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite12;
+                            Player1.bitmap = Player1.PlayerSprites[12];
                             count = 0;
                             break;
                     }
@@ -252,15 +278,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite1;
+                            Player1.bitmap = Player1.PlayerSprites[1];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite2;
+                            Player1.bitmap = Player1.PlayerSprites[2];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite3;
+                            Player1.bitmap = Player1.PlayerSprites[3];
                             count = 0;
                             break;
                     }
@@ -269,15 +295,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite7;
+                            Player1.bitmap = Player1.PlayerSprites[7];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite8;
+                            Player1.bitmap = Player1.PlayerSprites[8];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite9;
+                            Player1.bitmap = Player1.PlayerSprites[9];
                             count = 0;
                             break;
                     }
@@ -286,15 +312,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite4;
+                            Player1.bitmap = Player1.PlayerSprites[4];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite5;
+                            Player1.bitmap = Player1.PlayerSprites[5];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite6;
+                            Player1.bitmap = Player1.PlayerSprites[6];
                             count = 0;
                             break;
                     }
@@ -326,7 +352,7 @@ namespace TheHunt
             return false;
         }
 
-        //controle welke toets er is ingedrukt
+        //controle welke toets er is ingedrukt en veranderd de lastPressedKey
         public void WelkeKeyIsDown()
         {
             var values = Enum.GetValues(typeof(System.Windows.Input.Key));
@@ -339,7 +365,7 @@ namespace TheHunt
                     if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
                     {
                       
-                        this.lastPressedKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
+                        this.ingedrukteKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
 
                     }
                 }
@@ -349,7 +375,7 @@ namespace TheHunt
         //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
         {
-            if (!IsAnyKeyDown())
+            if (!IsAnyKeyDown() && !gamepad.isPressed)
             {
                 lastPressedKey = Keys.None;
             }
@@ -375,60 +401,67 @@ namespace TheHunt
                 this.world.Player.speed = this.world.Player.movement.walk;
             }
 
-            switch (lastPressedKey)
-            {
-                case Keys.Up:
-                    if (beweegNaarBoven)
+            if (this.beweegNaarBoven)
                     {
-
                         if (!checkIntersect(Keys.Up))
                         {
                             world.Player.position.y -= world.Player.speed.y;
                         }
+
+                else
+                {
+                    spriteTimer.Stop();
+                }
                     }
 
-                    break;
-                case Keys.Left:
-                    if (beweegNaarLinks)
+
+            else if (this.beweegNaarLinks)
                     {
                         if (!checkIntersect(Keys.Left))
                         {
                             world.Player.position.x -= world.Player.speed.x;
                         }
+
+                else
+                {
+                    spriteTimer.Stop();
+                }
                     }
-                    break;
-                case Keys.Down:
-                    if (beweegNaarBeneden)
+            else if (this.beweegNaarBeneden)
                     {
                         if (!checkIntersect(Keys.Down))
                         {
                             world.Player.position.y += world.Player.speed.y;
                         }
+
+                else
+                {
+                    spriteTimer.Stop();
+                }
                     }
-                    break;
-                case Keys.Right:
-                    if (beweegNaarRechts)
+
+            else if (this.beweegNaarRechts)
                     {
                         if (!checkIntersect(Keys.Right))
                         {
                             world.Player.position.x += world.Player.speed.x;
                         }
-                    }
-                    break;
 
-                case Keys.None:
+                else
+                {
                     spriteTimer.Stop();
-                    break;
-
+                }
             }
-
-
+            gamepad.isPressed = false;
             this.Invalidate();
         }
+
+
+
         //hier keer je terug naar het hoofdmenu
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             form_startscreen form1 = new form_startscreen();
             form1.Show();
         }

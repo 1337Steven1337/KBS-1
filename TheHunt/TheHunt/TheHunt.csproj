@@ -158,6 +158,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PlayerSprites\" />
+    <Folder Include="Resources\Player\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
