@@ -67,17 +67,14 @@ namespace TheHunt
             }
         }
 
-        //private void SoundBars()
-        //{
-        //    trackBar2.Value = Properties.Sound.Default.music;
-        //}
 
         private void ScreenPropertyChanged(object sender, PropertyChangedEventArgs e)
         {            
             if(e.PropertyName == "full")
             {
                 ResizeScreen();
-                initOptionsPanel();
+                //initOptionsPanel();
+                Validate();
             }
         }
 
@@ -260,8 +257,60 @@ namespace TheHunt
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            initOptionsPanel();
+            //initOptionsPanel();
+            this.Options();
+            
 
+        }
+
+        private void Options()
+        {
+            //PlayBtn.Visible = false;
+            //CreateLvlBtn.Visible = false;
+            //exitBtn.Visible = false;
+            //optionBtn.Visible = false;
+            //HighscoreBtn.Visible = false;
+            OptionsDialog Options = new OptionsDialog(false);
+            Options.ShowDialog();
+            if (Options.getChangeFullScreen())
+            {
+                GaTerugnaarMenu();
+
+                if (Options.getClosed())
+                {
+                    Options.Close();
+                    Options = null;
+                }
+
+            }
+            else if (Options.getClosed())
+            {
+                Options.Close();
+                Options = null; 
+            }
+        }
+
+        private void GaTerugnaarMenu()
+        {
+            buttonFuSc.Visible = false;
+            labelOptionsHeader.Visible = false;
+            uitlegPictureBox.Visible = false;
+            backBtn.Visible = false;
+            optionPanel.Visible = false;
+
+
+            this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
+            this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
+            this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
+            this.optionBtn.Location = new Point((this.Size.Width / 2 - optionBtn.Width / 2), (this.Size.Height / 2 - optionBtn.Height / 2) + 1 * optionBtn.Height + 15);
+            this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + 30);
+
+
+            PlayBtn.Visible = true;
+            CreateLvlBtn.Visible = true;
+            HighscoreBtn.Visible = true;
+            optionBtn.Visible = true;
+            exitBtn.Visible = true;
         }
 
         public void GaTerugnaarMenu(object sender, EventArgs e)
@@ -310,6 +359,37 @@ namespace TheHunt
         {
             Properties.Sound.Default.effects = EffectsTrackbar.Value;
             Properties.Sound.Default.Save();
+        }
+
+        public void setButtonLocations()
+        {
+            this.Visible = false;
+
+            buttonFuSc.Visible = false;
+            labelOptionsHeader.Visible = false;
+            uitlegPictureBox.Visible = false;
+            backBtn.Visible = false;
+            optionPanel.Visible = false;
+
+
+            this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
+            this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
+            this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
+            this.optionBtn.Location = new Point((this.Size.Width / 2 - optionBtn.Width / 2), (this.Size.Height / 2 - optionBtn.Height / 2) + 1 * optionBtn.Height + 15);
+            this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + 30);
+
+
+            PlayBtn.Visible = true;
+            CreateLvlBtn.Visible = true;
+            HighscoreBtn.Visible = true;
+            optionBtn.Visible = true;
+            exitBtn.Visible = true;
+
+            Validate();
+            //MessageBox.Show("Ok");
+
+            Console.WriteLine("Q");
+            this.Visible = true;
         }
     }
 }
