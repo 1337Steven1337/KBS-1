@@ -21,6 +21,10 @@ namespace TheHunt.Controller
         {
             Properties.Sound.Default.PropertyChanged += SettingChanged;
             player_background.MediaEnded += LoopBackgroundMusic;
+            player_background.MediaOpened += LoopBackgroundMusic;
+
+            this.setBackgroundVolume();
+            this.setEffectVolume();
 
             player_background.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/bgm.wav"));
             player_click.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"));

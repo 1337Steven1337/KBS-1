@@ -27,7 +27,9 @@ namespace TheHunt
 
         private void OptionsDialog_Load(object sender, EventArgs e)
         {
-
+            trackBarEffectsVolume.Value = (int)Properties.Sound.Default.master;
+            trackBarMusicVolume.Value = (int)Properties.Sound.Default.music;
+            trackBarEffectsVolume.Value = (int)Properties.Sound.Default.effects;
         }
 
         private void buttonFullScreen_Click(object sender, EventArgs e)
@@ -57,5 +59,22 @@ namespace TheHunt
             return changeFullScreen;
         }
 
+        private void trackBarMasterVolume_Scroll(object sender, EventArgs e)
+        {
+            Properties.Sound.Default.master = trackBarMasterVolume.Value;
+            Properties.Sound.Default.Save();
+        }
+
+        private void trackBarMusicVolume_Scroll(object sender, EventArgs e)
+        {
+            Properties.Sound.Default.music = trackBarMusicVolume.Value;
+            Properties.Sound.Default.Save();
+        }
+
+        private void trackBarEffectsVolume_Scroll(object sender, EventArgs e)
+        {
+            Properties.Sound.Default.effects = trackBarEffectsVolume.Value;
+            Properties.Sound.Default.Save();
+        }
     }
 }
