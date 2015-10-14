@@ -194,7 +194,7 @@ namespace TheHunt
                 toggleMenu();
                     break;
             }
-        }
+        } 
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
