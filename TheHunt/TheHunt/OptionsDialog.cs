@@ -24,7 +24,7 @@ namespace TheHunt
         private Boolean changeFullScreen = false;
          
         public OptionsDialog(Boolean inGame)
-        {
+        { 
             this.sound = Sound.Instance;
             //Properties.Sound.Default.PropertyChanged += SoundPropertyChanged;
             InitializeComponent();
@@ -49,7 +49,9 @@ namespace TheHunt
 
         private void OptionsDialog_Load(object sender, EventArgs e)
         {
-
+            trackBarEffectsVolume.Value = (int)Properties.Sound.Default.master;
+            trackBarMusicVolume.Value = (int)Properties.Sound.Default.music;
+            trackBarEffectsVolume.Value = (int)Properties.Sound.Default.effects;
         }
 
         private void buttonFullScreen_Click(object sender, EventArgs e)
