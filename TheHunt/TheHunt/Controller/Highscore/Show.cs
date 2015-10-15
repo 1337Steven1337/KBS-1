@@ -49,5 +49,13 @@ namespace TheHunt.Controller.Highscore
         {
             this.Close();
         }
+
+        private void btnChangeName_Click(object sender, EventArgs e)
+        {
+            Name name = new Controller.Highscore.Name();
+            this.Hide();
+            name.ShowDialog();
+            this.Show();
+        }
     }
 }

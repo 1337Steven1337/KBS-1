@@ -30,6 +30,7 @@
         {
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.buttonBackToMenu = new System.Windows.Forms.Button();
+            this.btnChangeName = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             // buttonBackToMenu
             // 
             this.buttonBackToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBackToMenu.Location = new System.Drawing.Point(199, 496);
+            this.buttonBackToMenu.Location = new System.Drawing.Point(11, 496);
             this.buttonBackToMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBackToMenu.Name = "buttonBackToMenu";
             this.buttonBackToMenu.Size = new System.Drawing.Size(150, 41);
@@ -68,12 +69,25 @@
             this.buttonBackToMenu.UseVisualStyleBackColor = true;
             this.buttonBackToMenu.Click += new System.EventHandler(this.buttonBackToMenu_Click);
             // 
+            // btnChangeName
+            // 
+            this.btnChangeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeName.Location = new System.Drawing.Point(382, 496);
+            this.btnChangeName.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChangeName.Name = "btnChangeName";
+            this.btnChangeName.Size = new System.Drawing.Size(150, 41);
+            this.btnChangeName.TabIndex = 6;
+            this.btnChangeName.Text = "Change Name";
+            this.btnChangeName.UseVisualStyleBackColor = true;
+            this.btnChangeName.Click += new System.EventHandler(this.btnChangeName_Click);
+            // 
             // Show
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(543, 548);
+            this.Controls.Add(this.btnChangeName);
             this.Controls.Add(this.buttonBackToMenu);
             this.Controls.Add(this.dataGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -84,7 +98,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Highscores";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Highscores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
@@ -95,5 +108,6 @@
 
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Button buttonBackToMenu;
+        private System.Windows.Forms.Button btnChangeName;
     }
 }
