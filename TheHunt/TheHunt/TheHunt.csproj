@@ -77,6 +77,10 @@
     <Compile Include="Designer\Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Designer\Items.cs" />
+    <Compile Include="Designer\Items.Designer.cs">
+      <DependentUpon>Items.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_startscreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\Items.resx">
+      <DependentUpon>Items.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_startscreen.resx">
       <DependentUpon>form_startscreen.cs</DependentUpon>
@@ -160,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PlayerSprites\" />
-    <Folder Include="Resources\Player\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
@@ -171,18 +177,18 @@
     <None Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Arrow.jpg" />
     <None Include="Resources\BrockSprite1.bmp" />
-    <None Include="Resources\brockSprite1.png" />
-    <None Include="Resources\brockSprite2.png" />
-    <None Include="Resources\brockSprite3.png" />
-    <None Include="Resources\brockSprite4.png" />
-    <None Include="Resources\brockSprite5.png" />
-    <None Include="Resources\brockSprite6.png" />
-    <None Include="Resources\brockSprite7.png" />
-    <None Include="Resources\brockSprite8.png" />
-    <None Include="Resources\brockSprite9.png" />
-    <None Include="Resources\brockSprite10.png" />
-    <None Include="Resources\brockSprite11.png" />
-    <None Include="Resources\brockSprite12.png" />
+    <None Include="Resources\Player\brockSprite1.png" />
+    <None Include="Resources\Player\brockSprite2.png" />
+    <None Include="Resources\Player\brockSprite3.png" />
+    <None Include="Resources\Player\brockSprite4.png" />
+    <None Include="Resources\Player\brockSprite5.png" />
+    <None Include="Resources\Player\brockSprite6.png" />
+    <None Include="Resources\Player\brockSprite7.png" />
+    <None Include="Resources\Player\brockSprite8.png" />
+    <None Include="Resources\Player\brockSprite9.png" />
+    <None Include="Resources\Player\brockSprite10.png" />
+    <None Include="Resources\Player\brockSprite11.png" />
+    <None Include="Resources\Player\brockSprite12.png" />
     <None Include="Resources\Enemy.gif" />
     <None Include="Resources\Pijl boven.png" />
     <None Include="Resources\options.jpg" />
