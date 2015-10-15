@@ -1,4 +1,5 @@
 ﻿{
+  "name":  "World1",
   "FieldObjects": [
     {
       "x": 0,
@@ -16,6 +17,10 @@
     },
 
   ],
+  "highscore": {
+    "start": 100000,
+    "decay": 10
+  },
   //up
   "player": {
     "img": "ww1",
@@ -28,14 +33,14 @@
       "y": 3
     },
     "movement": {
-     "walk": {
-      "x": 3,
-      "y": 3
-    },
-    "run": {
-      "x": 10,
-      "y": 10
-    }
+      "walk": {
+        "x": 3,
+        "y": 3
+      },
+      "run": {
+        "x": 10,
+        "y": 10
+      }
     }
 
   }

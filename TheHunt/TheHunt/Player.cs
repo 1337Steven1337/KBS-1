@@ -553,6 +553,7 @@ namespace TheHunt
         {
             toggleMenu();
         }
+
         //hier sluit je het programma af
         private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
