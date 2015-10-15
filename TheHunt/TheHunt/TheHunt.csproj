@@ -77,7 +77,9 @@
     <Compile Include="Designer\Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Designer\Items.cs" />
+    <Compile Include="Designer\Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Designer\Items.Designer.cs">
       <DependentUpon>Items.cs</DependentUpon>
     </Compile>
@@ -104,6 +106,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Sound.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -142,11 +149,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -176,7 +178,12 @@
     <None Include="Resources\pijl onder.png" />
     <None Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Arrow.jpg" />
-    <None Include="Resources\BrockSprite1.bmp" />
+    <None Include="Resources\Enemy.gif" />
+    <None Include="Resources\Pijl boven.png" />
+    <None Include="Resources\options.jpg" />
+    <None Include="Resources\Continuebutton.png" />
+    <None Include="Resources\ExitToDesktopButton.png" />
+    <None Include="Resources\ExitToMenuButton.png" />
     <None Include="Resources\Player\brockSprite1.png" />
     <None Include="Resources\Player\brockSprite2.png" />
     <None Include="Resources\Player\brockSprite3.png" />
@@ -189,12 +196,6 @@
     <None Include="Resources\Player\brockSprite10.png" />
     <None Include="Resources\Player\brockSprite11.png" />
     <None Include="Resources\Player\brockSprite12.png" />
-    <None Include="Resources\Enemy.gif" />
-    <None Include="Resources\Pijl boven.png" />
-    <None Include="Resources\options.jpg" />
-    <None Include="Resources\Continuebutton.png" />
-    <None Include="Resources\ExitToDesktopButton.png" />
-    <None Include="Resources\ExitToMenuButton.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

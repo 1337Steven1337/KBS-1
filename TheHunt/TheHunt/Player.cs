@@ -264,22 +264,8 @@ namespace TheHunt
                         beweegNaarBeneden = true;
                     }
                     if (this.lastPressedKey == Keys.Right)
-                    {
-                    case Keys.Up:
-                        Player1.bitmap = Player1.PlayerSprites[4];
-                        break;
-
-                    case Keys.Left:
-                        Player1.bitmap = Player1.PlayerSprites[10];
-                        break;
-
-                    case Keys.Down:
-                        Player1.bitmap = Player1.PlayerSprites[1];
-                        break;
-
-                    case Keys.Right:
-                        Player1.bitmap = Player1.PlayerSprites[7];
-                        break;
+            {
+                        beweegNaarRechts = true;
                     }
                 }
             }
@@ -318,16 +304,16 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite10;
+                                Player1.bitmap = Player1.PlayerSprites[10];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite11;
-                            count = 2;
+                                Player1.bitmap = Player1.PlayerSprites[11];
+                                count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite12;
-                            count = 0;
+                                Player1.bitmap = Player1.PlayerSprites[12];
+                                count = 0;
                             break;
                     }
                     }
@@ -338,16 +324,16 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite1;
-                            count = 1;
+                                Player1.bitmap = Player1.PlayerSprites[1];
+                                count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite2;
-                            count = 2;
+                                Player1.bitmap = Player1.PlayerSprites[2];
+                                count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite3;
-                            count = 0;
+                                Player1.bitmap = Player1.PlayerSprites[3];
+                                count = 0;
                             break;
                     }
                     }
@@ -358,16 +344,16 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite7;
-                            count = 1;
+                                Player1.bitmap = Player1.PlayerSprites[7];
+                                count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite8;
-                            count = 2;
+                                Player1.bitmap = Player1.PlayerSprites[8];
+                                count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite9;
-                            count = 0;
+                                Player1.bitmap = Player1.PlayerSprites[9];
+                                count = 0;
                             break;
                     }
                     }
@@ -378,16 +364,16 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite4;
-                            count = 1;
+                                Player1.bitmap = Player1.PlayerSprites[4];
+                                count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite5;
-                            count = 2;
+                                Player1.bitmap = Player1.PlayerSprites[5];
+                                count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite6;
-                            count = 0;
+                                Player1.bitmap = Player1.PlayerSprites[6];
+                                count = 0;
                             break;
                     }
                     }
@@ -425,19 +411,19 @@ namespace TheHunt
             switch (this.laatsteMovement)
             {
                 case Keys.Up:
-                    Player1.bitmap = Properties.Resources.brockSprite4;
+                    Player1.bitmap = Player1.PlayerSprites[4];
                     break;
 
                 case Keys.Left:
-                    Player1.bitmap = Properties.Resources.brockSprite10;
+                    Player1.bitmap = Player1.PlayerSprites[10];
                     break;
 
                 case Keys.Down:
-                    Player1.bitmap = Properties.Resources.brockSprite1;
+                    Player1.bitmap = Player1.PlayerSprites[1];
                     break;
 
                 case Keys.Right:
-                    Player1.bitmap = Properties.Resources.brockSprite7;
+                    Player1.bitmap = Player1.PlayerSprites[7];
                     break;
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,7 +52,7 @@ namespace TheHunt.Model
             return this.height * screenSize.Height / 20;
         }
 
-        private Image getImage()
+        public Image getImage()
         {
             if(this.image == null)
             {
@@ -68,6 +69,11 @@ namespace TheHunt.Model
 
             return this.image;
 
+        }
+
+        public FieldObject clone()
+        {
+            return (FieldObject)this.MemberwiseClone();
         }
     }
 }
