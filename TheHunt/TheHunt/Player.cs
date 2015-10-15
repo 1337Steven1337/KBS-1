@@ -61,7 +61,7 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-            timer.Interval = 1;
+            timer.Interval = 1000/120;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
@@ -150,7 +150,7 @@ namespace TheHunt
         {
             if (keycode != Keys.ShiftKey  && keycode != Keys.LShiftKey && keycode != Keys.RShiftKey && keycode != Keys.Shift && keycode != Keys.F21 && keycode != Keys.F22 && keycode != Keys.F23 && keycode != Keys.F24)
             {
-                this.lastPressedKey = keycode;
+            this.lastPressedKey = keycode;
             }
 
             spriteTimer.Start();
@@ -158,17 +158,17 @@ namespace TheHunt
 
             if (keycode == Keys.F21)
             {
-                this.beweegNaarBoven = false;
+                    this.beweegNaarBoven = false;
                 this.beweegNaarLinks = false;
                 this.beweegNaarRechts = false;
-                this.beweegNaarBeneden = false;
+                    this.beweegNaarBeneden = false;
             }
 
             if (keycode == Keys.F22)
             {
                 this.beweegNaarBoven = false;
-                this.beweegNaarLinks = false;
-                this.beweegNaarRechts = false;
+                    this.beweegNaarLinks = false;
+                    this.beweegNaarRechts = false;
                 this.beweegNaarBeneden = false;
             }
             if (keycode == Keys.F23)
@@ -187,7 +187,7 @@ namespace TheHunt
             }
             if (keycode == Keys.Up)
             {
-                this.beweegNaarBoven = true;
+                    this.beweegNaarBoven = true;
                 this.beweegNaarLinks = false;
                 this.beweegNaarBeneden = false;
                 this.beweegNaarRechts = false;
@@ -197,7 +197,7 @@ namespace TheHunt
             {
                 this.beweegNaarBoven = false;
                 this.beweegNaarLinks = false;
-                this.beweegNaarBeneden = true;
+                    this.beweegNaarBeneden = true;
                 this.beweegNaarRechts = false;
                 this.laatsteMovement = Keys.Down;
             }
@@ -214,26 +214,26 @@ namespace TheHunt
                 this.beweegNaarBoven = false;
                 this.beweegNaarLinks = false;
                 this.beweegNaarBeneden = false;
-                this.beweegNaarRechts = true;
+                    this.beweegNaarRechts = true;
                 this.laatsteMovement = Keys.Right;
             }
             if (keycode == Keys.ShiftKey)
             {
-                isRunning = true;
+                    isRunning = true;
             }
             if (keycode == Keys.Escape)
             {
-                toggleMenu();
+                    toggleMenu();
             }
 
 
             
-        }
+        } 
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
             this.switchStatements(k.KeyCode);
-           
+
 
 
         }
@@ -263,7 +263,7 @@ namespace TheHunt
                         beweegNaarBeneden = true;
                     }
                     if (this.lastPressedKey == Keys.Right)
-                    {
+            {
                         beweegNaarRechts = true;
                     }
                 }
@@ -300,81 +300,81 @@ namespace TheHunt
             {
                 case Keys.Left:
                     if (beweegNaarLinks) {
-                        switch (count)
-                        {
-                            case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite10;
-                                count = 1;
-                                break;
-                            case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite11;
+                    switch (count)
+                    {
+                        case 0:
+                                Player1.bitmap = Player1.PlayerSprites[10];
+                            count = 1;
+                            break;
+                        case 1:
+                                Player1.bitmap = Player1.PlayerSprites[11];
                                 count = 2;
-                                break;
-                            case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite12;
+                            break;
+                        case 2:
+                                Player1.bitmap = Player1.PlayerSprites[12];
                                 count = 0;
-                                break;
-                        }
+                            break;
+                    }
                     }
                     break;
                 case Keys.Down:
                     if (beweegNaarBeneden)
                     {
-                        switch (count)
-                        {
-                            case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite1;
+                    switch (count)
+                    {
+                        case 0:
+                                Player1.bitmap = Player1.PlayerSprites[1];
                                 count = 1;
-                                break;
-                            case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite2;
+                            break;
+                        case 1:
+                                Player1.bitmap = Player1.PlayerSprites[2];
                                 count = 2;
-                                break;
-                            case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite3;
+                            break;
+                        case 2:
+                                Player1.bitmap = Player1.PlayerSprites[3];
                                 count = 0;
-                                break;
-                        }
+                            break;
+                    }
                     }
                     break;
                 case Keys.Right:
                     if (beweegNaarRechts)
                     {
-                        switch (count)
-                        {
-                            case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite7;
+                    switch (count)
+                    {
+                        case 0:
+                                Player1.bitmap = Player1.PlayerSprites[7];
                                 count = 1;
-                                break;
-                            case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite8;
+                            break;
+                        case 1:
+                                Player1.bitmap = Player1.PlayerSprites[8];
                                 count = 2;
-                                break;
-                            case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite9;
+                            break;
+                        case 2:
+                                Player1.bitmap = Player1.PlayerSprites[9];
                                 count = 0;
-                                break;
-                        }
+                            break;
+                    }
                     }
                     break;
                 case Keys.Up:
                     if (beweegNaarBoven)
                     {
-                        switch (count)
-                        {
-                            case 0:
-                                Player1.bitmap = Properties.Resources.brockSprite4;
+                    switch (count)
+                    {
+                        case 0:
+                                Player1.bitmap = Player1.PlayerSprites[4];
                                 count = 1;
-                                break;
-                            case 1:
-                                Player1.bitmap = Properties.Resources.brockSprite5;
+                            break;
+                        case 1:
+                                Player1.bitmap = Player1.PlayerSprites[5];
                                 count = 2;
-                                break;
-                            case 2:
-                                Player1.bitmap = Properties.Resources.brockSprite6;
+                            break;
+                        case 2:
+                                Player1.bitmap = Player1.PlayerSprites[6];
                                 count = 0;
-                                break;
-                        }
+                            break;
+                    }
                     }
                     break;
 
@@ -410,19 +410,19 @@ namespace TheHunt
             switch (this.laatsteMovement)
             {
                 case Keys.Up:
-                    Player1.bitmap = Properties.Resources.brockSprite4;
+                    Player1.bitmap = Player1.PlayerSprites[4];
                     break;
 
                 case Keys.Left:
-                    Player1.bitmap = Properties.Resources.brockSprite10;
+                    Player1.bitmap = Player1.PlayerSprites[10];
                     break;
 
                 case Keys.Down:
-                    Player1.bitmap = Properties.Resources.brockSprite1;
+                    Player1.bitmap = Player1.PlayerSprites[1];
                     break;
 
                 case Keys.Right:
-                    Player1.bitmap = Properties.Resources.brockSprite7;
+                    Player1.bitmap = Player1.PlayerSprites[7];
                     break;
             }
         }
@@ -465,8 +465,7 @@ namespace TheHunt
                 isMoving = false;
             }
 
-            this.label1.Text = "" + lastPressedKey + " Boven: "+ beweegNaarBoven + " Links: " + beweegNaarLinks + " Beneden: " + beweegNaarBeneden + " Rechts: " + beweegNaarRechts;
-
+            
             if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
             {
                 spriteTimer.Stop();
