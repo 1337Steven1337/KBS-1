@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.buttonBackToMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,8 +40,9 @@
             this.dataGrid.AllowUserToResizeColumns = false;
             this.dataGrid.AllowUserToResizeRows = false;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid.BackgroundColor = System.Drawing.Color.White;
+            this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGrid.Location = new System.Drawing.Point(0, 0);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.dataGrid.Name = "dataGrid";
@@ -51,22 +53,38 @@
             this.dataGrid.ShowCellToolTips = false;
             this.dataGrid.ShowEditingIcon = false;
             this.dataGrid.ShowRowErrors = false;
-            this.dataGrid.Size = new System.Drawing.Size(284, 135);
+            this.dataGrid.Size = new System.Drawing.Size(545, 483);
             this.dataGrid.TabIndex = 0;
+            // 
+            // buttonBackToMenu
+            // 
+            this.buttonBackToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBackToMenu.Location = new System.Drawing.Point(199, 496);
+            this.buttonBackToMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonBackToMenu.Name = "buttonBackToMenu";
+            this.buttonBackToMenu.Size = new System.Drawing.Size(150, 41);
+            this.buttonBackToMenu.TabIndex = 5;
+            this.buttonBackToMenu.Text = "Back To Menu";
+            this.buttonBackToMenu.UseVisualStyleBackColor = true;
+            this.buttonBackToMenu.Click += new System.EventHandler(this.buttonBackToMenu_Click);
             // 
             // Show
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(284, 135);
+            this.ClientSize = new System.Drawing.Size(543, 548);
+            this.Controls.Add(this.buttonBackToMenu);
             this.Controls.Add(this.dataGrid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Show";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Highscores";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Highscores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
@@ -76,5 +94,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.Button buttonBackToMenu;
     }
 }
