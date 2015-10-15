@@ -16,7 +16,7 @@ namespace TheHunt
     //in deze klasse wordt het character/ de speler  bewogen d.m.v het toetsenbord 
     public partial class Player : Form
     {
-        private static World world = null;
+        private World world = null;
         public event EventHandler<EventArgs> Timer;
         public Timer timer;
         public Timer spriteTimer;
