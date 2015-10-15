@@ -100,12 +100,6 @@ namespace TheHunt
             map.Show();
         }
 
-
-        public void pauzeerGame(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             if (!Directory.Exists(Directory.GetCurrentDirectory() + "/SFX"))
@@ -150,7 +144,6 @@ namespace TheHunt
         private void Afsluiten(object sender, EventArgs e)
         {
             sound.click();
-
             Application.Exit();
             Close();
         }
@@ -160,18 +153,18 @@ namespace TheHunt
             //initOptionsPanel();
             this.speelKlikGeluid(sender, e);
             this.Options();
-            
-
         }
 
         private void Options()
         {
+            //Verberg hoofdmenu
             PlayBtn.Visible = false;
             CreateLvlBtn.Visible = false;
             HighscoreBtn.Visible = false;
             optionBtn.Visible = false;
             exitBtn.Visible = false;
 
+            //Aanmaken optionsdialog, hoofdprogramma wordt hierdoor stilgezet terwijl gewacht wordt op reactie
             OptionsDialog Options = new OptionsDialog(false);
             Options.ShowDialog();
             if (Options.getChangeFullScreen())
@@ -205,6 +198,7 @@ namespace TheHunt
             optionBtn.Visible = false;
             exitBtn.Visible = false;
 
+            //Update de locatie van de menuknoppen zodat ze weer gecentreerd staan
             this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
             this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
             this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
@@ -227,6 +221,7 @@ namespace TheHunt
             optionBtn.Visible = false;
             exitBtn.Visible = false;
 
+            //Update de locatie van de menuknoppen zodat ze weer gecentreerd staan
             this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
             this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
             this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));

@@ -546,8 +546,8 @@ namespace TheHunt
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Close();
-            form_startscreen form1 = new form_startscreen();
             form1.Show();
+            form1.Activate();
         }
         //hier keer je terug naar het spel
         private void pictureBoxContinue_Click(object sender, EventArgs e)
@@ -579,6 +579,7 @@ namespace TheHunt
             {
                 panel1.Visible = true;
                 menuEnabled = true;
+                //Pauzeert de game
                 timer.Stop();
                 spriteTimer.Stop();
 
@@ -588,6 +589,7 @@ namespace TheHunt
 
                 panel1.Visible = false;
                 menuEnabled = false;
+                //De-pauzeert de game
                 timer.Start();
                 spriteTimer.Start();
             }
@@ -596,7 +598,7 @@ namespace TheHunt
         private void toggleOptions()
         {
             toggleMenu();
-
+            //Aanmaken optionsdialog, hoofdprogramma wordt hierdoor helemaal stilgezet terwijl gewacht wordt op reactie
             OptionsDialog Options = new OptionsDialog(true);
             Options.ShowDialog();
             if (Options.getClosed())

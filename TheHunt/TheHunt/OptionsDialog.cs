@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media;
-using TheHunt.Controller;
-using TheHunt.Designer;
 
 namespace TheHunt
 { 
@@ -24,7 +15,6 @@ namespace TheHunt
         { 
             InitializeComponent();
             FullScreenText();
-
             //layoutfix(omslachtigerwijs)
             this.Size = new Size(982, 453);
             this.trackBarMasterVolume.Location = new System.Drawing.Point(164, 70);
@@ -57,11 +47,19 @@ namespace TheHunt
 
         private void OptionsDialog_Load(object sender, EventArgs e)
         {
-            trackBarEffectsVolume.Value = (int)Properties.Sound.Default.master;
+            trackBarMasterVolume.Value = (int)Properties.Sound.Default.master;
             trackBarMusicVolume.Value = (int)Properties.Sound.Default.music;
             trackBarEffectsVolume.Value = (int)Properties.Sound.Default.effects;
         }
 
+        //Geeft teken van afsluiten opties
+        private void buttonBackToMenu_Click(object sender, EventArgs e)
+        {
+            isClosed = true;
+            this.Visible = false;
+        }
+
+        //Toggle FullScreen aan/uit na klikken Full Screen button
         private void buttonFullScreen_Click(object sender, EventArgs e)
         {
             Properties.Screen.Default.full = !Properties.Screen.Default.full;
@@ -75,6 +73,7 @@ namespace TheHunt
 
         }
 
+        //Updaten knoptekst na veranderen FullScreen
         private void FullScreenText()
         {
             if (Properties.Screen.Default.full)
@@ -87,12 +86,7 @@ namespace TheHunt
             }
         }
 
-        private void buttonBackToMenu_Click(object sender, EventArgs e)
-        {
-            isClosed = true;
-            this.Visible = false;
-        }
-
+        //Feedback geven aan hoofdscherm
         public Boolean getClosed()
         {
             return isClosed;
@@ -103,6 +97,7 @@ namespace TheHunt
             return changeFullScreen;
         }
 
+        //Updaten volume n.a.v. verslepen van de trackbar(s)
         private void trackBarMasterVolume_Scroll(object sender, EventArgs e)
         {
             Properties.Sound.Default.master = trackBarMasterVolume.Value;
