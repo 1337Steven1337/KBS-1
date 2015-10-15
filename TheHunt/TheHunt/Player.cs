@@ -30,6 +30,7 @@ namespace TheHunt
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
         public static Boolean isMoving = false;
+        public static byte[] geselecteerdLevelJSON = Properties.Resources.World1;
 
         //dasd
         public int screenWidth, screenHeight;
@@ -91,11 +92,18 @@ namespace TheHunt
 
         private void Map_Load(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
+            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/test.json"))
+            //using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
             {
                 this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
                 this.Invalidate();
             }
+            // string world = Encoding.UTF8.GetString(Properties.Resources.World1);
+            //this.world = JsonConvert.DeserializeObject<World>(world.Substring(1));
+
+
+            this.Invalidate();
+
             timer.Start();
         }
 
@@ -149,7 +157,7 @@ namespace TheHunt
         }
         public void switchStatements(Keys keycode)
         {
-            if (keycode != Keys.ShiftKey  && keycode != Keys.LShiftKey && keycode != Keys.RShiftKey && keycode != Keys.Shift && keycode != Keys.F21 && keycode != Keys.F22 && keycode != Keys.F23 && keycode != Keys.F24)
+            if (keycode != Keys.ShiftKey && keycode != Keys.LShiftKey && keycode != Keys.RShiftKey && keycode != Keys.Shift && keycode != Keys.F21 && keycode != Keys.F22 && keycode != Keys.F23 && keycode != Keys.F24)
             {
                 this.lastPressedKey = keycode;
             }
@@ -228,13 +236,13 @@ namespace TheHunt
             }
 
 
-            
+
         }
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
             this.switchStatements(k.KeyCode);
-           
+
 
 
         }
@@ -246,7 +254,8 @@ namespace TheHunt
                 isRunning = false;
             }
 
-            if (IsAnyKeyDown()) {
+            if (IsAnyKeyDown())
+            {
                 WelkeKeyIsDown();
                 if (ingedrukteKey == Keys.Up || ingedrukteKey == Keys.Left || ingedrukteKey == Keys.Down || ingedrukteKey == Keys.Right)
                 {
@@ -300,7 +309,8 @@ namespace TheHunt
             switch (this.lastPressedKey)
             {
                 case Keys.Left:
-                    if (beweegNaarLinks) {
+                    if (beweegNaarLinks)
+                    {
                         switch (count)
                         {
                             case 0:
@@ -466,7 +476,7 @@ namespace TheHunt
                 isMoving = false;
             }
 
-            
+
             if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
             {
                 spriteTimer.Stop();
