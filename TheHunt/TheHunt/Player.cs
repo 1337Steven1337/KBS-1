@@ -558,5 +558,46 @@ namespace TheHunt
             Application.Exit();
             Close();
         }
+
+        
+
+            private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
+{
+    toggleMenu();
+}
+
+private void pictureBoxOptions_Click(object sender, EventArgs e)
+{
+    toggleOptions();
+}
+
+private void toggleMenu()
+{
+    if (!menuEnabled)
+    {
+        panel1.Visible = true;
+        menuEnabled = true;
+    }
+    else
+    {
+
+        panel1.Visible = false;
+        menuEnabled = false;
+    }
+}
+
+private void toggleOptions()
+{
+    toggleMenu();
+
+            OptionsDialog Options = new OptionsDialog(true);
+            Options.ShowDialog();
+            if (Options.getClosed())
+            {
+                Options.Close();
+                Options = null;
+                toggleMenu();
+            }
+        }
     }
 }
