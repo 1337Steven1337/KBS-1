@@ -63,7 +63,7 @@ namespace TheHunt
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
             timer.Interval = 1000 / 120;
             spriteTimer.Interval = 100;
-            spriteTimer.Tick += new EventHandler(beweegSprites);
+            spriteTimer.Tick += beweegSprites;
             timer.Tick += new EventHandler(timer_Tick);
 
             this.SetStyle(
@@ -581,18 +581,21 @@ namespace TheHunt
                 panel1.Visible = true;
                 menuEnabled = true;
                 //Pauzeert de game
+                spriteTimer.Tick -= beweegSprites;
                 timer.Stop();
                 spriteTimer.Stop();
 
             }
             else
             {
-
+                lastPressedKey = Keys.None;
+                laatsteMovement = Keys.None;
                 panel1.Visible = false;
                 menuEnabled = false;
                 //De-pauzeert de game
                 timer.Start();
                 spriteTimer.Start();
+                spriteTimer.Tick += beweegSprites;
             }
         }
 
