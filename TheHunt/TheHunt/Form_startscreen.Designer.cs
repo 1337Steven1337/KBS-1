@@ -118,7 +118,7 @@ namespace TheHunt
             this.BackgroundImage = global::TheHunt.Properties.Resources.achtergrond;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1138, 576);
+            this.ClientSize = new System.Drawing.Size(1138, 696);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.optionBtn);
             this.Controls.Add(this.HighscoreBtn);

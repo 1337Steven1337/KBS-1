@@ -23,6 +23,31 @@ namespace TheHunt
         public OptionsDialog(Boolean inGame)
         { 
             InitializeComponent();
+            FullScreenText();
+
+            //layoutfix(omslachtigerwijs)
+            this.Size = new Size(982, 453);
+            this.trackBarMasterVolume.Location = new System.Drawing.Point(164, 70);
+            this.trackBarMasterVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarMusicVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarMusicVolume.Location = new System.Drawing.Point(164, 140);
+            this.trackBarEffectsVolume.Location = new System.Drawing.Point(164, 210);
+            this.trackBarEffectsVolume.Size = new System.Drawing.Size(200, 56);
+            this.buttonFullScreen.Location = new System.Drawing.Point(12, 392);
+            this.buttonFullScreen.Size = new System.Drawing.Size(200, 50);
+            this.buttonBackToMenu.Location = new System.Drawing.Point(218, 392);
+            this.buttonBackToMenu.Size = new System.Drawing.Size(200, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(421, 12);
+            this.pictureBox1.Size = new System.Drawing.Size(500, 500);
+            this.labelHeader.Location = new System.Drawing.Point(12, 9);
+            this.labelHeader.Size = new System.Drawing.Size(165, 46);
+            this.labelMaster.Location = new System.Drawing.Point(17, 70);
+            this.labelMaster.Size = new System.Drawing.Size(147, 20);
+            this.labelMusic.Location = new System.Drawing.Point(17, 140);
+            this.labelMusic.Size = new System.Drawing.Size(139, 20);
+            this.labelEffects.Location = new System.Drawing.Point(17, 210);
+            this.labelEffects.Size = new System.Drawing.Size(149, 20);
+
             if (inGame)
             {
                 buttonFullScreen.Enabled = false;
@@ -45,7 +70,21 @@ namespace TheHunt
             Properties.Screen.Default.Save();
 
             changeFullScreen = true;
-            //changeFullScreen = false;
+            FullScreenText();
+
+
+        }
+
+        private void FullScreenText()
+        {
+            if (Properties.Screen.Default.full)
+            {
+                this.buttonFullScreen.Text = "Full Screen: On";
+            }
+            else
+            {
+                this.buttonFullScreen.Text = "Full Screen: Off";
+            }
         }
 
         private void buttonBackToMenu_Click(object sender, EventArgs e)
@@ -81,6 +120,8 @@ namespace TheHunt
             Properties.Sound.Default.effects = trackBarEffectsVolume.Value;
             Properties.Sound.Default.Save();
         }
+
+        //this.testlabel
 
     }
 }

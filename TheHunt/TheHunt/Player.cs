@@ -54,7 +54,6 @@ namespace TheHunt
             Controls.Add(right);
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
             this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
-            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height / 2);
             if (Properties.Screen.Default.full)
             {
                 this.Bounds = Screen.PrimaryScreen.Bounds;
