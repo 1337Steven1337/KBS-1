@@ -53,7 +53,7 @@ namespace TheHunt
             this.PlayBtn.Location = new System.Drawing.Point(398, 42);
             this.PlayBtn.Margin = new System.Windows.Forms.Padding(4);
             this.PlayBtn.Name = "PlayBtn";
-            this.PlayBtn.Size = new System.Drawing.Size(546, 120);
+            this.PlayBtn.Size = new System.Drawing.Size(614, 150);
             this.PlayBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PlayBtn.TabIndex = 5;
             this.PlayBtn.TabStop = false;
@@ -66,7 +66,7 @@ namespace TheHunt
             this.CreateLvlBtn.Location = new System.Drawing.Point(398, 170);
             this.CreateLvlBtn.Margin = new System.Windows.Forms.Padding(4);
             this.CreateLvlBtn.Name = "CreateLvlBtn";
-            this.CreateLvlBtn.Size = new System.Drawing.Size(546, 120);
+            this.CreateLvlBtn.Size = new System.Drawing.Size(614, 150);
             this.CreateLvlBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.CreateLvlBtn.TabIndex = 6;
             this.CreateLvlBtn.TabStop = false;
@@ -79,7 +79,7 @@ namespace TheHunt
             this.HighscoreBtn.Location = new System.Drawing.Point(398, 296);
             this.HighscoreBtn.Margin = new System.Windows.Forms.Padding(4);
             this.HighscoreBtn.Name = "HighscoreBtn";
-            this.HighscoreBtn.Size = new System.Drawing.Size(546, 122);
+            this.HighscoreBtn.Size = new System.Drawing.Size(614, 152);
             this.HighscoreBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.HighscoreBtn.TabIndex = 7;
             this.HighscoreBtn.TabStop = false;
@@ -92,7 +92,7 @@ namespace TheHunt
             this.optionBtn.Location = new System.Drawing.Point(398, 426);
             this.optionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.optionBtn.Name = "optionBtn";
-            this.optionBtn.Size = new System.Drawing.Size(546, 120);
+            this.optionBtn.Size = new System.Drawing.Size(614, 150);
             this.optionBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.optionBtn.TabIndex = 8;
             this.optionBtn.TabStop = false;
@@ -105,7 +105,7 @@ namespace TheHunt
             this.exitBtn.Location = new System.Drawing.Point(398, 552);
             this.exitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(546, 117);
+            this.exitBtn.Size = new System.Drawing.Size(614, 146);
             this.exitBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.exitBtn.TabIndex = 9;
             this.exitBtn.TabStop = false;
@@ -113,12 +113,12 @@ namespace TheHunt
             // 
             // form_startscreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheHunt.Properties.Resources.achtergrond;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1138, 576);
+            this.ClientSize = new System.Drawing.Size(1138, 696);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.optionBtn);
             this.Controls.Add(this.HighscoreBtn);
@@ -126,6 +126,7 @@ namespace TheHunt
             this.Controls.Add(this.PlayBtn);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "form_startscreen";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -1,1 +1,41 @@
-﻿{"FieldObjects":[{"x":967,"y":386,"height":1,"width":1,"type":0},{"x":725,"y":662,"height":1,"width":1,"type":0},{"x":725,"y":717,"height":1,"width":1,"type":0}],"Player":{"img":null,"position":{"x":10,"y":10},"speed":{"x":3,"y":3},"movement":{"walk":{"x":3,"y":3},"run":{"x":10,"y":10}},"sizeBreedte":54,"sizeHoogte":72}}
+﻿{
+  "FieldObjects": [
+    {
+      "x": 0,
+      "y": 0,
+      "height": 1,
+      "width": 40,
+      "type": "Wall"
+    },
+    {
+      "x": 0,
+      "y": 72,
+      "height": 19,
+      "width": 1,
+      "type": "Wall"
+    },
+
+  ],
+  "player": {
+    "img": "ww1",
+    "position": {
+      "x": 300,
+      "y": 300
+    },
+    "speed": {
+      "x": 3,
+      "y": 3
+    },
+    "movement": {
+     "walk": {
+      "x": 3,
+      "y": 3
+    },
+    "run": {
+      "x": 10,
+      "y": 10
+    }
+    }
+
+  }
+}
