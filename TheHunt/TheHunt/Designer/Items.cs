@@ -18,16 +18,20 @@ namespace TheHunt.Designer
         private List<FieldObject> fieldObjects = new List<FieldObject>();
         private string mode = "FieldObject";
         private object active = null;
+        private Form form;
         
-        
-        public Items()
+        public Items(Form Designform)
         {
             InitializeComponent();
+            this.form = Designform;
         }
     
         private void Items_Load(object sender, EventArgs e)
         {
+
             this.loadObjects();
+            this.Location = new System.Drawing.Point(form.Location.X + (int)(form.Size.Width), form.Location.Y);
+            this.Size = new Size((int)(form.Size.Width * 0.25),form.Size.Height);
 
             for (int i = 0; i < fieldObjects.Count; i++)
             {
@@ -39,6 +43,8 @@ namespace TheHunt.Designer
                 box.Image = item.getImage();
 
                 flowLayout.Controls.Add(box);
+
+                
             }
         }
 

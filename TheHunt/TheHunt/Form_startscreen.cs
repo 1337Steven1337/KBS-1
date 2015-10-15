@@ -31,8 +31,8 @@ namespace TheHunt
             this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
             this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
             this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
-            this.optionBtn.Location = new Point((this.Size.Width / 2 - optionBtn.Width / 2), (this.Size.Height / 2 - optionBtn.Height / 2) + 1 * optionBtn.Height + (15));
-            this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + (30));
+            this.optionBtn.Location = new Point((this.Size.Width / 2 - optionBtn.Width / 2), (this.Size.Height / 2 - optionBtn.Height / 2) + 1 * optionBtn.Height + 15);
+            this.exitBtn.Location = new Point((this.Size.Width / 2 - exitBtn.Width / 2), (this.Size.Height / 2 - exitBtn.Height / 2) + 2 * exitBtn.Height + 30);
 
             Properties.Screen.Default.PropertyChanged += ScreenPropertyChanged;
 
