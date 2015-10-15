@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,9 @@ namespace TheHunt.Designer
 
         // Set an empty world
         private World world = new World();
+
+        // Set world variables
+        private string name = null;
 
         public Designer(Form startform)
         {
@@ -84,6 +89,18 @@ namespace TheHunt.Designer
         {
             this.startForm.Show();
             this.Close();
+        }
+
+        private void save()
+        {
+            if(this.name == null)
+            {
+                this.name = "test";
+                // show dialog
+            }
+
+            string json = JsonConvert.SerializeObject(this.world);
+            System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + "/../../World/" + this.name + ".json", json);
         }
 
         // Function to handle the full screen option
