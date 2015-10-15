@@ -67,10 +67,10 @@ namespace TheHunt
             // 
             this.PlayBtn.BackColor = System.Drawing.Color.Transparent;
             this.PlayBtn.Image = global::TheHunt.Properties.Resources.playBtn;
-            this.PlayBtn.Location = new System.Drawing.Point(398, 42);
-            this.PlayBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PlayBtn.Location = new System.Drawing.Point(448, 52);
+            this.PlayBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PlayBtn.Name = "PlayBtn";
-            this.PlayBtn.Size = new System.Drawing.Size(546, 120);
+            this.PlayBtn.Size = new System.Drawing.Size(614, 150);
             this.PlayBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PlayBtn.TabIndex = 5;
             this.PlayBtn.TabStop = false;
@@ -80,10 +80,10 @@ namespace TheHunt
             // 
             this.CreateLvlBtn.BackColor = System.Drawing.Color.Transparent;
             this.CreateLvlBtn.Image = global::TheHunt.Properties.Resources.crlvBtn;
-            this.CreateLvlBtn.Location = new System.Drawing.Point(398, 170);
-            this.CreateLvlBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CreateLvlBtn.Location = new System.Drawing.Point(448, 212);
+            this.CreateLvlBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CreateLvlBtn.Name = "CreateLvlBtn";
-            this.CreateLvlBtn.Size = new System.Drawing.Size(546, 120);
+            this.CreateLvlBtn.Size = new System.Drawing.Size(614, 150);
             this.CreateLvlBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.CreateLvlBtn.TabIndex = 6;
             this.CreateLvlBtn.TabStop = false;
@@ -93,10 +93,10 @@ namespace TheHunt
             // 
             this.HighscoreBtn.BackColor = System.Drawing.Color.Transparent;
             this.HighscoreBtn.Image = global::TheHunt.Properties.Resources.highscores;
-            this.HighscoreBtn.Location = new System.Drawing.Point(398, 296);
-            this.HighscoreBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HighscoreBtn.Location = new System.Drawing.Point(448, 370);
+            this.HighscoreBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HighscoreBtn.Name = "HighscoreBtn";
-            this.HighscoreBtn.Size = new System.Drawing.Size(546, 122);
+            this.HighscoreBtn.Size = new System.Drawing.Size(614, 152);
             this.HighscoreBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.HighscoreBtn.TabIndex = 7;
             this.HighscoreBtn.TabStop = false;
@@ -106,10 +106,10 @@ namespace TheHunt
             // 
             this.optionBtn.BackColor = System.Drawing.Color.Transparent;
             this.optionBtn.Image = global::TheHunt.Properties.Resources.optionsBtn;
-            this.optionBtn.Location = new System.Drawing.Point(398, 426);
-            this.optionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.optionBtn.Location = new System.Drawing.Point(448, 532);
+            this.optionBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.optionBtn.Name = "optionBtn";
-            this.optionBtn.Size = new System.Drawing.Size(546, 120);
+            this.optionBtn.Size = new System.Drawing.Size(614, 150);
             this.optionBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.optionBtn.TabIndex = 8;
             this.optionBtn.TabStop = false;
@@ -119,10 +119,10 @@ namespace TheHunt
             // 
             this.exitBtn.BackColor = System.Drawing.Color.Transparent;
             this.exitBtn.Image = global::TheHunt.Properties.Resources.exitBtn;
-            this.exitBtn.Location = new System.Drawing.Point(398, 552);
-            this.exitBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitBtn.Location = new System.Drawing.Point(448, 690);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(546, 117);
+            this.exitBtn.Size = new System.Drawing.Size(614, 146);
             this.exitBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.exitBtn.TabIndex = 9;
             this.exitBtn.TabStop = false;
@@ -131,10 +131,10 @@ namespace TheHunt
             // buttonFuSc
             // 
             this.buttonFuSc.AutoSize = true;
-            this.buttonFuSc.Location = new System.Drawing.Point(72, 330);
-            this.buttonFuSc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonFuSc.Location = new System.Drawing.Point(81, 412);
+            this.buttonFuSc.Margin = new System.Windows.Forms.Padding(2);
             this.buttonFuSc.Name = "buttonFuSc";
-            this.buttonFuSc.Size = new System.Drawing.Size(150, 40);
+            this.buttonFuSc.Size = new System.Drawing.Size(169, 50);
             this.buttonFuSc.TabIndex = 13;
             this.buttonFuSc.Text = "Full Screen: Off";
             this.buttonFuSc.UseVisualStyleBackColor = true;
@@ -147,10 +147,10 @@ namespace TheHunt
             this.labelOptionsHeader.BackColor = System.Drawing.Color.Transparent;
             this.labelOptionsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
             this.labelOptionsHeader.ForeColor = System.Drawing.Color.White;
-            this.labelOptionsHeader.Location = new System.Drawing.Point(22, 14);
+            this.labelOptionsHeader.Location = new System.Drawing.Point(25, 18);
             this.labelOptionsHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOptionsHeader.Name = "labelOptionsHeader";
-            this.labelOptionsHeader.Size = new System.Drawing.Size(248, 70);
+            this.labelOptionsHeader.Size = new System.Drawing.Size(296, 83);
             this.labelOptionsHeader.TabIndex = 17;
             this.labelOptionsHeader.Text = "Options";
             this.labelOptionsHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,11 +158,11 @@ namespace TheHunt
             // 
             // MasterTrackBar
             // 
-            this.MasterTrackBar.Location = new System.Drawing.Point(238, 133);
+            this.MasterTrackBar.Location = new System.Drawing.Point(268, 166);
             this.MasterTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.MasterTrackBar.Maximum = 100;
             this.MasterTrackBar.Name = "MasterTrackBar";
-            this.MasterTrackBar.Size = new System.Drawing.Size(200, 56);
+            this.MasterTrackBar.Size = new System.Drawing.Size(225, 69);
             this.MasterTrackBar.TabIndex = 18;
             this.MasterTrackBar.Value = 10;
             this.MasterTrackBar.Visible = false;
@@ -179,10 +179,10 @@ namespace TheHunt
             this.optionPanel.Controls.Add(this.labelOptionsHeader);
             this.optionPanel.Controls.Add(this.MasterTrackBar);
             this.optionPanel.Controls.Add(this.buttonFuSc);
-            this.optionPanel.Location = new System.Drawing.Point(802, 254);
+            this.optionPanel.Location = new System.Drawing.Point(902, 318);
             this.optionPanel.Margin = new System.Windows.Forms.Padding(2);
             this.optionPanel.Name = "optionPanel";
-            this.optionPanel.Size = new System.Drawing.Size(865, 403);
+            this.optionPanel.Size = new System.Drawing.Size(973, 504);
             this.optionPanel.TabIndex = 19;
             this.optionPanel.Visible = false;
             this.optionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -190,21 +190,21 @@ namespace TheHunt
             // uitlegPictureBox
             // 
             this.uitlegPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uitlegPictureBox.Location = new System.Drawing.Point(513, 86);
+            this.uitlegPictureBox.Location = new System.Drawing.Point(577, 108);
             this.uitlegPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uitlegPictureBox.Name = "uitlegPictureBox";
-            this.uitlegPictureBox.Size = new System.Drawing.Size(303, 283);
+            this.uitlegPictureBox.Size = new System.Drawing.Size(341, 354);
             this.uitlegPictureBox.TabIndex = 24;
             this.uitlegPictureBox.TabStop = false;
             this.uitlegPictureBox.Visible = false;
             // 
             // EffectsTrackbar
             // 
-            this.EffectsTrackbar.Location = new System.Drawing.Point(238, 230);
+            this.EffectsTrackbar.Location = new System.Drawing.Point(268, 288);
             this.EffectsTrackbar.Margin = new System.Windows.Forms.Padding(2);
             this.EffectsTrackbar.Maximum = 100;
             this.EffectsTrackbar.Name = "EffectsTrackbar";
-            this.EffectsTrackbar.Size = new System.Drawing.Size(200, 56);
+            this.EffectsTrackbar.Size = new System.Drawing.Size(225, 69);
             this.EffectsTrackbar.TabIndex = 23;
             this.EffectsTrackbar.Value = 50;
             this.EffectsTrackbar.Visible = false;
@@ -212,11 +212,11 @@ namespace TheHunt
             // 
             // MusicTrackBar
             // 
-            this.MusicTrackBar.Location = new System.Drawing.Point(238, 181);
+            this.MusicTrackBar.Location = new System.Drawing.Point(268, 226);
             this.MusicTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.MusicTrackBar.Maximum = 100;
             this.MusicTrackBar.Name = "MusicTrackBar";
-            this.MusicTrackBar.Size = new System.Drawing.Size(200, 56);
+            this.MusicTrackBar.Size = new System.Drawing.Size(225, 69);
             this.MusicTrackBar.TabIndex = 22;
             this.MusicTrackBar.Value = 50;
             this.MusicTrackBar.Visible = false;
@@ -228,10 +228,10 @@ namespace TheHunt
             this.EffectsVolumeLabel.BackColor = System.Drawing.Color.Transparent;
             this.EffectsVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.EffectsVolumeLabel.ForeColor = System.Drawing.Color.White;
-            this.EffectsVolumeLabel.Location = new System.Drawing.Point(16, 238);
+            this.EffectsVolumeLabel.Location = new System.Drawing.Point(18, 298);
             this.EffectsVolumeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EffectsVolumeLabel.Name = "EffectsVolumeLabel";
-            this.EffectsVolumeLabel.Size = new System.Drawing.Size(197, 31);
+            this.EffectsVolumeLabel.Size = new System.Drawing.Size(232, 37);
             this.EffectsVolumeLabel.TabIndex = 21;
             this.EffectsVolumeLabel.Text = "Effects Volume";
             // 
@@ -241,10 +241,10 @@ namespace TheHunt
             this.MusicVolumeLabel.BackColor = System.Drawing.Color.Transparent;
             this.MusicVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.MusicVolumeLabel.ForeColor = System.Drawing.Color.White;
-            this.MusicVolumeLabel.Location = new System.Drawing.Point(16, 181);
+            this.MusicVolumeLabel.Location = new System.Drawing.Point(18, 226);
             this.MusicVolumeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MusicVolumeLabel.Name = "MusicVolumeLabel";
-            this.MusicVolumeLabel.Size = new System.Drawing.Size(191, 31);
+            this.MusicVolumeLabel.Size = new System.Drawing.Size(227, 37);
             this.MusicVolumeLabel.TabIndex = 20;
             this.MusicVolumeLabel.Text = "Music Volume:";
             // 
@@ -254,10 +254,10 @@ namespace TheHunt
             this.MasterVolumeLabel.BackColor = System.Drawing.Color.Transparent;
             this.MasterVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.MasterVolumeLabel.ForeColor = System.Drawing.Color.White;
-            this.MasterVolumeLabel.Location = new System.Drawing.Point(16, 133);
+            this.MasterVolumeLabel.Location = new System.Drawing.Point(18, 166);
             this.MasterVolumeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MasterVolumeLabel.Name = "MasterVolumeLabel";
-            this.MasterVolumeLabel.Size = new System.Drawing.Size(203, 31);
+            this.MasterVolumeLabel.Size = new System.Drawing.Size(241, 37);
             this.MasterVolumeLabel.TabIndex = 19;
             this.MasterVolumeLabel.Text = "Master Volume:";
             // 
@@ -265,10 +265,10 @@ namespace TheHunt
             // 
             this.backBtn.BackColor = System.Drawing.Color.Transparent;
             this.backBtn.Image = global::TheHunt.Properties.Resources.backBtn;
-            this.backBtn.Location = new System.Drawing.Point(-119, 435);
+            this.backBtn.Location = new System.Drawing.Point(-134, 544);
             this.backBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(546, 120);
+            this.backBtn.Size = new System.Drawing.Size(614, 150);
             this.backBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.backBtn.TabIndex = 25;
             this.backBtn.TabStop = false;
@@ -276,12 +276,12 @@ namespace TheHunt
             // 
             // form_startscreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TheHunt.Properties.Resources.achtergrond;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1138, 576);
+            this.ClientSize = new System.Drawing.Size(1963, 1132);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.optionPanel);
             this.Controls.Add(this.exitBtn);
@@ -291,6 +291,7 @@ namespace TheHunt
             this.Controls.Add(this.PlayBtn);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "form_startscreen";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
