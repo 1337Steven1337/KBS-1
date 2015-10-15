@@ -16,8 +16,6 @@ namespace TheHunt.Controller.Highscore
         public Show()
         {
             InitializeComponent();
-
-            //this.MaximumSize = new Size(400, 400);
         }
 
         private void Highscores_Load(object sender, EventArgs e)
@@ -45,6 +43,11 @@ namespace TheHunt.Controller.Highscore
             }
 
             return data;
+        }
+
+        private void buttonBackToMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
