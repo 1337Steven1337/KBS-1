@@ -57,7 +57,7 @@ namespace TheHunt.Designer
             this.MouseClick += Designer_Click;
 
             // Create the form to hold the items
-            this.items = new Items();
+            this.items = new Items(this);
             this.items.Disposed += Items_Disposed;
 
             // Show the item form
@@ -115,7 +115,7 @@ namespace TheHunt.Designer
                 }
                 else
                 {
-                    this.Size = this.startForm.Size;
+                    this.Size = new Size((int)(this.startForm.Size.Width * 0.8), this.startForm.Size.Height) ;
                 }
 
                 // Calculate the grid size variables
