@@ -251,6 +251,7 @@ namespace TheHunt
             this.pictureBoxOptionsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOptionsButton.TabIndex = 3;
             this.pictureBoxOptionsButton.TabStop = false;
+            this.pictureBoxOptionsButton.Visible = false;
             this.pictureBoxOptionsButton.Click += new System.EventHandler(this.pictureBoxOptionsButton_Click);
             // 
             // Player
