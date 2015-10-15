@@ -466,8 +466,7 @@ namespace TheHunt
                 isMoving = false;
             }
 
-            this.label1.Text = "" + lastPressedKey + " Boven: "+ beweegNaarBoven + " Links: " + beweegNaarLinks + " Beneden: " + beweegNaarBeneden + " Rechts: " + beweegNaarRechts;
-
+            
             if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
             {
                 spriteTimer.Stop();
