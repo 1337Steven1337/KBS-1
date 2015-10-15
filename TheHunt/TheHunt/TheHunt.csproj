@@ -67,6 +67,19 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Highscore\Highscore.cs" />
+    <Compile Include="Controller\Highscore\Show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\Highscore\Show.Designer.cs">
+      <DependentUpon>Show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\Highscore\Tmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\Highscore\Tmp.Designer.cs">
+      <DependentUpon>Tmp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Controller\Range.cs" />
     <Compile Include="Controller\Settings.cs" />
@@ -91,6 +104,7 @@
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
+    <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="OptionsDialog.cs">
       <SubType>Form</SubType>
@@ -121,8 +135,19 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Screen.settings</DependentUpon>
     </Compile>
+    <Compile Include="Properties\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>User.settings</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\Highscore\Show.resx">
+      <DependentUpon>Show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\Highscore\Tmp.resx">
+      <DependentUpon>Tmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
@@ -162,6 +187,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Screen.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Properties\User.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\highscore.json" />
     <None Include="World\World1.json" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PlayerSprites\" />
-    <Folder Include="Resources\Player\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
@@ -179,25 +208,24 @@
     <None Include="Resources\pijl onder.png" />
     <None Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Arrow.jpg" />
-    <None Include="Resources\BrockSprite1.bmp" />
-    <None Include="Resources\brockSprite1.png" />
-    <None Include="Resources\brockSprite2.png" />
-    <None Include="Resources\brockSprite3.png" />
-    <None Include="Resources\brockSprite4.png" />
-    <None Include="Resources\brockSprite5.png" />
-    <None Include="Resources\brockSprite6.png" />
-    <None Include="Resources\brockSprite7.png" />
-    <None Include="Resources\brockSprite8.png" />
-    <None Include="Resources\brockSprite9.png" />
-    <None Include="Resources\brockSprite10.png" />
-    <None Include="Resources\brockSprite11.png" />
-    <None Include="Resources\brockSprite12.png" />
     <None Include="Resources\Enemy.gif" />
     <None Include="Resources\Pijl boven.png" />
     <None Include="Resources\options.jpg" />
     <None Include="Resources\Continuebutton.png" />
     <None Include="Resources\ExitToDesktopButton.png" />
     <None Include="Resources\ExitToMenuButton.png" />
+    <None Include="Resources\Player\brockSprite1.png" />
+    <None Include="Resources\Player\brockSprite2.png" />
+    <None Include="Resources\Player\brockSprite3.png" />
+    <None Include="Resources\Player\brockSprite4.png" />
+    <None Include="Resources\Player\brockSprite5.png" />
+    <None Include="Resources\Player\brockSprite6.png" />
+    <None Include="Resources\Player\brockSprite7.png" />
+    <None Include="Resources\Player\brockSprite8.png" />
+    <None Include="Resources\Player\brockSprite9.png" />
+    <None Include="Resources\Player\brockSprite10.png" />
+    <None Include="Resources\Player\brockSprite11.png" />
+    <None Include="Resources\Player\brockSprite12.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

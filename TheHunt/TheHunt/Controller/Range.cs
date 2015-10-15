@@ -10,7 +10,7 @@ namespace TheHunt.Controller
     public class DetectPlayer
     {
 
-        public bool inRange(int range, Player player, int x, int y)
+        public static bool inRange(int range, Player player, int x, int y)
         {
 
             World world = new World();
@@ -62,6 +62,12 @@ namespace TheHunt.Controller
 
 
             return inrange;
+        }
+        //wanneer player in range is:
+        public int isInRange(int range)
+        {
+            range += 100;
+            return range;
         }
 
     }
