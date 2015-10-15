@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,9 @@ namespace TheHunt.Designer
 
         // Set an empty world
         private World world = new World();
+
+        // Set world variables
+        private string name = null;
 
         public Designer(Form startform)
         {
@@ -52,7 +57,7 @@ namespace TheHunt.Designer
             this.MouseClick += Designer_Click;
 
             // Create the form to hold the items
-            this.items = new Items();
+            this.items = new Items(this);
             this.items.Disposed += Items_Disposed;
 
             // Show the item form
@@ -86,6 +91,18 @@ namespace TheHunt.Designer
             this.Close();
         }
 
+        private void save()
+        {
+            if(this.name == null)
+            {
+                this.name = "test";
+                // show dialog
+            }
+
+            string json = JsonConvert.SerializeObject(this.world);
+            System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + "/../../World/" + this.name + ".json", json);
+        }
+
         // Function to handle the full screen option
         private void setFullScreenSize(object sender, PropertyChangedEventArgs e)
         {
@@ -98,7 +115,7 @@ namespace TheHunt.Designer
                 }
                 else
                 {
-                    this.Size = this.startForm.Size;
+                    this.Size = new Size((int)(this.startForm.Size.Width * 0.8), this.startForm.Size.Height) ;
                 }
 
                 // Calculate the grid size variables
