@@ -87,6 +87,7 @@ namespace TheHunt.Designer
 
         private void Items_Disposed(object sender, EventArgs e)
         {
+            this.save();
             this.startForm.Show();
             this.Close();
         }

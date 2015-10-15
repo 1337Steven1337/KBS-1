@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using TheHunt.Controller;
+using TheHunt.Controller.Highscore;
 
 namespace TheHunt
 {
@@ -133,10 +134,16 @@ namespace TheHunt
                 }
             }
 
-
             this.PlayBtn.Click += new System.EventHandler(this.speelKlikGeluid);
             this.optionBtn.Click += new System.EventHandler(this.speelKlikGeluid);
             this.CreateLvlBtn.Click += CreateLvlBtn_Click;
+            this.HighscoreBtn.Click += HighscoreBtn_Click;
+        }
+
+        private void HighscoreBtn_Click(object sender, EventArgs e)
+        {
+            Show show = new Show();
+            show.ShowDialog();
         }
 
         private void CreateLvlBtn_Click(object sender, EventArgs e)

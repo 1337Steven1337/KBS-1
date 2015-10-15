@@ -67,6 +67,19 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Highscore\Highscore.cs" />
+    <Compile Include="Controller\Highscore\Show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\Highscore\Show.Designer.cs">
+      <DependentUpon>Show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\Highscore\Tmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\Highscore\Tmp.Designer.cs">
+      <DependentUpon>Tmp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Controller\Range.cs" />
     <Compile Include="Controller\Settings.cs" />
@@ -91,6 +104,7 @@
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
+    <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="OptionsDialog.cs">
       <SubType>Form</SubType>
@@ -106,6 +120,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Sound.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -116,8 +135,19 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Screen.settings</DependentUpon>
     </Compile>
+    <Compile Include="Properties\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>User.settings</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\Highscore\Show.resx">
+      <DependentUpon>Show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\Highscore\Tmp.resx">
+      <DependentUpon>Tmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
@@ -144,11 +174,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -162,6 +187,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Screen.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Properties\User.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\highscore.json" />
     <None Include="World\World1.json" />
   </ItemGroup>
   <ItemGroup>
