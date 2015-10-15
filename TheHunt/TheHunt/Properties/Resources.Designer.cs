@@ -417,5 +417,15 @@ namespace TheHunt.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] World1 {
+            get {
+                object obj = ResourceManager.GetObject("World1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

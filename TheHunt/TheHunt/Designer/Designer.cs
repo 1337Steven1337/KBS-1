@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheHunt.Model;
+using System.Resources;
 
 namespace TheHunt.Designer
 {
@@ -87,6 +88,7 @@ namespace TheHunt.Designer
 
         private void Items_Disposed(object sender, EventArgs e)
         {
+            this.save();
             this.startForm.Show();
             this.Close();
         }
@@ -97,10 +99,24 @@ namespace TheHunt.Designer
             {
                 this.name = "test";
                 // show dialog
+                
             }
-
+            
             string json = JsonConvert.SerializeObject(this.world);
-            System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + "/../../World/" + this.name + ".json", json);
+            // Creates a resource writer.
+            IResourceWriter writer = new ResourceWriter("myResources.resources");
+
+            // Adds resources to the resource writer.
+            writer.AddResource("String 1", "First String");
+
+            writer.AddResource("String 2", "Second String");
+
+            writer.AddResource("String 3", "Third String");
+
+            // Writes the resources to the file or stream, and closes it.
+            writer.Close();
+            System.IO.File.WriteAllText(@"" +Directory.GetCurrentDirectory() + "/" + this.name + ".json", json);
+
         }
 
         // Function to handle the full screen option
