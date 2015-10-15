@@ -1,0 +1,41 @@
+﻿{
+  "FieldObjects": [
+    {
+      "x": 0,
+      "y": 0,
+      "height": 1,
+      "width": 40,
+      "type": "Wall"
+    },
+    {
+      "x": 0,
+      "y": 72,
+      "height": 19,
+      "width": 1,
+      "type": "Wall"
+    },
+
+  ],
+  "player": {
+    "img": "ww1",
+    "position": {
+      "x": 300,
+      "y": 300
+    },
+    "speed": {
+      "x": 3,
+      "y": 3
+    },
+    "movement": {
+     "walk": {
+      "x": 3,
+      "y": 3
+    },
+    "run": {
+      "x": 10,
+      "y": 10
+    }
+    }
+
+  }
+}
