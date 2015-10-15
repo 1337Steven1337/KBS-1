@@ -15,6 +15,7 @@ namespace TheHunt
         public form_startscreen()
         {
             InitializeComponent();
+
             this.sound = Sound.Instance;
             startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);
             startRes.Height = (int)(Screen.PrimaryScreen.WorkingArea.Height * 0.8);
@@ -165,6 +166,12 @@ namespace TheHunt
 
         private void Options()
         {
+            PlayBtn.Visible = false;
+            CreateLvlBtn.Visible = false;
+            HighscoreBtn.Visible = false;
+            optionBtn.Visible = false;
+            exitBtn.Visible = false;
+
             OptionsDialog Options = new OptionsDialog(false);
             Options.ShowDialog();
             if (Options.getChangeFullScreen())
@@ -183,11 +190,20 @@ namespace TheHunt
                 Options.Close();
                 Options = null; 
             }
+            PlayBtn.Visible = true;
+            CreateLvlBtn.Visible = true;
+            HighscoreBtn.Visible = true;
+            optionBtn.Visible = true;
+            exitBtn.Visible = true;
         }
 
         private void GaTerugnaarMenu()
         {
-
+            PlayBtn.Visible = false;
+            CreateLvlBtn.Visible = false;
+            HighscoreBtn.Visible = false;
+            optionBtn.Visible = false;
+            exitBtn.Visible = false;
 
             this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
             this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
@@ -205,6 +221,12 @@ namespace TheHunt
 
         public void GaTerugnaarMenu(object sender, EventArgs e)
         {
+            PlayBtn.Visible = false;
+            CreateLvlBtn.Visible = false;
+            HighscoreBtn.Visible = false;
+            optionBtn.Visible = false;
+            exitBtn.Visible = false;
+
             this.PlayBtn.Location = new Point((this.Size.Width / 2 - PlayBtn.Width / 2), (this.Size.Height / 2 - PlayBtn.Height / 2) - 2 * PlayBtn.Height - 30);
             this.CreateLvlBtn.Location = new Point((this.Size.Width / 2 - CreateLvlBtn.Width / 2), (this.Size.Height / 2 - CreateLvlBtn.Height / 2) - 1 * CreateLvlBtn.Height - 15);
             this.HighscoreBtn.Location = new Point((this.Size.Width / 2 - HighscoreBtn.Width / 2), (this.Size.Height / 2 - HighscoreBtn.Height / 2));
