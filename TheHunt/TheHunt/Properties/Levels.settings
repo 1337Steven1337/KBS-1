@@ -1,0 +1,53 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TheHunt.Properties" GeneratedClassName="Levels">
+  <Profiles />
+  <Settings>
+    <Setting Name="level1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">{
+  "FieldObjects": [
+    {
+      "x": 0,
+      "y": 0,
+      "height": 1,
+      "width": 40,
+      "type": "Wall"
+    },
+    {
+      "x": 0,
+      "y": 72,
+      "height": 19,
+      "width": 1,
+      "type": "Wall"
+    },
+
+  ],
+  //up
+  "player": {
+    "img": "ww1",
+    "position": {
+      "x": 300,
+      "y": 300
+    },
+    "speed": {
+      "x": 3,
+      "y": 3
+    },
+    "movement": {
+     "walk": {
+      "x": 3,
+      "y": 3
+    },
+    "run": {
+      "x": 10,
+      "y": 10
+    }
+    }
+
+  }
+}</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

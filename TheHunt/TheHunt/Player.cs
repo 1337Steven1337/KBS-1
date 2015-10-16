@@ -30,7 +30,6 @@ namespace TheHunt
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
         public static Boolean isMoving = false;
-        public static byte[] geselecteerdLevelJSON = Properties.Resources.World1;
 
         //dasd
         public int screenWidth, screenHeight;
@@ -91,12 +90,9 @@ namespace TheHunt
 
         private void Map_Load(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/test.json"))
-            //using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
-            {
-                this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
+
+                this.world = JsonConvert.DeserializeObject<World>(Properties.Levels.Default.level1);
                 this.Invalidate();
-            }
             // string world = Encoding.UTF8.GetString(Properties.Resources.World1);
             //this.world = JsonConvert.DeserializeObject<World>(world.Substring(1));
 
