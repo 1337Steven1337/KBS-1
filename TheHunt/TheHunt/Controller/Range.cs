@@ -14,8 +14,8 @@ namespace TheHunt.Controller
         {
 
             World world = new World();
-            int width = world.Player.sizeBreedte;
-            int height = world.Player.sizeHoogte;
+            int width = world.player.sizeBreedte;
+            int height = world.player.sizeHoogte;
             bool inrange = false;
             int PythagorasX;
             int Pythagorasy;

@@ -97,8 +97,11 @@ namespace TheHunt
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
-            Player map = new Player(this);
-            map.Show();
+            //Player map = new Player(this);
+            //map.Show();
+
+            Game game = new Game(this);
+            game.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
