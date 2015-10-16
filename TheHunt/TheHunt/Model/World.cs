@@ -34,8 +34,8 @@ namespace TheHunt.Model
         public Movement movement;
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
-        public static List<Bitmap> PlayerSprites = new List<Bitmap>();
         public static Bitmap bitmap;
+        public static List<Bitmap> PlayerSprites = new List<Bitmap>();
 
         public Player1()
         {
@@ -54,21 +54,13 @@ namespace TheHunt.Model
             PlayerSprites.Add(Properties.Resources.brockSprite12);
 
             bitmap = PlayerSprites[1];
+           
+    }
 
-        }
 
         public void draw(Graphics g,Size screenSize)
         {
             g.DrawImage(bitmap, this.position.x, this.position.y, sizeBreedte , sizeHoogte);
         }
-    }
-
-    class NPC
-    {
-        public Point position;
-        public Point speed;
-        public Type type;
-
-        
     }
 }

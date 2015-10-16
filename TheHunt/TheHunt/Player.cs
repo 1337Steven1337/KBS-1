@@ -21,20 +21,22 @@ namespace TheHunt
         public Timer timer;
         public Timer spriteTimer;
         public int count;
+        public int playerX;
+        public int playerY;
         public Form form1;
         public Boolean beweegNaarBoven = false;
         public Boolean beweegNaarLinks = false;
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
+        public static Boolean isMoving = false;
 
         //dasd
         public int screenWidth, screenHeight;
         private Buttons gamepad = null;
-        public int playerY;
-        public int playerX;
         public Keys lastPressedKey;
         public Keys ingedrukteKey;
+        public Keys laatsteMovement;
 
         public Player(Form form1)
         {
@@ -52,7 +54,6 @@ namespace TheHunt
             Controls.Add(right);
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
             this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
-            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height / 2);
             if (Properties.Screen.Default.full)
             {
                 this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -60,9 +61,9 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-            timer.Interval = 1;
+            timer.Interval = 1000 / 120;
             spriteTimer.Interval = 100;
-            spriteTimer.Tick += new EventHandler(beweegSprites);
+            spriteTimer.Tick += beweegSprites;
             timer.Tick += new EventHandler(timer_Tick);
 
             this.SetStyle(
@@ -147,61 +148,93 @@ namespace TheHunt
         }
         public void switchStatements(Keys keycode)
         {
-            this.lastPressedKey = keycode;
+            if (keycode != Keys.ShiftKey && keycode != Keys.LShiftKey && keycode != Keys.RShiftKey && keycode != Keys.Shift && keycode != Keys.F21 && keycode != Keys.F22 && keycode != Keys.F23 && keycode != Keys.F24)
+            {
+                this.lastPressedKey = keycode;
+            }
+
             spriteTimer.Start();
 
-            switch (keycode)
+
+            if (keycode == Keys.F21)
             {
-                //naar boven
-                case Keys.F21:
-                    this.beweegNaarBoven = false;
-                    break;
-
-                case Keys.F22:
-                    this.beweegNaarBeneden = false;
-                    break;
-
-                case Keys.F23:
-                    this.beweegNaarLinks = false;
-                    break;
-
-                case Keys.F24:
-                    this.beweegNaarRechts = false;
-                    break;
-
-                case Keys.Up:
-                    this.beweegNaarBoven = true;
-                    break;
-
-                //naar links
-                case Keys.Left:
-                    this.beweegNaarLinks = true;
-                    break;
-
-                //naar beneden
-                case Keys.Down:
-                    this.beweegNaarBeneden = true;
-                    break;
-
-                //naar rechts
-                case Keys.Right:
-                    this.beweegNaarRechts = true;
-                    break;
-
-                case Keys.ShiftKey:
-                    isRunning = true;
-                    break;
-
-                //openen menu
-                case Keys.Escape:
-                    toggleMenu();
-                    break;
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
             }
-        } 
+
+            if (keycode == Keys.F22)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
+            }
+            if (keycode == Keys.F23)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
+            }
+            if (keycode == Keys.F24)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
+            }
+            if (keycode == Keys.Up)
+            {
+                this.beweegNaarBoven = true;
+                this.beweegNaarLinks = false;
+                this.beweegNaarBeneden = false;
+                this.beweegNaarRechts = false;
+                this.laatsteMovement = Keys.Up;
+            }
+            if (keycode == Keys.Down)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarBeneden = true;
+                this.beweegNaarRechts = false;
+                this.laatsteMovement = Keys.Down;
+            }
+            if (keycode == Keys.Left)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = true;
+                this.beweegNaarBeneden = false;
+                this.beweegNaarRechts = false;
+                this.laatsteMovement = Keys.Left;
+            }
+            if (keycode == Keys.Right)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarBeneden = false;
+                this.beweegNaarRechts = true;
+                this.laatsteMovement = Keys.Right;
+            }
+            if (keycode == Keys.ShiftKey)
+            {
+                isRunning = true;
+            }
+            if (keycode == Keys.Escape)
+            {
+                toggleMenu();
+            }
+
+
+
+        }
         // bij het indrukken van de toets wordt de timer gestart
         public void Map_OnKeyDown(object sender, KeyEventArgs k)
         {
             this.switchStatements(k.KeyCode);
+
+
 
         }
         // bij het loslaten van de toets 
@@ -212,26 +245,30 @@ namespace TheHunt
                 isRunning = false;
             }
 
-
-            switch (lastPressedKey)
+            if (IsAnyKeyDown())
             {
-                case Keys.Up:
-                    Player1.bitmap = Properties.Resources.brockSprite4;
-                    break;
-
-                case Keys.Left:
-                    Player1.bitmap = Properties.Resources.brockSprite10;
-                    break;
-
-                case Keys.Down:
-                    Player1.bitmap = Properties.Resources.brockSprite1;
-                    break;
-
-                case Keys.Right:
-                    Player1.bitmap = Properties.Resources.brockSprite7;
-                    break;
+                WelkeKeyIsDown();
+                if (ingedrukteKey == Keys.Up || ingedrukteKey == Keys.Left || ingedrukteKey == Keys.Down || ingedrukteKey == Keys.Right)
+                {
+                    this.lastPressedKey = this.ingedrukteKey;
+                    if (this.lastPressedKey == Keys.Up)
+                    {
+                        beweegNaarBoven = true;
+                    }
+                    if (this.lastPressedKey == Keys.Left)
+                    {
+                        beweegNaarLinks = true;
+                    }
+                    if (this.lastPressedKey == Keys.Down)
+                    {
+                        beweegNaarBeneden = true;
+                    }
+                    if (this.lastPressedKey == Keys.Right)
+                    {
+                        beweegNaarRechts = true;
+                    }
+                }
             }
-
             //bij het loslaten wordt de beweging gestopt in bijbehorende rinchting
             switch (k.KeyCode)
             {
@@ -263,71 +300,83 @@ namespace TheHunt
             switch (this.lastPressedKey)
             {
                 case Keys.Left:
-                    switch (count)
+                    if (beweegNaarLinks)
                     {
-                        case 0:
-                            Player1.bitmap = Player1.PlayerSprites[10];
-                            count = 1;
-                            break;
-                        case 1:
-                            Player1.bitmap = Player1.PlayerSprites[11];
-                            count = 2;
-                            break;
-                        case 2:
-                            Player1.bitmap = Player1.PlayerSprites[12];
-                            count = 0;
-                            break;
+                        switch (count)
+                        {
+                            case 0:
+                                Player1.bitmap = Player1.PlayerSprites[10];
+                                count = 1;
+                                break;
+                            case 1:
+                                Player1.bitmap = Player1.PlayerSprites[11];
+                                count = 2;
+                                break;
+                            case 2:
+                                Player1.bitmap = Player1.PlayerSprites[12];
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
                 case Keys.Down:
-                    switch (count)
+                    if (beweegNaarBeneden)
                     {
-                        case 0:
-                            Player1.bitmap = Player1.PlayerSprites[1];
-                            count = 1;
-                            break;
-                        case 1:
-                            Player1.bitmap = Player1.PlayerSprites[2];
-                            count = 2;
-                            break;
-                        case 2:
-                            Player1.bitmap = Player1.PlayerSprites[3];
-                            count = 0;
-                            break;
+                        switch (count)
+                        {
+                            case 0:
+                                Player1.bitmap = Player1.PlayerSprites[1];
+                                count = 1;
+                                break;
+                            case 1:
+                                Player1.bitmap = Player1.PlayerSprites[2];
+                                count = 2;
+                                break;
+                            case 2:
+                                Player1.bitmap = Player1.PlayerSprites[3];
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
                 case Keys.Right:
-                    switch (count)
+                    if (beweegNaarRechts)
                     {
-                        case 0:
-                            Player1.bitmap = Player1.PlayerSprites[7];
-                            count = 1;
-                            break;
-                        case 1:
-                            Player1.bitmap = Player1.PlayerSprites[8];
-                            count = 2;
-                            break;
-                        case 2:
-                            Player1.bitmap = Player1.PlayerSprites[9];
-                            count = 0;
-                            break;
+                        switch (count)
+                        {
+                            case 0:
+                                Player1.bitmap = Player1.PlayerSprites[7];
+                                count = 1;
+                                break;
+                            case 1:
+                                Player1.bitmap = Player1.PlayerSprites[8];
+                                count = 2;
+                                break;
+                            case 2:
+                                Player1.bitmap = Player1.PlayerSprites[9];
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
                 case Keys.Up:
-                    switch (count)
+                    if (beweegNaarBoven)
                     {
-                        case 0:
-                            Player1.bitmap = Player1.PlayerSprites[4];
-                            count = 1;
-                            break;
-                        case 1:
-                            Player1.bitmap = Player1.PlayerSprites[5];
-                            count = 2;
-                            break;
-                        case 2:
-                            Player1.bitmap = Player1.PlayerSprites[6];
-                            count = 0;
-                            break;
+                        switch (count)
+                        {
+                            case 0:
+                                Player1.bitmap = Player1.PlayerSprites[4];
+                                count = 1;
+                                break;
+                            case 1:
+                                Player1.bitmap = Player1.PlayerSprites[5];
+                                count = 2;
+                                break;
+                            case 2:
+                                Player1.bitmap = Player1.PlayerSprites[6];
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
 
@@ -357,6 +406,29 @@ namespace TheHunt
             return false;
         }
 
+
+        public void resetSprites()
+        {
+            switch (this.laatsteMovement)
+            {
+                case Keys.Up:
+                    Player1.bitmap = Player1.PlayerSprites[4];
+                    break;
+
+                case Keys.Left:
+                    Player1.bitmap = Player1.PlayerSprites[10];
+                    break;
+
+                case Keys.Down:
+                    Player1.bitmap = Player1.PlayerSprites[1];
+                    break;
+
+                case Keys.Right:
+                    Player1.bitmap = Player1.PlayerSprites[7];
+                    break;
+            }
+        }
+
         //controle welke toets er is ingedrukt en veranderd de lastPressedKey
         public void WelkeKeyIsDown()
         {
@@ -383,11 +455,18 @@ namespace TheHunt
             if (!IsAnyKeyDown() && !gamepad.isPressed)
             {
                 lastPressedKey = Keys.None;
+                resetSprites();
             }
-            else if (lastPressedKey == Keys.None)
+
+            if (beweegNaarBeneden == true || beweegNaarBoven == true || beweegNaarLinks == true || beweegNaarRechts == true)
             {
-                WelkeKeyIsDown();
+                isMoving = true;
             }
+            else
+            {
+                isMoving = false;
+            }
+
 
             if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
             {
@@ -467,19 +546,71 @@ namespace TheHunt
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
             this.Close();
-            form_startscreen form1 = new form_startscreen();
             form1.Show();
+            form1.Activate();
         }
         //hier keer je terug naar het spel
         private void pictureBoxContinue_Click(object sender, EventArgs e)
         {
             toggleMenu();
         }
+
         //hier sluit je het programma af
         private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
             Application.Exit();
             Close();
+        }
+
+
+
+        private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
+        {
+            toggleMenu();
+        }
+
+        private void pictureBoxOptions_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void toggleMenu()
+        {
+            if (!menuEnabled)
+            {
+                panel1.Visible = true;
+                menuEnabled = true;
+                //Pauzeert de game
+                spriteTimer.Tick -= beweegSprites;
+                timer.Stop();
+                spriteTimer.Stop();
+
+            }
+            else
+            {
+                lastPressedKey = Keys.None;
+                laatsteMovement = Keys.None;
+                panel1.Visible = false;
+                menuEnabled = false;
+                //De-pauzeert de game
+                timer.Start();
+                spriteTimer.Start();
+                spriteTimer.Tick += beweegSprites;
+            }
+        }
+
+        private void toggleOptions()
+        {
+            toggleMenu();
+            //Aanmaken optionsdialog, hoofdprogramma wordt hierdoor helemaal stilgezet terwijl gewacht wordt op reactie
+            OptionsDialog Options = new OptionsDialog(true);
+            Options.ShowDialog();
+            if (Options.getClosed())
+            {
+                Options.Close();
+                Options = null;
+                toggleMenu();
+            }
         }
     }
 }

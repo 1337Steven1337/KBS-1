@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TheHunt.Model;
 using System.Threading.Tasks;
 
 namespace TheHunt.Controller
 {
-    class DetectPlayer
+    public class DetectPlayer
     {
-        
-        public bool inRange(int range, Player player, int x, int y)
+
+        public static bool inRange(int range, Player player, int x, int y)
         {
+
+            World world = new World();
+            int width = world.Player.sizeBreedte;
+            int height = world.Player.sizeHoogte;
             bool inrange = false;
             int PythagorasX;
             int Pythagorasy;
-            int px = player.Width / 2 + player.playerX;
-            int py = player.Height / 2 + player.playerY;
+            int px = width / 2 + player.playerX;
+            int py = height / 2 + player.playerY;
+            
             int ex = x; //moet nog worden verandert als de xlocatie van enemy bekend is
             int ey = y; //moet nog worden verandert als de ylocatie van enemy bekend is
-            
+
             //xcoordinaar bepalen
             if (px >= ex)
             {
@@ -47,7 +53,7 @@ namespace TheHunt.Controller
             int compareNumber = PowerToX + PowerToY;
             //ckwadraat
             int compareToNumer = range * range;
-
+            //ultimate check
             if (compareNumber < compareToNumer)
             {
                 inrange = true;
@@ -56,6 +62,12 @@ namespace TheHunt.Controller
 
 
             return inrange;
+        }
+        //wanneer player in range is:
+        public int isInRange(int range)
+        {
+            range += 100;
+            return range;
         }
 
     }
