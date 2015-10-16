@@ -1,5 +1,5 @@
 ﻿{
-  "FieldObjects": [
+  "obstacles": [
     {
       "x": 0,
       "y": 0,
@@ -12,12 +12,6 @@
       "height": 1,
       "width": 10
     }
-    //{
-    //  "x": 200,
-    //  "y": 0,
-    //  "height": 10,
-    //  "width": 1
-    //}
   ],
   "boss": {
     "position": {

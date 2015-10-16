@@ -82,9 +82,9 @@ namespace TheHunt
             Pen pen = new Pen(Color.Red);
 
             //Teken Blokken
-            for (int i = 0; i < this.world.FieldObjects.Count; i++)
+            for (int i = 0; i < this.world.obstacles.Count; i++)
             {
-                FieldObject obj = this.world.FieldObjects[i];
+                Obstacle obj = this.world.obstacles[i];
                 obj.draw(g, this.Size);
             }
             //Teken NPC's
@@ -165,7 +165,7 @@ namespace TheHunt
             }
 
             //check for collision with objects (walls)..
-            foreach (var item in this.world.FieldObjects)
+            foreach (var item in this.world.obstacles)
             {
                 Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
@@ -343,15 +343,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[10];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[10];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[11];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[11];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[12];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[12];
                             count = 0;
                             break;
                     }
@@ -363,15 +363,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[1];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[1];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[2];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[2];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[3];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[3];
                             count = 0;
                             break;
                     }
@@ -383,15 +383,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[7];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[7];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[8];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[8];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[9];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[9];
                             count = 0;
                             break;
                     }
@@ -403,15 +403,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[4];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[4];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[5];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[5];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[6];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[6];
                             count = 0;
                             break;
                     }
@@ -450,19 +450,19 @@ namespace TheHunt
             switch (this.laatsteMovement)
             {
                 case Keys.Up:
-                    Player1.bitmap = Player1.PlayerSprites[4];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[4];
                     break;
 
                 case Keys.Left:
-                    Player1.bitmap = Player1.PlayerSprites[10];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[10];
                     break;
 
                 case Keys.Down:
-                    Player1.bitmap = Player1.PlayerSprites[1];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[1];
                     break;
 
                 case Keys.Right:
-                    Player1.bitmap = Player1.PlayerSprites[7];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[7];
                     break;
             }
         }

@@ -15,7 +15,7 @@ namespace TheHunt.Designer
 {
     public partial class Items : Form
     {
-        private List<FieldObject> fieldObjects = new List<FieldObject>();
+        private List<Obstacle> fieldObjects = new List<Obstacle>();
         private string mode = "FieldObject";
         private object active = null;
         private Form form;
@@ -35,7 +35,7 @@ namespace TheHunt.Designer
 
             for (int i = 0; i < fieldObjects.Count; i++)
             {
-                FieldObject item = fieldObjects[i];
+                Obstacle item = fieldObjects[i];
                 PictureBox box = new PictureBox();
 
                 box.Click += Item_Click;
@@ -62,7 +62,7 @@ namespace TheHunt.Designer
 
         private void loadObjects()
         {
-            FieldObject wall = new FieldObject();
+            Obstacle wall = new Obstacle();
             wall.x = wall.y = wall.width = wall.height = 1;
 
             this.fieldObjects.Add(wall);
