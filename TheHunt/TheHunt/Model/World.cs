@@ -13,7 +13,7 @@ namespace TheHunt.Model
     {
         public List<FieldObject> FieldObjects = new List<FieldObject>();
         public Player1 Player = new Player1();
-        public Boss Boss = new Boss();
+        public List<NPC> NPC = new List<NPC>();
     }
 
    struct Point
@@ -27,10 +27,18 @@ namespace TheHunt.Model
         public Point run;
     }
 
+    struct Positions
+    {
+        public Point current_position;
+        public Point return_position;
+        public Point last_position;
+    }
+
     class Player1 : ResizableObject
     {
         public string img;
-        public Point position;
+        public Positions positions;
+        //public Point position;
         public Point speed;
         public Movement movement;
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
@@ -61,7 +69,8 @@ namespace TheHunt.Model
 
         public void draw(Graphics g,Size screenSize)
         {
-            g.DrawImage(bitmap, this.position.x, this.position.y, sizeBreedte , sizeHoogte);
+            g.DrawImage(bitmap, this.positions.current_position.x, this.positions.current_position.y, sizeBreedte , sizeHoogte);
         }
-    }
+        }
 }
+

@@ -84,6 +84,12 @@
     <Compile Include="Controller\Range.cs" />
     <Compile Include="Controller\Settings.cs" />
     <Compile Include="Controller\Sound.cs" />
+    <Compile Include="Controller\verplaats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\verplaats.Designer.cs">
+      <DependentUpon>verplaats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Designer\Designer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,7 +110,8 @@
     </Compile>
     <Compile Include="Model\Boss.cs" />
     <Compile Include="Model\FieldObject.cs" />
-    <Compile Include="Model\ResizeableObject.cs" />
+    <Compile Include="Model\NPC.cs" />
+    <Compile Include="Model\ResizableObject.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="OptionsDialog.cs">
@@ -150,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controller\Highscore\Name.resx">
       <DependentUpon>Name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\verplaats.resx">
+      <DependentUpon>verplaats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
