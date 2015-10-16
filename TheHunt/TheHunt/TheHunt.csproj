@@ -112,7 +112,6 @@
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Obstacle.cs" />
     <Compile Include="Model\NPC.cs" />
-    <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="OptionsDialog.cs">
