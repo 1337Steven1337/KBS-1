@@ -108,9 +108,11 @@
     <Compile Include="form_startscreen.Designer.cs">
       <DependentUpon>form_startscreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\FieldObject.cs" />
+    <Compile Include="Model\Boss.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Obstacle.cs" />
     <Compile Include="Model\NPC.cs" />
-    <Compile Include="Model\ResizableObject.cs" />
+    <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="OptionsDialog.cs">
@@ -198,7 +200,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\highscore.json" />
     <None Include="Properties\Levels.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Levels.Designer.cs</LastGenOutput>

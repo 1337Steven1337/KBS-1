@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class FieldObject : ResizableObject
+    class Obstacle : Item
     {
         private Image image = null;
 
@@ -21,9 +21,9 @@ namespace TheHunt.Model
          
        public void draw(Graphics g, Size screenSize)
         {
-                 for (int x = 0; x < this.width; x++)
+            for (int x = 0; x < this.width; x++)
             {
-                    for (int y = 0; y < this.height; y++)
+                for (int y = 0; y < this.height; y++)
                 {
                     float screenWidth = screenSize.Width/ 40;
                     float screenHeight = screenSize.Height / 20;
@@ -51,9 +51,9 @@ namespace TheHunt.Model
             return this.image;
         }
 
-        public FieldObject clone()
+        public Obstacle clone()
         {
-            return (FieldObject)this.MemberwiseClone();
+            return (Obstacle)this.MemberwiseClone();
         }
     }
 }
