@@ -74,7 +74,7 @@ namespace TheHunt
 
         private void Down_Push(object sender, EventArgs e)
         {
-            world.Player.position.y += world.Player.speed.y;
+            world.Player.positions.current_position.y += world.Player.speed.y;
 
 
         }
@@ -135,16 +135,16 @@ namespace TheHunt
                 switch (GaNaar)
                 {
                     case Direction.right:
-                        world.Player.position.x += world.Player.speed.x;
+                        world.Player.positions.current_position.x += world.Player.speed.x;
                         break;
                     case Direction.left:
-                        world.Player.position.x -= world.Player.speed.x;
+                        world.Player.positions.current_position.x -= world.Player.speed.x;
                         break;
                     case Direction.down:
-                        world.Player.position.y += world.Player.speed.y;
+                        world.Player.positions.current_position.y += world.Player.speed.y;
                         break;
                     case Direction.up:
-                        world.Player.position.y -= world.Player.speed.y;
+                        world.Player.positions.current_position.y -= world.Player.speed.y;
                         break;
                 }
             }

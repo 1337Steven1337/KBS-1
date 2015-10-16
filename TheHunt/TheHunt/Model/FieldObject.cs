@@ -13,21 +13,11 @@ namespace TheHunt.Model
     {
         private Image image = null;
 
-
-        public enum Type
-        {
-            Wall,
-            Enemy,
-            Boss
-        }
-
         public int x = 0;
         public int y = 0;
         public int height = 0;
         public int width = 0;
-
-        public Type type; 
- 
+         
        public void draw(Graphics g, Size screenSize)
         {
                  for (int x = 0; x < this.width; x++)
@@ -55,19 +45,9 @@ namespace TheHunt.Model
         {
             if(this.image == null)
             {
-                if (this.type == Type.Wall)
-                {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.wall);
-                }
-                else if (this.type == Type.Enemy)
-                {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.Enemy);
-                }
+                this.image = new Bitmap(TheHunt.Properties.Resources.wall);
             }
-
-
             return this.image;
-
         }
     }
 }
