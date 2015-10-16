@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using TheHunt.Controller.Highscore;
 
 namespace TheHunt.Model
 {
@@ -11,8 +12,32 @@ namespace TheHunt.Model
     {
         private DateTime _dateTime = DateTime.UtcNow;
         private string _token;
+        private string _name;
 
-        public string name;
+        public string name
+        {
+            get
+            {
+                if(this._name == null)
+                {
+                    if (Properties.User.Default.name == "Default")
+                    {
+                        Name name = new Name();
+                        name.ShowDialog();
+                    }
+                    else
+                    {
+                        this._name = Properties.User.Default.name;
+                    }
+                }
+
+                return this._name;
+            }
+            set
+            {
+                this._name = value;
+            }
+        }
         public string world;
         public string token
         {
@@ -44,7 +69,6 @@ namespace TheHunt.Model
 
         public Score(int score, string world)
         {
-            this.name = Properties.User.Default.name;
             this.score = score;
             this.world = world;
         }

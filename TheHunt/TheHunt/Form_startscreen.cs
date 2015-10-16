@@ -115,17 +115,17 @@ namespace TheHunt
                 if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav"))
                 {
 
-                Properties.Resources.klikgeluid.CopyTo(memStream);
-                byte[] byteArray = memStream.ToArray();
-                File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
-                memStream.SetLength(0);
+                    Properties.Resources.klikgeluid.CopyTo(memStream);
+                    byte[] byteArray = memStream.ToArray();
+                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav", byteArray);
+                    memStream.SetLength(0);
                 }
                 else if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav"))
                 {
-                Properties.Resources.bgm.CopyTo(memStream);
+                    Properties.Resources.bgm.CopyTo(memStream);
                     byte[] byteArray = memStream.ToArray();
-                File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
-                memStream.SetLength(0);
+                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/bgm.wav", byteArray);
+                    memStream.SetLength(0);
                 }
             }
 
@@ -137,12 +137,14 @@ namespace TheHunt
 
         private void HighscoreBtn_Click(object sender, EventArgs e)
         {
+            this.speelKlikGeluid(sender, e);
             Show show = new Show();
             show.ShowDialog();
         }
 
         private void CreateLvlBtn_Click(object sender, EventArgs e)
         {
+            this.speelKlikGeluid(sender, e);
             Designer.Designer designer = new Designer.Designer(this);
             designer.Show();
             this.Hide();
