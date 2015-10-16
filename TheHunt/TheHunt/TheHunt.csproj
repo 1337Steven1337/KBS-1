@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\The-Hunt\TheHunt\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -67,7 +67,21 @@
     <Compile Include="Charactertestform.Designer.cs">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Highscore\Highscore.cs" />
+    <Compile Include="Controller\Highscore\Show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\Highscore\Show.Designer.cs">
+      <DependentUpon>Show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\Highscore\Name.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\Highscore\Name.Designer.cs">
+      <DependentUpon>Name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\Move.cs" />
+    <Compile Include="Controller\Range.cs" />
     <Compile Include="Controller\Settings.cs" />
     <Compile Include="Controller\Sound.cs" />
     <Compile Include="Designer\Designer.cs">
@@ -76,6 +90,12 @@
     <Compile Include="Designer\Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Designer\Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Designer\Items.Designer.cs">
+      <DependentUpon>Items.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_startscreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,9 +103,15 @@
       <DependentUpon>form_startscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
-    <Compile Include="Model\NPC.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
+    <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
+    <Compile Include="OptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsDialog.Designer.cs">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +120,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Properties\Sound.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -104,33 +131,46 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Screen.settings</DependentUpon>
     </Compile>
+    <Compile Include="Properties\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>User.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Levels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Levels.settings</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\Highscore\Show.resx">
+      <DependentUpon>Show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\Highscore\Name.resx">
+      <DependentUpon>Name.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Designer\Items.resx">
+      <DependentUpon>Items.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_startscreen.resx">
       <DependentUpon>form_startscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsDialog.resx">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player.resx">
       <DependentUpon>Player.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -144,12 +184,22 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Screen.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Properties\User.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\highscore.json" />
+    <None Include="Properties\Levels.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Levels.Designer.cs</LastGenOutput>
+    </None>
     <None Include="World\World1.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PlayerSprites\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
@@ -159,26 +209,24 @@
     <None Include="Resources\pijl onder.png" />
     <None Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Arrow.jpg" />
-    <None Include="Resources\BrockSprite1.bmp" />
-    <None Include="Resources\brockSprite1.png" />
-    <None Include="Resources\brockSprite2.png" />
-    <None Include="Resources\brockSprite3.png" />
-    <None Include="Resources\brockSprite4.png" />
-    <None Include="Resources\brockSprite5.png" />
-    <None Include="Resources\brockSprite6.png" />
-    <None Include="Resources\brockSprite7.png" />
-    <None Include="Resources\brockSprite8.png" />
-    <None Include="Resources\brockSprite9.png" />
-    <None Include="Resources\brockSprite10.png" />
-    <None Include="Resources\brockSprite11.png" />
-    <None Include="Resources\brockSprite12.png" />
     <None Include="Resources\Enemy.gif" />
     <None Include="Resources\Pijl boven.png" />
     <None Include="Resources\options.jpg" />
     <None Include="Resources\Continuebutton.png" />
     <None Include="Resources\ExitToDesktopButton.png" />
     <None Include="Resources\ExitToMenuButton.png" />
-    <None Include="Resources\Boss.png" />
+    <None Include="Resources\Player\brockSprite1.png" />
+    <None Include="Resources\Player\brockSprite2.png" />
+    <None Include="Resources\Player\brockSprite3.png" />
+    <None Include="Resources\Player\brockSprite4.png" />
+    <None Include="Resources\Player\brockSprite5.png" />
+    <None Include="Resources\Player\brockSprite6.png" />
+    <None Include="Resources\Player\brockSprite7.png" />
+    <None Include="Resources\Player\brockSprite8.png" />
+    <None Include="Resources\Player\brockSprite9.png" />
+    <None Include="Resources\Player\brockSprite10.png" />
+    <None Include="Resources\Player\brockSprite11.png" />
+    <None Include="Resources\Player\brockSprite12.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

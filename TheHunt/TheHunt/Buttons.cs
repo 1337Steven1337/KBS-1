@@ -18,43 +18,38 @@ namespace TheHunt
         //Player p = new Player();
         private Timer timer = new Timer();
         World world = new World();
+        private Player player;
+        public bool isPressed = false;
         Direction GaNaar;
-        public Buttons()
+        public Buttons(Player player)
         {
+            this.player = player;
+            timer.Interval = 1;
+            timer.Tick += timer_Tick;
 
-
-
+            timer.Start();
         }
 
 
         public Control AddButton(Direction richting, int width, int height)
         {
+            timer.Enabled = false;
             //checkt welke knop het is
             switch (richting)
             {
                 case Direction.down:
-                    GaNaar = Direction.down;
                     return downButton(width, height);
 
                 case Direction.left:
-                    GaNaar = Direction.left;
                     return leftButton(width, height);
 
                 case Direction.up:
-                    GaNaar = Direction.up;
                     return upButton(width, height);
 
                 case Direction.right:
-                    GaNaar = Direction.right;
                     return rightButton(width, height);
-
-
             }
             return null;
-
-
-
-
         }
 
         #region Buttons definition
@@ -65,11 +60,24 @@ namespace TheHunt
             Down.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             Down.Location = new System.Drawing.Point(width - Down.Width * 2 - 20, heigt - Down.Height - 40);
             Down.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/pijl onder.png";
-            Down.MouseDown += Button_release;
-            Down.MouseUp += Button_push;
-            Down.Click += Down_Push;
+            Down.MouseDown += Button_push;
+            Down.MouseDown += gotodown;
+            Down.MouseUp += Button_release;
+            Down.MouseUp += DisableDown;
             return Down;
 
+        }
+
+
+        private void DisableDown(object sender, MouseEventArgs e)
+        {
+
+            this.player.switchStatements(Keys.F22);
+        }
+
+        private void gotodown(object sender, MouseEventArgs e)
+        {
+            GaNaar = Direction.down;
         }
 
         private void Down_Push(object sender, EventArgs e)
@@ -86,9 +94,22 @@ namespace TheHunt
             Left.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             Left.Location = new System.Drawing.Point(width - Left.Width * 3 - 20, heigt - Left.Height - 40);
             Left.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/Pijl Links.png";
-            Left.MouseDown += Button_release;
-            Left.MouseUp += Button_push;
+            Left.MouseDown += Button_push;
+            Left.MouseDown += gotoleft;
+            Left.MouseUp += Button_release;
+            Left.MouseUp += DisableLeft;
             return Left;
+        }
+
+        private void DisableLeft(object sender, MouseEventArgs e)
+        {
+
+            this.player.switchStatements(Keys.F23);
+        }
+
+        private void gotoleft(object sender, MouseEventArgs e)
+        {
+            GaNaar = Direction.left;
         }
 
         private void Button_release(object sender, MouseEventArgs e)
@@ -96,12 +117,18 @@ namespace TheHunt
             timer.Enabled = false;
            
         }
-
         private void Button_push(object sender, EventArgs e)
         {
+            if (!Player.isMoving)
+            {
             timer.Enabled = true;
         }
+            else
+            {
+                timer.Enabled = false;
+            }
 
+        }
         private Control upButton(int width, int heigt)
         {
             PictureBox Up = new PictureBox();
@@ -109,9 +136,21 @@ namespace TheHunt
             Up.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             Up.Location = new System.Drawing.Point(width - Up.Width * 2 - 20, heigt - Up.Height * 2 - 40);
             Up.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/Pijl bovenk.png";
-            Up.MouseDown += Button_release;
-            Up.MouseUp += Button_push;
+            Up.MouseDown += Button_push;
+            Up.MouseDown += gotoup;
+            Up.MouseUp += Button_release;
+            Up.MouseUp += DisableUp;
             return Up;
+        }
+
+        private void DisableUp(object sender, MouseEventArgs e)
+        {
+            this.player.switchStatements(Keys.F21);
+        }
+
+        private void gotoup(object sender, MouseEventArgs e)
+        {
+            GaNaar = Direction.up;
         }
 
         private Control rightButton(int width, int heigt)
@@ -121,30 +160,47 @@ namespace TheHunt
             Right.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             Right.Location = new System.Drawing.Point(width - Right.Width - 20, heigt - Right.Height - 40);
             Right.ImageLocation = Directory.GetCurrentDirectory() + "/../../Resources/Pijl rechts.png";
-            Right.MouseDown += Button_release;
-            Right.MouseUp += Button_push;
+            Right.MouseDown += Button_push;
+            Right.MouseDown += gotoright;
+            Right.MouseUp += Button_release;
+            Right.MouseUp += DisableRight;
             return Right;
         }
 
+        private void DisableRight(object sender, MouseEventArgs e)
+        {
+            this.player.switchStatements(Keys.F24);
+        }
+
+        private void gotoright(object sender, MouseEventArgs e)
+        {
+            GaNaar = Direction.right;
+        }
         #endregion
 
         public void timer_Tick(object sender, EventArgs e)
         {
             if (timer.Enabled == true)
             {
+
                 switch (GaNaar)
                 {
+                    
                     case Direction.right:
-                        world.Player.positions.current_position.x += world.Player.speed.x;
+                        this.player.switchStatements(Keys.Right);
+                    isPressed = true;
                         break;
                     case Direction.left:
-                        world.Player.positions.current_position.x -= world.Player.speed.x;
+                        this.player.switchStatements(Keys.Left);
+                    isPressed = true;
                         break;
                     case Direction.down:
-                        world.Player.positions.current_position.y += world.Player.speed.y;
+                        this.player.switchStatements(Keys.Down);
+                    isPressed = true;
                         break;
                     case Direction.up:
-                        world.Player.positions.current_position.y -= world.Player.speed.y;
+                        this.player.switchStatements(Keys.Up);
+                    isPressed = true;
                         break;
                 }
             }

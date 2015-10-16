@@ -33,7 +33,7 @@ namespace TheHunt
         Direction right = Direction.right;
         Direction up = Direction.up;
         Direction left = Direction.left;
-        Buttons b = new Buttons();
+        Buttons b = null; // new Buttons();
         System.Timers.Timer timer2 = new System.Timers.Timer(100);
 
         private Direction richting;
