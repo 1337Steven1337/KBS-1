@@ -20,29 +20,41 @@ namespace TheHunt
         public event EventHandler<EventArgs> Timer;
         public Timer timer, spriteTimer;
         public int count;
+        public int playerX;
+        public int playerY;
         public Form form1;
         public Boolean beweegNaarBoven = false;
         public Boolean beweegNaarLinks = false;
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
-
+        public static Boolean isMoving = false;
+        
         private Boolean changeLastPosition = false;
         private int lastPositionCounter = 0;
         //dasd
         public int screenWidth, screenHeight;
-
+        private Buttons gamepad = null;
         public Keys lastPressedKey;
         public Keys ingedrukteKey;
+        public Keys laatsteMovement;
 
         public Player(Form form1)
         {
             InitializeComponent();
             this.Size = form1.Size;
             this.form1 = form1;
+            this.gamepad = new Buttons(this);
+            Control up = gamepad.AddButton(Direction.up, Width, Height);
+            Control left = gamepad.AddButton(Direction.left, Width, Height);
+            Control down = gamepad.AddButton(Direction.down, Width, Height);
+            Control right = gamepad.AddButton(Direction.right, Width, Height);
+            Controls.Add(up);
+            Controls.Add(left);
+            Controls.Add(down);
+            Controls.Add(right);
             this.pictureBoxOptionsButton.Location = new System.Drawing.Point(this.Size.Width - this.pictureBoxOptionsButton.Width, this.Height - this.pictureBoxOptionsButton.Height);
             this.panel1.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panel1.Width / 2, this.Size.Height / 2 - this.panel1.Height / 2);
-            this.panelOptions.Location = new System.Drawing.Point(this.Size.Width / 2 - this.panelOptions.Width / 2, this.Size.Height / 2 - this.panelOptions.Height / 2);
             if (Properties.Screen.Default.full)
             {
                 this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -50,11 +62,9 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-
-            timer.Interval = 1;
+            timer.Interval = 1000 / 120;
             spriteTimer.Interval = 100;
-
-            spriteTimer.Tick += new EventHandler(beweegSprites);
+            spriteTimer.Tick += beweegSprites;
             timer.Tick += new EventHandler(timer_Tick);
 
             this.SetStyle(
@@ -88,11 +98,15 @@ namespace TheHunt
 
         private void Map_Load(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
-            {
-                this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
+
+                this.world = JsonConvert.DeserializeObject<World>(Properties.Levels.Default.level1);
                 this.Invalidate();
-            }
+            // string world = Encoding.UTF8.GetString(Properties.Resources.World1);
+            //this.world = JsonConvert.DeserializeObject<World>(world.Substring(1));
+
+
+            this.Invalidate();
+
             timer.Start();
         }
 
@@ -101,7 +115,10 @@ namespace TheHunt
         {
             int playerX = this.world.Player.positions.current_position.x;
             int playerY = this.world.Player.positions.current_position.y;
-            
+
+            playerX = this.world.Player.position.x;
+            playerY = this.world.Player.position.y;
+
             Model.Point newPosition = new Model.Point();
 
             lastPositionCounter++;
@@ -168,74 +185,126 @@ namespace TheHunt
             //}
             return false;
         }
-        // bij het indrukken van de toets wordt de timer gestart
-        public void Map_OnKeyDown(object sender, KeyEventArgs k)
+        public void switchStatements(Keys keycode)
         {
-            if (k.KeyCode != Keys.ShiftKey)
+            if (keycode != Keys.ShiftKey && keycode != Keys.LShiftKey && keycode != Keys.RShiftKey && keycode != Keys.Shift && keycode != Keys.F21 && keycode != Keys.F22 && keycode != Keys.F23 && keycode != Keys.F24)
             {
-                this.lastPressedKey = k.KeyCode;
+                this.lastPressedKey = keycode;
             }
             
             spriteTimer.Start();
 
-            if (k.KeyCode == Keys.ShiftKey)
+
+            if (keycode == Keys.F21)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
+            }
+
+            if (keycode == Keys.F22)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
+            }
+            if (keycode == Keys.F23)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
+            }
+            if (keycode == Keys.F24)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarRechts = false;
+                this.beweegNaarBeneden = false;
+            }
+            if (keycode == Keys.Up)
+            {
+                this.beweegNaarBoven = true;
+                this.beweegNaarLinks = false;
+                this.beweegNaarBeneden = false;
+                this.beweegNaarRechts = false;
+                this.laatsteMovement = Keys.Up;
+            }
+            if (keycode == Keys.Down)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarBeneden = true;
+                this.beweegNaarRechts = false;
+                this.laatsteMovement = Keys.Down;
+            }
+            if (keycode == Keys.Left)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = true;
+                this.beweegNaarBeneden = false;
+                this.beweegNaarRechts = false;
+                this.laatsteMovement = Keys.Left;
+            }
+            if (keycode == Keys.Right)
+            {
+                this.beweegNaarBoven = false;
+                this.beweegNaarLinks = false;
+                this.beweegNaarBeneden = false;
+                this.beweegNaarRechts = true;
+                this.laatsteMovement = Keys.Right;
+            }
+            if (keycode == Keys.ShiftKey)
             {
                 isRunning = true;
             }
-
-            if (k.KeyCode == Keys.Up)
-            {
-                this.beweegNaarBoven = true;
-            }
-
-            if (k.KeyCode == Keys.Left)
-            {
-                this.beweegNaarLinks = true;
-            }
-
-            if (k.KeyCode == Keys.Down)
-            {
-                this.beweegNaarBeneden = true;
-            }
-
-            if (k.KeyCode == Keys.Right)
-            {
-                this.beweegNaarRechts = true;
-            }
-
-            if (k.KeyCode == Keys.Escape)
+            if (keycode == Keys.Escape)
             {
                 toggleMenu();
             }
         }
+        // bij het indrukken van de toets wordt de timer gestart
+        public void Map_OnKeyDown(object sender, KeyEventArgs k)
+        {
+            this.switchStatements(k.KeyCode);
+
+
+
+        }
         // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
         {
-            if (k.KeyCode == Keys.ShiftKey)
+            if (k.KeyCode == Keys.ShiftKey || k.KeyCode == Keys.LShiftKey || k.KeyCode == Keys.RShiftKey || k.KeyCode == Keys.Shift)
             {
                 isRunning = false;
             }
 
-
-            switch (lastPressedKey)
+            if (IsAnyKeyDown())
             {
-                case Keys.Up:
-                    Player1.bitmap = Properties.Resources.brockSprite4;
-                    break;
-
-                case Keys.Left:
-                    Player1.bitmap = Properties.Resources.brockSprite10;
-                    break;
-
-                case Keys.Down:
-                    Player1.bitmap = Properties.Resources.brockSprite1;
-                    break;
-
-                case Keys.Right:
-                    Player1.bitmap = Properties.Resources.brockSprite7;
-                    break;
+                WelkeKeyIsDown();
+                if (ingedrukteKey == Keys.Up || ingedrukteKey == Keys.Left || ingedrukteKey == Keys.Down || ingedrukteKey == Keys.Right)
+                {
+                    this.lastPressedKey = this.ingedrukteKey;
+                    if (this.lastPressedKey == Keys.Up)
+                    {
+                        beweegNaarBoven = true;
             }
-
+                    if (this.lastPressedKey == Keys.Left)
+                    {
+                        beweegNaarLinks = true;
+                    }
+                    if (this.lastPressedKey == Keys.Down)
+                    {
+                        beweegNaarBeneden = true;
+                    }
+                    if (this.lastPressedKey == Keys.Right)
+                    {
+                        beweegNaarRechts = true;
+                    }
+                }
+            }
             //bij het loslaten wordt de beweging gestopt in bijbehorende rinchting
             switch (k.KeyCode)
             {
@@ -267,71 +336,83 @@ namespace TheHunt
             switch (this.lastPressedKey)
             {
                 case Keys.Left:
+                    if (beweegNaarLinks)
+                    {
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite10;
+                                Player1.bitmap = Player1.PlayerSprites[10];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite11;
+                                Player1.bitmap = Player1.PlayerSprites[11];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite12;
+                                Player1.bitmap = Player1.PlayerSprites[12];
                             count = 0;
                             break;
+                    }
                     }
                     break;
                 case Keys.Down:
+                    if (beweegNaarBeneden)
+                    {
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite1;
+                                Player1.bitmap = Player1.PlayerSprites[1];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite2;
+                                Player1.bitmap = Player1.PlayerSprites[2];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite3;
+                                Player1.bitmap = Player1.PlayerSprites[3];
                             count = 0;
                             break;
+                    }
                     }
                     break;
                 case Keys.Right:
+                    if (beweegNaarRechts)
+                    {
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite7;
+                                Player1.bitmap = Player1.PlayerSprites[7];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite8;
+                                Player1.bitmap = Player1.PlayerSprites[8];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite9;
+                                Player1.bitmap = Player1.PlayerSprites[9];
                             count = 0;
                             break;
                     }
+                    }
                     break;
                 case Keys.Up:
+                    if (beweegNaarBoven)
+                    {
                     switch (count)
                     {
                         case 0:
-                            Player1.bitmap = Properties.Resources.brockSprite4;
+                                Player1.bitmap = Player1.PlayerSprites[4];
                             count = 1;
                             break;
                         case 1:
-                            Player1.bitmap = Properties.Resources.brockSprite5;
+                                Player1.bitmap = Player1.PlayerSprites[5];
                             count = 2;
                             break;
                         case 2:
-                            Player1.bitmap = Properties.Resources.brockSprite6;
+                                Player1.bitmap = Player1.PlayerSprites[6];
                             count = 0;
                             break;
+                    }
                     }
                     break;
 
@@ -361,7 +442,30 @@ namespace TheHunt
             return false;
         }
 
-        //controle welke toets er is ingedrukt
+
+        public void resetSprites()
+        {
+            switch (this.laatsteMovement)
+            {
+                case Keys.Up:
+                    Player1.bitmap = Player1.PlayerSprites[4];
+                    break;
+
+                case Keys.Left:
+                    Player1.bitmap = Player1.PlayerSprites[10];
+                    break;
+
+                case Keys.Down:
+                    Player1.bitmap = Player1.PlayerSprites[1];
+                    break;
+
+                case Keys.Right:
+                    Player1.bitmap = Player1.PlayerSprites[7];
+                    break;
+            }
+        }
+
+        //controle welke toets er is ingedrukt en veranderd de lastPressedKey
         public void WelkeKeyIsDown()
         {
             var values = Enum.GetValues(typeof(System.Windows.Input.Key));
@@ -372,8 +476,10 @@ namespace TheHunt
                 {
                     System.Windows.Input.Key pressed = (System.Windows.Input.Key)Enum.Parse(typeof(System.Windows.Input.Key), ((System.Windows.Input.Key)v).ToString());
                     if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
-                    {                      
-                        this.lastPressedKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
+                    {
+
+                        this.ingedrukteKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
+
                     }
                 }
             }
@@ -390,11 +496,18 @@ namespace TheHunt
             if (!IsAnyKeyDown())
             {
                 lastPressedKey = Keys.None;
+                resetSprites();
             }
-            else if (lastPressedKey == Keys.None)
+
+            if (beweegNaarBeneden == true || beweegNaarBoven == true || beweegNaarLinks == true || beweegNaarRechts == true)
             {
-                WelkeKeyIsDown();
+                isMoving = true;
             }
+            else
+            {
+                isMoving = false;
+            }
+
 
             if (beweegNaarBeneden == false && beweegNaarBoven == false && beweegNaarLinks == false && beweegNaarRechts == false)
             {
@@ -413,71 +526,132 @@ namespace TheHunt
                 this.world.Player.speed = this.world.Player.movement.walk;
             }
 
-            switch (lastPressedKey)
-            {
-                case Keys.Up:
-                    if (beweegNaarBoven)
+            if (this.beweegNaarBoven)
                     {
-
                         if (!checkIntersect(Keys.Up))
                         {
                             world.Player.positions.current_position.y -= world.Player.speed.y;
                         }
+
+                else
+                {
+                    spriteTimer.Stop();
+                }
                     }
 
-                    break;
-                case Keys.Left:
-                    if (beweegNaarLinks)
+
+            else if (this.beweegNaarLinks)
                     {
                         if (!checkIntersect(Keys.Left))
                         {
                             world.Player.positions.current_position.x -= world.Player.speed.x;
                         }
+
+                else
+                {
+                    spriteTimer.Stop();
+                }
                     }
-                    break;
-                case Keys.Down:
-                    if (beweegNaarBeneden)
+            else if (this.beweegNaarBeneden)
                     {
                         if (!checkIntersect(Keys.Down))
                         {
                             world.Player.positions.current_position.y += world.Player.speed.y;
                         }
+
+                else
+                {
+                    spriteTimer.Stop();
+                }
                     }
-                    break;
-                case Keys.Right:
-                    if (beweegNaarRechts)
+
+            else if (this.beweegNaarRechts)
                     {
                         if (!checkIntersect(Keys.Right))
                         {
                             world.Player.positions.current_position.x += world.Player.speed.x;
                         }
-                    }
-                    break;
 
-                case Keys.None:
+                else
+                {
                     spriteTimer.Stop();
-                    break;
-
+                }
             }
+            gamepad.isPressed = false;
             this.Invalidate();
         }
+
+
+
         //hier keer je terug naar het hoofdmenu
         private void pictureBoxExitToMain_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            form_startscreen form1 = new form_startscreen();
+            this.Close();
             form1.Show();
+            form1.Activate();
         }
         //hier keer je terug naar het spel
         private void pictureBoxContinue_Click(object sender, EventArgs e)
         {
             toggleMenu();
         }
+
         //hier sluit je het programma af
         private void pictureBoxExitToDesktop_Click(object sender, EventArgs e)
         {
             Application.Exit();
             Close();
+        }
+
+
+
+        private void pictureBoxOptionsButton_Click(object sender, EventArgs e)
+        {
+            toggleMenu();
+        }
+
+        private void pictureBoxOptions_Click(object sender, EventArgs e)
+        {
+            toggleOptions();
+        }
+
+        private void toggleMenu()
+        {
+            if (!menuEnabled)
+            {
+                panel1.Visible = true;
+                menuEnabled = true;
+                //Pauzeert de game
+                spriteTimer.Tick -= beweegSprites;
+                timer.Stop();
+                spriteTimer.Stop();
+
+            }
+            else
+            {
+                lastPressedKey = Keys.None;
+                laatsteMovement = Keys.None;
+                panel1.Visible = false;
+                menuEnabled = false;
+                //De-pauzeert de game
+                timer.Start();
+                spriteTimer.Start();
+                spriteTimer.Tick += beweegSprites;
+            }
+        }
+
+        private void toggleOptions()
+        {
+            toggleMenu();
+            //Aanmaken optionsdialog, hoofdprogramma wordt hierdoor helemaal stilgezet terwijl gewacht wordt op reactie
+            OptionsDialog Options = new OptionsDialog(true);
+            Options.ShowDialog();
+            if (Options.getClosed())
+            {
+                Options.Close();
+                Options = null;
+                toggleMenu();
+            }
         }
     }
 }
