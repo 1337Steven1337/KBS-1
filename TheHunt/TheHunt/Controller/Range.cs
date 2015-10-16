@@ -8,7 +8,7 @@ namespace TheHunt.Controller
 {
     class DetectPlayer
     {
-
+        
         public bool inRange(int range, Player player, int x, int y)
         {
             bool inrange = false;
@@ -18,7 +18,7 @@ namespace TheHunt.Controller
             int py = player.Height / 2 + player.playerY;
             int ex = x; //moet nog worden verandert als de xlocatie van enemy bekend is
             int ey = y; //moet nog worden verandert als de ylocatie van enemy bekend is
-
+            
             //xcoordinaar bepalen
             if (px >= ex)
             {
