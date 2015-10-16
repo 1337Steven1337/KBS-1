@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class NPC : ResizableObject
+    class NPC : Item
     {
         private World world = null;
         private Image image = null;      
@@ -176,7 +176,7 @@ namespace TheHunt.Model
                 return true;
             }
 
-            foreach (var item in this.world.FieldObjects)
+            foreach (var item in this.world.obstacles)
             {
                 Rectangle wall = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
 
