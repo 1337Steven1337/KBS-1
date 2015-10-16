@@ -82,7 +82,7 @@ namespace TheHunt
 
         private void Down_Push(object sender, EventArgs e)
         {
-            world.Player.position.y += world.Player.speed.y;
+            world.Player.positions.current_position.y += world.Player.speed.y;
 
 
         }
@@ -115,19 +115,19 @@ namespace TheHunt
         private void Button_release(object sender, MouseEventArgs e)
         {
             timer.Enabled = false;
-
+           
         }
         private void Button_push(object sender, EventArgs e)
         {
             if (!Player.isMoving)
             {
-                timer.Enabled = true;
-            }
+            timer.Enabled = true;
+        }
             else
             {
                 timer.Enabled = false;
             }
-            
+
         }
         private Control upButton(int width, int heigt)
         {
@@ -189,19 +189,19 @@ namespace TheHunt
                     case Direction.right:
                         this.player.switchStatements(Keys.Right);
                     isPressed = true;
-                    break;
+                        break;
                     case Direction.left:
                         this.player.switchStatements(Keys.Left);
                     isPressed = true;
-                    break;
+                        break;
                     case Direction.down:
                         this.player.switchStatements(Keys.Down);
                     isPressed = true;
-                    break;
+                        break;
                     case Direction.up:
                         this.player.switchStatements(Keys.Up);
                     isPressed = true;
-                    break;
+                        break;
                 }
             }
         }
