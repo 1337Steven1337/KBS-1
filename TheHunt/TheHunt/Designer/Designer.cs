@@ -76,10 +76,10 @@ namespace TheHunt.Designer
 
                 if (this.items.getMode() == "FieldObject")
                 {
-                    FieldObject fieldObject = this.items.getActive<FieldObject>().clone();
+                    Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
                     fieldObject.x = (int)(x * cellSizeX);
                     fieldObject.y = (int)(y * cellSizeY);
-                    this.world.FieldObjects.Add(fieldObject);
+                    this.world.obstacles.Add(fieldObject);
                 }
 
                 this.Invalidate();
@@ -170,9 +170,9 @@ namespace TheHunt.Designer
             this.paintGrid(graphics, pencil);
 
             // Draw the field objects
-            for (int i = 0; i < this.world.FieldObjects.Count; i++)
+            for (int i = 0; i < this.world.obstacles.Count; i++)
             {
-                FieldObject obj = this.world.FieldObjects[i];
+                Obstacle obj = this.world.obstacles[i];
                 obj.draw(graphics, this.Size);
             }
         }
