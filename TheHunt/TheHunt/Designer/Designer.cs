@@ -104,7 +104,7 @@ namespace TheHunt.Designer
             
             string json = JsonConvert.SerializeObject(this.world);
             // Creates a resource writer.
-            IResourceWriter writer = new ResourceWriter("myResources.resources");
+            IResourceWriter writer = new ResourceWriter("C:/Users/Steven/Desktop/KBS1/KBS-1/TheHunt/TheHunt/Properties/Resources.resx");
 
             // Adds resources to the resource writer.
             writer.AddResource("String 1", "First String");
