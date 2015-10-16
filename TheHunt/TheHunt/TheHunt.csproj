@@ -83,6 +83,7 @@
       <DependentUpon>form_startscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FieldObject.cs" />
+    <Compile Include="Model\NPC.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="Player.cs">
@@ -177,6 +178,7 @@
     <None Include="Resources\Continuebutton.png" />
     <None Include="Resources\ExitToDesktopButton.png" />
     <None Include="Resources\ExitToMenuButton.png" />
+    <None Include="Resources\Boss.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

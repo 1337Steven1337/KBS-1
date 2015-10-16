@@ -18,8 +18,7 @@ namespace TheHunt
     {
         private World world = null;
         public event EventHandler<EventArgs> Timer;
-        public Timer timer;
-        public Timer spriteTimer;
+        public Timer timer, spriteTimer;
         public int count;
         public Form form1;
         public Boolean beweegNaarBoven = false;
@@ -27,7 +26,9 @@ namespace TheHunt
         public Boolean beweegNaarBeneden = false;
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
-        
+
+        private Boolean changeLastPosition = false;
+        private int lastPositionCounter = 0;
         //dasd
         public int screenWidth, screenHeight;
 
@@ -49,8 +50,10 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
+
             timer.Interval = 1;
             spriteTimer.Interval = 100;
+
             spriteTimer.Tick += new EventHandler(beweegSprites);
             timer.Tick += new EventHandler(timer_Tick);
 
@@ -67,12 +70,19 @@ namespace TheHunt
 
             Graphics g = e.Graphics;
             Pen pen = new Pen(Color.Red);
+
+            //Teken Blokken
             for (int i = 0; i < this.world.FieldObjects.Count; i++)
             {
                 FieldObject obj = this.world.FieldObjects[i];
                 obj.draw(g, this.Size);
             }
-
+            //Teken NPC's
+            for (int i = 0; i < this.world.NPC.Count; i++)
+            {
+                NPC npc = this.world.NPC[i];
+                npc.draw(g, this.Size);
+            }
             this.world.Player.draw(g, this.Size);
         }
 
@@ -89,29 +99,42 @@ namespace TheHunt
         //controle of het character er mag/kan lopen
         private bool checkIntersect(Keys k)
         {
-
-            int playerX = this.world.Player.position.x;
-            int playerY = this.world.Player.position.y;
-
+            int playerX = this.world.Player.positions.current_position.x;
+            int playerY = this.world.Player.positions.current_position.y;
+            
             Model.Point newPosition = new Model.Point();
+
+            lastPositionCounter++;
+            if(lastPositionCounter == 10)
+            {
+                changeLastPosition = true;
+            }
+
+            if (changeLastPosition)
+            {
+                this.world.Player.positions.last_position.x = this.world.Player.positions.current_position.x;
+                this.world.Player.positions.last_position.y = this.world.Player.positions.current_position.y;
+                changeLastPosition = false;
+                lastPositionCounter = 0;
+            }
 
             switch (k)
             {
                 case Keys.Up:
-                    newPosition.x = this.world.Player.position.x;
-                    newPosition.y = this.world.Player.position.y - this.world.Player.speed.y;
+                    newPosition.x = this.world.Player.positions.current_position.x;
+                    newPosition.y = this.world.Player.positions.current_position.y - this.world.Player.speed.y;
                     break;
                 case Keys.Down:
-                    newPosition.x = this.world.Player.position.x;
-                    newPosition.y = this.world.Player.position.y + this.world.Player.speed.y;
+                    newPosition.x = this.world.Player.positions.current_position.x;
+                    newPosition.y = this.world.Player.positions.current_position.y + this.world.Player.speed.y;
                     break;
                 case Keys.Left:
-                    newPosition.x = this.world.Player.position.x - this.world.Player.speed.x;
-                    newPosition.y = this.world.Player.position.y;
+                    newPosition.x = this.world.Player.positions.current_position.x - this.world.Player.speed.x;
+                    newPosition.y = this.world.Player.positions.current_position.y;
                     break;
                 case Keys.Right:
-                    newPosition.x = this.world.Player.position.x + this.world.Player.speed.x;
-                    newPosition.y = this.world.Player.position.y;
+                    newPosition.x = this.world.Player.positions.current_position.x + this.world.Player.speed.x;
+                    newPosition.y = this.world.Player.positions.current_position.y;
                     break;
             }
 
@@ -122,6 +145,7 @@ namespace TheHunt
                 return true;
             }
 
+            //check for collision with objects (walls)..
             foreach (var item in this.world.FieldObjects)
             {
                 Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
@@ -132,6 +156,16 @@ namespace TheHunt
                 }
             }
 
+            ////check for collision with NPS's...
+            //foreach (var item in this.world.NPC)
+            //{
+            //    Rectangle randomObj = new Rectangle(item.positions.current_position.x, item.positions.current_position.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
+
+            //    if (newPlayerRectangle.IntersectsWith(randomObj))
+            //    {
+            //        return true;
+            //    }
+            //}
             return false;
         }
         // bij het indrukken van de toets wordt de timer gestart
@@ -142,7 +176,6 @@ namespace TheHunt
                 this.lastPressedKey = k.KeyCode;
             }
             
-
             spriteTimer.Start();
 
             if (k.KeyCode == Keys.ShiftKey)
@@ -174,8 +207,6 @@ namespace TheHunt
             {
                 toggleMenu();
             }
-
-
         }
         // bij het loslaten van de toets 
         public void Map_OnKeyUp(object sender, KeyEventArgs k)
@@ -341,10 +372,8 @@ namespace TheHunt
                 {
                     System.Windows.Input.Key pressed = (System.Windows.Input.Key)Enum.Parse(typeof(System.Windows.Input.Key), ((System.Windows.Input.Key)v).ToString());
                     if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
-                    {
-                      
+                    {                      
                         this.lastPressedKey = (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
-
                     }
                 }
             }
@@ -353,6 +382,11 @@ namespace TheHunt
         //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
         {
+            foreach (var npc in this.world.NPC)
+            {
+                npc.moveNPC(this.world);
+            }
+
             if (!IsAnyKeyDown())
             {
                 lastPressedKey = Keys.None;
@@ -387,7 +421,7 @@ namespace TheHunt
 
                         if (!checkIntersect(Keys.Up))
                         {
-                            world.Player.position.y -= world.Player.speed.y;
+                            world.Player.positions.current_position.y -= world.Player.speed.y;
                         }
                     }
 
@@ -397,7 +431,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Left))
                         {
-                            world.Player.position.x -= world.Player.speed.x;
+                            world.Player.positions.current_position.x -= world.Player.speed.x;
                         }
                     }
                     break;
@@ -406,7 +440,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Down))
                         {
-                            world.Player.position.y += world.Player.speed.y;
+                            world.Player.positions.current_position.y += world.Player.speed.y;
                         }
                     }
                     break;
@@ -415,7 +449,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Right))
                         {
-                            world.Player.position.x += world.Player.speed.x;
+                            world.Player.positions.current_position.x += world.Player.speed.x;
                         }
                     }
                     break;
@@ -425,8 +459,6 @@ namespace TheHunt
                     break;
 
             }
-
-
             this.Invalidate();
         }
         //hier keer je terug naar het hoofdmenu

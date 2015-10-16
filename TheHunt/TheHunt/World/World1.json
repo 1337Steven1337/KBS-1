@@ -4,39 +4,67 @@
       "x": 0,
       "y": 0,
       "height": 1,
-      "width": 40,
-      "type": "Wall"
+      "width": 10
     },
     {
       "x": 0,
-      "y": 72,
-      "height": 19,
-      "width": 1,
-      "type": "Wall"
+      "y": 200,
+      "height": 1,
+      "width": 10
     },
-
+    //{
+    //  "x": 200,
+    //  "y": 0,
+    //  "height": 10,
+    //  "width": 1
+    //}
+  ],
+  "NPC": [
+    {
+      "type": "Enemy",
+      "positions": {
+        "current_position": {
+          "x": 70,
+          "y": 90
+        },
+        "return_position": {
+          "x": 70,
+          "y": 20
+        }
+      },
+      "speed": {
+        "x": 1,
+        "y": 1
+      }
+    },
   ],
   //up
   "player": {
     "img": "ww1",
-    "position": {
-      "x": 300,
-      "y": 300
+    "positions": {
+      "current_position": {
+        "x": 0,
+        "y": 300
+      },
+      "last_position": {
+        "x": 0,
+        "y": 300
+      }
     },
     "speed": {
       "x": 3,
       "y": 3
     },
     "movement": {
-     "walk": {
-      "x": 3,
-      "y": 3
-    },
-    "run": {
-      "x": 10,
-      "y": 10
-    }
+      "walk": {
+        "x": 3,
+        "y": 3
+      },
+      "run": {
+        "x": 10,
+        "y": 10
+      }
     }
 
   }
-}
+    }
