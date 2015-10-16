@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class NPC : Item
+    class Npc : Item
     {
         private World world = null;
         private Image image = null;      
@@ -55,8 +55,8 @@ namespace TheHunt.Model
             {
                 if (playerDetected)
                 {
-                    positions.current_position.x = this.world.Player.positions.last_position.x;
-                    positions.current_position.y = this.world.Player.positions.last_position.y;                    
+                    positions.current_position.x = this.world.player.positions.last_position.x;
+                    positions.current_position.y = this.world.player.positions.last_position.y;                    
                 }
                 else
                 { 
@@ -101,7 +101,7 @@ namespace TheHunt.Model
 
             Rectangle npc = new Rectangle(positions.current_position.x, positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
 
-            Rectangle player = new Rectangle(this.world.Player.positions.current_position.x, this.world.Player.positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
+            Rectangle player = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
             if (npc.IntersectsWith(player))
             {
                 playerDetected = true;
