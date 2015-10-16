@@ -12,10 +12,10 @@ namespace TheHunt.Model
     class World
     {
         public List<Obstacle> obstacles = new List<Obstacle>();
-        public List<NPC> NPC = new List<NPC>();
+        public List<Npc> npcs = new List<Npc>();
 
-        public Player Player = new Player();
-        public Boss Boss = new Boss();
+        public Player player = new Player();
+        public Boss boss = new Boss();
     }
 
    struct Point
