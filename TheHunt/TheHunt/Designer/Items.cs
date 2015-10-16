@@ -63,7 +63,6 @@ namespace TheHunt.Designer
         private void loadObjects()
         {
             FieldObject wall = new FieldObject();
-            wall.type = FieldObject.Type.Wall;
             wall.x = wall.y = wall.width = wall.height = 1;
 
             this.fieldObjects.Add(wall);

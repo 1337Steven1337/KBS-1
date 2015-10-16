@@ -99,11 +99,12 @@ namespace TheHunt
         private void Map_Load(object sender, EventArgs e)
         {
 
-                this.world = JsonConvert.DeserializeObject<World>(Properties.Levels.Default.level1);
-                this.Invalidate();
+            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
+            {
+                this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
+            }
             // string world = Encoding.UTF8.GetString(Properties.Resources.World1);
             //this.world = JsonConvert.DeserializeObject<World>(world.Substring(1));
-
 
             this.Invalidate();
 
@@ -116,8 +117,8 @@ namespace TheHunt
             int playerX = this.world.Player.positions.current_position.x;
             int playerY = this.world.Player.positions.current_position.y;
 
-            playerX = this.world.Player.position.x;
-            playerY = this.world.Player.position.y;
+            playerX = this.world.Player.positions.current_position.x;
+            playerY = this.world.Player.positions.current_position.y;
 
             Model.Point newPosition = new Model.Point();
 
