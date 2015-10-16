@@ -39,8 +39,76 @@
       "type": "Enemy",
       "positions": {
         "current_position": {
+          "x": 300,
+          "y": 300
+        },
+        "return_position": {
           "x": 70,
-          "y": 90
+          "y": 20
+        }
+      },
+      "speed": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "type": "Enemy",
+      "positions": {
+        "current_position": {
+          "x": 150,
+          "y": 50
+        },
+        "return_position": {
+          "x": 70,
+          "y": 20
+        }
+      },
+      "speed": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "type": "Enemy",
+      "positions": {
+        "current_position": {
+          "x": 500,
+          "y": 350
+        },
+        "return_position": {
+          "x": 70,
+          "y": 20
+        }
+      },
+      "speed": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "type": "Enemy",
+      "positions": {
+        "current_position": {
+          "x": 500,
+          "y": 100
+        },
+        "return_position": {
+          "x": 70,
+          "y": 20
+        }
+      },
+      "speed": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    {
+      "type": "Enemy",
+      "positions": {
+        "current_position": {
+          "x": 700,
+          "y": 150
         },
         "return_position": {
           "x": 70,
@@ -51,7 +119,7 @@
         "x": 1,
         "y": 1
       }
-    }
+    },
   ],
   "player": {
     "img": "ww1",
@@ -81,4 +149,4 @@
     }
 
   }
-    }
+  }

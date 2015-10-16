@@ -120,22 +120,9 @@ namespace TheHunt
 
             playerX = this.world.Player.positions.current_position.x;
             playerY = this.world.Player.positions.current_position.y;
-
+            this.world.Player.positions.last_position.x = this.world.Player.positions.current_position.x;
+            this.world.Player.positions.last_position.y = this.world.Player.positions.current_position.y;
             Model.Point newPosition = new Model.Point();
-
-            lastPositionCounter++;
-            if(lastPositionCounter == 10)
-            {
-                changeLastPosition = true;
-            }
-
-            if (changeLastPosition)
-            {
-                this.world.Player.positions.last_position.x = this.world.Player.positions.current_position.x;
-                this.world.Player.positions.last_position.y = this.world.Player.positions.current_position.y;
-                changeLastPosition = false;
-                lastPositionCounter = 0;
-            }
 
             switch (k)
             {
