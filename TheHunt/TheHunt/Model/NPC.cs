@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class Npc : Item
+    class NPC : Item
     {
         private World world = null;
         private Image image = null;      
@@ -17,6 +17,7 @@ namespace TheHunt.Model
         public Positions positions;
         public Size screenSize;
         Random rnd = new Random();
+        public Rectangle npc;
 
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
@@ -26,6 +27,7 @@ namespace TheHunt.Model
 
         private Boolean isReturning = false;
         public Boolean playerDetected = false;
+        public Boolean playerIsInRange = false;
 
         public int width = 1;
         public int height = 1;      
@@ -48,34 +50,101 @@ namespace TheHunt.Model
         public void moveNPC(World world)
         {
             this.world = world;
-            oldx = positions.current_position.x;
-            oldy = positions.current_position.y;
+            npc = new Rectangle(positions.current_position.x, positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
+            oldx = positions.current_position.x;//OUDE X POSITIE NPC
+            oldy = positions.current_position.y;//OUDE Y POSITIE NPC
+            playerIsInRange = inRange(100);
 
             if (type == Type.Enemy)
             {
-                if (playerDetected)
+                if (playerIsInRange)
                 {
-                    positions.current_position.x = this.world.player.positions.last_position.x;
-                    positions.current_position.y = this.world.player.positions.last_position.y;                    
+                    positions.current_position.x = this.world.Player.positions.last_position.x;
+                    positions.current_position.y = this.world.Player.positions.last_position.y;
                 }
-                else
-                { 
-                    if (npcIntersects())
-                    {
-                        this.positions.current_position.x = oldx;
-                        this.positions.current_position.y = oldy;
-                        var lastRandomPosition = randomPosition;
 
-                        while (lastRandomPosition == randomPosition)
-                        {
-                            randomPosition = rnd.Next(4);
-                        }
+                if (npcIntersectsWithWall())
+                {
+                    this.positions.current_position.x = oldx;
+                    this.positions.current_position.y = oldy;
+                    var lastRandomPosition = randomPosition;
+
+                    while (lastRandomPosition == randomPosition)
+                    {
+                        randomPosition = rnd.Next(4);
                     }
                 }
+                
             }
         }
 
-        private bool npcIntersects()
+        public bool inRange(int range)
+        {
+            int WidthPlayer = world.Player.sizeBreedte;
+            int HeigthPlayer = world.Player.sizeHoogte;
+            bool inrange = false;
+            int PythagorasX;
+            int Pythagorasy;
+
+            int playerX = WidthPlayer / 2 + world.Player.positions.current_position.x;
+            int playerY = HeigthPlayer / 2 + world.Player.positions.current_position.y;
+
+            int npcX = npc.Width / 2 + positions.current_position.x; //moet nog worden verandert als de xlocatie van enemy bekend is
+            int npcY = npc.Height / 2 + positions.current_position.y; //moet nog worden verandert als de ylocatie van enemy bekend is
+
+            //xcoordinaar bepalen
+            if (playerX >= npcX)
+            {
+                PythagorasX = playerX - npcX;
+            }
+            else
+            {
+                PythagorasX = npcX - playerX;
+            }
+            //ycoordinaat bepalen
+
+            if (playerY >= npcY)
+            {
+                Pythagorasy = playerY - npcY;
+            }
+            else
+            {
+                Pythagorasy = npcY - playerY;
+            }
+
+            //xkwadraat
+            int PowerToX = PythagorasX * PythagorasX;
+            //ykwadraat
+            int PowerToY = Pythagorasy * Pythagorasy;
+            //xkwadraat + ykwadraat
+            int compareNumber = PowerToX + PowerToY;
+            //ckwadraat
+            int compareToNumer = range * range;
+            //ultimate check
+            if (compareNumber < compareToNumer)
+            {
+                inrange = true;
+            }        
+            return inrange;
+        }
+        //wanneer player in range is:
+        public int isInRange(int range)
+        {
+            range += 100;
+            return range;
+        }
+
+        private bool npcIntersectWithPlayer()
+        {
+            Rectangle player = new Rectangle(this.world.Player.positions.current_position.x, this.world.Player.positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
+            if (npc.IntersectsWith(player))
+            {
+                playerDetected = true;
+            }
+            return false;
+        }
+
+        private bool npcIntersectsWithWall()
         {
             switch (randomPosition)
             {
@@ -99,13 +168,8 @@ namespace TheHunt.Model
                     break;
             }
 
-            Rectangle npc = new Rectangle(positions.current_position.x, positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
-
-            Rectangle player = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
-            if (npc.IntersectsWith(player))
-            {
-                playerDetected = true;
-            }
+            npc.X = positions.current_position.x;
+            npc.Y = positions.current_position.y;
 
             if (npc.Top < 0 || npc.Left < 0 || npc.Bottom > this.screenSize.Height || npc.Right > this.screenSize.Width)
             {

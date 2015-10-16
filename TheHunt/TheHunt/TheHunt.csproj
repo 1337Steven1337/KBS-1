@@ -81,7 +81,7 @@
       <DependentUpon>Name.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\Move.cs" />
-    <Compile Include="Controller\Range.cs" />
+    <Compile Include="Controller\DetectPlayer.cs" />
     <Compile Include="Controller\Settings.cs" />
     <Compile Include="Controller\Sound.cs" />
     <Compile Include="Controller\verplaats.cs">
@@ -108,16 +108,10 @@
     <Compile Include="form_startscreen.Designer.cs">
       <DependentUpon>form_startscreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Game.Designer.cs">
-      <DependentUpon>Game.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\Boss.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Obstacle.cs" />
-    <Compile Include="Model\Npc.cs" />
+    <Compile Include="Model\NPC.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
@@ -176,9 +170,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_startscreen.resx">
       <DependentUpon>form_startscreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Game.resx">
-      <DependentUpon>Game.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
