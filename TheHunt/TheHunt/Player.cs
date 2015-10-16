@@ -86,6 +86,7 @@ namespace TheHunt
             }
 
             this.world.Player.draw(g, this.Size);
+            this.world.Boss.draw(g, this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)

@@ -1,44 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class World
+    class Boss
     {
-        public List<FieldObject> FieldObjects = new List<FieldObject>();
-        public Player1 Player = new Player1();
-        public Boss Boss = new Boss();
-    }
-
-   struct Point
-    {
-        public int x;
-        public int y;
-    }
-    struct Movement
-    {
-        public Point walk;
-        public Point run;
-    }
-
-    class Player1 : ResizableObject
-    {
-        public string img;
         public Point position;
         public Point speed;
         public Movement movement;
+
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
-        public static Bitmap bitmap;
-        public static List<Bitmap> PlayerSprites = new List<Bitmap>();
 
-        public Player1()
+        public Bitmap bitmap;
+        public List<Bitmap> PlayerSprites = new List<Bitmap>();
+
+        public Boss()
         {
             PlayerSprites.Add(null);
             PlayerSprites.Add(Properties.Resources.brockSprite1);
@@ -55,13 +37,12 @@ namespace TheHunt.Model
             PlayerSprites.Add(Properties.Resources.brockSprite12);
 
             bitmap = PlayerSprites[1];
-           
-    }
+        }
 
 
-        public void draw(Graphics g,Size screenSize)
+        public void draw(Graphics g, Size screenSize)
         {
-            g.DrawImage(bitmap, this.position.x, this.position.y, sizeBreedte , sizeHoogte);
+            g.DrawImage(bitmap, this.position.x, this.position.y, sizeBreedte, sizeHoogte);
         }
     }
 }

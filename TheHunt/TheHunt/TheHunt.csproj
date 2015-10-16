@@ -102,6 +102,7 @@
     <Compile Include="form_startscreen.Designer.cs">
       <DependentUpon>form_startscreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Boss.cs" />
     <Compile Include="Model\FieldObject.cs" />
     <Compile Include="Model\ResizeableObject.cs" />
     <Compile Include="Model\Score.cs" />
@@ -188,7 +189,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\highscore.json" />
     <None Include="Properties\Levels.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Levels.Designer.cs</LastGenOutput>
