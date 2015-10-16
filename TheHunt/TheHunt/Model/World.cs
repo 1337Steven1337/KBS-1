@@ -13,6 +13,7 @@ namespace TheHunt.Model
     {
         public List<FieldObject> FieldObjects = new List<FieldObject>();
         public Player1 Player = new Player1();
+        public Boss Boss = new Boss();
         public List<NPC> NPC = new List<NPC>();
     }
 
