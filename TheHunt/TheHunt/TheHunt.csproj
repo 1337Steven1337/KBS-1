@@ -74,11 +74,11 @@
     <Compile Include="Controller\Highscore\Show.Designer.cs">
       <DependentUpon>Show.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Highscore\Tmp.cs">
+    <Compile Include="Controller\Highscore\Name.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controller\Highscore\Tmp.Designer.cs">
-      <DependentUpon>Tmp.cs</DependentUpon>
+    <Compile Include="Controller\Highscore\Name.Designer.cs">
+      <DependentUpon>Name.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\Move.cs" />
     <Compile Include="Controller\Range.cs" />
@@ -141,8 +141,8 @@
     <EmbeddedResource Include="Controller\Highscore\Show.resx">
       <DependentUpon>Show.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\Highscore\Tmp.resx">
-      <DependentUpon>Tmp.cs</DependentUpon>
+    <EmbeddedResource Include="Controller\Highscore\Name.resx">
+      <DependentUpon>Name.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
