@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class NPC : Item
+    class Npc : Item
     {
         private World world = null;
         private Image image = null;      
@@ -59,8 +59,8 @@ namespace TheHunt.Model
             {
                 if (playerIsInRange)
                 {
-                    positions.current_position.x = this.world.Player.positions.last_position.x;
-                    positions.current_position.y = this.world.Player.positions.last_position.y;
+                    positions.current_position.x = this.world.player.positions.last_position.x;
+                    positions.current_position.y = this.world.player.positions.last_position.y;
                 }
 
                 if (npcIntersectsWithWall())
@@ -80,14 +80,14 @@ namespace TheHunt.Model
 
         public bool inRange(int range)
         {
-            int WidthPlayer = world.Player.sizeBreedte;
-            int HeigthPlayer = world.Player.sizeHoogte;
+            int WidthPlayer = world.player.sizeBreedte;
+            int HeigthPlayer = world.player.sizeHoogte;
             bool inrange = false;
             int PythagorasX;
             int Pythagorasy;
 
-            int playerX = WidthPlayer / 2 + world.Player.positions.current_position.x;
-            int playerY = HeigthPlayer / 2 + world.Player.positions.current_position.y;
+            int playerX = WidthPlayer / 2 + world.player.positions.current_position.x;
+            int playerY = HeigthPlayer / 2 + world.player.positions.current_position.y;
 
             int npcX = npc.Width / 2 + positions.current_position.x; //moet nog worden verandert als de xlocatie van enemy bekend is
             int npcY = npc.Height / 2 + positions.current_position.y; //moet nog worden verandert als de ylocatie van enemy bekend is
@@ -136,7 +136,7 @@ namespace TheHunt.Model
 
         private bool npcIntersectWithPlayer()
         {
-            Rectangle player = new Rectangle(this.world.Player.positions.current_position.x, this.world.Player.positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
+            Rectangle player = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
             if (npc.IntersectsWith(player))
             {
                 playerDetected = true;
