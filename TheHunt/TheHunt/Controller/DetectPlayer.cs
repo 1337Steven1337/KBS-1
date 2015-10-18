@@ -9,21 +9,21 @@ namespace TheHunt.Controller
 {
     public class DetectPlayer
     {
+        World world = null;
 
-        public static bool inRange(int range, Player player, int x, int y)
+        public bool inRange(int range, int npcX, int npcY)
         {
-
-            World world = new World();
+            this.world = world;
             int width = world.player.sizeBreedte;
             int height = world.player.sizeHoogte;
             bool inrange = false;
             int PythagorasX;
             int Pythagorasy;
-            int px = width / 2 + player.playerX;
-            int py = height / 2 + player.playerY;
+            int px = width / 2 + world.player.positions.current_position.x;
+            int py = height / 2 + world.player.positions.current_position.y;
             
-            int ex = x; //moet nog worden verandert als de xlocatie van enemy bekend is
-            int ey = y; //moet nog worden verandert als de ylocatie van enemy bekend is
+            int ex = npcX; //moet nog worden verandert als de xlocatie van enemy bekend is
+            int ey = npcY; //moet nog worden verandert als de ylocatie van enemy bekend is
 
             //xcoordinaar bepalen
             if (px >= ex)
