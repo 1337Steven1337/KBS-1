@@ -90,13 +90,7 @@ namespace TheHunt
 
         private void Map_Load(object sender, EventArgs e)
         {
-
-                this.world = JsonConvert.DeserializeObject<World>(Properties.Levels.Default.level1);
-                this.Invalidate();
-            // string world = Encoding.UTF8.GetString(Properties.Resources.World1);
-            //this.world = JsonConvert.DeserializeObject<World>(world.Substring(1));
-
-
+            this.world = JsonConvert.DeserializeObject<World>(Properties.Levels.Default.level1);
             this.Invalidate();
 
             timer.Start();
