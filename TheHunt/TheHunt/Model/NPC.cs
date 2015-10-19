@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class NPC : Item
+    class Npc : Item
     {
         private World world = null;
         private Image image = null;
