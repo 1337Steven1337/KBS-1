@@ -15,7 +15,7 @@ namespace TheHunt
         public Form formulier;
         public form_selectlevel(Form form)
         {
-            InitializeComponent();
+            //InitializeComponent();
             formulier = form;
             this.Location = form.Location;
             this.Size = form.Size;

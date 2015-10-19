@@ -13,7 +13,7 @@ namespace TheHunt.Controller
 
         public bool inRange(int range, int npcX, int npcY)
         {
-            this.world = world;
+            //this.world = world;
             int width = world.player.sizeBreedte;
             int height = world.player.sizeHoogte;
             bool inrange = false;

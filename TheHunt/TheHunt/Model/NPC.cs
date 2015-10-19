@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class NPC : Item
+    class Npc : Item
     {
         private World world = null;
         private Image image = null;
@@ -78,10 +78,10 @@ namespace TheHunt.Model
                         {
                             newRange += 1;
                         }
-                        var playerCurrentX = this.world.Player.positions.current_position.x;
-                        var playerCurrentY = this.world.Player.positions.current_position.y;
-                        var playerLastX = this.world.Player.positions.last_position.x;
-                        var playerLastY = this.world.Player.positions.last_position.y;
+                        var playerCurrentX = this.world.player.positions.current_position.x;
+                        var playerCurrentY = this.world.player.positions.current_position.y;
+                        var playerLastX = this.world.player.positions.last_position.x;
+                        var playerLastY = this.world.player.positions.last_position.y;
 
                         if (playerCurrentX > playerLastX && positions.current_position.x < playerCurrentX)
                         {
@@ -123,14 +123,14 @@ namespace TheHunt.Model
 
         public bool inRange(int range)
         {
-            int WidthPlayer = world.Player.sizeBreedte;
-            int HeigthPlayer = world.Player.sizeHoogte;
+            int WidthPlayer = world.player.sizeBreedte;
+            int HeigthPlayer = world.player.sizeHoogte;
             bool inrange = false;
             int PythagorasX;
             int Pythagorasy;
 
-            int playerX = WidthPlayer / 2 + world.Player.positions.current_position.x;
-            int playerY = HeigthPlayer / 2 + world.Player.positions.current_position.y;
+            int playerX = WidthPlayer / 2 + world.player.positions.current_position.x;
+            int playerY = HeigthPlayer / 2 + world.player.positions.current_position.y;
 
             int npcX = npc.Width / 2 + positions.current_position.x; //moet nog worden verandert als de xlocatie van enemy bekend is
             int npcY = npc.Height / 2 + positions.current_position.y; //moet nog worden verandert als de ylocatie van enemy bekend is
@@ -191,7 +191,7 @@ namespace TheHunt.Model
 
             //check if NPS intersect with Boss
 
-            Rectangle boss = new Rectangle(world.Boss.position.x, world.Boss.position.y, world.Boss.sizeBreedte, world.Boss.sizeHoogte);
+            Rectangle boss = new Rectangle(world.boss.position.x, world.boss.position.y, world.boss.sizeBreedte, world.boss.sizeHoogte);
 
             if (npc.IntersectsWith(boss))
             {
@@ -199,7 +199,7 @@ namespace TheHunt.Model
             }
 
             //check if NPS intersect with other NPC
-            foreach (var item in this.world.NPC)
+            foreach (var item in this.world.npcs)
             {
                 if (item != this)
                 {

@@ -20,6 +20,12 @@ namespace TheHunt.Model
         public static Bitmap bitmap;
         public static List<Bitmap> PlayerSprites = new List<Bitmap>();
 
+        private int lastPositionCounter = 0;
+        private int spriteAnimationCounter = 0;
+
+        private Bitmap sprite = null;
+        private List<Bitmap> sprites = null;
+
         public Player()
         {
             PlayerSprites.Add(null);
@@ -37,12 +43,92 @@ namespace TheHunt.Model
             PlayerSprites.Add(Properties.Resources.brockSprite12);
 
             bitmap = PlayerSprites[1];
+            sprites = PlayerSprites;
+        }
+
+        public void move(Keys key, bool run, double delta, Game game)
+        {
+            Point speed = (run) ? this.movement.run : this.movement.walk;
+            Point newPosition = new Point(this.positions.current_position.x, this.positions.current_position.y);
+
+            switch(key)
+            {
+                case Keys.Up:
+                    newPosition.y -= (int)(speed.y * delta);
+                    break;
+                case Keys.Down:
+                    newPosition.y += (int)(speed.y * delta);
+                    break;
+                case Keys.Left:
+                    newPosition.x -= (int)(speed.x * delta);
+                    break;
+                case Keys.Right:
+                    newPosition.x += (int)(speed.x * delta);
+                    break;
+            }
+
+            if(!game.intersects(newPosition, new Size(sizeBreedte, sizeHoogte)))
+            {
+                lastPositionCounter++;
+
+                if (lastPositionCounter > 10)
+                {
+                    this.positions.last_position = this.positions.current_position;
+                    lastPositionCounter = 0;
+                }
+
+                this.positions.current_position = newPosition;
+            }
+        }
+
+        public void animate(Keys current, Keys last)
+        {
+            if(current == Keys.None)
+            {
+                switch(last)
+                {
+                    case Keys.Up:
+                        this.sprite = this.sprites[4];
+                        break;
+                    case Keys.Down:
+                        this.sprite = this.sprites[1];
+                        break;
+                    case Keys.Left:
+                        this.sprite = this.sprites[10];
+                        break;
+                    case Keys.Right:
+                        this.sprite = this.sprites[7];
+                        break;
+                }
+
+                this.spriteAnimationCounter = 0;
+            }
+            else
+            {
+                switch (current)
+                {
+                    case Keys.Up:
+                        this.sprite = this.sprites[4 + this.spriteAnimationCounter];
+                        break;
+                    case Keys.Down:
+                        this.sprite = this.sprites[1 + this.spriteAnimationCounter];
+                        break;
+                    case Keys.Left:
+                        this.sprite = this.sprites[10 + this.spriteAnimationCounter];
+                        break;
+                    case Keys.Right:
+                        this.sprite = this.sprites[7 + this.spriteAnimationCounter];
+                        break;
+                }
+
+                this.spriteAnimationCounter = (this.spriteAnimationCounter + 1 > 2) ? 0 : this.spriteAnimationCounter + 1;
+            }
         }
 
 
         public void draw(Graphics g, Size screenSize)
         {
-            g.DrawImage(bitmap, this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
+            g.DrawImage((this.sprite == null) ? bitmap : this.sprite, this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
         }
     }
 }
