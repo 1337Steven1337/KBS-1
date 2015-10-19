@@ -269,7 +269,7 @@ namespace TheHunt
             }
 
             // Draw the NPCs
-            foreach (Npc npc in this.world.npcs)
+            foreach (NPC npc in this.world.npcs)
             {
                 npc.draw(g, this.Size);
             }

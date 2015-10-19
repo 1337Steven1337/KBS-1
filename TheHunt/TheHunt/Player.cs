@@ -90,7 +90,7 @@ namespace TheHunt
             //Teken NPC's
             for (int i = 0; i < this.world.npcs.Count; i++)
             {
-                Npc npc = this.world.npcs[i];
+                NPC npc = this.world.npcs[i];
                 npc.draw(g, this.Size);
             }
             this.world.player.draw(g, this.Size);
