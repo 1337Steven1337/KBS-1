@@ -62,7 +62,7 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-            timer.Interval = 1000 / 120;
+            timer.Interval = 1000 / 60;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += beweegSprites;
             timer.Tick += new EventHandler(timer_Tick);
@@ -90,7 +90,7 @@ namespace TheHunt
             //Teken NPC's
             for (int i = 0; i < this.world.npcs.Count; i++)
             {
-                Npc npc = this.world.npcs[i];
+                NPC npc = this.world.npcs[i];
                 npc.draw(g, this.Size);
             }
             this.world.player.draw(g, this.Size);

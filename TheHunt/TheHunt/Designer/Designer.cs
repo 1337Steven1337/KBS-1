@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheHunt.Model;
 using System.Resources;
+using System.Configuration;
 
 namespace TheHunt.Designer
 {
@@ -90,7 +91,7 @@ namespace TheHunt.Designer
         {
             this.save();
             this.startForm.Show();
-            this.Close();
+            
         }
 
         private void save()
@@ -98,24 +99,16 @@ namespace TheHunt.Designer
             if(this.name == null)
             {
                 this.name = "test";
-                // show dialog
-                
+
+
             }
             
             string json = JsonConvert.SerializeObject(this.world);
-            // Creates a resource writer.
-            IResourceWriter writer = new ResourceWriter("C:/Users/Steven/Desktop/KBS1/KBS-1/TheHunt/TheHunt/Properties/Resources.resx");
 
-            // Adds resources to the resource writer.
-            writer.AddResource("String 1", "First String");
 
-            writer.AddResource("String 2", "Second String");
+            this.Close();
 
-            writer.AddResource("String 3", "Third String");
-
-            // Writes the resources to the file or stream, and closes it.
-            writer.Close();
-            System.IO.File.WriteAllText(@"" +Directory.GetCurrentDirectory() + "/" + this.name + ".json", json);
+            //System.IO.File.WriteAllText(@"" +Directory.GetCurrentDirectory() + "/" + this.name + ".json", json);
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace TheHunt
         public form_startscreen()
         {
             InitializeComponent();
+
 
             this.sound = Sound.Instance;
             startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);
@@ -85,6 +87,7 @@ namespace TheHunt
 
         public void openDesigner(object sender,EventArgs e)
         {
+            Form form_selectlevel = new Form();
             Designer.Designer designwindow = new Designer.Designer(this);
         }
 
