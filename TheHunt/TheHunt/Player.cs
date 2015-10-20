@@ -90,11 +90,10 @@ namespace TheHunt
             //Teken NPC's
             for (int i = 0; i < this.world.npcs.Count; i++)
             {
-                NPC npc = this.world.npcs[i];
+                Npc npc = this.world.npcs[i];
                 npc.draw(g, this.Size);
             }
             this.world.player.draw(g, this.Size);
-            this.world.boss.draw(g, this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -122,20 +121,6 @@ namespace TheHunt
             playerY = this.world.player.positions.current_position.y;
 
             Model.Point newPosition = new Model.Point();
-
-            lastPositionCounter++;
-            if(lastPositionCounter == 10)
-            {
-                changeLastPosition = true;
-            }
-
-            if (changeLastPosition)
-            {
-                this.world.player.positions.last_position.x = this.world.player.positions.current_position.x;
-                this.world.player.positions.last_position.y = this.world.player.positions.current_position.y;
-                changeLastPosition = false;
-                lastPositionCounter = 0;
-            }
 
             switch (k)
             {
@@ -175,8 +160,8 @@ namespace TheHunt
                 }
             }
 
-            ////check for collision with NPS's...
-            //foreach (var item in this.world.NPC)
+            //check for collision with NPS's...
+            //foreach (var item in this.world.npcs)
             //{
             //    Rectangle randomObj = new Rectangle(item.positions.current_position.x, item.positions.current_position.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 

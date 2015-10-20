@@ -269,7 +269,7 @@ namespace TheHunt
             }
 
             // Draw the NPCs
-            foreach (NPC npc in this.world.npcs)
+            foreach (Npc npc in this.world.npcs)
             {
                 npc.draw(g, this.Size);
             }
@@ -278,7 +278,7 @@ namespace TheHunt
             this.world.player.draw(g, this.Size);
 
             // Draw the boss
-            this.world.boss.draw(g, this.Size);
+            //this.world.boss.draw(g, this.Size);
         }
 
         // Starts the timers
