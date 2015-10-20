@@ -82,19 +82,19 @@ namespace TheHunt
             Pen pen = new Pen(Color.Red);
 
             //Teken Blokken
-            for (int i = 0; i < this.world.FieldObjects.Count; i++)
+            for (int i = 0; i < this.world.obstacles.Count; i++)
             {
-                FieldObject obj = this.world.FieldObjects[i];
+                Obstacle obj = this.world.obstacles[i];
                 obj.draw(g, this.Size);
             }
             //Teken NPC's
-            for (int i = 0; i < this.world.NPC.Count; i++)
+            for (int i = 0; i < this.world.npcs.Count; i++)
             {
-                NPC npc = this.world.NPC[i];
+                NPC npc = this.world.npcs[i];
                 npc.draw(g, this.Size);
             }
-            this.world.Player.draw(g, this.Size);
-            this.world.Boss.draw(g, this.Size);
+            this.world.player.draw(g, this.Size);
+            this.world.boss.draw(g, this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -115,11 +115,11 @@ namespace TheHunt
         //controle of het character er mag/kan lopen
         private bool checkIntersect(Keys k)
         {
-            int playerX = this.world.Player.positions.current_position.x;
-            int playerY = this.world.Player.positions.current_position.y;
+            int playerX = this.world.player.positions.current_position.x;
+            int playerY = this.world.player.positions.current_position.y;
 
-            playerX = this.world.Player.positions.current_position.x;
-            playerY = this.world.Player.positions.current_position.y;
+            playerX = this.world.player.positions.current_position.x;
+            playerY = this.world.player.positions.current_position.y;
 
             Model.Point newPosition = new Model.Point();
 
@@ -131,8 +131,8 @@ namespace TheHunt
 
             if (changeLastPosition)
             {
-                this.world.Player.positions.last_position.x = this.world.Player.positions.current_position.x;
-                this.world.Player.positions.last_position.y = this.world.Player.positions.current_position.y;
+                this.world.player.positions.last_position.x = this.world.player.positions.current_position.x;
+                this.world.player.positions.last_position.y = this.world.player.positions.current_position.y;
                 changeLastPosition = false;
                 lastPositionCounter = 0;
             }
@@ -140,24 +140,24 @@ namespace TheHunt
             switch (k)
             {
                 case Keys.Up:
-                    newPosition.x = this.world.Player.positions.current_position.x;
-                    newPosition.y = this.world.Player.positions.current_position.y - this.world.Player.speed.y;
+                    newPosition.x = this.world.player.positions.current_position.x;
+                    newPosition.y = this.world.player.positions.current_position.y - this.world.player.speed.y;
                     break;
                 case Keys.Down:
-                    newPosition.x = this.world.Player.positions.current_position.x;
-                    newPosition.y = this.world.Player.positions.current_position.y + this.world.Player.speed.y;
+                    newPosition.x = this.world.player.positions.current_position.x;
+                    newPosition.y = this.world.player.positions.current_position.y + this.world.player.speed.y;
                     break;
                 case Keys.Left:
-                    newPosition.x = this.world.Player.positions.current_position.x - this.world.Player.speed.x;
-                    newPosition.y = this.world.Player.positions.current_position.y;
+                    newPosition.x = this.world.player.positions.current_position.x - this.world.player.speed.x;
+                    newPosition.y = this.world.player.positions.current_position.y;
                     break;
                 case Keys.Right:
-                    newPosition.x = this.world.Player.positions.current_position.x + this.world.Player.speed.x;
-                    newPosition.y = this.world.Player.positions.current_position.y;
+                    newPosition.x = this.world.player.positions.current_position.x + this.world.player.speed.x;
+                    newPosition.y = this.world.player.positions.current_position.y;
                     break;
             }
 
-            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.Player.sizeBreedte, (int)this.world.Player.sizeHoogte);
+            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.player.sizeBreedte, (int)this.world.player.sizeHoogte);
 
             if (newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
             {
@@ -165,7 +165,7 @@ namespace TheHunt
             }
 
             //check for collision with objects (walls)..
-            foreach (var item in this.world.FieldObjects)
+            foreach (var item in this.world.obstacles)
             {
                 Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
@@ -343,15 +343,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[10];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[10];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[11];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[11];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[12];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[12];
                             count = 0;
                             break;
                     }
@@ -363,15 +363,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[1];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[1];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[2];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[2];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[3];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[3];
                             count = 0;
                             break;
                     }
@@ -383,15 +383,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[7];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[7];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[8];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[8];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[9];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[9];
                             count = 0;
                             break;
                     }
@@ -403,15 +403,15 @@ namespace TheHunt
                     switch (count)
                     {
                         case 0:
-                                Player1.bitmap = Player1.PlayerSprites[4];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[4];
                             count = 1;
                             break;
                         case 1:
-                                Player1.bitmap = Player1.PlayerSprites[5];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[5];
                             count = 2;
                             break;
                         case 2:
-                                Player1.bitmap = Player1.PlayerSprites[6];
+                                Model.Player.bitmap = Model.Player.PlayerSprites[6];
                             count = 0;
                             break;
                     }
@@ -450,19 +450,19 @@ namespace TheHunt
             switch (this.laatsteMovement)
             {
                 case Keys.Up:
-                    Player1.bitmap = Player1.PlayerSprites[4];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[4];
                     break;
 
                 case Keys.Left:
-                    Player1.bitmap = Player1.PlayerSprites[10];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[10];
                     break;
 
                 case Keys.Down:
-                    Player1.bitmap = Player1.PlayerSprites[1];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[1];
                     break;
 
                 case Keys.Right:
-                    Player1.bitmap = Player1.PlayerSprites[7];
+                    Model.Player.bitmap = Model.Player.PlayerSprites[7];
                     break;
             }
         }
@@ -490,7 +490,7 @@ namespace TheHunt
         //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
         {
-            foreach (var npc in this.world.NPC)
+            foreach (var npc in this.world.npcs)
             {
                 npc.moveNPC(this.world);
             }
@@ -520,19 +520,19 @@ namespace TheHunt
             if (isRunning)
             {
                 spriteTimer.Interval = 50;
-                this.world.Player.speed = this.world.Player.movement.run;
+                this.world.player.speed = this.world.player.movement.run;
             }
             else
             {
                 spriteTimer.Interval = 100;
-                this.world.Player.speed = this.world.Player.movement.walk;
+                this.world.player.speed = this.world.player.movement.walk;
             }
 
             if (this.beweegNaarBoven)
                     {
                         if (!checkIntersect(Keys.Up))
                         {
-                            world.Player.positions.current_position.y -= world.Player.speed.y;
+                            world.player.positions.current_position.y -= world.player.speed.y;
                         }
 
                 else
@@ -546,7 +546,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Left))
                         {
-                            world.Player.positions.current_position.x -= world.Player.speed.x;
+                            world.player.positions.current_position.x -= world.player.speed.x;
                         }
 
                 else
@@ -558,7 +558,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Down))
                         {
-                            world.Player.positions.current_position.y += world.Player.speed.y;
+                            world.player.positions.current_position.y += world.player.speed.y;
                         }
 
                 else
@@ -571,7 +571,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Right))
                         {
-                            world.Player.positions.current_position.x += world.Player.speed.x;
+                            world.player.positions.current_position.x += world.player.speed.x;
                         }
 
                 else

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TheHunt.Model
 {
-    abstract class ResizableObject
+    abstract class Item
     {
         public float getOnScreenWidth(Size screenSize)
         {
