@@ -62,7 +62,7 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-            timer.Interval = 1000 / 120;
+            timer.Interval = 1000 / 60;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += beweegSprites;
             timer.Tick += new EventHandler(timer_Tick);
