@@ -282,7 +282,7 @@ namespace TheHunt
             this.world.player.draw(g, this.Size);
 
             // Draw the boss
-            this.world.boss.draw(g, this.Size);
+            //this.world.boss.draw(g, this.Size);
         }
 
         // Starts the timers

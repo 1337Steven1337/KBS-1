@@ -2,34 +2,23 @@
   "obstacles": [
     {
       "x": 0,
-      "y": 0
+      "y": 100,
+      "height": 1,
+      "width": 20
     },
     {
-      "x": 0,
-      "y": 200
+      "x": 900,
+      "y": 1,
+      "height": 10,
+      "width": 1
+    },
+    {
+      "x": 50,
+      "y": 490,
+      "height": 1,
+      "width": 20
     }
   ],
-  "boss": {
-    "position": {
-      "x": 500,
-      "y": 500
-    },
-        "speed": {
-      "x": 3,
-      "y": 3
-    },
-    "movement": {
-       "walk": {
-        "x": 3,
-        "y": 3
-      },
-      "run": {
-        "x": 10,
-        "y": 10
-      }
-    },
-    "hp": 100
-  },
   "npcs": [
     {
       "type": "Enemy",
@@ -38,14 +27,10 @@
           "x": 300,
           "y": 300
         },
-        "return_position": {
-          "x": 70,
-          "y": 20
-        }
       },
       "speed": {
-        "x": 5,
-        "y": 5
+        "x": 1,
+        "y": 1
       }
     },
     {
@@ -53,16 +38,12 @@
       "positions": {
         "current_position": {
           "x": 150,
-          "y": 50
+          "y": 0
         },
-        "return_position": {
-          "x": 70,
-          "y": 20
-        }
       },
       "speed": {
-        "x": 4,
-        "y": 4
+        "x": 1,
+        "y": 1
       }
     },
     {
@@ -72,14 +53,10 @@
           "x": 500,
           "y": 350
         },
-        "return_position": {
-          "x": 70,
-          "y": 20
-        }
       },
       "speed": {
-        "x": 3,
-        "y": 3
+        "x": 1,
+        "y": 1
       }
     },
     {
@@ -87,16 +64,12 @@
       "positions": {
         "current_position": {
           "x": 500,
-          "y": 100
+          "y": 600
         },
-        "return_position": {
-          "x": 70,
-          "y": 20
-        }
       },
       "speed": {
-        "x": 2,
-        "y": 2
+        "x": 1,
+        "y": 1
       }
     },
     {
@@ -106,9 +79,44 @@
           "x": 700,
           "y": 150
         },
-        "return_position": {
-          "x": 70,
-          "y": 20
+      },
+      "speed": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": "H_Bouncer",
+      "positions": {
+        "current_position": {
+          "x": 750,
+          "y": 150
+        }
+      },
+      "speed": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": "H_Bouncer",
+      "positions": {
+        "current_position": {
+          "x": 550,
+          "y": 200
+        }
+      },
+      "speed": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": "V_Bouncer",
+      "positions": {
+        "current_position": {
+          "x": 200,
+          "y": 400
         }
       },
       "speed": {
@@ -143,6 +151,5 @@
         "y": 5
       }
     }
-
   }
   }

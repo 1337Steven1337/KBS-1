@@ -12,6 +12,7 @@ namespace TheHunt.Model
     {
         public List<Obstacle> obstacles = new List<Obstacle>();
         public List<Model.Npc> npcs = new List<Model.Npc>();
+
         public Player player = new Player();
         public Boss boss = new Boss();
     }
@@ -36,7 +37,6 @@ namespace TheHunt.Model
     struct Positions
     {
         public Point current_position;
-        public Point return_position;
         public Point last_position;
     }
 }

@@ -246,7 +246,6 @@
     <None Include="Resources\pijl onder.png" />
     <None Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Arrow.jpg" />
-    <None Include="Resources\Enemy.gif" />
     <None Include="Resources\Pijl boven.png" />
     <None Include="Resources\options.jpg" />
     <None Include="Resources\Continuebutton.png" />
@@ -265,8 +264,11 @@
     <None Include="Resources\Player\brockSprite11.png" />
     <None Include="Resources\Player\brockSprite12.png" />
     <None Include="Resources\Template.png" />
-    <None Include="Resources\Boss.png" />
-    <None Include="Resources\TemplateDisabled.png" />
+    <None Include="Resources\Hoe-maak-ik-een-POP.jpg" />
+    <None Include="Resources\Enemy.gif" />
+    <None Include="Resources\Bouncer.gif" />
+    <None Include="Resources\H_bouncer.png" />
+    <None Include="Resources\V_bouncer.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

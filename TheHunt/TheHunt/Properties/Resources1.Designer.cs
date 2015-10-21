@@ -102,9 +102,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Boss {
+        internal static System.Drawing.Bitmap Bouncer {
             get {
-                object obj = ResourceManager.GetObject("Boss", resourceCulture);
+                object obj = ResourceManager.GetObject("Bouncer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -292,6 +292,16 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap H_bouncer {
+            get {
+                object obj = ResourceManager.GetObject("H_bouncer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap highscores {
             get {
                 object obj = ResourceManager.GetObject("highscores", resourceCulture);
@@ -434,6 +444,16 @@ namespace TheHunt.Properties {
         internal static System.Drawing.Bitmap uitleg {
             get {
                 object obj = ResourceManager.GetObject("uitleg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap V_bouncer {
+            get {
+                object obj = ResourceManager.GetObject("V_bouncer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
