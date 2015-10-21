@@ -65,7 +65,7 @@ namespace TheHunt.Model
             }
             if(type == Type.V_Bouncer && drawHitAroundPlayer == true || type == Type.H_Bouncer && drawHitAroundPlayer == true)
             {
-                Rectangle radiusRect = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, sizeBreedte, sizeHoogte);
+                Rectangle radiusRect = new Rectangle(this.world.player.positions.current_position.x,this.world.player.positions.current_position.y, sizeBreedte, sizeHoogte);
                 g.FillRectangle(myBrush, radiusRect);
                 g.DrawRectangle(pen, radiusRect);
             }
@@ -95,10 +95,10 @@ namespace TheHunt.Model
                         {
                             newRange += 1;
                         }
-                        var playerCurrentX = this.world.player.positions.current_position.x;
-                        var playerCurrentY = this.world.player.positions.current_position.y;
-                        var playerLastX = this.world.player.positions.last_position.x;
-                        var playerLastY = this.world.player.positions.last_position.y;
+                        var playerCurrentX = (int)(this.world.player.positions.current_position.x * this.screenSize.Width / 40.00);
+                        var playerCurrentY = (int)(this.world.player.positions.current_position.y * this.screenSize.Height / 20.00);
+                        var playerLastX = (int)(this.world.player.positions.last_position.x * this.screenSize.Width / 40.00);
+                        var playerLastY = (int)(this.world.player.positions.last_position.y * this.screenSize.Height / 20.00);
 
                         if (playerCurrentX > playerLastX && positions.current_position.x < playerCurrentX)
                         {
@@ -227,14 +227,15 @@ namespace TheHunt.Model
         private bool playerIntersectWithBouncers()
         {
             //check if player intersects with Bouncers 
-            Rectangle newPlayerRectangle = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)this.world.player.sizeBreedte, (int)this.world.player.sizeHoogte);
+            Rectangle newPlayerRectangle = new Rectangle(this.world.player.positions.current_position.x , this.world.player.positions.current_position.y, this.world.player.sizeBreedte, this.world.player.sizeHoogte);
 
             foreach (var item in this.world.npcs)
             {
-                if (item.type == Type.V_Bouncer | item.type == Type.V_Bouncer)
+                if (item.type == Type.V_Bouncer | item.type == Type.H_Bouncer)
                 {
                     if (npc.IntersectsWith(newPlayerRectangle))
             {
+                        
                         return true;
                     }
                 }
@@ -401,6 +402,11 @@ namespace TheHunt.Model
                 }
             }
             return this.image;
+        }
+
+        public Npc clone()
+        {
+            return (Npc)this.MemberwiseClone();
         }
     }
 }

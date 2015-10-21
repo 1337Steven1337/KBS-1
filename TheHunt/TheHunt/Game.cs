@@ -79,6 +79,7 @@ namespace TheHunt
 
             // Set the initial size
             this.setFullScreenSize(this, null);
+          
 
             // Add gamepad
             this.addGamePad();
@@ -159,6 +160,7 @@ namespace TheHunt
             {
                 npc.moveNPC(this.world);
             }
+
 
             // Redraw
             this.Invalidate();
@@ -247,7 +249,7 @@ namespace TheHunt
                 }
                 else
                 {
-                    this.Size = new Size((int)(this.startScreen.Size.Width * 0.8), this.startScreen.Size.Height);
+                    this.Size = new Size((int)(this.startScreen.Size.Width), this.startScreen.Size.Height);
                 }
 
                 // Set the menu location

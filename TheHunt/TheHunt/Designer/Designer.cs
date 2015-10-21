@@ -112,6 +112,23 @@ namespace TheHunt.Designer
                     fieldObject.y = (int)(y);
                     this.world.obstacles.Add(fieldObject);
                 }
+                if (this.items.getMode() == "HBouncer")
+                {
+                    Npc npc = this.items.getActive<Npc>().clone();
+                    npc.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00), (int)(y * this.Size.Height / 20.00));
+                    npc.speed = new Model.Point(1, 1);
+                    this.world.npcs.Add(npc);
+                }
+
+                if (this.items.getMode() == "VBouncer")
+                {
+                    Npc npc = this.items.getActive<Npc>().clone();
+                    npc.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00), (int)(y * this.Size.Height / 20.00));
+                    npc.speed = new Model.Point(1, 1);
+                    this.world.npcs.Add(npc);
+                }
+
+
                 if (this.items.getMode() == "Player" && this.playerCount == 0)
                 {
                     this.world.player = this.items.getActive<Model.Player>().clone();
@@ -130,8 +147,6 @@ namespace TheHunt.Designer
                     {
                         this.world.player = this.items.getActive<Model.Player>().clone();
                         this.world.player.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00), (int)(y * this.Size.Height / 20.00));
-                        this.world.player.sizeBreedte = (int)cellSizeX;
-                        this.world.player.sizeHoogte = (int)cellSizeY;
                     }
                 }
                 this.Invalidate();
@@ -272,11 +287,21 @@ namespace TheHunt.Designer
                 obj.draw(graphics, this.Size);
             }
 
+            for (int i = 0; i < this.world.npcs.Count; i++)
+            {
+                Npc npc = this.world.npcs[i];
+                npc.sizeBreedte = (int)cellSizeX;
+                npc.sizeHoogte = (int)cellSizeY;
+                npc.draw(graphics, this.Size);
+            }
+
 
             //Draw the Player, if a player is set (max 1)
             if (playerCount > 0)
             {
                 Model.Player player = this.world.player;
+                player.sizeBreedte = (int)cellSizeX;
+                player.sizeHoogte = (int)cellSizeY;
                 player.draw(graphics, this.Size);
             }
 

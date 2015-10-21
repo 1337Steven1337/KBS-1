@@ -17,6 +17,7 @@ namespace TheHunt.Designer
     {
         private List<Obstacle> fieldObjects = new List<Obstacle>();
         private Model.Player player = new Model.Player();
+        private List<Npc> npcList = new List<Npc>();
         private string mode = "";
         private object active = null;
         private Form form;
@@ -31,26 +32,44 @@ namespace TheHunt.Designer
         {
 
             this.loadObjects();
+            this.loadNpcs();
             this.Location = new System.Drawing.Point(form.Location.X + (int)(form.Size.Width), form.Location.Y);
             this.Size = new Size((int)(form.Size.Width * 0.25),form.Size.Height);
 
             for (int i = 0; i < fieldObjects.Count; i++)
             {
                 Obstacle item = fieldObjects[i];
-                PictureBox box = new PictureBox();
-                PictureBox box2 = new PictureBox();
+                PictureBox wallBox = new PictureBox();
+                PictureBox player1Box = new PictureBox();
+                PictureBox HBouncerBox = new PictureBox();
+                PictureBox VBouncerBox = new PictureBox();
+
+                wallBox.Click += Item_Click;
+                wallBox.Tag = "FieldObject-" + i;
+                wallBox.Image = item.getImage();
 
 
-                box2.Click += Item_Click;
-                box2.Tag = "Player-" + i;
-                box2.Image = Properties.Resources.brockSprite1;
-                box2.SizeMode = PictureBoxSizeMode.StretchImage;
-                box2.Size = new Size(50,60);
-                box.Click += Item_Click;
-                box.Tag = "FieldObject-" + i;
-                box.Image = item.getImage();
-                flowLayout.Controls.Add(box);
-                flowLayout.Controls.Add(box2);
+                player1Box.Click += Item_Click;
+                player1Box.Tag = "Player-" + i;
+                player1Box.Image = Properties.Resources.brockSprite1;
+                player1Box.SizeMode = PictureBoxSizeMode.StretchImage;
+                player1Box.Size = new Size(50,60);
+
+                HBouncerBox.Click += Item_Click;
+                HBouncerBox.Tag = "HBouncer-" + i;
+                HBouncerBox.Image = Properties.Resources.H_bouncer;
+
+                VBouncerBox.Click += Item_Click;
+                VBouncerBox.Tag = "VBouncer-" + i;
+                VBouncerBox.Image = Properties.Resources.V_bouncer;
+
+
+
+                flowLayout.Controls.Add(wallBox);
+                flowLayout.Controls.Add(player1Box);
+                flowLayout.Controls.Add(HBouncerBox);
+                flowLayout.Controls.Add(VBouncerBox);
+
             }           
         }
 
@@ -69,6 +88,16 @@ namespace TheHunt.Designer
             {
                 this.active = player;
             }
+            if (this.mode == "HBouncer")
+            {
+                npcList[int.Parse(parts[1])].type = Npc.Type.H_Bouncer;
+                this.active = npcList[int.Parse(parts[1])];
+            }
+            if (this.mode == "VBouncer")
+            {
+                npcList[int.Parse(parts[1])].type = Npc.Type.V_Bouncer;
+                this.active = npcList[int.Parse(parts[1])];
+            }
         }
 
         private void loadObjects()
@@ -76,6 +105,12 @@ namespace TheHunt.Designer
             Obstacle wall = new Obstacle();
             wall.x = wall.y = 1;
             this.fieldObjects.Add(wall);
+        }
+
+        private void loadNpcs()
+        {
+            Npc npc = new Npc();
+            this.npcList.Add(npc);
         }
 
         internal bool isSelected()

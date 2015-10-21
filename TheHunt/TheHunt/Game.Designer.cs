@@ -49,10 +49,9 @@
             this.pnlMenu.Controls.Add(this.pictureBoxExitToMenu);
             this.pnlMenu.Controls.Add(this.pictureBoxOptions);
             this.pnlMenu.Controls.Add(this.pictureBoxExitToDesktop);
-            this.pnlMenu.Location = new System.Drawing.Point(149, 60);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlMenu.Location = new System.Drawing.Point(224, 92);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(301, 364);
+            this.pnlMenu.Size = new System.Drawing.Size(452, 560);
             this.pnlMenu.TabIndex = 2;
             this.pnlMenu.Visible = false;
             // 
@@ -60,20 +59,18 @@
             // 
             this.labelMenu.AutoSize = true;
             this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
-            this.labelMenu.Location = new System.Drawing.Point(75, 2);
-            this.labelMenu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMenu.Location = new System.Drawing.Point(112, 3);
             this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(151, 57);
+            this.labelMenu.Size = new System.Drawing.Size(223, 83);
             this.labelMenu.TabIndex = 0;
             this.labelMenu.Text = "Menu";
             // 
             // pictureBoxContinue
             // 
             this.pictureBoxContinue.Image = global::TheHunt.Properties.Resources.Continuebutton;
-            this.pictureBoxContinue.Location = new System.Drawing.Point(7, 59);
-            this.pictureBoxContinue.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxContinue.Location = new System.Drawing.Point(10, 91);
             this.pictureBoxContinue.Name = "pictureBoxContinue";
-            this.pictureBoxContinue.Size = new System.Drawing.Size(293, 71);
+            this.pictureBoxContinue.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxContinue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxContinue.TabIndex = 3;
             this.pictureBoxContinue.TabStop = false;
@@ -82,10 +79,9 @@
             // pictureBoxExitToMenu
             // 
             this.pictureBoxExitToMenu.Image = global::TheHunt.Properties.Resources.ExitToMenuButton;
-            this.pictureBoxExitToMenu.Location = new System.Drawing.Point(7, 211);
-            this.pictureBoxExitToMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxExitToMenu.Location = new System.Drawing.Point(10, 325);
             this.pictureBoxExitToMenu.Name = "pictureBoxExitToMenu";
-            this.pictureBoxExitToMenu.Size = new System.Drawing.Size(293, 71);
+            this.pictureBoxExitToMenu.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxExitToMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxExitToMenu.TabIndex = 4;
             this.pictureBoxExitToMenu.TabStop = false;
@@ -94,10 +90,9 @@
             // pictureBoxOptions
             // 
             this.pictureBoxOptions.Image = global::TheHunt.Properties.Resources.optionsBtn;
-            this.pictureBoxOptions.Location = new System.Drawing.Point(7, 135);
-            this.pictureBoxOptions.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxOptions.Location = new System.Drawing.Point(10, 208);
             this.pictureBoxOptions.Name = "pictureBoxOptions";
-            this.pictureBoxOptions.Size = new System.Drawing.Size(293, 71);
+            this.pictureBoxOptions.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxOptions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxOptions.TabIndex = 5;
             this.pictureBoxOptions.TabStop = false;
@@ -106,10 +101,9 @@
             // pictureBoxExitToDesktop
             // 
             this.pictureBoxExitToDesktop.Image = global::TheHunt.Properties.Resources.ExitToDesktopButton;
-            this.pictureBoxExitToDesktop.Location = new System.Drawing.Point(7, 288);
-            this.pictureBoxExitToDesktop.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxExitToDesktop.Location = new System.Drawing.Point(10, 443);
             this.pictureBoxExitToDesktop.Name = "pictureBoxExitToDesktop";
-            this.pictureBoxExitToDesktop.Size = new System.Drawing.Size(293, 71);
+            this.pictureBoxExitToDesktop.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxExitToDesktop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxExitToDesktop.TabIndex = 6;
             this.pictureBoxExitToDesktop.TabStop = false;
@@ -117,11 +111,12 @@
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 504);
+            this.ClientSize = new System.Drawing.Size(926, 775);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
