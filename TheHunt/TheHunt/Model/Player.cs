@@ -130,5 +130,10 @@ namespace TheHunt.Model
         {
             g.DrawImage((this.sprite == null) ? bitmap : this.sprite, this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
         }
+
+        public Player clone()
+        {
+            return (Player)this.MemberwiseClone();
+        }
     }
 }

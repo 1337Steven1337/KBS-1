@@ -31,7 +31,7 @@ namespace TheHunt.Model
         public Boolean playerIsInRange = false;
 
         public Timer timerPlayerDetect;
-       
+
         public int width = 1;
         public int height = 1;
         public Type type;
@@ -58,7 +58,7 @@ namespace TheHunt.Model
 
         public void moveNPC(World world)
         {
-            if(newRange < normalRange)
+            if (newRange < normalRange)
             {
                 newRange = normalRange;
             }
@@ -178,10 +178,10 @@ namespace TheHunt.Model
                 return true;
             }
 
-            //check if NPS intersect with wall
+            //check if NPC intersect with wall
             foreach (var item in this.world.obstacles)
             {
-                Rectangle wall = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
+                Rectangle wall = new Rectangle((int)(item.x * this.screenSize.Width/40), (int)(item.y * this.screenSize.Height/20), (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
 
                 if (npc.IntersectsWith(wall))
                 {
@@ -189,7 +189,7 @@ namespace TheHunt.Model
                 }
             }
 
-            //check if NPS intersect with Boss
+            //check if NPC intersect with Boss
 
             Rectangle boss = new Rectangle(world.boss.position.x, world.boss.position.y, world.boss.sizeBreedte, world.boss.sizeHoogte);
 
@@ -198,7 +198,7 @@ namespace TheHunt.Model
                 return true;
             }
 
-            //check if NPS intersect with other NPC
+            //check if NPC intersect with other NPC
             foreach (var item in this.world.npcs)
             {
                 if (item != this)
@@ -215,7 +215,7 @@ namespace TheHunt.Model
         }
 
         private bool npcChooseNewRoute()
-        {           
+        {
             switch (randomPosition)
             {
                 case 0:
@@ -241,7 +241,8 @@ namespace TheHunt.Model
             npc.X = positions.current_position.x;
             npc.Y = positions.current_position.y;
 
-            if (npcIntersectsWithObjects()){
+            if (npcIntersectsWithObjects())
+            {
                 return true;
             }
             return false;

@@ -17,8 +17,8 @@ namespace TheHunt.Model
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
-        public Bitmap bitmap;
-        public List<Bitmap> PlayerSprites = new List<Bitmap>();
+        private Bitmap bitmap;
+        private List<Bitmap> PlayerSprites = new List<Bitmap>();
 
         public Boss()
         {

@@ -16,7 +16,8 @@ namespace TheHunt.Designer
     public partial class Items : Form
     {
         private List<Obstacle> fieldObjects = new List<Obstacle>();
-        private string mode = "FieldObject";
+        private Model.Player player = new Model.Player();
+        private string mode = "";
         private object active = null;
         private Form form;
         
@@ -37,15 +38,20 @@ namespace TheHunt.Designer
             {
                 Obstacle item = fieldObjects[i];
                 PictureBox box = new PictureBox();
+                PictureBox box2 = new PictureBox();
 
+
+                box2.Click += Item_Click;
+                box2.Tag = "Player-" + i;
+                box2.Image = Properties.Resources.brockSprite1;
+                box2.SizeMode = PictureBoxSizeMode.StretchImage;
+                box2.Size = new Size(40,60);
                 box.Click += Item_Click;
                 box.Tag = "FieldObject-" + i;
                 box.Image = item.getImage();
-
                 flowLayout.Controls.Add(box);
-
-                
-            }
+                flowLayout.Controls.Add(box2);
+            }           
         }
 
         private void Item_Click(object sender, EventArgs e)
@@ -58,13 +64,17 @@ namespace TheHunt.Designer
             {
                 this.active = fieldObjects[int.Parse(parts[1])];
             }
+
+            if (this.mode == "Player")
+            {
+                this.active = player;
+            }
         }
 
         private void loadObjects()
         {
             Obstacle wall = new Obstacle();
-            wall.x = wall.y = wall.width = wall.height = 1;
-
+            wall.x = wall.y = 1;
             this.fieldObjects.Add(wall);
         }
 

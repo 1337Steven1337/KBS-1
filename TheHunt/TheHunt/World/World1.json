@@ -2,15 +2,11 @@
   "obstacles": [
     {
       "x": 0,
-      "y": 0,
-      "height": 1,
-      "width": 10
+      "y": 0
     },
     {
       "x": 0,
-      "y": 200,
-      "height": 1,
-      "width": 10
+      "y": 200
     }
   ],
   "boss": {

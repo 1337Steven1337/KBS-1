@@ -16,20 +16,14 @@ namespace TheHunt.Model
 
         public int x = 0;
         public int y = 0;
-        public int height = 0;
-        public int width = 0;
+        public int height = 1;
+        public int width = 1;
          
        public void draw(Graphics g, Size screenSize)
         {
-            for (int x = 0; x < this.width; x++)
-            {
-                for (int y = 0; y < this.height; y++)
-                {
-                    float screenWidth = screenSize.Width/ 40;
-                    float screenHeight = screenSize.Height / 20;
-                    g.DrawImage(getImage(), this.x + (screenWidth * x), this.y + (screenHeight * y), screenWidth, screenHeight);
-                }
-            }
+                    float screenWidth = (float)(screenSize.Width/ 40.00);
+                    float screenHeight = (float)(screenSize.Height / 20.00);
+                    g.DrawImage(getImage(), this.x * screenWidth, this.y * screenHeight, screenWidth, screenHeight);
         }
 
         public float getPixelWidth(Size screenSize)

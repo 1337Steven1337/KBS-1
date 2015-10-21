@@ -19,6 +19,9 @@ namespace TheHunt
         // Keep the world data
         private World world = null;
 
+        // Level to be played
+        private string levelString;
+
         // Reference to the startScreen
         private form_startscreen startScreen = null;
 
@@ -52,12 +55,15 @@ namespace TheHunt
         // Shift keys
         private List<Keys> shiftKeys = new List<Keys>() { Keys.Shift, Keys.LShiftKey, Keys.RShiftKey, Keys.ShiftKey };
 
-        public Game(form_startscreen start)
+        public Game(form_startscreen start, string level)
         {
             InitializeComponent();
 
             // Set the start form
             this.startScreen = start;
+
+            // Set the level 
+            this.levelString = level;
 
             // Set double buffer to prevent flickering
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
@@ -103,12 +109,10 @@ namespace TheHunt
         // Load the world
         private void load()
         {
-            // Open the JSON file
-            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "/../../World/World1.json"))
-            {
                 // Assign the world variable
-                this.world = JsonConvert.DeserializeObject<World>(reader.ReadToEnd());
-            }
+                this.world = JsonConvert.DeserializeObject<World>(levelString);
+            this.world.player.sizeBreedte = this.Width / 40 - 5;
+            this.world.player.sizeHoogte = this.Height / 20 - 5;
         }
 
         // Add the gamepad
@@ -219,7 +223,7 @@ namespace TheHunt
             foreach (Obstacle obstacle in this.world.obstacles)
             {
                 // Create a new rectangle representing the obstacle
-                Rectangle rObstacle = new Rectangle(obstacle.x, obstacle.y, (int)obstacle.getPixelWidth(this.Size), (int)obstacle.getPixelHeight(this.Size));
+                Rectangle rObstacle = new Rectangle(obstacle.x * this.Size.Width/40, obstacle.y * this.Size.Height/20, (int)obstacle.getPixelWidth(this.Size), (int)(obstacle.getPixelHeight(this.Size)));
 
                 // Check if the obstacle intersects with the object
                 if (rectangle.IntersectsWith(rObstacle))
@@ -269,7 +273,7 @@ namespace TheHunt
             }
 
             // Draw the NPCs
-            foreach (NPC npc in this.world.npcs)
+            foreach (Npc npc in this.world.npcs)
             {
                 npc.draw(g, this.Size);
             }

@@ -17,8 +17,7 @@ namespace TheHunt
         public form_startscreen()
         {
             InitializeComponent();
-
-
+            
             this.sound = Sound.Instance;
             startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);
             startRes.Height = (int)(Screen.PrimaryScreen.WorkingArea.Height * 0.8);
@@ -85,12 +84,6 @@ namespace TheHunt
         }
 
 
-        public void openDesigner(object sender,EventArgs e)
-        {
-            Form form_selectlevel = new Form();
-            Designer.Designer designwindow = new Designer.Designer(this);
-        }
-
         public void speelKlikGeluid(object sender, EventArgs e)
         {
             sound.click();
@@ -100,11 +93,8 @@ namespace TheHunt
         private void btn_PlayGame(object sender, EventArgs e)
         {
             this.Hide();
-            //Player map = new Player(this);
-            //map.Show();
-
-            Game game = new Game(this);
-            game.Show();
+            form_selectlevel kies = new form_selectlevel(this,"spelen");
+            kies.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -137,7 +127,6 @@ namespace TheHunt
 
             this.PlayBtn.Click += new System.EventHandler(this.speelKlikGeluid);
             this.optionBtn.Click += new System.EventHandler(this.speelKlikGeluid);
-            this.CreateLvlBtn.Click += CreateLvlBtn_Click;
             this.HighscoreBtn.Click += HighscoreBtn_Click;
         }
 
@@ -151,9 +140,9 @@ namespace TheHunt
         private void CreateLvlBtn_Click(object sender, EventArgs e)
         {
             this.speelKlikGeluid(sender, e);
-            Designer.Designer designer = new Designer.Designer(this);
-            designer.Show();
             this.Hide();
+            form_selectlevel kies = new form_selectlevel(this,"designerMode");
+            kies.Show();
         }
 
         private void Afsluiten(object sender, EventArgs e)

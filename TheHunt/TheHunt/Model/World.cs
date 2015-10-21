@@ -11,8 +11,7 @@ namespace TheHunt.Model
     class World
     {
         public List<Obstacle> obstacles = new List<Obstacle>();
-        public List<Model.NPC> npcs = new List<Model.NPC>();
-
+        public List<Model.Npc> npcs = new List<Model.Npc>();
         public Player player = new Player();
         public Boss boss = new Boss();
     }

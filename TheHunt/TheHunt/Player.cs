@@ -29,7 +29,7 @@ namespace TheHunt
         public Boolean beweegNaarRechts = false;
         public Boolean isRunning = false;
         public static Boolean isMoving = false;
-        
+
         private Boolean changeLastPosition = false;
         private int lastPositionCounter = 0;
         //dasd
@@ -62,7 +62,7 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-            timer.Interval = 1000 / 120;
+            timer.Interval = 1000 / 60;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += beweegSprites;
             timer.Tick += new EventHandler(timer_Tick);
@@ -90,7 +90,7 @@ namespace TheHunt
             //Teken NPC's
             for (int i = 0; i < this.world.npcs.Count; i++)
             {
-                NPC npc = this.world.npcs[i];
+                Npc npc = this.world.npcs[i];
                 npc.draw(g, this.Size);
             }
             this.world.player.draw(g, this.Size);
@@ -124,7 +124,7 @@ namespace TheHunt
             Model.Point newPosition = new Model.Point();
 
             lastPositionCounter++;
-            if(lastPositionCounter == 10)
+            if (lastPositionCounter == 10)
             {
                 changeLastPosition = true;
             }
@@ -167,7 +167,7 @@ namespace TheHunt
             //check for collision with objects (walls)..
             foreach (var item in this.world.obstacles)
             {
-                Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
+                Rectangle randomObj = new Rectangle((int)(item.x * screenWidth / 40), (int)(item.y * screenHeight / 20), (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
                 if (newPlayerRectangle.IntersectsWith(randomObj))
                 {
@@ -193,7 +193,7 @@ namespace TheHunt
             {
                 this.lastPressedKey = keycode;
             }
-            
+
             spriteTimer.Start();
 
 
@@ -292,7 +292,7 @@ namespace TheHunt
                     if (this.lastPressedKey == Keys.Up)
                     {
                         beweegNaarBoven = true;
-            }
+                    }
                     if (this.lastPressedKey == Keys.Left)
                     {
                         beweegNaarLinks = true;
@@ -340,81 +340,81 @@ namespace TheHunt
                 case Keys.Left:
                     if (beweegNaarLinks)
                     {
-                    switch (count)
-                    {
-                        case 0:
+                        switch (count)
+                        {
+                            case 0:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[10];
-                            count = 1;
-                            break;
-                        case 1:
+                                count = 1;
+                                break;
+                            case 1:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[11];
-                            count = 2;
-                            break;
-                        case 2:
+                                count = 2;
+                                break;
+                            case 2:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[12];
-                            count = 0;
-                            break;
-                    }
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
                 case Keys.Down:
                     if (beweegNaarBeneden)
                     {
-                    switch (count)
-                    {
-                        case 0:
+                        switch (count)
+                        {
+                            case 0:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[1];
-                            count = 1;
-                            break;
-                        case 1:
+                                count = 1;
+                                break;
+                            case 1:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[2];
-                            count = 2;
-                            break;
-                        case 2:
+                                count = 2;
+                                break;
+                            case 2:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[3];
-                            count = 0;
-                            break;
-                    }
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
                 case Keys.Right:
                     if (beweegNaarRechts)
                     {
-                    switch (count)
-                    {
-                        case 0:
+                        switch (count)
+                        {
+                            case 0:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[7];
-                            count = 1;
-                            break;
-                        case 1:
+                                count = 1;
+                                break;
+                            case 1:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[8];
-                            count = 2;
-                            break;
-                        case 2:
+                                count = 2;
+                                break;
+                            case 2:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[9];
-                            count = 0;
-                            break;
-                    }
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
                 case Keys.Up:
                     if (beweegNaarBoven)
                     {
-                    switch (count)
-                    {
-                        case 0:
+                        switch (count)
+                        {
+                            case 0:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[4];
-                            count = 1;
-                            break;
-                        case 1:
+                                count = 1;
+                                break;
+                            case 1:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[5];
-                            count = 2;
-                            break;
-                        case 2:
+                                count = 2;
+                                break;
+                            case 2:
                                 Model.Player.bitmap = Model.Player.PlayerSprites[6];
-                            count = 0;
-                            break;
-                    }
+                                count = 0;
+                                break;
+                        }
                     }
                     break;
 
@@ -529,50 +529,50 @@ namespace TheHunt
             }
 
             if (this.beweegNaarBoven)
-                    {
-                        if (!checkIntersect(Keys.Up))
-                        {
-                            world.player.positions.current_position.y -= world.player.speed.y;
-                        }
+            {
+                if (!checkIntersect(Keys.Up))
+                {
+                    world.player.positions.current_position.y -= world.player.speed.y;
+                }
 
                 else
                 {
                     spriteTimer.Stop();
                 }
-                    }
+            }
 
 
             else if (this.beweegNaarLinks)
-                    {
-                        if (!checkIntersect(Keys.Left))
-                        {
-                            world.player.positions.current_position.x -= world.player.speed.x;
-                        }
+            {
+                if (!checkIntersect(Keys.Left))
+                {
+                    world.player.positions.current_position.x -= world.player.speed.x;
+                }
 
                 else
                 {
                     spriteTimer.Stop();
                 }
-                    }
+            }
             else if (this.beweegNaarBeneden)
-                    {
-                        if (!checkIntersect(Keys.Down))
-                        {
-                            world.player.positions.current_position.y += world.player.speed.y;
-                        }
+            {
+                if (!checkIntersect(Keys.Down))
+                {
+                    world.player.positions.current_position.y += world.player.speed.y;
+                }
 
                 else
                 {
                     spriteTimer.Stop();
                 }
-                    }
+            }
 
             else if (this.beweegNaarRechts)
-                    {
-                        if (!checkIntersect(Keys.Right))
-                        {
-                            world.player.positions.current_position.x += world.player.speed.x;
-                        }
+            {
+                if (!checkIntersect(Keys.Right))
+                {
+                    world.player.positions.current_position.x += world.player.speed.x;
+                }
 
                 else
                 {

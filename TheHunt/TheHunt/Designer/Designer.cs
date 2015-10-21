@@ -27,18 +27,44 @@ namespace TheHunt.Designer
         private float cellSizeX = 32;
         private float cellSizeY = 32;
 
+        // Count amount of players set in the designer (max 1)
+        private int playerCount = 0;
+
         // Set an empty world
-        private World world = new World();
+        private World world = null;
+
+        // Set an pre-defined level
+        private string levelString;
+
+        // Set levelID (used for saving)
+        private string levelID;
 
         // Set world variables
         private string name = null;
 
-        public Designer(Form startform)
+        public Designer(Form startform, string level, string levelID)
         {
             InitializeComponent();
 
             // Keep reference to the start form
             this.startForm = startform;
+
+            // Set level to be edited
+            this.levelString = level;
+
+            // Set level ID (needed for saving)
+            this.levelID = levelID;
+
+            // Checks if there's a level to be edited or there has to be a new level to be created
+            if (levelString == "")
+            {
+                this.world = new World();
+            }
+            else
+            {
+                //this.world = JsonConvert.DeserializeObject<World>(levelString);
+                this.world = new World();
+            }
 
             // Set double buffer to prevent flickering
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
@@ -46,6 +72,11 @@ namespace TheHunt.Designer
 
         private void Designer_Load(object sender, EventArgs e)
         {
+            Properties.Levels.Default.customlv1 = "";
+            Properties.Levels.Default.customlv2 = "";
+            Properties.Levels.Default.customlv6 = "";
+            Properties.Levels.Default.customlv10 = "";
+
             // Set initial location
             this.Location = this.startForm.Location;
 
@@ -72,17 +103,37 @@ namespace TheHunt.Designer
             if(this.items.isSelected())
             {
                 // Calculate the X and Y of the new object
-                int x = (int)Math.Floor(e.X / cellSizeX);
-                int y = (int)Math.Floor(e.Y / cellSizeY);
-
+                int x = (int)Math.Floor(e.X / (this.Size.Width/40.00));
+                int y = (int)Math.Floor(e.Y / (this.Size.Height/20.00));
                 if (this.items.getMode() == "FieldObject")
                 {
                     Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
-                    fieldObject.x = (int)(x * cellSizeX);
-                    fieldObject.y = (int)(y * cellSizeY);
+                    fieldObject.x = (int)(x);
+                    fieldObject.y = (int)(y);
                     this.world.obstacles.Add(fieldObject);
                 }
-
+                if (this.items.getMode() == "Player" && this.playerCount == 0)
+                {
+                    this.world.player = this.items.getActive<Model.Player>().clone();
+                    this.world.player.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00),(int)(y * this.Size.Height / 20.00));
+                    this.world.player.movement.walk = new Model.Point(2,2);
+                    this.world.player.movement.run = new Model.Point(5,5);
+                    this.world.player.speed = new Model.Point(3,3);
+                    this.world.player.sizeBreedte = (int)cellSizeX;
+                    this.world.player.sizeHoogte = (int)cellSizeY;
+                    this.playerCount = 1;
+                }
+                else if (this.items.getMode() == "Player" && this.playerCount > 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Er bestaat al een player in het veld, wil je deze overschrijven?", "Player toevoegen?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        this.world.player = this.items.getActive<Model.Player>().clone();
+                        this.world.player.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00), (int)(y * this.Size.Height / 20.00));
+                        this.world.player.sizeBreedte = (int)cellSizeX;
+                        this.world.player.sizeHoogte = (int)cellSizeY;
+                    }
+                }
                 this.Invalidate();
             }
         }
@@ -91,25 +142,68 @@ namespace TheHunt.Designer
         {
             this.save();
             this.startForm.Show();
+            this.Close();
             
         }
 
         private void save()
         {
-            if(this.name == null)
-            {
-                this.name = "test";
-
-
-            }
-            
             string json = JsonConvert.SerializeObject(this.world);
+            switch (levelID)
+            {
+                case "level1":
+                    Properties.Levels.Default.level1 = json;
+                    break;
+                case "level2":
+                    Properties.Levels.Default.level2 = json;
+                    break;
+                case "level3":
+                    Properties.Levels.Default.level3 = json;
+                    break;
+                case "level4":
+                    Properties.Levels.Default.level4 = json;
+                    break;
+                case "level5":
+                    Properties.Levels.Default.level5 = json;
+                    break;
+                case "customlv1":
+                    Properties.Levels.Default.customlv1 = json;
+                    break;
+                case "customlv2":
+                    Properties.Levels.Default.customlv2 = json;
+                    break;
+                case "customlv3":
+                    Properties.Levels.Default.customlv3 = json;
+                    break;
+                case "customlv4":
+                    Properties.Levels.Default.customlv4 = json;
+                    break;
+                case "customlv5":
+                    Properties.Levels.Default.customlv5 = json;
+                    break;
+                case "customlv6":
+                    Properties.Levels.Default.customlv6 = json;
+                    break;
+                case "customlv7":
+                    Properties.Levels.Default.customlv8 = json;
+                    break;
+                case "customlv8":
+                    Properties.Levels.Default.customlv8 = json;
+                    break;
+                case "customlv9":
+                    Properties.Levels.Default.customlv9 = json;
+                    break;
+                case "customlv10":
+                    Properties.Levels.Default.customlv10 = json;
+                    break;
+            }
+            Console.WriteLine("" +  json);
+            Properties.Levels.Default.Save();
+
 
 
             this.Close();
-
-            //System.IO.File.WriteAllText(@"" +Directory.GetCurrentDirectory() + "/" + this.name + ".json", json);
-
+            
         }
 
         // Function to handle the full screen option
@@ -168,6 +262,17 @@ namespace TheHunt.Designer
                 Obstacle obj = this.world.obstacles[i];
                 obj.draw(graphics, this.Size);
             }
+
+
+            //Draw the Player, if a player is set (max 1)
+            if (playerCount > 0)
+            {
+                Model.Player player = this.world.player;
+                player.draw(graphics, this.Size);
+            }
+
+
+
         }
     }
 }
