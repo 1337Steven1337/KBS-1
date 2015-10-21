@@ -143,7 +143,6 @@ namespace TheHunt.Designer
             this.save();
             this.startForm.Show();
             this.Close();
-            
         }
 
         private void save()
@@ -197,8 +196,18 @@ namespace TheHunt.Designer
                     Properties.Levels.Default.customlv10 = json;
                     break;
             }
-            Console.WriteLine("" +  json);
-            Properties.Levels.Default.Save();
+
+            DialogResult dialogResult = MessageBox.Show("Wil je dit design opslaan?", "Opslaan", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Properties.Levels.Default.Save();
+            }
+            if (dialogResult == DialogResult.No)
+            {
+                Properties.Levels.Default.Reload();
+            }
+        
+        
 
 
 
