@@ -45,7 +45,7 @@ namespace TheHunt.Designer
                 box2.Tag = "Player-" + i;
                 box2.Image = Properties.Resources.brockSprite1;
                 box2.SizeMode = PictureBoxSizeMode.StretchImage;
-                box2.Size = new Size(40,60);
+                box2.Size = new Size(50,60);
                 box.Click += Item_Click;
                 box.Tag = "FieldObject-" + i;
                 box.Image = item.getImage();
