@@ -22,6 +22,7 @@ namespace TheHunt.Model
 
         private int lastPositionCounter = 0;
         private int spriteAnimationCounter = 0;
+        private int isEersteDraw = 0;
 
         private Bitmap sprite = null;
         private List<Bitmap> sprites = null;
@@ -126,9 +127,22 @@ namespace TheHunt.Model
         }
 
 
-        public void draw(Graphics g, Size screenSize)
+        public void draw(Graphics g, Size screenSize, string drawMode)
         {
-            g.DrawImage((this.sprite == null) ? bitmap : this.sprite, this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
+            //Set Player to the right positions on start.
+            if (drawMode == "Game" && isEersteDraw == 0)
+            {
+                this.positions.current_position = new Point((int)(this.positions.current_position.x * screenSize.Width / 40.00), (int)(this.positions.current_position.y * screenSize.Height / 20.00));
+                isEersteDraw++;
+            } else if (drawMode == "Game" && isEersteDraw > 0)
+            {
+                g.DrawImage((this.sprite == null) ? bitmap : this.sprite,this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
+            }
+            else //this part is used in Designer
+            {
+                g.DrawImage((this.sprite == null) ? bitmap : this.sprite, (int)(this.positions.current_position.x * screenSize.Width / 40.00), (int)(this.positions.current_position.y * screenSize.Height / 20.00), sizeBreedte, sizeHoogte);
+            }
+
         }
 
         public Player clone()

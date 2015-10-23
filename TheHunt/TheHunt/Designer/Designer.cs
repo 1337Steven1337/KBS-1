@@ -18,7 +18,7 @@ namespace TheHunt.Designer
     public partial class Designer : Form
     {
         private Form startForm;
-        private Items items;
+        private Toolbox items;
 
         // Set the cellLayout to width 40 & height 20
         private System.Drawing.Point cellLayout = new System.Drawing.Point(40, 20);
@@ -36,6 +36,10 @@ namespace TheHunt.Designer
         // Set an pre-defined level
         private string levelString;
 
+        // Set an MouseDown timer
+        private Timer MouseDownLeftTimer;
+        private Timer MouseDownRightTimer;
+
         // Set levelID (used for saving)
         private string levelID;
 
@@ -52,6 +56,14 @@ namespace TheHunt.Designer
             // Set level to be edited
             this.levelString = level;
 
+            // Initialize Timer variables
+            this.MouseDownLeftTimer = new Timer();
+            this.MouseDownRightTimer = new Timer();
+            this.MouseDownLeftTimer.Interval = 10;
+            this.MouseDownRightTimer.Interval = 10;
+
+
+
             // Set level ID (needed for saving)
             this.levelID = levelID;
 
@@ -62,8 +74,11 @@ namespace TheHunt.Designer
             }
             else
             {
-                //this.world = JsonConvert.DeserializeObject<World>(levelString);
-                this.world = new World();
+                
+                this.world = JsonConvert.DeserializeObject<World>(levelString);
+                if (this.world.player != null){
+                    playerCount = 1;
+                }
             }
 
             // Set double buffer to prevent flickering
@@ -73,9 +88,6 @@ namespace TheHunt.Designer
         private void Designer_Load(object sender, EventArgs e)
         {
             Properties.Levels.Default.customlv1 = "";
-            Properties.Levels.Default.customlv2 = "";
-            Properties.Levels.Default.customlv6 = "";
-            Properties.Levels.Default.customlv10 = "";
 
             // Set initial location
             this.Location = this.startForm.Location;
@@ -87,24 +99,117 @@ namespace TheHunt.Designer
             Properties.Screen.Default.PropertyChanged += setFullScreenSize;
 
             // Add onclick listener
-            this.MouseClick += Designer_Click;
+            this.MouseDown += Designer_Click;
+
+            // Add OnMouseUp Listerer
+            this.MouseUp += stopTimer;
+
+            // Add Event to MouseDownTimer
+            this.MouseDownLeftTimer.Tick += addObject;
+            this.MouseDownRightTimer.Tick += deleteObject;
 
             // Create the form to hold the items
-            this.items = new Items(this);
+            this.items = new Toolbox(this);
             this.items.Disposed += Items_Disposed;
 
             // Show the item form
             this.items.Show();
         }
 
-        private void Designer_Click(object sender, MouseEventArgs e)
+
+        private void stopTimer(object sender, MouseEventArgs e)
         {
-            // Make sure something is selected
-            if(this.items.isSelected())
+            if (e.Button == MouseButtons.Left)
             {
-                // Calculate the X and Y of the new object
-                int x = (int)Math.Floor(e.X / (this.Size.Width/40.00));
-                int y = (int)Math.Floor(e.Y / (this.Size.Height/20.00));
+                MouseDownLeftTimer.Stop();
+            }else if (e.Button == MouseButtons.Right)
+            {
+                MouseDownRightTimer.Stop();
+            }
+            
+        }
+
+        private void deleteObject(object sender, EventArgs e)
+        {
+            int x = (int)Math.Floor((Cursor.Position.X - this.Location.X) / (this.Size.Width / 40.00));
+            int y = (int)Math.Floor((Cursor.Position.Y - this.Location.Y) / (this.Size.Height / 20.00));
+            if (this.world.player != null)
+            {
+                if (new Model.Point(x, y).Equals(this.world.player.positions.current_position))
+                {
+                    this.world.player = null;
+                    playerCount = 0;
+                    deleteSpecificObject(x, y);
+                }
+                else
+                {
+                    deleteSpecificObject(x, y);
+                }
+            }
+            else
+            {
+                deleteSpecificObject(x, y);
+            }
+            this.Invalidate();
+        }
+
+        private void addObject(object sender, EventArgs e)
+        {
+            // Calculate the pressed X and Y coords
+            int x = (int)Math.Floor((Cursor.Position.X - this.Location.X) / (this.Size.Width / 40.00));
+            int y = (int)Math.Floor((Cursor.Position.Y - this.Location.Y) / (this.Size.Height / 20.00));
+
+
+            if (doesCoordsAlreadyContainObject(x, y))
+            {
+                if (this.world.player != null)
+                {
+                    if (new Model.Point(x, y).Equals(this.world.player.positions.current_position))
+                    {
+                        deleteSpecificObject(x, y);
+                        this.world.player = null;
+                        playerCount = 0;
+                    }
+                    else
+                    {
+                        if (this.items.getMode() == "SelectTool")
+                        {
+                            this.MouseDownLeftTimer.Stop();
+                            this.items.setValueAfterSelectClick(getObjectFromCoords(x, y));
+                        }
+                        else
+                        {
+                            if (this.items.getMode() != "Geen")
+                            {
+                                deleteSpecificObject(x, y);
+                            }
+                            
+                        }
+                    }
+                }
+                else
+                {
+                    if (this.items.getMode() == "SelectTool")
+                    {
+                        this.MouseDownLeftTimer.Stop();
+                        this.items.setValueAfterSelectClick(getObjectFromCoords(x,y));
+                    }
+                    else
+                    {
+                        if (this.items.getMode() != "Geen")
+                        {
+                            deleteSpecificObject(x, y);
+                        }
+                    }
+                }
+                    
+            }
+            
+
+
+            // Make sure something is selected
+            if (this.items.isSelected())
+            {
                 if (this.items.getMode() == "FieldObject")
                 {
                     Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
@@ -112,10 +217,18 @@ namespace TheHunt.Designer
                     fieldObject.y = (int)(y);
                     this.world.obstacles.Add(fieldObject);
                 }
+                if (this.items.getMode() == "WorldGround")
+                {
+                    Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
+                    fieldObject.x = (int)(x);
+                    fieldObject.y = (int)(y);
+                    this.world.obstacles.Add(fieldObject);
+                }
+
                 if (this.items.getMode() == "HBouncer")
                 {
                     Npc npc = this.items.getActive<Npc>().clone();
-                    npc.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00), (int)(y * this.Size.Height / 20.00));
+                    npc.positions.current_position = new Model.Point((int)(x), (int)(y));
                     npc.speed = new Model.Point(1, 1);
                     this.world.npcs.Add(npc);
                 }
@@ -123,7 +236,15 @@ namespace TheHunt.Designer
                 if (this.items.getMode() == "VBouncer")
                 {
                     Npc npc = this.items.getActive<Npc>().clone();
-                    npc.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00), (int)(y * this.Size.Height / 20.00));
+                    npc.positions.current_position = new Model.Point((int)(x), (int)(y));
+                    npc.speed = new Model.Point(1, 1);
+                    this.world.npcs.Add(npc);
+                }
+
+                if (this.items.getMode() == "Enemy")
+                {
+                    Npc npc = this.items.getActive<Npc>().clone();
+                    npc.positions.current_position = new Model.Point((int)(x), (int)(y));
                     npc.speed = new Model.Point(1, 1);
                     this.world.npcs.Add(npc);
                 }
@@ -132,32 +253,51 @@ namespace TheHunt.Designer
                 if (this.items.getMode() == "Player" && this.playerCount == 0)
                 {
                     this.world.player = this.items.getActive<Model.Player>().clone();
-                    this.world.player.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00),(int)(y * this.Size.Height / 20.00));
-                    this.world.player.movement.walk = new Model.Point(2,2);
-                    this.world.player.movement.run = new Model.Point(5,5);
-                    this.world.player.speed = new Model.Point(3,3);
+                    this.world.player.positions.current_position = new Model.Point(x, y);
+                    this.world.player.movement.walk = new Model.Point(2, 2);
+                    this.world.player.movement.run = new Model.Point(5, 5);
+                    this.world.player.speed = new Model.Point(3, 3);
                     this.world.player.sizeBreedte = (int)cellSizeX;
                     this.world.player.sizeHoogte = (int)cellSizeY;
                     this.playerCount = 1;
                 }
                 else if (this.items.getMode() == "Player" && this.playerCount > 0)
                 {
+                    this.MouseDownLeftTimer.Stop();
                     DialogResult dialogResult = MessageBox.Show("Er bestaat al een player in het veld, wil je deze overschrijven?", "Player toevoegen?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         this.world.player = this.items.getActive<Model.Player>().clone();
-                        this.world.player.positions.current_position = new Model.Point((int)(x * this.Size.Width / 40.00), (int)(y * this.Size.Height / 20.00));
+                        this.world.player.positions.current_position = new Model.Point((int)(x), (int)(y));
+                        this.world.player.movement.walk = new Model.Point(2, 2);
+                        this.world.player.movement.run = new Model.Point(5, 5);
+                        this.world.player.speed = new Model.Point(3, 3);
+                        this.world.player.sizeBreedte = (int)cellSizeX;
+                        this.world.player.sizeHoogte = (int)cellSizeY;
                     }
                 }
-                this.Invalidate();
             }
+            this.Invalidate();
         }
+
+        private void Designer_Click(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                   MouseDownRightTimer.Start();
+            }
+
+            if (e.Button == MouseButtons.Left)
+            {
+                    MouseDownLeftTimer.Start();
+            }
+        this.Invalidate();
+            }
 
         private void Items_Disposed(object sender, EventArgs e)
         {
             this.save();
             this.startForm.Show();
-            this.Close();
         }
 
         private void save()
@@ -221,13 +361,95 @@ namespace TheHunt.Designer
             {
                 Properties.Levels.Default.Reload();
             }
-        
-        
-
-
-
             this.Close();
-            
+        }
+
+
+        public object getObjectFromCoords(int x , int y)
+        {
+            object UnknownObject = null;
+            foreach (Obstacle worldObstacle in this.world.obstacles)
+            {
+                if (worldObstacle.x == x && worldObstacle.y == y)
+                {
+                    UnknownObject = worldObstacle;
+                }
+            }
+
+            foreach (Npc NPC in this.world.npcs)
+            {
+                if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
+                {
+                    UnknownObject = NPC;
+                }
+            }
+            if (this.world.player != null)
+            {
+                if (this.world.player.positions.current_position.Equals(new Model.Point(x, y)))
+                {
+                    UnknownObject = this.world.player;
+                }
+            }
+            return UnknownObject;
+        }
+
+
+        public bool doesCoordsAlreadyContainObject(int x, int y)
+        {
+            foreach (Obstacle worldObstacle in this.world.obstacles)
+            {
+                if (worldObstacle.x == x && worldObstacle.y == y)
+                {
+                    return true;
+                }
+            }
+
+            foreach (Npc NPC in this.world.npcs)
+            {
+                if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
+                {
+                    return true;
+                }
+            }
+            if (this.world.player != null)
+            {
+                if (this.world.player.positions.current_position.Equals(new Model.Point(x, y)))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool deleteSpecificObject(int x, int y)
+        {
+            foreach (Obstacle worldObstacle in this.world.obstacles)
+            {
+                if (worldObstacle.x == x && worldObstacle.y == y)
+                {
+                    this.world.obstacles.Remove(worldObstacle);
+                    return true;
+                }
+            }
+
+            foreach (Npc NPC in this.world.npcs)
+            {
+                if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
+                {
+                    this.world.npcs.Remove(NPC);
+                    return true;
+                }
+            }
+
+            if (this.world.player != null)
+            {
+                if (this.world.player.positions.current_position.Equals(new Model.Point(x, y)))
+                {
+                    this.world.player = null;
+                    return true;
+                }
+            }
+            return false;
         }
 
         // Function to handle the full screen option
@@ -292,7 +514,7 @@ namespace TheHunt.Designer
                 Npc npc = this.world.npcs[i];
                 npc.sizeBreedte = (int)cellSizeX;
                 npc.sizeHoogte = (int)cellSizeY;
-                npc.draw(graphics, this.Size);
+                npc.draw(graphics, this.Size, "Designer");
             }
 
 
@@ -302,11 +524,8 @@ namespace TheHunt.Designer
                 Model.Player player = this.world.player;
                 player.sizeBreedte = (int)cellSizeX;
                 player.sizeHoogte = (int)cellSizeY;
-                player.draw(graphics, this.Size);
+                player.draw(graphics, this.Size, "Designer");
             }
-
-
-
         }
     }
 }

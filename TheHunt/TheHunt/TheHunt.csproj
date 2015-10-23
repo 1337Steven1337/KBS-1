@@ -97,11 +97,11 @@
     <Compile Include="Designer\Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Designer\Items.cs">
+    <Compile Include="Designer\Toolbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Designer\Items.Designer.cs">
-      <DependentUpon>Items.cs</DependentUpon>
+    <Compile Include="Designer\Toolbox.Designer.cs">
+      <DependentUpon>Toolbox.cs</DependentUpon>
     </Compile>
     <Compile Include="form_selectlevel.cs">
       <SubType>Form</SubType>
@@ -142,7 +142,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources1.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Designer\Items.resx">
-      <DependentUpon>Items.cs</DependentUpon>
+    <EmbeddedResource Include="Designer\Toolbox.resx">
+      <DependentUpon>Toolbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_selectlevel.resx">
       <DependentUpon>form_selectlevel.cs</DependentUpon>
@@ -202,7 +202,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -240,6 +240,7 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\worldground.png" />
     <None Include="Resources\uitleg.png" />
     <None Include="Resources\Pijl bovenk.png" />
     <None Include="Resources\Pijl Links.png" />
@@ -269,6 +270,15 @@
     <None Include="Resources\Bouncer.gif" />
     <None Include="Resources\H_bouncer.png" />
     <None Include="Resources\V_bouncer.png" />
+    <None Include="Resources\fenceDownLeft.png" />
+    <None Include="Resources\fenceUp.png" />
+    <None Include="Resources\fenceDown.png" />
+    <None Include="Resources\fenceUpRight.png" />
+    <None Include="Resources\fenceRight.png" />
+    <None Include="Resources\fenceDownRight.png" />
+    <None Include="Resources\fenceUpLeft.png" />
+    <None Include="Resources\fenceLeft.png" />
+    <None Include="Resources\Hand-Touch2-512.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

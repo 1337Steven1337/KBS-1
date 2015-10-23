@@ -111,7 +111,7 @@ namespace TheHunt
         private void load()
         {
                 // Assign the world variable
-                this.world = JsonConvert.DeserializeObject<World>(levelString);
+            this.world = JsonConvert.DeserializeObject<World>(levelString);
             this.world.player.sizeBreedte = this.Width / 40 - 5;
             this.world.player.sizeHoogte = this.Height / 20 - 5;
         }
@@ -277,11 +277,11 @@ namespace TheHunt
             // Draw the NPCs
             foreach (Npc npc in this.world.npcs)
             {
-                npc.draw(g, this.Size);
+                npc.draw(g, this.Size,"Game");
             }
 
             // Draw the player
-            this.world.player.draw(g, this.Size);
+            this.world.player.draw(g, this.Size,"Game");
 
             // Draw the boss
             //this.world.boss.draw(g, this.Size);

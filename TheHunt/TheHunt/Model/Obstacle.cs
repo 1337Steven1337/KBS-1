@@ -18,8 +18,24 @@ namespace TheHunt.Model
         public int y = 0;
         public int height = 1;
         public int width = 1;
-         
-       public void draw(Graphics g, Size screenSize)
+
+        public Type type;
+
+        public enum Type
+        {
+            wall,
+            worldground,
+            fenceLeft,
+            fenceRight,
+            fenceUp,
+            fenceDown,
+            fenceUpLeft,
+            fenceUpRight,
+            fenceDownLeft,
+            fenceDownRight
+        }
+
+        public void draw(Graphics g, Size screenSize)
         {
                     float screenWidth = (float)(screenSize.Width/ 40.00);
                     float screenHeight = (float)(screenSize.Height / 20.00);
@@ -36,11 +52,47 @@ namespace TheHunt.Model
             return this.height * screenSize.Height / 20;
         }
 
+
         public Image getImage()
         {
-            if(this.image == null)
+            if (type == Type.wall)
             {
-                this.image = new Bitmap(TheHunt.Properties.Resources.wall);
+                this.image = Properties.Resources.wall;
+            }else if (type == Type.worldground)
+            {
+                this.image = Properties.Resources.worldground;
+            }
+            else if (type == Type.fenceLeft)
+            {
+                this.image = Properties.Resources.fenceLeft;
+            }
+            else if (type == Type.fenceRight)
+            {
+                this.image = Properties.Resources.fenceRight;
+            }
+            else if (type == Type.fenceUp)
+            {
+                this.image = Properties.Resources.fenceUp;
+            }
+            else if (type == Type.fenceDown)
+            {
+                this.image = Properties.Resources.fenceDown;
+            }
+            else if (type == Type.fenceUpLeft)
+            {
+                this.image = Properties.Resources.fenceUpLeft;
+            }
+            else if (type == Type.fenceUpRight)
+            {
+                this.image = Properties.Resources.fenceUpRight;
+            }
+            else if (type == Type.fenceDownLeft)
+            {
+                this.image = Properties.Resources.fenceDownLeft;
+            }
+            else if (type == Type.fenceDownRight)
+            {
+                this.image = Properties.Resources.fenceDownRight;
             }
             return this.image;
         }

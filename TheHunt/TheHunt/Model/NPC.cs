@@ -23,6 +23,8 @@ namespace TheHunt.Model
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
+        private int isEersteDraw = 0;
+
         private int oldx, oldy, newRange;
 
         //Enemy's start position
@@ -51,25 +53,37 @@ namespace TheHunt.Model
             V_Bouncer
         }
 
-        public void draw(Graphics g, Size screenSize)
+        public void draw(Graphics g, Size screenSize, string drawMode)
         {
             float screenWidth = getOnScreenHeight(screenSize);
             float screenHeight = getOnScreenHeight(screenSize);
             Pen pen = new Pen(Color.Red, 1);
             SolidBrush myBrush = new SolidBrush(Color.FromArgb(50, Color.DarkRed));
-            if (type == Type.Enemy)
+
+            if (isEersteDraw == 0 && drawMode == "Game") {
+                this.positions.current_position = new Point((int)(this.positions.current_position.x * screenSize.Width / 40.00), (int)(this.positions.current_position.y * screenSize.Height / 20.00));
+                isEersteDraw++;
+            }else if (isEersteDraw > 0 && drawMode == "Game")
             {
-            Rectangle radiusRect = new Rectangle(positions.current_position.x + sizeBreedte / 2 - (newRange * 2 / 2), positions.current_position.y + sizeHoogte / 2 - (newRange * 2 / 2), newRange * 2, newRange * 2);
-            g.FillEllipse(myBrush, radiusRect);
-            g.DrawEllipse(pen, radiusRect);
+                if (type == Type.Enemy)
+                {
+                    Rectangle radiusRect = new Rectangle(positions.current_position.x + sizeBreedte / 2 - (newRange * 2 / 2), positions.current_position.y + sizeHoogte / 2 - (newRange * 2 / 2), newRange * 2, newRange * 2);
+                    g.FillEllipse(myBrush, radiusRect);
+                    g.DrawEllipse(pen, radiusRect);
+                }
+                g.DrawImage(getImage(), positions.current_position.x, positions.current_position.y, sizeBreedte, sizeHoogte);
             }
-            if(type == Type.V_Bouncer && drawHitAroundPlayer == true || type == Type.H_Bouncer && drawHitAroundPlayer == true)
+            else //Will be used in designer
             {
-                Rectangle radiusRect = new Rectangle(this.world.player.positions.current_position.x,this.world.player.positions.current_position.y, sizeBreedte, sizeHoogte);
+                g.DrawImage(getImage(), (int)(positions.current_position.x * screenSize.Width/40.00), (int)(positions.current_position.y * screenSize.Height/20.00), sizeBreedte, sizeHoogte);
+            }
+
+            if (type == Type.V_Bouncer && drawHitAroundPlayer == true || type == Type.H_Bouncer && drawHitAroundPlayer == true)
+            {
+                Rectangle radiusRect = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, sizeBreedte, sizeHoogte);
                 g.FillRectangle(myBrush, radiusRect);
                 g.DrawRectangle(pen, radiusRect);
             }
-            g.DrawImage(getImage(), positions.current_position.x, positions.current_position.y, sizeBreedte, sizeHoogte);
             this.screenSize = screenSize;
         }
 
@@ -384,7 +398,7 @@ namespace TheHunt.Model
             return this.height * this.getOnScreenWidth(screenSize);
         }
 
-        private Image getImage()
+        public Image getImage()
         {
             if (this.image == null)
             {
