@@ -110,7 +110,7 @@ namespace TheHunt
         // Load the world
         private void load()
         {
-                // Assign the world variable
+            // Assign the world variable
             this.world = JsonConvert.DeserializeObject<World>(levelString);
             this.world.player.sizeBreedte = this.Width / 40 - 5;
             this.world.player.sizeHoogte = this.Height / 20 - 5;
@@ -196,7 +196,22 @@ namespace TheHunt
             if (movementKeys.Contains(keyCode)) // Check if the key is a movement key
             {
                 this.lastPressedKey = this.pressedKey;
-                this.pressedKey = (down) ? keyCode : Keys.None;
+                if (down == true)
+                {
+                    this.pressedKey = keyCode;
+                }
+                else
+                {
+                    if (IsAnyKeyDown() != Keys.None)
+                    {
+                        this.pressedKey = IsAnyKeyDown();
+                    }
+                    else
+                    {
+                        this.pressedKey = Keys.None;
+                    }
+                }
+
             }
             else if(shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
             {
@@ -207,6 +222,29 @@ namespace TheHunt
             {
                 this.toggleMenu();
             }
+        }
+
+
+        //Check if there is any key pressed, if so returns the pressed key
+        public Keys IsAnyKeyDown()
+        {
+            var values = Enum.GetValues(typeof(System.Windows.Input.Key));
+
+            foreach (var v in values)
+            {
+                if (((System.Windows.Input.Key)v) != System.Windows.Input.Key.None)
+                {
+                    if (System.Windows.Input.Keyboard.IsKeyDown((System.Windows.Input.Key)v))
+                    {
+                    System.Windows.Input.Key pressed = (System.Windows.Input.Key)Enum.Parse(typeof(System.Windows.Input.Key), ((System.Windows.Input.Key)v).ToString());
+                    if (System.Windows.Input.Keyboard.IsKeyDown(pressed))
+                    {
+                            return (Keys)System.Windows.Input.KeyInterop.VirtualKeyFromKey(((System.Windows.Input.Key)v));
+                        }
+                    }
+                }
+            }
+            return Keys.None;
         }
 
         // Check if something intersects with the world objects

@@ -62,38 +62,6 @@ namespace TheHunt.Model
             {
                 this.image = Properties.Resources.worldground;
             }
-            else if (type == Type.fenceLeft)
-            {
-                this.image = Properties.Resources.fenceLeft;
-            }
-            else if (type == Type.fenceRight)
-            {
-                this.image = Properties.Resources.fenceRight;
-            }
-            else if (type == Type.fenceUp)
-            {
-                this.image = Properties.Resources.fenceUp;
-            }
-            else if (type == Type.fenceDown)
-            {
-                this.image = Properties.Resources.fenceDown;
-            }
-            else if (type == Type.fenceUpLeft)
-            {
-                this.image = Properties.Resources.fenceUpLeft;
-            }
-            else if (type == Type.fenceUpRight)
-            {
-                this.image = Properties.Resources.fenceUpRight;
-            }
-            else if (type == Type.fenceDownLeft)
-            {
-                this.image = Properties.Resources.fenceDownLeft;
-            }
-            else if (type == Type.fenceDownRight)
-            {
-                this.image = Properties.Resources.fenceDownRight;
-            }
             return this.image;
         }
 

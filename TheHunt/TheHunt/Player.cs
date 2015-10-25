@@ -278,7 +278,7 @@ namespace TheHunt
                     if (this.lastPressedKey == Keys.Up)
                     {
                         beweegNaarBoven = true;
-            }
+                    }
                     if (this.lastPressedKey == Keys.Left)
                     {
                         beweegNaarLinks = true;

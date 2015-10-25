@@ -145,6 +145,11 @@ namespace TheHunt.Model
 
         }
 
+        public Image getImage()
+        {
+            return this.sprites[1];
+        }
+
         public Player clone()
         {
             return (Player)this.MemberwiseClone();

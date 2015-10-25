@@ -87,7 +87,6 @@ namespace TheHunt.Designer
 
         private void Designer_Load(object sender, EventArgs e)
         {
-            Properties.Levels.Default.customlv1 = "";
 
             // Set initial location
             this.Location = this.startForm.Location;
@@ -137,8 +136,6 @@ namespace TheHunt.Designer
             {
                 if (new Model.Point(x, y).Equals(this.world.player.positions.current_position))
                 {
-                    this.world.player = null;
-                    playerCount = 0;
                     deleteSpecificObject(x, y);
                 }
                 else
@@ -159,16 +156,13 @@ namespace TheHunt.Designer
             int x = (int)Math.Floor((Cursor.Position.X - this.Location.X) / (this.Size.Width / 40.00));
             int y = (int)Math.Floor((Cursor.Position.Y - this.Location.Y) / (this.Size.Height / 20.00));
 
-
             if (doesCoordsAlreadyContainObject(x, y))
             {
                 if (this.world.player != null)
                 {
-                    if (new Model.Point(x, y).Equals(this.world.player.positions.current_position))
+                    if (new Model.Point(x, y).Equals(this.world.player.positions.current_position) && this.items.getMode() != "SelectTool")
                     {
                         deleteSpecificObject(x, y);
-                        this.world.player = null;
-                        playerCount = 0;
                     }
                     else
                     {
@@ -351,6 +345,7 @@ namespace TheHunt.Designer
                     Properties.Levels.Default.customlv10 = json;
                     break;
             }
+            
 
             DialogResult dialogResult = MessageBox.Show("Wil je dit design opslaan?", "Opslaan", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -446,6 +441,7 @@ namespace TheHunt.Designer
                 if (this.world.player.positions.current_position.Equals(new Model.Point(x, y)))
                 {
                     this.world.player = null;
+                    playerCount = 0;
                     return true;
                 }
             }
