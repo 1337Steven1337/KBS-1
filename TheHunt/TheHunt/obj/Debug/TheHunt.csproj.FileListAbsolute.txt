@@ -4,7 +4,6 @@ C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.csproj.Reso
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\bin\Debug\Resources\wall.png
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\bin\Debug\TheHunt.exe
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\bin\Debug\TheHunt.pdb
-C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.csprojResolveAssemblyReference.cache
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.Charactertestform.resources
