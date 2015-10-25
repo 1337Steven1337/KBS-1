@@ -109,29 +109,73 @@ namespace TheHunt.Model
                         {
                             newRange += 1;
                         }
-                        var playerCurrentX = (int)(this.world.player.positions.current_position.x * this.screenSize.Width / 40.00);
-                        var playerCurrentY = (int)(this.world.player.positions.current_position.y * this.screenSize.Height / 20.00);
-                        var playerLastX = (int)(this.world.player.positions.last_position.x * this.screenSize.Width / 40.00);
-                        var playerLastY = (int)(this.world.player.positions.last_position.y * this.screenSize.Height / 20.00);
 
-                        if (playerCurrentX > playerLastX && positions.current_position.x < playerCurrentX)
+                        if (Game.isPlayerMoving)
                         {
-                            positions.current_position.x += speed.x;
-                        }
-                        else if (playerCurrentX < playerLastX && positions.current_position.x > playerCurrentX)
-                        {
-                            positions.current_position.x -= speed.x;
+                            var playerCurrentX = (int)(this.world.player.positions.current_position.x);
+                            var playerCurrentY = (int)(this.world.player.positions.current_position.y);
+                            var playerLastX = (int)(this.world.player.positions.last_position.x);
+                            var playerLastY = (int)(this.world.player.positions.last_position.y);
+                            if (playerCurrentX > playerLastX && positions.current_position.x < playerCurrentX)
+                            {
+                                positions.current_position.x += speed.x;
+                            }
+                            else if (playerCurrentX > playerLastX && positions.current_position.x > playerCurrentX)
+                            {
+                                positions.current_position.x -= speed.x;
+                            }
+                            else if (playerCurrentX < playerLastX && positions.current_position.x > playerCurrentX)
+                            {
+                                positions.current_position.x -= speed.x;
+                            }
+                            else if (playerCurrentX < playerLastX && positions.current_position.x < playerCurrentX)
+                            {
+                                positions.current_position.x += speed.x;
+                            }
+                            else if (playerCurrentY > playerLastY && positions.current_position.y < playerCurrentY)
+                            {
+                                positions.current_position.y += speed.y;
 
-                        }
-                        else if (playerCurrentY > playerLastY && positions.current_position.y < playerCurrentY)
-                        {
-                            positions.current_position.y += speed.y;
+                            }
+                            else if (playerCurrentY > playerLastY && positions.current_position.y > playerCurrentY)
+                            {
+                                positions.current_position.y -= speed.y;
 
+                            }
+                            else if (playerCurrentY < playerLastY && positions.current_position.y > playerCurrentY)
+                            {
+                                positions.current_position.y -= speed.y;
+                            }
+                            else if (playerCurrentY < playerLastY && positions.current_position.y < playerCurrentY)
+                            {
+                                positions.current_position.y += speed.y;
+                            }
                         }
-                        else if (playerCurrentY < playerLastY && positions.current_position.y > playerCurrentY)
+                        else
                         {
-                            positions.current_position.y -= speed.y;
+                            var playerCurrentX = (int)(this.world.player.positions.current_position.x);
+                            var playerCurrentY = (int)(this.world.player.positions.current_position.y);
+                            if (playerCurrentX > positions.current_position.x)
+                            {
+                                positions.current_position.x += speed.x;
+                            }
+                            if (playerCurrentX < positions.current_position.x)
+                            {
+                                positions.current_position.x -= speed.x;
+                            }
+                            if (playerCurrentY > positions.current_position.y)
+                            {
+                                positions.current_position.y += speed.y;
+                            }
+                            if (playerCurrentY < positions.current_position.y)
+                            {
+                                positions.current_position.y -= speed.y;
+                            }
                         }
+
+
+
+
                     }
                 }
                 else

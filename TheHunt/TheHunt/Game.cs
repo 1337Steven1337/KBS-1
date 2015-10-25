@@ -22,6 +22,9 @@ namespace TheHunt
         // Level to be played
         private string levelString;
 
+        // Variable to check player movement
+        public static bool isPlayerMoving = false;
+
         // Reference to the startScreen
         private form_startscreen startScreen = null;
 
@@ -148,7 +151,18 @@ namespace TheHunt
             // Stop the timers
             this.loop.Stop();
             this.delta.Stop();
-            
+
+
+            // Check if player is moving
+            if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
+            {
+                isPlayerMoving = true;
+            }
+            else
+            {
+                isPlayerMoving = false;
+            }
+
             // Calculate the delta time
             double delta = this.delta.ElapsedMilliseconds / (1000 / this.targetFps);
 
