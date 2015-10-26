@@ -318,7 +318,7 @@ namespace TheHunt
             }
         }
 
-        // Override the paint method to draw the game items
+        // Override the paint method to draw the game items 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
