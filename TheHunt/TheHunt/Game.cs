@@ -122,7 +122,7 @@ namespace TheHunt
         // Add the gamepad
         private void addGamePad()
         {
-            /**this.gamepad = new Buttons(this);
+            this.gamepad = new Buttons(this);
             Control up = gamepad.AddButton(Direction.up, Width, Height);
             Control left = gamepad.AddButton(Direction.left, Width, Height);
             Control down = gamepad.AddButton(Direction.down, Width, Height);
@@ -130,7 +130,7 @@ namespace TheHunt
             Controls.Add(up);
             Controls.Add(left);
             Controls.Add(down);
-            Controls.Add(right);**/
+            Controls.Add(right);
         }
 
         private void attachEvents()
@@ -175,14 +175,21 @@ namespace TheHunt
                 npc.moveNPC(this.world);
             }
 
-
             // Redraw
             this.Invalidate();
 
-            // Restart the timers
-            this.delta.Reset();
-            this.delta.Start();
-            this.loop.Start();
+            // Check if the player is "dead"
+            if (this.world.getScore() > 0)
+            {
+                // Restart the timers
+                this.delta.Reset();
+                this.delta.Start();
+                this.loop.Start();
+            }
+            else
+            {
+                
+            }
         }
 
         // Function to update the animations
@@ -205,7 +212,7 @@ namespace TheHunt
         }
 
         // Extract keycode from the event
-        private void extractKeyCode(Keys keyCode, bool down)
+        public void extractKeyCode(Keys keyCode, bool down)
         {
             if (movementKeys.Contains(keyCode)) // Check if the key is a movement key
             {
@@ -240,7 +247,7 @@ namespace TheHunt
 
 
         //Check if there is any key pressed, if so returns the pressed key
-        public Keys IsAnyKeyDown()
+        private Keys IsAnyKeyDown()
         {
             var values = Enum.GetValues(typeof(System.Windows.Input.Key));
 
