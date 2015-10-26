@@ -49,6 +49,9 @@ namespace TheHunt
         // Holds the last pressed key
         private Keys lastPressedKey = Keys.None;
 
+        // is Speedboost Active?
+        public bool speedBoostActive = false;
+
         // Are we running?
         private bool run = false;
 
@@ -175,6 +178,13 @@ namespace TheHunt
                 npc.moveNPC(this.world);
             }
 
+            // Powerup check for collisions
+            foreach (var powerup in this.world.powerups)
+            {
+                powerup.checkCollision(this.world, this);
+
+            }
+
             // Redraw
             this.Invalidate();
 
@@ -188,7 +198,7 @@ namespace TheHunt
             }
             else
             {
-                
+                this.toggleGameOver();
             }
         }
 
@@ -234,7 +244,7 @@ namespace TheHunt
                 }
 
             }
-            else if(shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
+            else if(speedBoostActive && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
             {
                 this.run = down;
                 this.animate.Interval = (this.run) ? 50 : 100;
@@ -314,6 +324,9 @@ namespace TheHunt
                 // Set the menu location
                 this.pnlMenu.Location = new System.Drawing.Point(this.Size.Width / 2 - this.pnlMenu.Width / 2, this.Size.Height / 2 - this.pnlMenu.Height / 2);
 
+                // Set the gameover location
+                this.pnlGameOver.Location = new System.Drawing.Point(this.Size.Width / 2 - this.pnlGameOver.Width / 2, this.Size.Height / 2 - this.pnlGameOver.Height / 2);
+
                 // Redraw the form
                 this.Invalidate();
             }
@@ -337,6 +350,12 @@ namespace TheHunt
             foreach (Npc npc in this.world.npcs)
             {
                 npc.draw(g, this.Size,"Game");
+            }
+
+            // Draw the Powerups
+            foreach (Powerups powerup in this.world.powerups)
+            {
+                powerup.draw(g, this.Size);
             }
 
             // Draw the player
@@ -369,6 +388,30 @@ namespace TheHunt
             if (iAnimate)
             {
                 animate.Stop();
+            }
+        }
+
+        private void toggleGameOver()
+        {
+            if(pnlGameOver.Visible)
+            {
+                // Reset the keys
+                lastPressedKey = Keys.None;
+                pressedKey = Keys.None;
+
+                // Hide the menu
+                pnlGameOver.Visible = false;
+
+                // Start the game timers
+                startTimers(true);
+            }
+            else
+            {
+                // Pause the game
+                stopTimers(true);
+
+                // Show the menu
+                pnlGameOver.Visible = true;
             }
         }
 
@@ -434,6 +477,13 @@ namespace TheHunt
         {
             Application.Exit();
             Close();
+        }
+
+        // Handle the click event of the restart button
+        private void pictureBoxRestart_Click(object sender, EventArgs e)
+        {
+            this.load();
+            this.toggleGameOver();
         }
     }
 }

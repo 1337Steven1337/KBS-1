@@ -12,11 +12,12 @@ namespace TheHunt.Model
     {
         public List<Obstacle> obstacles = new List<Obstacle>();
         public List<Model.Npc> npcs = new List<Model.Npc>();
+        public List<Model.Powerups> powerups = new List<Model.Powerups>();
 
         public Player player = new Player();
         public Boss boss = new Boss();
 
-        private int score = 1000;
+        private int score = 10;
 
         public int getScore()
         {
