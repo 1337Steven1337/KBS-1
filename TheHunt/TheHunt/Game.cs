@@ -25,6 +25,9 @@ namespace TheHunt
         // Variable to check player movement
         public static bool isPlayerMoving = false;
 
+        // Creating empty bitmap for objects to be rendered in
+        private Bitmap objectState;
+
         // Reference to the startScreen
         private form_startscreen startScreen = null;
 
@@ -273,6 +276,9 @@ namespace TheHunt
                 return true;
             }
 
+
+
+            
             // Check for collision with obstacles
             foreach (Obstacle obstacle in this.world.obstacles)
             {
@@ -320,23 +326,35 @@ namespace TheHunt
             // Get the graphic context
             Graphics g = e.Graphics;
 
-            // Draw the obstacles
-            foreach(Obstacle obstacle in this.world.obstacles)
+            if (objectState == null)
             {
-                obstacle.draw(g, this.Size);
-            }
+                this.objectState = new Bitmap(this.Size.Width, this.Size.Height);
+                Graphics graphics = Graphics.FromImage(this.objectState);
 
+                // Draw the obstacles
+                foreach (Obstacle obstacle in this.world.obstacles)
+                {
+                    obstacle.draw(graphics, this.Size);
+                }
+            }
+            else
+            {
+                g.DrawImage(objectState,0,0);
             // Draw the NPCs
             foreach (Npc npc in this.world.npcs)
-            {
-                npc.draw(g, this.Size,"Game");
+                {
+                    npc.draw(g, this.Size, "Game");
+                }
+
+                // Draw the player
+                this.world.player.draw(g, this.Size, "Game");
+
+                // Draw the boss
+                //this.world.boss.draw(g, this.Size);
             }
 
-            // Draw the player
-            this.world.player.draw(g, this.Size,"Game");
 
-            // Draw the boss
-            //this.world.boss.draw(g, this.Size);
+
         }
 
         // Starts the timers
