@@ -418,25 +418,28 @@ namespace TheHunt
         // Toggle the menu
         private void toggleMenu()
         {
-            if (pnlMenu.Visible)
+            if (!pnlGameOver.Visible)
             {
-                // Reset the keys
-                lastPressedKey = Keys.None;
-                pressedKey = Keys.None;
+                if (pnlMenu.Visible)
+                {
+                    // Reset the keys
+                    lastPressedKey = Keys.None;
+                    pressedKey = Keys.None;
 
-                // Hide the menu
-                pnlMenu.Visible = false;
+                    // Hide the menu
+                    pnlMenu.Visible = false;
 
-                // Start the game timers
-                startTimers(true);
-            }
-            else
-            {
-                // Pause the game
-                stopTimers(true);
+                    // Start the game timers
+                    startTimers(true);
+                }
+                else
+                {
+                    // Pause the game
+                    stopTimers(true);
 
-                // Show the menu
-                pnlMenu.Visible = true;
+                    // Show the menu
+                    pnlMenu.Visible = true;
+                }
             }
         }
 

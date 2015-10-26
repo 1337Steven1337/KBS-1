@@ -53,13 +53,12 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
-            this.pnlMenu.Controls.Add(this.pnlGameOver);
             this.pnlMenu.Controls.Add(this.labelMenu);
             this.pnlMenu.Controls.Add(this.pictureBoxContinue);
             this.pnlMenu.Controls.Add(this.pictureBoxExitToMenu);
             this.pnlMenu.Controls.Add(this.pictureBoxOptions);
             this.pnlMenu.Controls.Add(this.pictureBoxExitToDesktop);
-            this.pnlMenu.Location = new System.Drawing.Point(149, 60);
+            this.pnlMenu.Location = new System.Drawing.Point(2, 6);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(301, 364);
@@ -73,10 +72,10 @@
             this.pnlGameOver.Controls.Add(this.pictureBox1);
             this.pnlGameOver.Controls.Add(this.pictureBox2);
             this.pnlGameOver.Controls.Add(this.pictureBox4);
-            this.pnlGameOver.Location = new System.Drawing.Point(2, 2);
+            this.pnlGameOver.Location = new System.Drawing.Point(311, 10);
             this.pnlGameOver.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGameOver.Name = "pnlGameOver";
-            this.pnlGameOver.Size = new System.Drawing.Size(301, 282);
+            this.pnlGameOver.Size = new System.Drawing.Size(301, 300);
             this.pnlGameOver.TabIndex = 7;
             this.pnlGameOver.Visible = false;
             // 
@@ -84,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 0);
+            this.label1.Location = new System.Drawing.Point(13, 6);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(275, 57);
@@ -94,7 +93,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TheHunt.Properties.Resources.restartBtn;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 59);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 73);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(293, 71);
@@ -106,7 +105,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TheHunt.Properties.Resources.ExitToMenuButton;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 134);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 148);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(293, 71);
@@ -118,7 +117,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::TheHunt.Properties.Resources.ExitToDesktopButton;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 211);
+            this.pictureBox4.Location = new System.Drawing.Point(6, 225);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(293, 71);
@@ -191,6 +190,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 504);
+            this.Controls.Add(this.pnlGameOver);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Game";

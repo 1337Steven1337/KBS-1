@@ -17,7 +17,7 @@ namespace TheHunt.Model
         public Player player = new Player();
         public Boss boss = new Boss();
 
-        private int score = 10;
+        private int score = 100000;
 
         public int getScore()
         {
