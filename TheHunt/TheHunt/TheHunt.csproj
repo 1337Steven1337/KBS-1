@@ -126,6 +126,7 @@
     <Compile Include="Model\Obstacle.cs" />
     <Compile Include="Model\Npc.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Powerups.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
     <Compile Include="OptionsDialog.cs">
@@ -279,6 +280,10 @@
     <None Include="Resources\fenceUpLeft.png" />
     <None Include="Resources\fenceLeft.png" />
     <None Include="Resources\Hand-Touch2-512.png" />
+    <None Include="Resources\restartBtn.bmp" />
+    <None Include="Resources\restartBtn.png" />
+    <None Include="Resources\SpeedUp.png" />
+    <None Include="Resources\Scoreboost.GIF" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

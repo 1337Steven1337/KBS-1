@@ -44,7 +44,7 @@ namespace TheHunt
             InitializeComponent();
             this.Size = form1.Size;
             this.form1 = form1;
-            this.gamepad = new Buttons(this);
+            //this.gamepad = new Buttons(this);
             Control up = gamepad.AddButton(Direction.up, Width, Height);
             Control left = gamepad.AddButton(Direction.left, Width, Height);
             Control down = gamepad.AddButton(Direction.down, Width, Height);

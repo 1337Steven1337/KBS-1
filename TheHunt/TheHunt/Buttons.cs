@@ -18,10 +18,10 @@ namespace TheHunt
         //Player p = new Player();
         private Timer timer = new Timer();
         World world = new World();
-        private Player player;
+        private Game player;
         public bool isPressed = false;
         Direction GaNaar;
-        public Buttons(Player player)
+        public Buttons(Game player)
         {
             this.player = player;
             timer.Interval = 1;
@@ -72,7 +72,7 @@ namespace TheHunt
         private void DisableDown(object sender, MouseEventArgs e)
         {
 
-            this.player.switchStatements(Keys.F22);
+            this.player.extractKeyCode(Keys.Down, false);
         }
 
         private void gotodown(object sender, MouseEventArgs e)
@@ -103,8 +103,7 @@ namespace TheHunt
 
         private void DisableLeft(object sender, MouseEventArgs e)
         {
-
-            this.player.switchStatements(Keys.F23);
+            this.player.extractKeyCode(Keys.Left, false);
         }
 
         private void gotoleft(object sender, MouseEventArgs e)
@@ -145,7 +144,7 @@ namespace TheHunt
 
         private void DisableUp(object sender, MouseEventArgs e)
         {
-            this.player.switchStatements(Keys.F21);
+            this.player.extractKeyCode(Keys.Up, false);
         }
 
         private void gotoup(object sender, MouseEventArgs e)
@@ -169,7 +168,7 @@ namespace TheHunt
 
         private void DisableRight(object sender, MouseEventArgs e)
         {
-            this.player.switchStatements(Keys.F24);
+            this.player.extractKeyCode(Keys.Right, false);
         }
 
         private void gotoright(object sender, MouseEventArgs e)
@@ -187,19 +186,19 @@ namespace TheHunt
                 {
                     
                     case Direction.right:
-                        this.player.switchStatements(Keys.Right);
+                        this.player.extractKeyCode(Keys.Right, true);
                     isPressed = true;
                         break;
                     case Direction.left:
-                        this.player.switchStatements(Keys.Left);
+                        this.player.extractKeyCode(Keys.Left, true);
                     isPressed = true;
                         break;
                     case Direction.down:
-                        this.player.switchStatements(Keys.Down);
+                        this.player.extractKeyCode(Keys.Down, true);
                     isPressed = true;
                         break;
                     case Direction.up:
-                        this.player.switchStatements(Keys.Up);
+                        this.player.extractKeyCode(Keys.Up, true);
                     isPressed = true;
                         break;
                 }

@@ -12,9 +12,29 @@ namespace TheHunt.Model
     {
         public List<Obstacle> obstacles = new List<Obstacle>();
         public List<Model.Npc> npcs = new List<Model.Npc>();
+        public List<Model.Powerups> powerups = new List<Model.Powerups>();
 
         public Player player = new Player();
         public Boss boss = new Boss();
+
+        private int score = 100000;
+
+        public int getScore()
+        {
+            return this.score;
+        }
+
+        public void substractScore(int amount)
+        {
+            if(this.score > 0)
+            {
+                this.score -= amount;
+            }
+            else
+            {
+                this.score = (this.score < 0) ? 0 : this.score;
+            }
+        }
     }
 
    struct Point

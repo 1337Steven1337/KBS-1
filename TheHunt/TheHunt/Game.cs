@@ -49,6 +49,9 @@ namespace TheHunt
         // Holds the last pressed key
         private Keys lastPressedKey = Keys.None;
 
+        // is Speedboost Active?
+        public bool speedBoostActive = false;
+
         // Are we running?
         private bool run = false;
 
@@ -122,7 +125,7 @@ namespace TheHunt
         // Add the gamepad
         private void addGamePad()
         {
-            /**this.gamepad = new Buttons(this);
+            this.gamepad = new Buttons(this);
             Control up = gamepad.AddButton(Direction.up, Width, Height);
             Control left = gamepad.AddButton(Direction.left, Width, Height);
             Control down = gamepad.AddButton(Direction.down, Width, Height);
@@ -130,7 +133,7 @@ namespace TheHunt
             Controls.Add(up);
             Controls.Add(left);
             Controls.Add(down);
-            Controls.Add(right);**/
+            Controls.Add(right);
         }
 
         private void attachEvents()
@@ -175,14 +178,28 @@ namespace TheHunt
                 npc.moveNPC(this.world);
             }
 
+            // Powerup check for collisions
+            foreach (var powerup in this.world.powerups)
+            {
+                powerup.checkCollision(this.world, this);
+
+            }
 
             // Redraw
             this.Invalidate();
 
-            // Restart the timers
-            this.delta.Reset();
-            this.delta.Start();
-            this.loop.Start();
+            // Check if the player is "dead"
+            if (this.world.getScore() > 0)
+            {
+                // Restart the timers
+                this.delta.Reset();
+                this.delta.Start();
+                this.loop.Start();
+            }
+            else
+            {
+                this.toggleGameOver();
+            }
         }
 
         // Function to update the animations
@@ -205,7 +222,7 @@ namespace TheHunt
         }
 
         // Extract keycode from the event
-        private void extractKeyCode(Keys keyCode, bool down)
+        public void extractKeyCode(Keys keyCode, bool down)
         {
             if (movementKeys.Contains(keyCode)) // Check if the key is a movement key
             {
@@ -227,7 +244,7 @@ namespace TheHunt
                 }
 
             }
-            else if(shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
+            else if(speedBoostActive && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
             {
                 this.run = down;
                 this.animate.Interval = (this.run) ? 50 : 100;
@@ -240,7 +257,7 @@ namespace TheHunt
 
 
         //Check if there is any key pressed, if so returns the pressed key
-        public Keys IsAnyKeyDown()
+        private Keys IsAnyKeyDown()
         {
             var values = Enum.GetValues(typeof(System.Windows.Input.Key));
 
@@ -307,6 +324,9 @@ namespace TheHunt
                 // Set the menu location
                 this.pnlMenu.Location = new System.Drawing.Point(this.Size.Width / 2 - this.pnlMenu.Width / 2, this.Size.Height / 2 - this.pnlMenu.Height / 2);
 
+                // Set the gameover location
+                this.pnlGameOver.Location = new System.Drawing.Point(this.Size.Width / 2 - this.pnlGameOver.Width / 2, this.Size.Height / 2 - this.pnlGameOver.Height / 2);
+
                 // Redraw the form
                 this.Invalidate();
             }
@@ -330,6 +350,12 @@ namespace TheHunt
             foreach (Npc npc in this.world.npcs)
             {
                 npc.draw(g, this.Size,"Game");
+            }
+
+            // Draw the Powerups
+            foreach (Powerups powerup in this.world.powerups)
+            {
+                powerup.draw(g, this.Size);
             }
 
             // Draw the player
@@ -365,17 +391,16 @@ namespace TheHunt
             }
         }
 
-        // Toggle the menu
-        private void toggleMenu()
+        private void toggleGameOver()
         {
-            if (pnlMenu.Visible)
+            if(pnlGameOver.Visible)
             {
                 // Reset the keys
                 lastPressedKey = Keys.None;
                 pressedKey = Keys.None;
 
                 // Hide the menu
-                pnlMenu.Visible = false;
+                pnlGameOver.Visible = false;
 
                 // Start the game timers
                 startTimers(true);
@@ -386,7 +411,35 @@ namespace TheHunt
                 stopTimers(true);
 
                 // Show the menu
-                pnlMenu.Visible = true;
+                pnlGameOver.Visible = true;
+            }
+        }
+
+        // Toggle the menu
+        private void toggleMenu()
+        {
+            if (!pnlGameOver.Visible)
+            {
+                if (pnlMenu.Visible)
+                {
+                    // Reset the keys
+                    lastPressedKey = Keys.None;
+                    pressedKey = Keys.None;
+
+                    // Hide the menu
+                    pnlMenu.Visible = false;
+
+                    // Start the game timers
+                    startTimers(true);
+                }
+                else
+                {
+                    // Pause the game
+                    stopTimers(true);
+
+                    // Show the menu
+                    pnlMenu.Visible = true;
+                }
             }
         }
 
@@ -427,6 +480,13 @@ namespace TheHunt
         {
             Application.Exit();
             Close();
+        }
+
+        // Handle the click event of the restart button
+        private void pictureBoxRestart_Click(object sender, EventArgs e)
+        {
+            this.load();
+            this.toggleGameOver();
         }
     }
 }
