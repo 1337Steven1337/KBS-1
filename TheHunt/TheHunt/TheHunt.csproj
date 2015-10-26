@@ -37,11 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\The-Hunt\TheHunt\packages\Newtonsoft.Json.7.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -96,11 +97,17 @@
     <Compile Include="Designer\Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Designer\Items.cs">
+    <Compile Include="Designer\Toolbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Designer\Items.Designer.cs">
-      <DependentUpon>Items.cs</DependentUpon>
+    <Compile Include="Designer\Toolbox.Designer.cs">
+      <DependentUpon>Toolbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_selectlevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_selectlevel.Designer.cs">
+      <DependentUpon>form_selectlevel.cs</DependentUpon>
     </Compile>
     <Compile Include="form_startscreen.cs">
       <SubType>Form</SubType>
@@ -108,10 +115,16 @@
     <Compile Include="form_startscreen.Designer.cs">
       <DependentUpon>form_startscreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game.designer.cs">
+      <DependentUpon>Game.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Boss.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Obstacle.cs" />
-    <Compile Include="Model\NPC.cs" />
+    <Compile Include="Model\Npc.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
@@ -129,7 +142,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Sound.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -165,11 +182,17 @@
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Designer\Items.resx">
-      <DependentUpon>Items.cs</DependentUpon>
+    <EmbeddedResource Include="Designer\Toolbox.resx">
+      <DependentUpon>Toolbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_selectlevel.resx">
+      <DependentUpon>form_selectlevel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_startscreen.resx">
       <DependentUpon>form_startscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game.resx">
+      <DependentUpon>Game.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
@@ -177,7 +200,10 @@
     <EmbeddedResource Include="Player.resx">
       <DependentUpon>Player.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -214,13 +240,13 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\worldground.png" />
     <None Include="Resources\uitleg.png" />
     <None Include="Resources\Pijl bovenk.png" />
     <None Include="Resources\Pijl Links.png" />
     <None Include="Resources\pijl onder.png" />
     <None Include="Resources\Pijl rechts.png" />
     <None Include="Resources\Arrow.jpg" />
-    <None Include="Resources\Enemy.gif" />
     <None Include="Resources\Pijl boven.png" />
     <None Include="Resources\options.jpg" />
     <None Include="Resources\Continuebutton.png" />
@@ -238,6 +264,21 @@
     <None Include="Resources\Player\brockSprite10.png" />
     <None Include="Resources\Player\brockSprite11.png" />
     <None Include="Resources\Player\brockSprite12.png" />
+    <None Include="Resources\Template.png" />
+    <None Include="Resources\Hoe-maak-ik-een-POP.jpg" />
+    <None Include="Resources\Enemy.gif" />
+    <None Include="Resources\Bouncer.gif" />
+    <None Include="Resources\H_bouncer.png" />
+    <None Include="Resources\V_bouncer.png" />
+    <None Include="Resources\fenceDownLeft.png" />
+    <None Include="Resources\fenceUp.png" />
+    <None Include="Resources\fenceDown.png" />
+    <None Include="Resources\fenceUpRight.png" />
+    <None Include="Resources\fenceRight.png" />
+    <None Include="Resources\fenceDownRight.png" />
+    <None Include="Resources\fenceUpLeft.png" />
+    <None Include="Resources\fenceLeft.png" />
+    <None Include="Resources\Hand-Touch2-512.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

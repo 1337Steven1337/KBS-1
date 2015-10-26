@@ -17,7 +17,6 @@ namespace TheHunt
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new form_startscreen());
-           // Application.Run(new Charactertestform());
         }
     }
 }

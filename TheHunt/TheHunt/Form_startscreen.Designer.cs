@@ -70,7 +70,7 @@ namespace TheHunt
             this.CreateLvlBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.CreateLvlBtn.TabIndex = 6;
             this.CreateLvlBtn.TabStop = false;
-            this.CreateLvlBtn.Click += new System.EventHandler(this.openDesigner);
+            this.CreateLvlBtn.Click += new System.EventHandler(this.CreateLvlBtn_Click);
             // 
             // HighscoreBtn
             // 

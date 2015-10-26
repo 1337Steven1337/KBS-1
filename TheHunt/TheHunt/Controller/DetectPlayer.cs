@@ -13,14 +13,14 @@ namespace TheHunt.Controller
 
         public bool inRange(int range, int npcX, int npcY)
         {
-            this.world = world;
-            int width = world.Player.sizeBreedte;
-            int height = world.Player.sizeHoogte;
+            //this.world = world;
+            int width = world.player.sizeBreedte;
+            int height = world.player.sizeHoogte;
             bool inrange = false;
             int PythagorasX;
             int Pythagorasy;
-            int px = width / 2 + world.Player.positions.current_position.x;
-            int py = height / 2 + world.Player.positions.current_position.y;
+            int px = width / 2 + world.player.positions.current_position.x;
+            int py = height / 2 + world.player.positions.current_position.y;
             
             int ex = npcX; //moet nog worden verandert als de xlocatie van enemy bekend is
             int ey = npcY; //moet nog worden verandert als de ylocatie van enemy bekend is

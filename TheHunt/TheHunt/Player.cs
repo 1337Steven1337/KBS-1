@@ -62,7 +62,7 @@ namespace TheHunt
 
             timer = new Timer();//timer voor de movement over het scherm
             spriteTimer = new Timer(); //timer voor de movement van het character/illustraties
-            timer.Interval = 1000 / 120;
+            timer.Interval = 1000 / 60;
             spriteTimer.Interval = 100;
             spriteTimer.Tick += beweegSprites;
             timer.Tick += new EventHandler(timer_Tick);
@@ -88,13 +88,13 @@ namespace TheHunt
                 obj.draw(g, this.Size);
             }
             //Teken NPC's
-            for (int i = 0; i < this.world.NPC.Count; i++)
+            for (int i = 0; i < this.world.npcs.Count; i++)
             {
-                NPC npc = this.world.NPC[i];
-                npc.draw(g, this.Size);
+                Npc npc = this.world.npcs[i];
+                npc.draw(g, this.Size,"Game");
             }
-            this.world.Player.draw(g, this.Size);
-            this.world.Boss.draw(g, this.Size);
+            this.world.player.draw(g, this.Size,"Game");
+            this.world.boss.draw(g, this.Size);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -115,49 +115,35 @@ namespace TheHunt
         //controle of het character er mag/kan lopen
         private bool checkIntersect(Keys k)
         {
-            int playerX = this.world.Player.positions.current_position.x;
-            int playerY = this.world.Player.positions.current_position.y;
+            int playerX = this.world.player.positions.current_position.x;
+            int playerY = this.world.player.positions.current_position.y;
 
-            playerX = this.world.Player.positions.current_position.x;
-            playerY = this.world.Player.positions.current_position.y;
+            playerX = this.world.player.positions.current_position.x;
+            playerY = this.world.player.positions.current_position.y;
 
             Model.Point newPosition = new Model.Point();
-
-            lastPositionCounter++;
-            if(lastPositionCounter == 10)
-            {
-                changeLastPosition = true;
-            }
-
-            if (changeLastPosition)
-            {
-                this.world.Player.positions.last_position.x = this.world.Player.positions.current_position.x;
-                this.world.Player.positions.last_position.y = this.world.Player.positions.current_position.y;
-                changeLastPosition = false;
-                lastPositionCounter = 0;
-            }
 
             switch (k)
             {
                 case Keys.Up:
-                    newPosition.x = this.world.Player.positions.current_position.x;
-                    newPosition.y = this.world.Player.positions.current_position.y - this.world.Player.speed.y;
+                    newPosition.x = this.world.player.positions.current_position.x;
+                    newPosition.y = this.world.player.positions.current_position.y - this.world.player.speed.y;
                     break;
                 case Keys.Down:
-                    newPosition.x = this.world.Player.positions.current_position.x;
-                    newPosition.y = this.world.Player.positions.current_position.y + this.world.Player.speed.y;
+                    newPosition.x = this.world.player.positions.current_position.x;
+                    newPosition.y = this.world.player.positions.current_position.y + this.world.player.speed.y;
                     break;
                 case Keys.Left:
-                    newPosition.x = this.world.Player.positions.current_position.x - this.world.Player.speed.x;
-                    newPosition.y = this.world.Player.positions.current_position.y;
+                    newPosition.x = this.world.player.positions.current_position.x - this.world.player.speed.x;
+                    newPosition.y = this.world.player.positions.current_position.y;
                     break;
                 case Keys.Right:
-                    newPosition.x = this.world.Player.positions.current_position.x + this.world.Player.speed.x;
-                    newPosition.y = this.world.Player.positions.current_position.y;
+                    newPosition.x = this.world.player.positions.current_position.x + this.world.player.speed.x;
+                    newPosition.y = this.world.player.positions.current_position.y;
                     break;
             }
 
-            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.Player.sizeBreedte, (int)this.world.Player.sizeHoogte);
+            Rectangle newPlayerRectangle = new Rectangle(newPosition.x, newPosition.y, (int)this.world.player.sizeBreedte, (int)this.world.player.sizeHoogte);
 
             if (newPlayerRectangle.Top < 0 || newPlayerRectangle.Left < 0 || newPlayerRectangle.Bottom > this.Size.Height || newPlayerRectangle.Right > this.Size.Width)
             {
@@ -167,7 +153,7 @@ namespace TheHunt
             //check for collision with objects (walls)..
             foreach (var item in this.world.obstacles)
             {
-                Rectangle randomObj = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
+                Rectangle randomObj = new Rectangle((int)(item.x * screenWidth / 40), (int)(item.y * screenHeight / 20), (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
                 if (newPlayerRectangle.IntersectsWith(randomObj))
                 {
@@ -175,8 +161,8 @@ namespace TheHunt
                 }
             }
 
-            ////check for collision with NPS's...
-            //foreach (var item in this.world.NPC)
+            //check for collision with NPS's...
+            //foreach (var item in this.world.npcs)
             //{
             //    Rectangle randomObj = new Rectangle(item.positions.current_position.x, item.positions.current_position.y, (int)item.getPixelWidth(this.Size), (int)item.getPixelHeight(this.Size));
 
@@ -292,7 +278,7 @@ namespace TheHunt
                     if (this.lastPressedKey == Keys.Up)
                     {
                         beweegNaarBoven = true;
-            }
+                    }
                     if (this.lastPressedKey == Keys.Left)
                     {
                         beweegNaarLinks = true;
@@ -490,7 +476,7 @@ namespace TheHunt
         //beweeg zolang er een toets is ingedrukt
         void timer_Tick(object sender, EventArgs e)
         {
-            foreach (var npc in this.world.NPC)
+            foreach (var npc in this.world.npcs)
             {
                 npc.moveNPC(this.world);
             }
@@ -520,19 +506,19 @@ namespace TheHunt
             if (isRunning)
             {
                 spriteTimer.Interval = 50;
-                this.world.Player.speed = this.world.Player.movement.run;
+                this.world.player.speed = this.world.player.movement.run;
             }
             else
             {
                 spriteTimer.Interval = 100;
-                this.world.Player.speed = this.world.Player.movement.walk;
+                this.world.player.speed = this.world.player.movement.walk;
             }
 
             if (this.beweegNaarBoven)
                     {
                         if (!checkIntersect(Keys.Up))
                         {
-                            world.Player.positions.current_position.y -= world.Player.speed.y;
+                            world.player.positions.current_position.y -= world.player.speed.y;
                         }
 
                 else
@@ -546,7 +532,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Left))
                         {
-                            world.Player.positions.current_position.x -= world.Player.speed.x;
+                            world.player.positions.current_position.x -= world.player.speed.x;
                         }
 
                 else
@@ -558,7 +544,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Down))
                         {
-                            world.Player.positions.current_position.y += world.Player.speed.y;
+                            world.player.positions.current_position.y += world.player.speed.y;
                         }
 
                 else
@@ -571,7 +557,7 @@ namespace TheHunt
                     {
                         if (!checkIntersect(Keys.Right))
                         {
-                            world.Player.positions.current_position.x += world.Player.speed.x;
+                            world.player.positions.current_position.x += world.player.speed.x;
                         }
 
                 else

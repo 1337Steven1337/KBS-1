@@ -82,7 +82,7 @@ namespace TheHunt
 
         private void Down_Push(object sender, EventArgs e)
         {
-            world.Player.positions.current_position.y += world.Player.speed.y;
+            world.player.positions.current_position.y += world.player.speed.y;
 
 
         }

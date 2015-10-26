@@ -16,20 +16,30 @@ namespace TheHunt.Model
 
         public int x = 0;
         public int y = 0;
-        public int height = 0;
-        public int width = 0;
-         
-       public void draw(Graphics g, Size screenSize)
+        public int height = 1;
+        public int width = 1;
+
+        public Type type;
+
+        public enum Type
         {
-            for (int x = 0; x < this.width; x++)
-            {
-                for (int y = 0; y < this.height; y++)
-                {
-                    float screenWidth = screenSize.Width/ 40;
-                    float screenHeight = screenSize.Height / 20;
-                    g.DrawImage(getImage(), this.x + (screenWidth * x), this.y + (screenHeight * y), screenWidth, screenHeight);
-                }
-            }
+            wall,
+            worldground,
+            fenceLeft,
+            fenceRight,
+            fenceUp,
+            fenceDown,
+            fenceUpLeft,
+            fenceUpRight,
+            fenceDownLeft,
+            fenceDownRight
+        }
+
+        public void draw(Graphics g, Size screenSize)
+        {
+                    float screenWidth = (float)(screenSize.Width/ 40.00);
+                    float screenHeight = (float)(screenSize.Height / 20.00);
+                    g.DrawImage(getImage(), this.x * screenWidth, this.y * screenHeight, screenWidth, screenHeight);
         }
 
         public float getPixelWidth(Size screenSize)
@@ -42,11 +52,15 @@ namespace TheHunt.Model
             return this.height * screenSize.Height / 20;
         }
 
+
         public Image getImage()
         {
-            if(this.image == null)
+            if (type == Type.wall)
             {
-                this.image = new Bitmap(TheHunt.Properties.Resources.wall);
+                this.image = Properties.Resources.wall;
+            }else if (type == Type.worldground)
+            {
+                this.image = Properties.Resources.worldground;
             }
             return this.image;
         }
