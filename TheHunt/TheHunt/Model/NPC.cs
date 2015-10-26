@@ -53,6 +53,22 @@ namespace TheHunt.Model
             V_Bouncer
         }
 
+        private void substractScore()
+        {
+            if (this.type == Type.Enemy)
+            {
+                world.substractScore(2);
+            }
+            else if (this.type == Type.H_Bouncer)
+            {
+                world.substractScore(4);
+            }
+            else
+            {
+                world.substractScore(4);
+            }
+        }
+
         public void draw(Graphics g, Size screenSize, string drawMode)
         {
             float screenWidth = getOnScreenHeight(screenSize);
@@ -103,6 +119,7 @@ namespace TheHunt.Model
                 playerIsInRange = inRange(newRange);
                 if (playerIsInRange)
                 {
+                    this.substractScore();
                     if (!npcIntersectsWithObjects())
                     {
                         if (newRange < normalRange + 100)
@@ -229,6 +246,7 @@ namespace TheHunt.Model
                 //Check if player intersects with bouncer, yes draw a border around te player(visual)
                 if (playerIntersectWithBouncers())
                 {
+                    this.substractScore();
                     drawHitAroundPlayer = true;
                 }
                 else
@@ -271,16 +289,15 @@ namespace TheHunt.Model
             }
 
                 //Check if player intersects with bouncer, yes draw a border around te player(visual)
-                if (playerIntersectWithBouncers())
-            {
+                if (playerIntersectWithBouncers()) {
+                    this.substractScore();
                     drawHitAroundPlayer = true;
-            }
-            else
-            {
-                    drawHitAroundPlayer = false;
+                }
+                else {
+                        drawHitAroundPlayer = false;
                 }
             }
-            }
+        }
 
         private bool playerIntersectWithBouncers()
         {
