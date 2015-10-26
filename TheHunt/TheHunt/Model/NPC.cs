@@ -20,8 +20,8 @@ namespace TheHunt.Model
 
         Random rnd = new Random();
 
-        private int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
-        private int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
+        public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
+        public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
         private int isEersteDraw = 0;
 
@@ -51,6 +51,22 @@ namespace TheHunt.Model
             Enemy,
             H_Bouncer,
             V_Bouncer
+        }
+
+        private void substractScore()
+        {
+            if (this.type == Type.Enemy)
+            {
+                world.substractScore(20);
+            }
+            else if (this.type == Type.H_Bouncer)
+            {
+                world.substractScore(40);
+            }
+            else
+            {
+                world.substractScore(40);
+            }
         }
 
         public void draw(Graphics g, Size screenSize, string drawMode)
@@ -103,6 +119,7 @@ namespace TheHunt.Model
                 playerIsInRange = inRange(newRange);
                 if (playerIsInRange)
                 {
+                    this.substractScore();
                     if (!npcIntersectsWithObjects())
                     {
                         if (newRange < normalRange + 100)
@@ -229,6 +246,7 @@ namespace TheHunt.Model
                 //Check if player intersects with bouncer, yes draw a border around te player(visual)
                 if (playerIntersectWithBouncers())
                 {
+                    this.substractScore();
                     drawHitAroundPlayer = true;
                 }
                 else
@@ -271,16 +289,15 @@ namespace TheHunt.Model
             }
 
                 //Check if player intersects with bouncer, yes draw a border around te player(visual)
-                if (playerIntersectWithBouncers())
-            {
+                if (playerIntersectWithBouncers()) {
+                    this.substractScore();
                     drawHitAroundPlayer = true;
-            }
-            else
-            {
-                    drawHitAroundPlayer = false;
+                }
+                else {
+                        drawHitAroundPlayer = false;
                 }
             }
-            }
+        }
 
         private bool playerIntersectWithBouncers()
         {

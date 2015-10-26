@@ -15,6 +15,18 @@ namespace TheHunt.Model
 
         public Player player = new Player();
         public Boss boss = new Boss();
+
+        private int score = 100;
+
+        public void substractScore(int amount)
+        {
+            this.score -= amount;
+
+            if(this.score <= 0)
+            {
+                //MessageBox.Show("Dood!");
+            }
+        }
     }
 
    struct Point
