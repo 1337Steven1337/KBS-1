@@ -20,8 +20,8 @@ namespace TheHunt.Model
 
         Random rnd = new Random();
 
-        public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
-        public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
+        private int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
+        private int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
         private int isEersteDraw = 0;
 
