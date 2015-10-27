@@ -17,7 +17,6 @@ namespace TheHunt
         public form_startscreen()
         {
             InitializeComponent();
-            MessageBox.Show("" + Properties.Levels.Default.customlv1);
             
             this.sound = Sound.Instance;
             startRes.Width = (int)(Screen.PrimaryScreen.WorkingArea.Width * 0.8);

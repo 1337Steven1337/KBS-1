@@ -499,7 +499,7 @@ namespace TheHunt.Designer
         {
             base.OnPaint(e);
 
-            // Set the graphic context 
+            // Set the graphic context
             Graphics graphics = e.Graphics;
             Pen pencil = new Pen(Color.Black);
 
