@@ -73,10 +73,10 @@ namespace TheHunt.Model
             this.world = world;
 
             if (playerIntersectWithPowerup() != null)
-                {
+            {
                   UsePowerup(playerIntersectWithPowerup());
-                }
             }
+        }
 
         private Powerups playerIntersectWithPowerup()
         {
@@ -86,7 +86,7 @@ namespace TheHunt.Model
                 if (playerCoords.IntersectsWith(new Rectangle(pu.x * (int)(this.game.Width/40.00), pu.y * (int)(this.game.Height / 20.00), (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00))))
                 {
                     return pu;
-                }                
+                }
             }
             return null;
         }
