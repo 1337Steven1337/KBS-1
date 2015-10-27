@@ -54,10 +54,11 @@ namespace TheHunt
 
         // is Speedboost Active?
         public bool speedBoostActive = false;
+        public int speedBoostDuration = 0;
 
         // Are we running?
         private bool run = false;
-       
+
         // Movement keys
         private List<Keys> movementKeys = new List<Keys>() { Keys.Up, Keys.Down, Keys.Left, Keys.Right };
 
@@ -76,6 +77,11 @@ namespace TheHunt
 
             // Set double buffer to prevent flickering
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
+        }
+
+        public void addScore(int bonus)
+        {
+            world.addScore(bonus);
         }
 
         // Prepare the game
@@ -157,6 +163,20 @@ namespace TheHunt
             // Stop the timers
             this.loop.Stop();
             this.delta.Stop();
+
+            if(run == true)
+            {
+                if(speedBoostDuration > 0)
+                {
+                    speedBoostDuration-=500;
+                }
+                else
+                {
+                    speedBoostActive = false;
+                    run = false;
+                }
+
+            }
 
 
             // Check if player is moving
