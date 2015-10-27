@@ -393,44 +393,44 @@ namespace TheHunt
         {
             base.OnPaint(e);
 
-            // Get the graphic context
-            Graphics g = e.Graphics;
-
             if (objectState == null)
             {
                 this.objectState = new Bitmap(this.Size.Width, this.Size.Height);
                 Graphics graphics = Graphics.FromImage(this.objectState);
 
-            // Draw the obstacles
+                // Draw the obstacles
                 foreach (Obstacle obstacle in this.world.obstacles)
-            {
+                {
                     obstacle.draw(graphics, this.Size);
                 }
             }
             else
             {
+                // Get the graphic context
+                Graphics g = e.Graphics;
+
                 g.DrawImage(objectState,0,0);
-            // Draw the NPCs
-            foreach (Npc npc in this.world.npcs)
-            {
-                    npc.draw(g, this.Size, "Game");
-            }
+                // Draw the NPCs
+                foreach (Npc npc in this.world.npcs)
+                {
+                        npc.draw(g, this.Size, "Game");
+                }
 
-            // Draw the Powerups
-            foreach (Powerups powerup in this.world.powerups)
-            {
-                powerup.draw(g, this.Size,powerup.getUsed());
-            }
+                // Draw the Powerups
+                foreach (Powerups powerup in this.world.powerups)
+                {
+                    powerup.draw(g, this.Size,powerup.getUsed());
+                }
 
-            // Draw the player
+                // Draw the player
                 this.world.player.draw(g, this.Size, "Game");
 
-            // Draw the boss
-            //this.world.boss.draw(g, this.Size);
-        }
+                // Draw score bar
+                this.world.getScore().draw(g, this.Size);
 
-
-
+                // Draw the boss
+                //this.world.boss.draw(g, this.Size);
+            }
         }
 
         // Starts the timers

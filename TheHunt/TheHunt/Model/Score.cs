@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,6 +14,7 @@ namespace TheHunt.Model
         private DateTime _dateTime = DateTime.UtcNow;
         private string _token;
         private string _name;
+        private int _start;
 
         public string name
         {
@@ -71,6 +73,8 @@ namespace TheHunt.Model
         {
             this.score = score;
             this.world = world;
+
+            this._start = this.score;
         }
 
         public void add(int bonus)
@@ -88,6 +92,39 @@ namespace TheHunt.Model
             {
                 this.score = (this.score < 0) ? 0 : this.score;
             }
+        }
+
+        public void draw(Graphics g, Size size)
+        {
+            /**
+            Pen blackPen = new Pen(Color.Black);
+            Rectangle backgroundHealthBar = new Rectangle(79, size.Height - 61, 201, 31);
+            g.DrawRectangle(blackPen, backgroundHealthBar);
+            Brush variableBrush = new SolidBrush(Color.Black);
+
+            g.FillRectangle(variableBrush, backgroundHealthBar);
+
+            float percentage = (this.score / this._start) * 100;
+
+            if (percentage >= 75)
+            {
+                variableBrush = new SolidBrush(Color.Green);
+            }
+            else if (percentage >= 50 && percentage < 75)
+            {
+                variableBrush = new SolidBrush(Color.Yellow);
+            }
+            else if (percentage >= 25 && percentage < 50)
+            {
+                variableBrush = new SolidBrush(Color.Orange);
+            }
+            else if (percentage >= 0 && percentage < 25)
+            {
+                variableBrush = new SolidBrush(Color.Red);
+            }
+
+            g.FillRectangle(variableBrush, 80, size.Height - 60, (200 * (this.score / 100)), 30);
+    **/
         }
     }
 }
