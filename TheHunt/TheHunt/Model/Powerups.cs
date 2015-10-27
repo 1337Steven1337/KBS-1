@@ -47,7 +47,7 @@ namespace TheHunt.Model
             }
             if(type == Type.Scoreboost)
             {
-                //addscore , currentscore / 100 
+                //addscore , currentscore / 100 v 
             }
         }
 
