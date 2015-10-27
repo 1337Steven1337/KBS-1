@@ -11,9 +11,6 @@ namespace TheHunt.Model
     {
         private Boolean used = false;
 
-        public Size screenSize;
-        public Rectangle powerup;
-
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
@@ -44,6 +41,7 @@ namespace TheHunt.Model
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
+                game.speedBoostDuration += 5000;
             }
             if(type == Type.Scoreboost)
             {

@@ -54,6 +54,7 @@ namespace TheHunt
 
         // is Speedboost Active?
         public bool speedBoostActive = false;
+        public int speedBoostDuration = 0;
 
         // Are we running?
         private bool run = false;
@@ -162,6 +163,20 @@ namespace TheHunt
             // Stop the timers
             this.loop.Stop();
             this.delta.Stop();
+
+            if(run == true)
+            {
+                if(speedBoostDuration > 0)
+                {
+                    speedBoostDuration-=500;
+                }
+                else
+                {
+                    speedBoostActive = false;
+                    run = false;
+                }
+
+            }
 
 
             // Check if player is moving
