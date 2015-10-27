@@ -87,6 +87,9 @@ namespace TheHunt.Model
             if (this.score > 0)
             {
                 this.score -= amount;
+
+                //Console.WriteLine(this.score + "/" + this._start);
+                //Console.WriteLine((this.score / this._start) * 100);
             }
             else
             {
@@ -96,7 +99,6 @@ namespace TheHunt.Model
 
         public void draw(Graphics g, Size size)
         {
-            /**
             Pen blackPen = new Pen(Color.Black);
             Rectangle backgroundHealthBar = new Rectangle(79, size.Height - 61, 201, 31);
             g.DrawRectangle(blackPen, backgroundHealthBar);
@@ -104,7 +106,7 @@ namespace TheHunt.Model
 
             g.FillRectangle(variableBrush, backgroundHealthBar);
 
-            float percentage = (this.score / this._start) * 100;
+            float percentage = ((float)this.score / (float)this._start) * 100;
 
             if (percentage >= 75)
             {
@@ -123,8 +125,7 @@ namespace TheHunt.Model
                 variableBrush = new SolidBrush(Color.Red);
             }
 
-            g.FillRectangle(variableBrush, 80, size.Height - 60, (200 * (this.score / 100)), 30);
-    **/
+            g.FillRectangle(variableBrush, 80, size.Height - 60, 200 - (200 - ((percentage / 100) * 200)), 30);
         }
     }
 }

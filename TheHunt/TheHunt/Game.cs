@@ -105,9 +105,6 @@ namespace TheHunt
             // Load the world
             this.load();
 
-            // Normalize
-            this.normalize();
-
             // Set the main timer
             this.loop = new Timer();
             this.loop.Interval = 1000 / targetFps;
@@ -159,6 +156,9 @@ namespace TheHunt
         {
             // Assign the world variable
             this.world = JsonConvert.DeserializeObject<World>(levelString);
+
+            // Normalize
+            this.normalize();
         }
 
         // Add the gamepad
