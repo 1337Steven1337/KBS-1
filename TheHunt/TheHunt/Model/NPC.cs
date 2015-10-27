@@ -29,7 +29,7 @@ namespace TheHunt.Model
 
         //Enemy's start position,
         private int randomPosition = 0;
-
+       
         //Enemy's normal start range
         private int normalRange = 100;
 
@@ -48,7 +48,7 @@ namespace TheHunt.Model
         private Boolean h_bouncer_left = true;
         private Boolean h_bouncer_right = false;
         private Boolean drawHitAroundPlayer = false;
-
+        
         public int width = 1;
         public int height = 1;
         public Type type;
@@ -220,11 +220,11 @@ namespace TheHunt.Model
             {
                 if (v_bouncer_up)
                 {
-                    positions.current_position.y -= speed.y;
-                }
+                    positions.current_position.y -= speed.y;          
+        }
                 else if (v_bouncer_down)
                 {
-                    positions.current_position.y += speed.y;
+                    positions.current_position.y += speed.y;               
                 }
 
                 npc.X = positions.current_position.x;
@@ -232,7 +232,7 @@ namespace TheHunt.Model
 
                 //check of er intersect is met objecten als de positie wordt veranderd
                 if (npcIntersectsWithObjects())
-                {
+        {
                     if (v_bouncer_up)
                     {
                         v_bouncer_up = false;
@@ -278,12 +278,12 @@ namespace TheHunt.Model
                 if (npcIntersectsWithObjects())
                 {
                     if (h_bouncer_left)
-                    {
+            {
                         h_bouncer_left = false;
                         h_bouncer_right = true;
-                    }
+            }
                     else if (h_bouncer_right)
-                    {
+            {
                         h_bouncer_left = true;
                         h_bouncer_right = false;
                     }
@@ -291,7 +291,7 @@ namespace TheHunt.Model
                     //intersect verwacht dus zet oude coordinaten
                     this.positions.current_position.x = oldx;
                     this.positions.current_position.y = oldy;
-                }
+            }
 
                 //Check if player intersects with bouncer, yes draw a border around te player(visual)
                 if (playerIntersectWithBouncers())
@@ -301,7 +301,7 @@ namespace TheHunt.Model
                 }
                 else
                 {
-                    drawHitAroundPlayer = false;
+                        drawHitAroundPlayer = false;
                 }
             }
         }
@@ -316,8 +316,8 @@ namespace TheHunt.Model
                 if (item.type == Type.V_Bouncer | item.type == Type.H_Bouncer)
                 {
                     if (npc.IntersectsWith(newPlayerRectangle))
-                    {
-
+            {
+                        
                         return true;
                     }
                 }
@@ -370,7 +370,7 @@ namespace TheHunt.Model
 
 
         private bool EnemyChooseNewRoute()
-        {
+        {           
             switch (randomPosition)
             {
                 case 0:

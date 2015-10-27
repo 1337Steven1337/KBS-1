@@ -9,7 +9,7 @@ namespace TheHunt.Model
 {
     class Powerups : Item
     {
-        public Boolean used;
+        private Boolean used = false;
 
         public Size screenSize;
         public Rectangle powerup;
@@ -25,7 +25,7 @@ namespace TheHunt.Model
 
         private World world = null;
         private Game game = null;
-        public Image image = null;
+        private Image image = null;
 
 
         public Boolean getUsed()
@@ -33,17 +33,23 @@ namespace TheHunt.Model
             return used;
         }
 
-        public void UsePowerup()
+        public void setUsed(bool used)
         {
-            used = true;
+            this.used = used;
+        }
+
+        public void UsePowerup(Powerups pu)
+        {
+            pu.used = true;
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
             }
             if(type == Type.Scoreboost)
             {
-                //addscore , currentscore / 100 
+                game.addScore(10000);
             }
+
         }
 
         public enum Type
@@ -52,57 +58,41 @@ namespace TheHunt.Model
             Scoreboost
         }
 
-        public void draw(Graphics g, Size screenSize)
+        public void draw(Graphics g, Size screenSize, bool isUsed)
         {
-            if (!used)
+            if (isUsed == false)
             {
-                float screenWidth = getOnScreenHeight(screenSize);
-                float screenHeight = getOnScreenHeight(screenSize);
-
-                g.DrawImage(getImage(), this.x, this.y, sizeBreedte, sizeHoogte);
-                this.screenSize = screenSize;
+                float screenWidth = (float)(screenSize.Width / 40.00);
+                float screenHeight = (float)(screenSize.Height / 20.00);
+                g.DrawImage(getImage(), (int)(this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
             }
         }
+
 
         public void checkCollision(World world, Game game)
         {
             this.game = game;
             this.world = world;
-            powerup = new Rectangle(this.x, this.y, (int)sizeBreedte, (int)sizeHoogte);
 
-            if (playerIntersectWithPowerup())
-            {
-                if (!getUsed())
+            if (playerIntersectWithPowerup() != null)
                 {
-                    UsePowerup();
+                  UsePowerup(playerIntersectWithPowerup());
                 }
             }
-        }
 
-        private bool playerIntersectWithPowerup()
+        private Powerups playerIntersectWithPowerup()
         {
-            //check if player intersects with Bouncers 
-            Rectangle newPlayerRectangle = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)this.world.player.sizeBreedte, (int)this.world.player.sizeHoogte);
-
+            Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00));
             foreach (var pu in this.world.powerups)
             {
-                if (newPlayerRectangle.IntersectsWith(powerup))
+                if (playerCoords.IntersectsWith(new Rectangle(pu.x * (int)(this.game.Width/40.00), pu.y * (int)(this.game.Height / 20.00), (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00))))
                 {
-                    return true;
+                    return pu;
                 }                
             }
-            return false;
+            return null;
         }
 
-        public float getPixelWidth(Size screenSize)
-        {
-            return this.width * screenSize.Width / 40;
-        }
-
-        public float getPixelHeight(Size screenSize)
-        {
-            return this.height * screenSize.Height / 20;
-        }
 
         private Image getImage()
         {

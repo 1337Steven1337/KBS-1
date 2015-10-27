@@ -211,6 +211,14 @@ namespace TheHunt.Designer
                     fieldObject.y = (int)(y);
                     this.world.obstacles.Add(fieldObject);
                 }
+                if (this.items.getMode() == "PURun")
+                {
+                    Powerups powerUp = this.items.getActive<Powerups>().clone();
+                    powerUp.x = (int)(x);
+                    powerUp.y = (int)(y);
+                    this.world.powerups.Add(powerUp);
+                }
+
                 if (this.items.getMode() == "WorldGround")
                 {
                     Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
@@ -333,7 +341,7 @@ namespace TheHunt.Designer
                     Properties.Levels.Default.customlv6 = json;
                     break;
                 case "customlv7":
-                    Properties.Levels.Default.customlv8 = json;
+                    Properties.Levels.Default.customlv7 = json;
                     break;
                 case "customlv8":
                     Properties.Levels.Default.customlv8 = json;
@@ -371,6 +379,14 @@ namespace TheHunt.Designer
                 }
             }
 
+            foreach (Powerups PU in this.world.powerups)
+            {
+                if (PU.x == x && PU.y == y)
+                {
+                    UnknownObject = PU;
+                }
+            }
+
             foreach (Npc NPC in this.world.npcs)
             {
                 if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
@@ -391,6 +407,22 @@ namespace TheHunt.Designer
 
         public bool doesCoordsAlreadyContainObject(int x, int y)
         {
+            foreach (Obstacle worldObstacle in this.world.obstacles)
+            {
+                if (worldObstacle.x == x && worldObstacle.y == y)
+                {
+                    return true;
+                }
+            }
+
+            foreach (Powerups PU in this.world.powerups)
+            {
+                if (PU.x == x && PU.y == y)
+                {
+                    return true;
+                }
+            }
+
             foreach (Obstacle worldObstacle in this.world.obstacles)
             {
                 if (worldObstacle.x == x && worldObstacle.y == y)
@@ -423,6 +455,15 @@ namespace TheHunt.Designer
                 if (worldObstacle.x == x && worldObstacle.y == y)
                 {
                     this.world.obstacles.Remove(worldObstacle);
+                    return true;
+                }
+            }
+
+            foreach (Powerups PU in this.world.powerups)
+            {
+                if (PU.x == x && PU.y == y)
+                {
+                    this.world.powerups.Remove(PU);
                     return true;
                 }
             }
@@ -505,6 +546,16 @@ namespace TheHunt.Designer
                 obj.draw(graphics, this.Size);
             }
 
+            // Draw the field objects
+            for (int i = 0; i < this.world.powerups.Count; i++)
+            {
+                Powerups powerUps = this.world.powerups[i];
+                powerUps.sizeBreedte = (int)cellSizeX;
+                powerUps.sizeHoogte = (int)cellSizeY;
+                powerUps.draw(graphics, this.Size,powerUps.getUsed());
+            }
+
+            //Draw the NPCs
             for (int i = 0; i < this.world.npcs.Count; i++)
             {
                 Npc npc = this.world.npcs[i];
