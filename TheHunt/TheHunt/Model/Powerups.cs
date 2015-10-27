@@ -42,8 +42,9 @@ namespace TheHunt.Model
             }
             if(type == Type.Scoreboost)
             {
-                //addscore , currentscore / 100 
+                game.addScore(10000);
             }
+
         }
 
         public enum Type
@@ -80,7 +81,7 @@ namespace TheHunt.Model
 
         private bool playerIntersectWithPowerup()
         {
-            //check if player intersects with Bouncers 
+            //check if player intersects with Powerups 
             Rectangle newPlayerRectangle = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)this.world.player.sizeBreedte, (int)this.world.player.sizeHoogte);
 
             foreach (var pu in this.world.powerups)

@@ -78,6 +78,11 @@ namespace TheHunt
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
         }
 
+        public void addScore(int bonus)
+        {
+            world.addScore(bonus);
+        }
+
         // Prepare the game
         private void Game_Load(object sender, EventArgs e)
         {

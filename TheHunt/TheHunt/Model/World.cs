@@ -19,6 +19,11 @@ namespace TheHunt.Model
 
         private int score = 100000;
 
+        public void addScore(int bonus)
+        {
+            score += bonus;
+        }
+
         public int getScore()
         {
             return this.score;
