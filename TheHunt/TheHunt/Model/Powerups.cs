@@ -62,15 +62,15 @@ namespace TheHunt.Model
 
         public void draw(Graphics g, Size screenSize, string drawMode, bool isUsed)
         {
-            float screenWidth = (float)(screenSize.Width / 40.00);
-            float screenHeight = (float)(screenSize.Height / 20.00);
+                float screenWidth = (float)(screenSize.Width / 40.00);
+                float screenHeight = (float)(screenSize.Height / 20.00);
             if (drawMode == "Game")
             {
                 if (isUsed == false)
                 {
                     g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
-                }
             }
+        }
             else if (drawMode == "Designer")
             {
                 g.DrawImage(getImage(), (this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
@@ -80,12 +80,12 @@ namespace TheHunt.Model
 
 
         public float getPixelWidth(Size screenSize)
-        {
+            {
             return this.width * screenSize.Width / 40;
         }
 
         public float getPixelHeight(Size screenSize)
-        {
+                {
             return this.height * screenSize.Height / 20;
         }
 
