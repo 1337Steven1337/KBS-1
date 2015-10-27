@@ -262,9 +262,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Emp {
+        internal static System.Drawing.Bitmap emp {
             get {
-                object obj = ResourceManager.GetObject("Emp", resourceCulture);
+                object obj = ResourceManager.GetObject("emp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -551,9 +551,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Speedboost {
+        internal static System.Drawing.Bitmap SpeedUp {
             get {
-                object obj = ResourceManager.GetObject("Speedboost", resourceCulture);
+                object obj = ResourceManager.GetObject("SpeedUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

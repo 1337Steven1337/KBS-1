@@ -42,20 +42,7 @@ namespace TheHunt.Designer
 
             PictureBox wallBox = new PictureBox();
             PictureBox PURunBox = new PictureBox();
-
-            /*
-            PictureBox fenceLeftBox = new PictureBox();
-            PictureBox fenceRightBox = new PictureBox();
-            PictureBox fenceUpBox = new PictureBox();
-            PictureBox fenceDownBox = new PictureBox();
-            PictureBox fenceDownLeftBox = new PictureBox();
-            PictureBox fenceUpLeftBox = new PictureBox();
-            PictureBox fenceUpRightBox = new PictureBox();
-            PictureBox fenceDownRightBox = new PictureBox();
-
-            Not yet to be implemented.
-
-            */
+            PictureBox PUScore = new PictureBox();
 
             PictureBox player1Box = new PictureBox();
             PictureBox HBouncerBox = new PictureBox();
@@ -68,7 +55,11 @@ namespace TheHunt.Designer
 
             PURunBox.Click += Item_Click;
             PURunBox.Tag = "PURun";
-            PURunBox.Image = Properties.Resources.Speedboost;
+            PURunBox.Image = Properties.Resources.SpeedUp;
+
+            PUScore.Click += Item_Click;
+            PUScore.Tag = "PUScore";
+            PUScore.Image = Properties.Resources.Scoreboost;
 
 
 
@@ -100,6 +91,7 @@ namespace TheHunt.Designer
 
             this.worldPanel.Controls.Add(wallBox);
             this.worldPanel.Controls.Add(PURunBox);
+            this.worldPanel.Controls.Add(PUScore);
 
             initPropertyPanel();
             initPlayerPanel();
