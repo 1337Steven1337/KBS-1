@@ -54,7 +54,12 @@ namespace TheHunt
 
         // is Speedboost Active?
         public bool speedBoostActive = false;
-        public int speedBoostDuration = 0;
+        public Timer speedBoostTimer = new Timer();
+        public int speedBoostLength = 0;
+
+        // Emp
+        public bool emp = false;
+        private List<Model.Point> npcSpeed = new List<Model.Point>();
 
         // Are we running?
         private bool run = false;
@@ -115,12 +120,33 @@ namespace TheHunt
             this.animate.Interval = 100;
             this.animate.Tick += updateAnimations;
 
+
+            // Set speedboost timer
+            this.speedBoostTimer.Interval = 1000;
+            this.speedBoostTimer.Tick += updateSpeedBoostLength;
+
             // Set the stopwatch
             this.delta = new Stopwatch();
 
             // Start the game timer/stopwatch
             startTimers(true);
         }
+
+
+        private void updateSpeedBoostLength(object sender,EventArgs e)
+        {
+            if (this.speedBoostLength > 0)
+            {
+                this.speedBoostLength -= 1000;
+            }
+            else
+            {
+                this.speedBoostActive = false;
+                this.run = false;
+                this.speedBoostTimer.Stop();
+            }
+        }
+
 
         // Normalizes the coordinates
         private void normalize()
@@ -140,6 +166,12 @@ namespace TheHunt
             {
                 obstacle.x = (int)(obstacle.x * ratioX);
                 obstacle.y = (int)(obstacle.y * ratioY);
+            }
+
+            foreach (Powerups powerup in this.world.powerups)
+            {
+                powerup.x = (int)(powerup.x * ratioX);
+                powerup.y = (int)(powerup.y * ratioY);
             }
 
             foreach (Npc npc in this.world.npcs)
@@ -175,6 +207,30 @@ namespace TheHunt
             Controls.Add(right);
         }
 
+        public void Emp()
+        {
+
+            if (emp)
+            {
+                foreach (Npc npc in this.world.npcs)
+                {
+                    for(int i = 0; i < this.world.npcs.Count; i++)
+                    {
+                        npc.speed = npcSpeed[i];
+                        npcSpeed.Remove(npcSpeed[i]);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Npc npc in this.world.npcs)
+                {
+                    npcSpeed.Add(npc.speed);
+                    npc.speed = new Model.Point(0,0);
+                }
+            }
+        }
+
         private void attachEvents()
         {
             // Subscribe to the screen properties
@@ -194,21 +250,8 @@ namespace TheHunt
             this.loop.Stop();
             this.delta.Stop();
 
-            if(run == true)
-            {
-                if(speedBoostDuration > 0)
-                {
-                    speedBoostDuration-=500;
-                }
-                else
-                {
-                    speedBoostActive = false;
-                    run = false;
-                }
 
-            }
-
-
+        
             // Check if player is moving
             if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
             {
@@ -230,6 +273,10 @@ namespace TheHunt
             {
                 npc.moveNPC(this.world);
             }
+
+            // Decay score
+            this.world.getScore().subtract((int)Math.Round(1 * delta));
+
             // Redraw
             this.Invalidate();
 
@@ -289,7 +336,7 @@ namespace TheHunt
                 }
 
             }
-            else if(speedBoostActive && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
+            else if(speedBoostActive && speedBoostLength > 0 && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
             {
                 this.run = down;
                 this.animate.Interval = (this.run) ? 50 : 100;
@@ -354,8 +401,14 @@ namespace TheHunt
 
             // Powerup check for collisions
             foreach (var powerup in this.world.powerups)
-            {
-                powerup.checkCollision(this.world, this);
+            { 
+                Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.world.player.sizeBreedte), (int)(this.world.player.sizeHoogte));
+                if (playerCoords.IntersectsWith(new Rectangle(powerup.x, powerup.y, (int)(powerup.getPixelWidth(this.Size)), (int)(powerup.getPixelHeight(this.Size)))))
+                {
+                    powerup.UsePowerup(this);
+                    this.world.powerups.Remove(powerup);
+                    return true;
+                }
             }
 
 
@@ -401,7 +454,7 @@ namespace TheHunt
                 // Draw the obstacles
                 foreach (Obstacle obstacle in this.world.obstacles)
                 {
-                    obstacle.draw(graphics, this.Size);
+                    obstacle.draw(graphics, this.Size,"Game");
                 }
             }
             else
@@ -419,7 +472,7 @@ namespace TheHunt
                 // Draw the Powerups
                 foreach (Powerups powerup in this.world.powerups)
                 {
-                    powerup.draw(g, this.Size,powerup.getUsed());
+                    powerup.draw(g, this.Size,"Game",powerup.getUsed());
                 }
 
                 // Draw the player
