@@ -559,7 +559,7 @@ namespace TheHunt.Designer
                 Powerups powerUps = this.world.powerups[i];
                 powerUps.sizeBreedte = (int)cellSizeX;
                 powerUps.sizeHoogte = (int)cellSizeY;
-                powerUps.draw(graphics, this.Size,powerUps.getUsed());
+                powerUps.draw(graphics, this.Size,"Designer",powerUps.getUsed());
             }
 
             //Draw the NPCs

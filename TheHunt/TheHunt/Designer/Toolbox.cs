@@ -184,8 +184,6 @@ namespace TheHunt.Designer
             else
             if (selectedObject.GetType() == typeof(Npc))
             {
-                MessageBox.Show("X:" + ((Npc)selectedObject).positions.current_position.x + " Y: " + ((Npc)selectedObject).positions.current_position.y);
-
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Npc)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;

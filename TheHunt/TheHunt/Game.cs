@@ -401,9 +401,11 @@ namespace TheHunt
 
             // Powerup check for collisions
             foreach (var powerup in this.world.powerups)
-            {
-                if(powerup.checkCollision(this.world, this))
+            { 
+                Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.world.player.sizeBreedte), (int)(this.world.player.sizeHoogte));
+                if (playerCoords.IntersectsWith(new Rectangle(powerup.x, powerup.y, (int)(powerup.getPixelWidth(this.Size)), (int)(powerup.getPixelHeight(this.Size)))))
                 {
+                    powerup.UsePowerup(this);
                     this.world.powerups.Remove(powerup);
                     return true;
                 }
@@ -470,7 +472,7 @@ namespace TheHunt
                 // Draw the Powerups
                 foreach (Powerups powerup in this.world.powerups)
                 {
-                    powerup.draw(g, this.Size,powerup.getUsed());
+                    powerup.draw(g, this.Size,"Game",powerup.getUsed());
                 }
 
                 // Draw the player
