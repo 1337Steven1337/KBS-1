@@ -26,7 +26,7 @@ namespace TheHunt.Model
 
         public void substractScore(int amount)
         {
-            if(this.score > 0)
+            if (this.score > 0)
             {
                 this.score -= amount;
             }
@@ -37,7 +37,7 @@ namespace TheHunt.Model
         }
     }
 
-   struct Point
+    struct Point
     {
         public int x;
         public int y;
