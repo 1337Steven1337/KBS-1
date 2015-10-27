@@ -130,13 +130,7 @@ namespace TheHunt.Model
         public void draw(Graphics g, Size screenSize, string drawMode)
         {
             //Set Player to the right positions on start.
-            if (drawMode == "Game" && isEersteDraw == 0)
-            {
-                this.positions.current_position = new Point((int)(this.positions.current_position.x * screenSize.Width / 40.00), (int)(this.positions.current_position.y * screenSize.Height / 20.00));
-                isEersteDraw++;
-            }
-            else if (drawMode == "Game" && isEersteDraw > 0)
-            {
+            if (drawMode == "Game") { 
                 g.DrawImage((this.sprite == null) ? bitmap : this.sprite, this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
             }
             else //this part is used in Designer

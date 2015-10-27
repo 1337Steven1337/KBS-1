@@ -85,7 +85,7 @@ namespace TheHunt
 
         public void addScore(int bonus)
         {
-            world.addScore(bonus);
+            world.getScore().add(bonus);
         }
 
         // Prepare the game
@@ -108,9 +108,6 @@ namespace TheHunt
 
             // Load the world
             this.load();
-
-            // Normalize
-            //this.normalize();
 
             // Set the main timer
             this.loop = new Timer();
@@ -163,6 +160,9 @@ namespace TheHunt
         {
             // Assign the world variable
             this.world = JsonConvert.DeserializeObject<World>(levelString);
+
+            // Normalize
+            this.normalize();
         }
 
         // Add the gamepad
@@ -262,7 +262,7 @@ namespace TheHunt
             this.Invalidate();
 
             // Check if the player is "dead"
-            if (this.world.getScore() > 0)
+            if (this.world.getScore().score > 0)
             {
             // Restart the timers
             this.delta.Reset();
@@ -370,7 +370,7 @@ namespace TheHunt
             foreach (Obstacle obstacle in this.world.obstacles)
             {
                 // Create a new rectangle representing the obstacle
-                Rectangle rObstacle = new Rectangle(obstacle.x * this.Size.Width/40, obstacle.y * this.Size.Height/20, (int)obstacle.getPixelWidth(this.Size), (int)(obstacle.getPixelHeight(this.Size)));
+                Rectangle rObstacle = new Rectangle(obstacle.x, obstacle.y, (int)obstacle.getPixelWidth(this.Size), (int)(obstacle.getPixelHeight(this.Size)));
 
                 // Check if the obstacle intersects with the object
                 if (rectangle.IntersectsWith(rObstacle))
@@ -421,44 +421,44 @@ namespace TheHunt
         {
             base.OnPaint(e);
 
-            // Get the graphic context
-            Graphics g = e.Graphics;
-
             if (objectState == null)
             {
                 this.objectState = new Bitmap(this.Size.Width, this.Size.Height);
                 Graphics graphics = Graphics.FromImage(this.objectState);
 
-            // Draw the obstacles
+                // Draw the obstacles
                 foreach (Obstacle obstacle in this.world.obstacles)
-            {
+                {
                     obstacle.draw(graphics, this.Size);
                 }
             }
             else
             {
+                // Get the graphic context
+                Graphics g = e.Graphics;
+
                 g.DrawImage(objectState,0,0);
-            // Draw the NPCs
-            foreach (Npc npc in this.world.npcs)
-            {
-                    npc.draw(g, this.Size, "Game");
-            }
+                // Draw the NPCs
+                foreach (Npc npc in this.world.npcs)
+                {
+                        npc.draw(g, this.Size, "Game");
+                }
 
-            // Draw the Powerups
-            foreach (Powerups powerup in this.world.powerups)
-            {
-                powerup.draw(g, this.Size,powerup.getUsed());
-            }
+                // Draw the Powerups
+                foreach (Powerups powerup in this.world.powerups)
+                {
+                    powerup.draw(g, this.Size,powerup.getUsed());
+                }
 
-            // Draw the player
+                // Draw the player
                 this.world.player.draw(g, this.Size, "Game");
 
-            // Draw the boss
-            //this.world.boss.draw(g, this.Size);
-        }
+                // Draw score bar
+                this.world.getScore().draw(g, this.Size);
 
-
-
+                // Draw the boss
+                //this.world.boss.draw(g, this.Size);
+            }
         }
 
         // Starts the timers
