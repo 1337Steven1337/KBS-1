@@ -389,7 +389,7 @@ namespace TheHunt.Designer
 
             foreach (Npc NPC in this.world.npcs)
             {
-                if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
+                if (NPC.positions.current_position.x == x && NPC.positions.current_position.y == y)
                 {
                     UnknownObject = NPC;
                 }

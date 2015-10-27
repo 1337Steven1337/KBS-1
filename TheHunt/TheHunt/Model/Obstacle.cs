@@ -39,7 +39,7 @@ namespace TheHunt.Model
         {
                     float screenWidth = (float)(screenSize.Width/ 40.00);
                     float screenHeight = (float)(screenSize.Height / 20.00);
-                    g.DrawImage(getImage(), this.x * screenWidth, this.y * screenHeight, screenWidth, screenHeight);
+                    g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
         }
 
         public float getPixelWidth(Size screenSize)

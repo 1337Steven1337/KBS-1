@@ -11,9 +11,6 @@ namespace TheHunt.Model
     {
         private Boolean used = false;
 
-        public Size screenSize;
-        public Rectangle powerup;
-
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
@@ -44,6 +41,7 @@ namespace TheHunt.Model
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
+                game.speedBoostDuration += 5000;
             }
             if(type == Type.Scoreboost)
             {
@@ -64,7 +62,7 @@ namespace TheHunt.Model
             {
                 float screenWidth = (float)(screenSize.Width / 40.00);
                 float screenHeight = (float)(screenSize.Height / 20.00);
-                g.DrawImage(getImage(), (int)(this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
+                g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
             }
         }
 
@@ -75,20 +73,20 @@ namespace TheHunt.Model
             this.world = world;
 
             if (playerIntersectWithPowerup() != null)
-                {
+            {
                   UsePowerup(playerIntersectWithPowerup());
-                }
             }
+        }
 
         private Powerups playerIntersectWithPowerup()
         {
             Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00));
             foreach (var pu in this.world.powerups)
             {
-                if (playerCoords.IntersectsWith(new Rectangle(pu.x * (int)(this.game.Width/40.00), pu.y * (int)(this.game.Height / 20.00), (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00))))
+                if (playerCoords.IntersectsWith(new Rectangle(pu.x, pu.y, (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00))))
                 {
                     return pu;
-                }                
+                }
             }
             return null;
         }
