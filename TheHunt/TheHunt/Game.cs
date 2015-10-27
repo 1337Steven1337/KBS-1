@@ -258,6 +258,10 @@ namespace TheHunt
             {
                 npc.moveNPC(this.world);
             }
+
+            // Decay score
+            this.world.getScore().subtract((int)Math.Round(1 * delta));
+
             // Redraw
             this.Invalidate();
 
