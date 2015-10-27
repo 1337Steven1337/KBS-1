@@ -9,7 +9,7 @@ namespace TheHunt.Model
 {
     class Powerups : Item
     {
-        public Boolean used;
+        private Boolean used = false;
 
         public Size screenSize;
         public Rectangle powerup;
@@ -33,9 +33,14 @@ namespace TheHunt.Model
             return used;
         }
 
-        public void UsePowerup()
+        public void setUsed(bool used)
         {
-            used = true;
+            this.used = used;
+        }
+
+        public void UsePowerup(Powerups pu)
+        {
+            pu.used = true;
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
@@ -52,9 +57,9 @@ namespace TheHunt.Model
             Scoreboost
         }
 
-        public void draw(Graphics g, Size screenSize)
+        public void draw(Graphics g, Size screenSize, bool isUsed)
         {
-            if (!used)
+            if (isUsed == false)
             {
                 float screenWidth = (float)(screenSize.Width / 40.00);
                 float screenHeight = (float)(screenSize.Height / 20.00);
@@ -67,41 +72,26 @@ namespace TheHunt.Model
         {
             this.game = game;
             this.world = world;
-            powerup = new Rectangle(this.x, this.y, (int)sizeBreedte, (int)sizeHoogte);
 
-            if (playerIntersectWithPowerup())
+            if (playerIntersectWithPowerup() != null)
             {
-                if (!getUsed())
-                {
-                    UsePowerup();
-                }
+                  UsePowerup(playerIntersectWithPowerup());
             }
         }
 
-        private bool playerIntersectWithPowerup()
+        private Powerups playerIntersectWithPowerup()
         {
-            //check if player intersects with Bouncers 
-            Rectangle newPlayerRectangle = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)this.world.player.sizeBreedte, (int)this.world.player.sizeHoogte);
-
+            Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00));
             foreach (var pu in this.world.powerups)
             {
-                if (newPlayerRectangle.IntersectsWith(powerup))
+                if (playerCoords.IntersectsWith(new Rectangle(pu.x * (int)(this.game.Width/40.00), pu.y * (int)(this.game.Height / 20.00), (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00))))
                 {
-                    return true;
-                }                
+                    return pu;
+                }
             }
-            return false;
+            return null;
         }
 
-        public float getPixelWidth(Size screenSize)
-        {
-            return this.width * screenSize.Width / 40;
-        }
-
-        public float getPixelHeight(Size screenSize)
-        {
-            return this.height * screenSize.Height / 20;
-        }
 
         private Image getImage()
         {
