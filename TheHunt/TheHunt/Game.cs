@@ -81,7 +81,7 @@ namespace TheHunt
 
         public void addScore(int bonus)
         {
-            world.addScore(bonus);
+            world.getScore().add(bonus);
         }
 
         // Prepare the game
@@ -234,7 +234,7 @@ namespace TheHunt
             this.Invalidate();
 
             // Check if the player is "dead"
-            if (this.world.getScore() > 0)
+            if (this.world.getScore().score > 0)
             {
             // Restart the timers
             this.delta.Reset();

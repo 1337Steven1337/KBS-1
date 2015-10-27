@@ -64,15 +64,15 @@ namespace TheHunt.Model
         {
             if (this.type == Type.Enemy)
             {
-                world.substractScore(2);
+                world.getScore().subtract(2);
             }
             else if (this.type == Type.H_Bouncer)
             {
-                world.substractScore(4);
+                world.getScore().subtract(4);
             }
             else
             {
-                world.substractScore(4);
+                world.getScore().subtract(4);
             }
         }
 

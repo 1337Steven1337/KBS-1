@@ -72,5 +72,22 @@ namespace TheHunt.Model
             this.score = score;
             this.world = world;
         }
+
+        public void add(int bonus)
+        {
+            score += bonus;
+        }
+
+        public void subtract(int amount)
+        {
+            if (this.score > 0)
+            {
+                this.score -= amount;
+            }
+            else
+            {
+                this.score = (this.score < 0) ? 0 : this.score;
+            }
+        }
     }
 }
