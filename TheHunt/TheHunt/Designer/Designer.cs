@@ -211,6 +211,14 @@ namespace TheHunt.Designer
                     fieldObject.y = (int)(y);
                     this.world.obstacles.Add(fieldObject);
                 }
+                if (this.items.getMode() == "PURun")
+                {
+                    Powerups powerUp = this.items.getActive<Powerups>().clone();
+                    powerUp.x = (int)(x);
+                    powerUp.y = (int)(y);
+                    this.world.powerups.Add(powerUp);
+                }
+
                 if (this.items.getMode() == "WorldGround")
                 {
                     Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
@@ -505,6 +513,16 @@ namespace TheHunt.Designer
                 obj.draw(graphics, this.Size);
             }
 
+            // Draw the field objects
+            for (int i = 0; i < this.world.powerups.Count; i++)
+            {
+                Powerups powerUps = this.world.powerups[i];
+                powerUps.sizeBreedte = (int)cellSizeX;
+                powerUps.sizeHoogte = (int)cellSizeY;
+                powerUps.draw(graphics, this.Size);
+            }
+
+            //Draw the NPCs
             for (int i = 0; i < this.world.npcs.Count; i++)
             {
                 Npc npc = this.world.npcs[i];
