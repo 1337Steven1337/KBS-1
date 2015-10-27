@@ -105,6 +105,9 @@ namespace TheHunt
             // Load the world
             this.load();
 
+            // Normalize
+            //this.normalize();
+
             // Set the main timer
             this.loop = new Timer();
             this.loop.Interval = 1000 / targetFps;
@@ -122,13 +125,40 @@ namespace TheHunt
             startTimers(true);
         }
 
+        // Normalizes the coordinates
+        private void normalize()
+        {
+            double ratioX = this.Size.Width / 40.00;
+            double ratioY = this.Size.Height / 20.00;
+
+            this.world.player.sizeBreedte = this.Width / 40 - 5;
+            this.world.player.sizeHoogte = this.Height / 20 - 5;
+
+            this.world.player.positions.current_position = new Model.Point(
+                (int)(this.world.player.positions.current_position.x * ratioX),
+                (int)(this.world.player.positions.current_position.y * ratioY)
+                );
+
+            foreach (Obstacle obstacle in this.world.obstacles)
+            {
+                obstacle.x = (int)(obstacle.x * ratioX);
+                obstacle.y = (int)(obstacle.y * ratioY);
+            }
+
+            foreach (Npc npc in this.world.npcs)
+            {
+                npc.positions.current_position = new Model.Point(
+                    (int)(npc.positions.current_position.x * ratioX),
+                    (int)(npc.positions.current_position.y * ratioY)
+                    );
+            }
+        }
+
         // Load the world
         private void load()
         {
             // Assign the world variable
             this.world = JsonConvert.DeserializeObject<World>(levelString);
-            this.world.player.sizeBreedte = this.Width / 40 - 5;
-            this.world.player.sizeHoogte = this.Height / 20 - 5;
         }
 
         // Add the gamepad

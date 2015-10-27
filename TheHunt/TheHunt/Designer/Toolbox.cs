@@ -22,6 +22,7 @@ namespace TheHunt.Designer
         private string mode = "";
         private object active = null;
         private Form form;
+        private object selectedObject;
 
         public Toolbox(Form Designform)
         {
@@ -157,8 +158,9 @@ namespace TheHunt.Designer
 
         }
 
-        public void setValueAfterSelectClick(object selectedObject)
+        public void setValueAfterSelectClick(object Object)
         {
+            this.selectedObject = Object;
             if (selectedObject.GetType() == typeof(Obstacle))
             {
                 //Setting Property Values
@@ -184,6 +186,8 @@ namespace TheHunt.Designer
             else
             if (selectedObject.GetType() == typeof(Npc))
             {
+                MessageBox.Show("X:" + ((Npc)selectedObject).positions.current_position.x + " Y: " + ((Npc)selectedObject).positions.current_position.y);
+
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Npc)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -201,9 +205,6 @@ namespace TheHunt.Designer
 
 
                 this.numericWalkSpeed.Click += delegate (object se, EventArgs ea) { ((Npc)selectedObject).speed.x = int.Parse(this.numericWalkSpeed.Value.ToString()); ((Npc)selectedObject).speed.y = int.Parse(this.numericWalkSpeed.Value.ToString()); };
-
-
-                //ADD SETTER FUNCTION
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
