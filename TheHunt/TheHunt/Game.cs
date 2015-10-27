@@ -185,7 +185,6 @@ namespace TheHunt
             foreach (var powerup in this.world.powerups)
             {
                 powerup.checkCollision(this.world, this);
-
             }
 
             // Redraw
