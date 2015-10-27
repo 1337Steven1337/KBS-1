@@ -124,7 +124,7 @@ namespace TheHunt.Designer
             if (this.mode == "PURun")
             {
                 powerUps.type = Powerups.Type.Speedboost;
-                powerUps.used = false;
+                powerUps.setUsed(false);
                 this.active = powerUps;
             }
 

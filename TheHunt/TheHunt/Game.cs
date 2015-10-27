@@ -185,14 +185,6 @@ namespace TheHunt
             {
                 npc.moveNPC(this.world);
             }
-
-            // Powerup check for collisions
-            foreach (var powerup in this.world.powerups)
-            {
-                powerup.checkCollision(this.world, this);
-
-            }
-
             // Redraw
             this.Invalidate();
 
@@ -314,6 +306,14 @@ namespace TheHunt
                 }
             }
 
+
+            // Powerup check for collisions
+            foreach (var powerup in this.world.powerups)
+            {
+                powerup.checkCollision(this.world, this);
+            }
+
+
             return false;
         }
 
@@ -374,7 +374,7 @@ namespace TheHunt
             // Draw the Powerups
             foreach (Powerups powerup in this.world.powerups)
             {
-                powerup.draw(g, this.Size);
+                powerup.draw(g, this.Size,powerup.getUsed());
             }
 
             // Draw the player
