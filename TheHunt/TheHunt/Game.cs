@@ -54,7 +54,8 @@ namespace TheHunt
 
         // is Speedboost Active?
         public bool speedBoostActive = false;
-        public int speedBoostDuration = 0;
+        public Timer speedBoostTimer = new Timer();
+        public int speedBoostLength = 0;
 
         // Are we running?
         private bool run = false;
@@ -118,12 +119,33 @@ namespace TheHunt
             this.animate.Interval = 100;
             this.animate.Tick += updateAnimations;
 
+
+            // Set speedboost timer
+            this.speedBoostTimer.Interval = 1000;
+            this.speedBoostTimer.Tick += updateSpeedBoostLength;
+
             // Set the stopwatch
             this.delta = new Stopwatch();
 
             // Start the game timer/stopwatch
             startTimers(true);
         }
+
+
+        private void updateSpeedBoostLength(object sender,EventArgs e)
+        {
+            if (this.speedBoostLength > 0)
+            {
+                this.speedBoostLength -= 1000;
+            }
+            else
+            {
+                this.speedBoostActive = false;
+                this.run = false;
+                this.speedBoostTimer.Stop();
+            }
+        }
+
 
         // Normalizes the coordinates
         private void normalize()
@@ -194,21 +216,8 @@ namespace TheHunt
             this.loop.Stop();
             this.delta.Stop();
 
-            if(run == true)
-            {
-                if(speedBoostDuration > 0)
-                {
-                    speedBoostDuration-=500;
-                }
-                else
-                {
-                    speedBoostActive = false;
-                    run = false;
-                }
 
-            }
-
-
+        
             // Check if player is moving
             if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
             {
@@ -289,7 +298,7 @@ namespace TheHunt
                 }
 
             }
-            else if(speedBoostActive && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
+            else if(speedBoostActive && speedBoostLength > 0 && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
             {
                 this.run = down;
                 this.animate.Interval = (this.run) ? 50 : 100;
@@ -355,7 +364,11 @@ namespace TheHunt
             // Powerup check for collisions
             foreach (var powerup in this.world.powerups)
             {
-                powerup.checkCollision(this.world, this);
+                if(powerup.checkCollision(this.world, this))
+                {
+                    this.world.powerups.Remove(powerup);
+                    return true;
+                }
             }
 
 

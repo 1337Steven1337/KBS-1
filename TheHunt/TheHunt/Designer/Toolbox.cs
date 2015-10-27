@@ -68,7 +68,7 @@ namespace TheHunt.Designer
 
             PURunBox.Click += Item_Click;
             PURunBox.Tag = "PURun";
-            PURunBox.Image = Properties.Resources.Speedboost;
+            PURunBox.Image = Properties.Resources.SpeedUp;
 
 
 

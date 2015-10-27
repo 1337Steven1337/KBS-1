@@ -41,13 +41,13 @@ namespace TheHunt.Model
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
-                game.speedBoostDuration += 5000;
+                game.speedBoostLength += 5000;
+                game.speedBoostTimer.Start();
             }
             if(type == Type.Scoreboost)
             {
                 game.addScore(10000);
             }
-
         }
 
         public enum Type
@@ -67,7 +67,7 @@ namespace TheHunt.Model
         }
 
 
-        public void checkCollision(World world, Game game)
+        public bool checkCollision(World world, Game game)
         {
             this.game = game;
             this.world = world;
@@ -75,7 +75,9 @@ namespace TheHunt.Model
             if (playerIntersectWithPowerup() != null)
             {
                   UsePowerup(playerIntersectWithPowerup());
+                return true;
             }
+            return false;
         }
 
         private Powerups playerIntersectWithPowerup()
@@ -98,7 +100,7 @@ namespace TheHunt.Model
             {
                 if (this.type == Type.Speedboost)
                 {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.Speedboost);
+                    this.image = new Bitmap(TheHunt.Properties.Resources.SpeedUp);
                 }
                 else if (this.type == Type.Scoreboost)
                 {

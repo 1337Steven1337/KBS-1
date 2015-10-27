@@ -281,6 +281,7 @@
     <None Include="Resources\fenceLeft.png" />
     <None Include="Resources\Hand-Touch2-512.png" />
     <Content Include="Resources\restartBtn.png" />
+    <None Include="Resources\SpeedUp.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
