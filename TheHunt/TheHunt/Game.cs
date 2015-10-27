@@ -106,7 +106,7 @@ namespace TheHunt
             this.load();
 
             // Normalize
-            //this.normalize();
+            this.normalize();
 
             // Set the main timer
             this.loop = new Timer();
@@ -342,7 +342,7 @@ namespace TheHunt
             foreach (Obstacle obstacle in this.world.obstacles)
             {
                 // Create a new rectangle representing the obstacle
-                Rectangle rObstacle = new Rectangle(obstacle.x * this.Size.Width/40, obstacle.y * this.Size.Height/20, (int)obstacle.getPixelWidth(this.Size), (int)(obstacle.getPixelHeight(this.Size)));
+                Rectangle rObstacle = new Rectangle(obstacle.x, obstacle.y, (int)obstacle.getPixelWidth(this.Size), (int)(obstacle.getPixelHeight(this.Size)));
 
                 // Check if the obstacle intersects with the object
                 if (rectangle.IntersectsWith(rObstacle))

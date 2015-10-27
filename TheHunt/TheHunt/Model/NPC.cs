@@ -84,13 +84,7 @@ namespace TheHunt.Model
             Pen pen = new Pen(Color.Red, 1);
             SolidBrush myBrush = new SolidBrush(Color.FromArgb(50, Color.DarkRed));
 
-            if (isEersteDraw == 0 && drawMode == "Game")
-            {
-                this.positions.current_position = new Point((int)(this.positions.current_position.x * screenSize.Width / 40.00), (int)(this.positions.current_position.y * screenSize.Height / 20.00));
-                isEersteDraw++;
-            }
-            else if (isEersteDraw > 0 && drawMode == "Game")
-            {
+            if (isEersteDraw == 0 && drawMode == "Game") { 
                 if (type == Type.Enemy)
                 {
                     Rectangle radiusRect = new Rectangle(positions.current_position.x + sizeBreedte / 2 - (newRange * 2 / 2), positions.current_position.y + sizeHoogte / 2 - (newRange * 2 / 2), newRange * 2, newRange * 2);
@@ -335,7 +329,7 @@ namespace TheHunt.Model
             //check if NPC intersect with wall
             foreach (var item in this.world.obstacles)
             {
-                Rectangle wall = new Rectangle((int)(item.x * this.screenSize.Width / 40), (int)(item.y * this.screenSize.Height / 20), (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
+                Rectangle wall = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
 
                 if (npc.IntersectsWith(wall))
                 {
