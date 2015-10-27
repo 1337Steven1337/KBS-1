@@ -16,6 +16,7 @@ namespace TheHunt.Designer
     public partial class Toolbox : Form
     {
         private Obstacle fieldObjects = new Obstacle();
+        private Powerups powerUps = new Powerups();
         private Model.Player player = new Model.Player();
         private Npc npc = new Npc();
         private string mode = "";
@@ -39,7 +40,7 @@ namespace TheHunt.Designer
             this.Size = new Size((int)(form.Size.Width * 0.25), form.Size.Height);          
 
             PictureBox wallBox = new PictureBox();
-
+            PictureBox PURunBox = new PictureBox();
 
             /*
             PictureBox fenceLeftBox = new PictureBox();
@@ -63,6 +64,10 @@ namespace TheHunt.Designer
             wallBox.Click += Item_Click;
             wallBox.Tag = "FieldObject";
             wallBox.Image = Properties.Resources.wall;
+
+            PURunBox.Click += Item_Click;
+            PURunBox.Tag = "PURun";
+            PURunBox.Image = Properties.Resources.Speedboost;
 
 
 
@@ -93,6 +98,7 @@ namespace TheHunt.Designer
             this.NPCPanel.Controls.Add(VBouncerBox);
 
             this.worldPanel.Controls.Add(wallBox);
+            this.worldPanel.Controls.Add(PURunBox);
 
             initPropertyPanel();
             initPlayerPanel();
@@ -114,6 +120,12 @@ namespace TheHunt.Designer
             {
                 fieldObjects.type = Obstacle.Type.wall;
                 this.active = fieldObjects;
+            }
+            if (this.mode == "PURun")
+            {
+                powerUps.type = Powerups.Type.Speedboost;
+                powerUps.used = false;
+                this.active = powerUps;
             }
 
             if (this.mode == "WorldGround")
@@ -242,7 +254,6 @@ namespace TheHunt.Designer
         {
             this.worldPanel.Size = new Size((int)(this.Width * 0.9), (int)(this.Height * 0.22));
             this.worldPanel.Location = new System.Drawing.Point((int)(this.Location.X + this.Size.Width * 0.05), this.Location.Y);
-
         }
 
         public void initNPCPanel()

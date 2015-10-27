@@ -25,7 +25,7 @@ namespace TheHunt.Model
 
         private World world = null;
         private Game game = null;
-        public Image image = null;
+        private Image image = null;
 
 
         public Boolean getUsed()
@@ -56,13 +56,12 @@ namespace TheHunt.Model
         {
             if (!used)
             {
-                float screenWidth = getOnScreenHeight(screenSize);
-                float screenHeight = getOnScreenHeight(screenSize);
-
-                g.DrawImage(getImage(), this.x, this.y, sizeBreedte, sizeHoogte);
-                this.screenSize = screenSize;
+                float screenWidth = (float)(screenSize.Width / 40.00);
+                float screenHeight = (float)(screenSize.Height / 20.00);
+                g.DrawImage(getImage(), (int)(this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
             }
         }
+
 
         public void checkCollision(World world, Game game)
         {
