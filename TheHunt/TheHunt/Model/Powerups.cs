@@ -47,13 +47,17 @@ namespace TheHunt.Model
             {
                 game.addScore(10000);
             }
-
+            if(type == Type.Emp)
+            {
+                game.Emp();
+            }
         }
 
         public enum Type
         {
             Speedboost,
-            Scoreboost
+            Scoreboost,
+            Emp
         }
 
         public void draw(Graphics g, Size screenSize, bool isUsed)
@@ -103,6 +107,10 @@ namespace TheHunt.Model
                 else if (this.type == Type.Scoreboost)
                 {
                     this.image = new Bitmap(TheHunt.Properties.Resources.Scoreboost);
+                }
+                else if (this.type == Type.Emp)
+                {
+                    this.image = new Bitmap(TheHunt.Properties.Resources.Emp);
                 }
             }
             return this.image;

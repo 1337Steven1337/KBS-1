@@ -56,6 +56,10 @@ namespace TheHunt
         public bool speedBoostActive = false;
         public int speedBoostDuration = 0;
 
+        // Emp
+        public bool emp = false;
+        private List<Model.Point> npcSpeed = new List<Model.Point>();
+
         // Are we running?
         private bool run = false;
 
@@ -173,6 +177,30 @@ namespace TheHunt
             Controls.Add(left);
             Controls.Add(down);
             Controls.Add(right);
+        }
+
+        public void Emp()
+        {
+
+            if (emp)
+            {
+                foreach (Npc npc in this.world.npcs)
+                {
+                    for(int i = 0; i < this.world.npcs.Count; i++)
+                    {
+                        npc.speed = npcSpeed[i];
+                        npcSpeed.Remove(npcSpeed[i]);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Npc npc in this.world.npcs)
+                {
+                    npcSpeed.Add(npc.speed);
+                    npc.speed = new Model.Point(0,0);
+                }
+            }
         }
 
         private void attachEvents()
