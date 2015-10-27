@@ -54,7 +54,7 @@ namespace TheHunt.Model
 
         public enum Type
         {
-            Speedboost, 
+            Speedboost,
             Scoreboost
         }
 
