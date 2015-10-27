@@ -120,6 +120,12 @@ namespace TheHunt.Designer
                 powerUps.setUsed(false);
                 this.active = powerUps;
             }
+            if (this.mode == "PUScore")
+            {
+                powerUps.type = Powerups.Type.Scoreboost;
+                powerUps.setUsed(false);
+                this.active = powerUps;
+            }
 
             if (this.mode == "WorldGround")
             {

@@ -218,6 +218,13 @@ namespace TheHunt.Designer
                     powerUp.y = (int)(y);
                     this.world.powerups.Add(powerUp);
                 }
+                if (this.items.getMode() == "PUScore")
+                {
+                    Powerups powerUp = this.items.getActive<Powerups>().clone();
+                    powerUp.x = (int)(x);
+                    powerUp.y = (int)(y);
+                    this.world.powerups.Add(powerUp);
+                }
 
                 if (this.items.getMode() == "WorldGround")
                 {
@@ -543,7 +550,7 @@ namespace TheHunt.Designer
             for (int i = 0; i < this.world.obstacles.Count; i++)
             {
                 Obstacle obj = this.world.obstacles[i];
-                obj.draw(graphics, this.Size);
+                obj.draw(graphics, this.Size,"Designer");
             }
 
             // Draw the field objects

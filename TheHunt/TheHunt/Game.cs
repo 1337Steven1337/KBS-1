@@ -168,6 +168,12 @@ namespace TheHunt
                 obstacle.y = (int)(obstacle.y * ratioY);
             }
 
+            foreach (Powerups powerup in this.world.powerups)
+            {
+                powerup.x = (int)(powerup.x * ratioX);
+                powerup.y = (int)(powerup.y * ratioY);
+            }
+
             foreach (Npc npc in this.world.npcs)
             {
                 npc.positions.current_position = new Model.Point(
@@ -446,7 +452,7 @@ namespace TheHunt
                 // Draw the obstacles
                 foreach (Obstacle obstacle in this.world.obstacles)
                 {
-                    obstacle.draw(graphics, this.Size);
+                    obstacle.draw(graphics, this.Size,"Game");
                 }
             }
             else
