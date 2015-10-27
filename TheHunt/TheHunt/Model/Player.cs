@@ -52,7 +52,7 @@ namespace TheHunt.Model
             Point speed = (run) ? this.movement.run : this.movement.walk;
             Point newPosition = new Point(this.positions.current_position.x, this.positions.current_position.y);
 
-            switch(key)
+            switch (key)
             {
                 case Keys.Up:
                     newPosition.y -= (int)(speed.y * delta);
@@ -68,7 +68,7 @@ namespace TheHunt.Model
                     break;
             }
 
-            if(!game.intersects(newPosition, new Size(sizeBreedte, sizeHoogte)))
+            if (!game.intersects(newPosition, new Size(sizeBreedte, sizeHoogte)))
             {
                 lastPositionCounter++;
 
@@ -84,9 +84,9 @@ namespace TheHunt.Model
 
         public void animate(Keys current, Keys last)
         {
-            if(current == Keys.None)
+            if (current == Keys.None)
             {
-                switch(last)
+                switch (last)
                 {
                     case Keys.Up:
                         this.sprite = this.sprites[4];
@@ -134,9 +134,10 @@ namespace TheHunt.Model
             {
                 this.positions.current_position = new Point((int)(this.positions.current_position.x * screenSize.Width / 40.00), (int)(this.positions.current_position.y * screenSize.Height / 20.00));
                 isEersteDraw++;
-            } else if (drawMode == "Game" && isEersteDraw > 0)
+            }
+            else if (drawMode == "Game" && isEersteDraw > 0)
             {
-                g.DrawImage((this.sprite == null) ? bitmap : this.sprite,this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
+                g.DrawImage((this.sprite == null) ? bitmap : this.sprite, this.positions.current_position.x, this.positions.current_position.y, sizeBreedte, sizeHoogte);
             }
             else //this part is used in Designer
             {

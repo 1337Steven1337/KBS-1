@@ -3,16 +3,26 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace TheHunt
-{ 
+{
 
-    public partial class  OptionsDialog : Form
+    public partial class OptionsDialog : Form
     {
 
         private Boolean isClosed = false;
         private Boolean changeFullScreen = false;
-         
+
+        protected override void WndProc(ref Message message)
+        {
+            const int WM_NCHITTEST = 0x0084;
+
+            if (message.Msg == WM_NCHITTEST)
+                return;
+
+            base.WndProc(ref message);
+        }
+
         public OptionsDialog(Boolean inGame)
-        { 
+        {
             InitializeComponent();
             FullScreenText();
             //layoutfix(omslachtigerwijs)
@@ -38,15 +48,20 @@ namespace TheHunt
             this.labelEffects.Location = new System.Drawing.Point(17, 210);
             this.labelEffects.Size = new System.Drawing.Size(149, 20);
 
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+
             if (inGame)
             {
+                this.Controls.Remove(buttonFullScreen);
                 buttonFullScreen.Enabled = false;
             }
-            //this.Visible = true;
         }
 
         private void OptionsDialog_Load(object sender, EventArgs e)
         {
+            //Inladen laatst opgeslagen volumeopties
             trackBarMasterVolume.Value = (int)Properties.Sound.Default.master;
             trackBarMusicVolume.Value = (int)Properties.Sound.Default.music;
             trackBarEffectsVolume.Value = (int)Properties.Sound.Default.effects;
@@ -115,8 +130,5 @@ namespace TheHunt
             Properties.Sound.Default.effects = trackBarEffectsVolume.Value;
             Properties.Sound.Default.Save();
         }
-
-        //this.testlabel
-
     }
 }

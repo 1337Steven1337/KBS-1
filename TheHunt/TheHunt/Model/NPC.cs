@@ -31,7 +31,7 @@ namespace TheHunt.Model
         private int randomPosition = 0;
        
         //Enemy's normal start range
-        private int normalRange = 50;
+        private int normalRange = 100;
 
         private Boolean playerIsInRange = false;
 
@@ -122,9 +122,9 @@ namespace TheHunt.Model
                     this.substractScore();
                     if (!npcIntersectsWithObjects())
                     {
-                        if (newRange < normalRange + 100)
+                        if (newRange < normalRange * 2)
                         {
-                            newRange += 1;
+                            newRange += 3;
                         }
 
                         if (Game.isPlayerMoving)
@@ -197,7 +197,7 @@ namespace TheHunt.Model
                 }
                 else
                 {
-                    newRange -= 1;
+                    newRange -= 2;
                     if (EnemyChooseNewRoute())
                     {
                         this.positions.current_position.x = oldx;
