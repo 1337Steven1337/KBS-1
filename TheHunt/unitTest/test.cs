@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheHunt;
 
 namespace unitTest
 {
@@ -9,6 +10,7 @@ namespace unitTest
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
