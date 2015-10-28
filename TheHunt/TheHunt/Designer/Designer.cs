@@ -226,6 +226,14 @@ namespace TheHunt.Designer
                     this.world.powerups.Add(powerUp);
                 }
 
+                if (this.items.getMode() == "PUEMP")
+                {
+                    Powerups powerUp = this.items.getActive<Powerups>().clone();
+                    powerUp.x = (int)(x);
+                    powerUp.y = (int)(y);
+                    this.world.powerups.Add(powerUp);
+                }
+
                 if (this.items.getMode() == "WorldGround")
                 {
                     Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
@@ -505,6 +513,8 @@ namespace TheHunt.Designer
                 if (Properties.Screen.Default.full)
                 {
                     this.Bounds = Screen.PrimaryScreen.Bounds;
+                    this.Size = new Size((int)(this.startForm.Size.Width * 0.8), this.startForm.Size.Height);
+                    this.TopMost = true;
                 }
                 else
                 {
