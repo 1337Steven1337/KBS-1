@@ -35,11 +35,18 @@ namespace TheHunt.Model
             fenceDownRight
         }
 
-        public void draw(Graphics g, Size screenSize)
+        public void draw(Graphics g, Size screenSize, string drawMode)
         {
                     float screenWidth = (float)(screenSize.Width/ 40.00);
                     float screenHeight = (float)(screenSize.Height / 20.00);
-                    g.DrawImage(getImage(), this.x * screenWidth, this.y * screenHeight, screenWidth, screenHeight);
+            if (drawMode == "Game")
+            {
+                g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
+            }else if (drawMode == "Designer")
+            {
+                g.DrawImage(getImage(), this.x * screenWidth, this.y * screenHeight, screenWidth, screenHeight);
+            }
+                    
         }
 
         public float getPixelWidth(Size screenSize)

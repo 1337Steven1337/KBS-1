@@ -10,12 +10,9 @@ namespace TheHunt.Model
     class Powerups : Item
     {
         private Boolean used = false;
-
-        public Size screenSize;
-        public Rectangle powerup;
-
-        public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
-        public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
+        public int speedBonusDuration = 5000;
+        public int EMPDuration = 2000;
+        public int ScoreBonus = 1000;
 
         public int x = 0;
         public int y = 0;
@@ -23,8 +20,7 @@ namespace TheHunt.Model
         public int width = 1;
         public Type type;
 
-        private World world = null;
-        private Game game = null;
+
         private Image image = null;
 
 
@@ -38,73 +34,77 @@ namespace TheHunt.Model
             this.used = used;
         }
 
-        public void UsePowerup(Powerups pu)
+        public void UsePowerup(Game game)
         {
-            pu.used = true;
+            setUsed(true);
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
+                game.speedBoostLength += speedBonusDuration;
+                game.speedBoostTimer.Start();
             }
             if(type == Type.Scoreboost)
             {
-                game.addScore(10000);
+                game.addScore(ScoreBonus);
             }
-
+            if(type == Type.Emp)
+            {
+                game.emp = true;
+                game.Emp(EMPDuration);
+        }
         }
 
         public enum Type
         {
             Speedboost,
-            Scoreboost
+            Scoreboost,
+            Emp
         }
 
-        public void draw(Graphics g, Size screenSize, bool isUsed)
+        public void draw(Graphics g, Size screenSize, string drawMode, bool isUsed)
         {
-            if (isUsed == false)
-            {
                 float screenWidth = (float)(screenSize.Width / 40.00);
                 float screenHeight = (float)(screenSize.Height / 20.00);
-                g.DrawImage(getImage(), (int)(this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
-            }
-        }
-
-
-        public void checkCollision(World world, Game game)
-        {
-            this.game = game;
-            this.world = world;
-
-            if (playerIntersectWithPowerup() != null)
-                {
-                  UsePowerup(playerIntersectWithPowerup());
-                }
-            }
-
-        private Powerups playerIntersectWithPowerup()
-        {
-            Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00));
-            foreach (var pu in this.world.powerups)
+            if (drawMode == "Game")
             {
-                if (playerCoords.IntersectsWith(new Rectangle(pu.x * (int)(this.game.Width/40.00), pu.y * (int)(this.game.Height / 20.00), (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00))))
+                if (isUsed == false)
                 {
-                    return pu;
-                }                
+                    g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
             }
-            return null;
+        }
+            else if (drawMode == "Designer")
+            {
+                g.DrawImage(getImage(), (this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
+            }
+
         }
 
 
-        private Image getImage()
+        public float getPixelWidth(Size screenSize)
+            {
+            return this.width * screenSize.Width / 40;
+        }
+
+        public float getPixelHeight(Size screenSize)
+                {
+            return this.height * screenSize.Height / 20;
+        }
+
+        public Image getImage()
         {
             if (this.image == null)
             {
                 if (this.type == Type.Speedboost)
                 {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.Speedboost);
+                    this.image = new Bitmap(TheHunt.Properties.Resources.SpeedUp);
                 }
                 else if (this.type == Type.Scoreboost)
                 {
                     this.image = new Bitmap(TheHunt.Properties.Resources.Scoreboost);
+                }
+                else if (this.type == Type.Emp)
+                {
+                    this.image = new Bitmap(TheHunt.Properties.Resources.emp);
                 }
             }
             return this.image;

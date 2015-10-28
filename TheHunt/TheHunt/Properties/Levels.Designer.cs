@@ -149,7 +149,247 @@ namespace TheHunt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{\r\n  \"finish\": \r\n        {\r\n      \"x\": 1,\r\n      \"y\": 15,\r\n      \"height\": 1,\r\n  " +
+            "    \"width\": 1\r\n    },\r\n  \"powerups\": [\r\n    {\r\n      \"sizeBreedte\": 30,\r\n      " +
+            "\"sizeHoogte\": 43,\r\n      \"x\": 23,\r\n      \"y\": 9,\r\n      \"height\": 1,\r\n      \"wid" +
+            "th\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 5,\r\n      \"y\": 5,\r\n      \"he" +
+            "ight\": 3,\r\n      \"width\": 3,\r\n      \"type\": 1\r\n    }\r\n  ],\r\n  \"obstacles\": [\r\n  " +
+            "  {\r\n      \"x\": 0,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      " +
+            "\"type\": 0\r\n    },\r\n    {\r\n      \"x\": 1,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n    " +
+            "  \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 2,\r\n      \"y\": 6,\r\n   " +
+            "   \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 4" +
+            ",\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    }," +
+            "\r\n    {\r\n      \"x\": 5,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n  " +
+            "    \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 6,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n" +
+            "      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 7,\r\n      \"y\": 6,\r" +
+            "\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x" +
+            "\": 7,\r\n      \"y\": 5,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n  " +
+            "  },\r\n    {\r\n      \"x\": 7,\r\n      \"y\": 4,\r\n      \"height\": 1,\r\n      \"width\": 1," +
+            "\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 7,\r\n      \"y\": 3,\r\n      \"height\": " +
+            "1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\"" +
+            ": 0,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n   " +
+            "   \"x\": 14,\r\n      \"y\": 1,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\":" +
+            " 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 2,\r\n      \"height\": 1,\r\n      \"wid" +
+            "th\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 3,\r\n      \"h" +
+            "eight\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n " +
+            "     \"y\": 4,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n  " +
+            "  {\r\n      \"x\": 14,\r\n      \"y\": 5,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n     " +
+            " \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n  " +
+            "    \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 7,\r\n" +
+            "      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\"" +
+            ": 14,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n  " +
+            "  },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 9,\r\n      \"height\": 1,\r\n      \"width\": 1" +
+            ",\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 10,\r\n      \"height" +
+            "\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      " +
+            "\"y\": 11,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r" +
+            "\n      \"x\": 14,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"t" +
+            "ype\": 0\r\n    },\r\n    {\r\n      \"x\": 13,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n    " +
+            "  \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 12,\r\n      \"y\": 12,\r\n " +
+            "     \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\":" +
+            " 11,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n  " +
+            "  },\r\n    {\r\n      \"x\": 10,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": " +
+            "1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 9,\r\n      \"y\": 12,\r\n      \"height" +
+            "\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 8,\r\n      \"" +
+            "y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n" +
+            "      \"x\": 7,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"typ" +
+            "e\": 0\r\n    },\r\n    {\r\n      \"x\": 6,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"" +
+            "width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 15,\r\n      \"y\": 12,\r\n    " +
+            "  \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 16" +
+            ",\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    }" +
+            ",\r\n    {\r\n      \"x\": 17,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r" +
+            "\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 18,\r\n      \"y\": 12,\r\n      \"height\":" +
+            " 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 19,\r\n      \"y" +
+            "\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n " +
+            "     \"x\": 20,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"typ" +
+            "e\": 0\r\n    },\r\n    {\r\n      \"x\": 21,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      " +
+            "\"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 22,\r\n      \"y\": 12,\r\n   " +
+            "   \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 2" +
+            "3,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    " +
+            "},\r\n    {\r\n      \"x\": 24,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1," +
+            "\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 25,\r\n      \"y\": 12,\r\n      \"height\"" +
+            ": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 26,\r\n      \"" +
+            "y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n" +
+            "      \"x\": 27,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"ty" +
+            "pe\": 0\r\n    },\r\n    {\r\n      \"x\": 28,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n     " +
+            " \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 29,\r\n      \"y\": 12,\r\n  " +
+            "    \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": " +
+            "30,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n   " +
+            " },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 11,\r\n      \"height\": 1,\r\n      \"width\": 1" +
+            ",\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 10,\r\n      \"height" +
+            "\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      " +
+            "\"y\": 9,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n" +
+            "      \"x\": 30,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"typ" +
+            "e\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 7,\r\n      \"height\": 1,\r\n      \"" +
+            "width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 6,\r\n     " +
+            " \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 39," +
+            "\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r" +
+            "\n    {\r\n      \"x\": 38,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n  " +
+            "    \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 37,\r\n      \"y\": 6,\r\n      \"height\": 1,\r" +
+            "\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 31,\r\n      \"y\": 6" +
+            ",\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      " +
+            "\"x\": 32,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r" +
+            "\n    },\r\n    {\r\n      \"x\": 33,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\"" +
+            ": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 34,\r\n      \"y\": 6,\r\n      \"heig" +
+            "ht\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n    " +
+            "  \"y\": 0,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {" +
+            "\r\n      \"x\": 30,\r\n      \"y\": 1,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"t" +
+            "ype\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 2,\r\n      \"height\": 1,\r\n     " +
+            " \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 5,\r\n   " +
+            "   \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 2" +
+            "2,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    }" +
+            ",\r\n    {\r\n      \"x\": 21,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n" +
+            "      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 23,\r\n      \"y\": 8,\r\n      \"height\": 1" +
+            ",\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 24,\r\n      \"y\":" +
+            " 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n    " +
+            "  \"x\": 24,\r\n      \"y\": 7,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": " +
+            "0\r\n    },\r\n    {\r\n      \"x\": 21,\r\n      \"y\": 7,\r\n      \"height\": 1,\r\n      \"widt" +
+            "h\": 1,\r\n      \"type\": 0\r\n    }\r\n  ],\r\n  \"npcs\": [\r\n    {\r\n      \"speed\": {\r\n    " +
+            "    \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"current_po" +
+            "sition\": {\r\n          \"x\": 10,\r\n          \"y\": 6\r\n        },\r\n        \"last_posi" +
+            "tion\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"scree" +
+            "nSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n   " +
+            "   \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n  " +
+            "  },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      " +
+            "\"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 10,\r\n          \"y\"" +
+            ": 2\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0" +
+            "\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0," +
+            " 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n    " +
+            "  \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1" +
+            ",\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {" +
+            "\r\n          \"x\": 7,\r\n          \"y\": 9\r\n        },\r\n        \"last_position\": {\r\n " +
+            "         \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"13" +
+            "82, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoo" +
+            "gte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {" +
+            "\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\"" +
+            ": {\r\n        \"current_position\": {\r\n          \"x\": 2,\r\n          \"y\": 14\r\n      " +
+            "  },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }" +
+            "\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n     " +
+            " \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\":" +
+            " 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 10,\r\n       " +
+            " \"y\": 10\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n       " +
+            "   \"x\": 33,\r\n          \"y\": 12\r\n        },\r\n        \"last_position\": {\r\n        " +
+            "  \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 110" +
+            "4\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 5" +
+            "5,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n     " +
+            " \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {\r\n  " +
+            "      \"current_position\": {\r\n          \"x\": 36,\r\n          \"y\": 2\r\n        },\r\n " +
+            "       \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n     " +
+            " },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeB" +
+            "reedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n  " +
+            "    \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 5,\r\n        \"y\": 5\r" +
+            "\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 3" +
+            "4,\r\n          \"y\": 16\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0," +
+            "\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n    " +
+            "  \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n     " +
+            " \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\":" +
+            " {\r\n        \"x\": 10,\r\n        \"y\": 10\r\n      },\r\n      \"positions\": {\r\n        \"" +
+            "current_position\": {\r\n          \"x\": 23,\r\n          \"y\": 16\r\n        },\r\n       " +
+            " \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n " +
+            "     \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte" +
+            "\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"t" +
+            "ype\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n     " +
+            " },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 27,\r\n  " +
+            "        \"y\": 10\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n    " +
+            "      \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc" +
+            "\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"widt" +
+            "h\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n  " +
+            "      \"x\": 0,\r\n        \"y\": 0\r\n      },\r\n      \"positions\": {\r\n        \"current_" +
+            "position\": {\r\n          \"x\": 17,\r\n          \"y\": 10\r\n        },\r\n        \"last_p" +
+            "osition\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"sc" +
+            "reenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n" +
+            "      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r" +
+            "\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n      },\r\n   " +
+            "   \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 17,\r\n          " +
+            "\"y\": 1\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\"" +
+            ": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0," +
+            " 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n " +
+            "     \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\"" +
+            ": 0,\r\n        \"y\": 0\r\n      },\r\n      \"positions\": {\r\n        \"current_position\"" +
+            ": {\r\n          \"x\": 27,\r\n          \"y\": 1\r\n        },\r\n        \"last_position\": " +
+            "{\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\":" +
+            " \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"siz" +
+            "eHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n " +
+            "   {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positi" +
+            "ons\": {\r\n        \"current_position\": {\r\n          \"x\": 34,\r\n          \"y\": 11\r\n " +
+            "       },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n    " +
+            "    }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n" +
+            "      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"hei" +
+            "ght\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n   " +
+            "     \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n    " +
+            "      \"x\": 35,\r\n          \"y\": 10\r\n        },\r\n        \"last_position\": {\r\n     " +
+            "     \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, " +
+            "1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\"" +
+            ": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n  " +
+            "    \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r" +
+            "\n        \"current_position\": {\r\n          \"x\": 36,\r\n          \"y\": 9\r\n        }," +
+            "\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n  " +
+            "    },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"si" +
+            "zeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r" +
+            "\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\":" +
+            " 1\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\"" +
+            ": 37,\r\n          \"y\": 8\r\n        },\r\n        \"last_position\": {\r\n          \"x\": " +
+            "0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n  " +
+            "    \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n   " +
+            "   \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed" +
+            "\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"" +
+            "current_position\": {\r\n          \"x\": 38,\r\n          \"y\": 7\r\n        },\r\n        " +
+            "\"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n  " +
+            "    \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\"" +
+            ": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"ty" +
+            "pe\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      " +
+            "},\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 21,\r\n   " +
+            "       \"y\": 14\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n     " +
+            "     \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\"" +
+            ": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width" +
+            "\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n   " +
+            "     \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_p" +
+            "osition\": {\r\n          \"x\": 20,\r\n          \"y\": 15\r\n        },\r\n        \"last_po" +
+            "sition\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"scr" +
+            "eenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n " +
+            "     \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n" +
+            "    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n    " +
+            "  \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 19,\r\n          \"" +
+            "y\": 16\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\"" +
+            ": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0," +
+            " 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n " +
+            "     \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\"" +
+            ": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_position\"" +
+            ": {\r\n          \"x\": 18,\r\n          \"y\": 17\r\n        },\r\n        \"last_position\":" +
+            " {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\"" +
+            ": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"si" +
+            "zeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n" +
+            "    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"posit" +
+            "ions\": {\r\n        \"current_position\": {\r\n          \"x\": 17,\r\n          \"y\": 18\r\n" +
+            "        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n   " +
+            "     }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r" +
+            "\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"he" +
+            "ight\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n  " +
+            "      \"y\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n   " +
+            "       \"x\": 16,\r\n          \"y\": 19\r\n        },\r\n        \"last_position\": {\r\n    " +
+            "      \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382," +
+            " 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte" +
+            "\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n " +
+            "     \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {" +
+            "\r\n        \"current_position\": {\r\n          \"x\": 22,\r\n          \"y\": 13\r\n        " +
+            "},\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n" +
+            "      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"" +
+            "sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1" +
+            ",\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y" +
+            "\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"" +
+            "x\": 3,\r\n          \"y\": 12\r\n        },\r\n        \"last_position\": {\r\n          \"x\"" +
+            ": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n" +
+            "      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n " +
+            "     \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    }\r\n  ],\r\n  \"player\": " +
+            "{\r\n    \"img\": null,\r\n    \"positions\": {\r\n      \"current_position\": {\r\n        \"x" +
+            "\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"last_position\": {\r\n        \"x\": 0,\r\n    " +
+            "    \"y\": 0\r\n      }\r\n    },\r\n    \"speed\": {\r\n      \"x\": 3,\r\n      \"y\": 3\r\n    }," +
+            "\r\n    \"movement\": {\r\n      \"walk\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r" +
+            "\n      \"run\": {\r\n        \"x\": 5,\r\n        \"y\": 5\r\n      }\r\n    },\r\n    \"sizeBree" +
+            "dte\": 34,\r\n    \"sizeHoogte\": 55\r\n  },\r\n  \"boss\": {\r\n    \"position\": {\r\n      \"x\"" +
+            ": 0,\r\n      \"y\": 0\r\n    },\r\n    \"speed\": {\r\n      \"x\": 0,\r\n      \"y\": 0\r\n    },\r" +
+            "\n    \"movement\": {\r\n      \"walk\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n      },\r\n" +
+            "      \"run\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n      }\r\n    },\r\n    \"sizeBreed" +
+            "te\": 54,\r\n    \"sizeHoogte\": 72\r\n  }\r\n}")]
         public string level2 {
             get {
                 return ((string)(this["level2"]));

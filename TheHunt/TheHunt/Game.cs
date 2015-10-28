@@ -11,11 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheHunt.Model;
+using TheHunt.Controller.Highscore;
 
 namespace TheHunt
 {
     public partial class Game : Form
     {
+        // Variable to check if finished
+        private bool finished = false;
+
         // Keep the world data
         private World world = null;
 
@@ -44,7 +48,7 @@ namespace TheHunt
         private Buttons gamepad = null;
 
         // Target FPS
-        private int targetFps = 120;
+        private int targetFps = 60;
 
         // Holds the pressed key
         private Keys pressedKey = Keys.None;
@@ -54,6 +58,14 @@ namespace TheHunt
 
         // is Speedboost Active?
         public bool speedBoostActive = false;
+        public Timer speedBoostTimer = new Timer();
+        public int speedBoostLength = 0;
+
+
+        // Emp
+        public bool emp = false;
+        private List<Model.Point> npcSpeed = new List<Model.Point>();
+        public Timer EMPTimer = new Timer();
 
         // Are we running?
         private bool run = false;
@@ -78,6 +90,11 @@ namespace TheHunt
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
         }
 
+        public void addScore(int bonus)
+        {
+            world.getScore().add(bonus);
+        }
+
         // Prepare the game
         private void Game_Load(object sender, EventArgs e)
         {
@@ -88,10 +105,13 @@ namespace TheHunt
 
             // Set the initial size
             this.setFullScreenSize(this, null);
-          
 
-            // Add gamepad
-            this.addGamePad();
+            // Check if the onscreen controls have to be displayed
+            if (Properties.Settings.Default.onScreenControls)
+            {
+                // Add gamepad
+                this.addGamePad();
+            }
 
             // Subscribe to the events
             this.attachEvents();
@@ -109,6 +129,14 @@ namespace TheHunt
             this.animate.Interval = 100;
             this.animate.Tick += updateAnimations;
 
+
+            // Set speedboost timer
+            this.speedBoostTimer.Interval = 1000;
+            this.speedBoostTimer.Tick += updateSpeedBoostLength;
+
+            // Set EMP timer
+            this.EMPTimer.Tick += EMPReset;
+
             // Set the stopwatch
             this.delta = new Stopwatch();
 
@@ -116,13 +144,83 @@ namespace TheHunt
             startTimers(true);
         }
 
+
+        private void updateSpeedBoostLength(object sender,EventArgs e)
+        {
+            if (this.speedBoostLength > 0)
+            {
+                this.speedBoostLength -= 1000;
+            }
+            else
+            {
+                this.speedBoostActive = false;
+                this.run = false;
+                this.speedBoostTimer.Stop();
+            }
+        }
+
+
+        public void EMPReset(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.world.npcs.Count; i++)
+            {
+                this.world.npcs[i].speed = npcSpeed[i];
+            }
+
+            EMPTimer.Stop();
+            emp = false;
+        }
+
+
+        // Normalizes the coordinates
+        private void normalize()
+        {
+            double ratioX = this.Size.Width / 40.00;
+            double ratioY = this.Size.Height / 20.00;
+
+            this.world.player.sizeBreedte = this.Width / 40 - 5;
+            this.world.player.sizeHoogte = this.Height / 20 - 5;
+            
+            this.world.player.positions.current_position = new Model.Point(
+                (int)(this.world.player.positions.current_position.x * ratioX),
+                (int)(this.world.player.positions.current_position.y * ratioY)
+                );
+
+            this.world.finish.x = (int)(this.world.finish.x * ratioX);
+            this.world.finish.y = (int)(this.world.finish.y * ratioY);
+
+            foreach (Obstacle obstacle in this.world.obstacles)
+            {
+                obstacle.x = (int)(obstacle.x * ratioX);
+                obstacle.y = (int)(obstacle.y * ratioY);
+            }
+
+            foreach (Powerups powerup in this.world.powerups)
+            {
+                powerup.x = (int)(powerup.x * ratioX);
+                powerup.y = (int)(powerup.y * ratioY);
+            }
+
+            foreach (Npc npc in this.world.npcs)
+            {
+                npc.positions.current_position = new Model.Point(
+                    (int)(npc.positions.current_position.x * ratioX),
+                    (int)(npc.positions.current_position.y * ratioY)
+                    );
+                npc.sizeBreedte = (int)(this.Size.Width/40.00) -5;
+                npc.sizeHoogte = (int)(this.Size.Height/20.00) - 5;
+            }
+        }
+
         // Load the world
         private void load()
         {
+
             // Assign the world variable
             this.world = JsonConvert.DeserializeObject<World>(levelString);
-            this.world.player.sizeBreedte = this.Width / 40 - 5;
-            this.world.player.sizeHoogte = this.Height / 20 - 5;
+
+            // Normalize
+            this.normalize();
         }
 
         // Add the gamepad
@@ -137,6 +235,24 @@ namespace TheHunt
             Controls.Add(left);
             Controls.Add(down);
             Controls.Add(right);
+        }
+
+        public void Emp(int duration)
+        {
+            this.EMPTimer.Interval += duration;
+            if (emp)
+            {
+                foreach (Npc npc in this.world.npcs)
+                {
+                    npcSpeed.Add(npc.speed);
+                    npc.speed = new Model.Point(0,0);
+                }
+                EMPTimer.Start();
+            }
+            else
+            {
+                EMPTimer.Stop();
+            }
         }
 
         private void attachEvents()
@@ -154,54 +270,60 @@ namespace TheHunt
         // Function to update the world
         private void updateWorld(object sender, EventArgs e)
         {
-            // Stop the timers
-            this.loop.Stop();
-            this.delta.Stop();
-
-
-            // Check if player is moving
-            if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
+            if (this.finished)
             {
-                isPlayerMoving = true;
+                this.stopTimers(true);
+                Highscore.Instance.add(this.world.getScore());
+                this.Close();
+                this.startScreen.Show();
             }
             else
             {
-                isPlayerMoving = false;
-            }
+                // Stop the timers
+                this.loop.Stop();
+                this.delta.Stop();
 
-            // Calculate the delta time
-            double delta = this.delta.ElapsedMilliseconds / (1000 / this.targetFps);
+                // Check if player is moving
+                if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
+                {
+                    isPlayerMoving = true;
+                }
+                else
+                {
+                    isPlayerMoving = false;
+                }
 
-            // Move the player
-            this.world.player.move(this.pressedKey, this.run, delta, this);
+                // Calculate the delta time
+                double delta = this.delta.ElapsedMilliseconds / (1000 / this.targetFps);
 
-            // Move the NPCs
-            foreach (var npc in this.world.npcs)
-            {
-                npc.moveNPC(this.world);
-            }
+                // Move the player
+                this.world.player.move(this.pressedKey, this.run, delta, this);
 
-            // Powerup check for collisions
-            foreach (var powerup in this.world.powerups)
-            {
-                powerup.checkCollision(this.world, this);
+                // Move the NPCs
+                foreach (var npc in this.world.npcs)
+                {
+                    npc.moveNPC(this.world);
+                    npc.checkForPlayer(this.world, this);
+                }
 
-            }
+                // Decay score
+                this.world.getScore().subtract((int)Math.Round(1 * delta));
 
-            // Redraw
-            this.Invalidate();
+                // Redraw
+                this.Invalidate();
 
-            // Check if the player is "dead"
-            if (this.world.getScore() > 0)
-            {
-            // Restart the timers
-            this.delta.Reset();
-            this.delta.Start();
-            this.loop.Start();
-        }
-            else
-            {
-                this.toggleGameOver();
+                // Check if the player is "dead"
+                if (this.world.getScore().score > 0)
+                {
+                    // Restart the timers
+                    this.delta.Reset();
+                    this.delta.Start();
+                    this.loop.Start();
+                }
+                else
+                {
+                    this.toggleGameOver();
+                }
             }
         }
 
@@ -210,6 +332,11 @@ namespace TheHunt
         {
             // Animate the player
             this.world.player.animate(this.pressedKey, this.lastPressedKey);
+            foreach (Npc npc in this.world.npcs)
+            {
+                npc.animate();
+            }
+           
         }
 
         // Handle the keydown event
@@ -247,7 +374,7 @@ namespace TheHunt
                 }
 
             }
-            else if(speedBoostActive && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
+            else if(speedBoostActive && speedBoostLength > 0 && shiftKeys.Contains(keyCode)) // Check if the shiftkey is pressed
             {
                 this.run = down;
                 this.animate.Interval = (this.run) ? 50 : 100;
@@ -292,15 +419,12 @@ namespace TheHunt
             {
                 return true;
             }
-
-
-
             
             // Check for collision with obstacles
             foreach (Obstacle obstacle in this.world.obstacles)
             {
                 // Create a new rectangle representing the obstacle
-                Rectangle rObstacle = new Rectangle(obstacle.x * this.Size.Width/40, obstacle.y * this.Size.Height/20, (int)obstacle.getPixelWidth(this.Size), (int)(obstacle.getPixelHeight(this.Size)));
+                Rectangle rObstacle = new Rectangle(obstacle.x, obstacle.y, (int)obstacle.getPixelWidth(this.Size), (int)(obstacle.getPixelHeight(this.Size)));
 
                 // Check if the obstacle intersects with the object
                 if (rectangle.IntersectsWith(rObstacle))
@@ -308,6 +432,27 @@ namespace TheHunt
                     return true;
                 }
             }
+
+            // Check for collision with finish
+            Rectangle rFinish = new Rectangle(world.finish.x, world.finish.y, (int)world.finish.getPixelWidth(this.Size), (int)(world.finish.getPixelHeight(this.Size)));
+            if (rectangle.IntersectsWith(rFinish))
+            {
+                this.finished = true;
+            }
+
+
+            // Powerup check for collisions
+            foreach (var powerup in this.world.powerups)
+            { 
+                Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.world.player.sizeBreedte), (int)(this.world.player.sizeHoogte));
+                if (playerCoords.IntersectsWith(new Rectangle(powerup.x, powerup.y, (int)(powerup.getPixelWidth(this.Size)), (int)(powerup.getPixelHeight(this.Size)))))
+                {
+                    powerup.UsePowerup(this);
+                    this.world.powerups.Remove(powerup);
+                    return true;
+                }
+            }
+
 
             return false;
         }
@@ -343,44 +488,47 @@ namespace TheHunt
         {
             base.OnPaint(e);
 
-            // Get the graphic context
-            Graphics g = e.Graphics;
-
             if (objectState == null)
             {
                 this.objectState = new Bitmap(this.Size.Width, this.Size.Height);
                 Graphics graphics = Graphics.FromImage(this.objectState);
 
-            // Draw the obstacles
+                // Draw the obstacles
                 foreach (Obstacle obstacle in this.world.obstacles)
-            {
-                    obstacle.draw(graphics, this.Size);
+                {
+                    obstacle.draw(graphics, this.Size,"Game");
                 }
             }
             else
             {
+                // Get the graphic context
+                Graphics g = e.Graphics;
+
                 g.DrawImage(objectState,0,0);
-            // Draw the NPCs
-            foreach (Npc npc in this.world.npcs)
-            {
-                    npc.draw(g, this.Size, "Game");
-            }
+                // Draw the NPCs
+                foreach (Npc npc in this.world.npcs)
+                {
+                        npc.draw(g, this.Size, "Game");
+                }
 
-            // Draw the Powerups
-            foreach (Powerups powerup in this.world.powerups)
-            {
-                powerup.draw(g, this.Size);
-            }
+                // Draw the Powerups
+                foreach (Powerups powerup in this.world.powerups)
+                {
+                    powerup.draw(g, this.Size,"Game",powerup.getUsed());
+                }
 
-            // Draw the player
+                // Draw the player
                 this.world.player.draw(g, this.Size, "Game");
 
-            // Draw the boss
-            //this.world.boss.draw(g, this.Size);
-        }
+                // Draw the finish
+                this.world.finish.draw(g, this.Size,"Game");
 
+                // Draw score bar
+                this.world.getScore().draw(g, this.Size);
 
-
+                // Draw the boss
+                //this.world.boss.draw(g, this.Size);
+            }
         }
 
         // Starts the timers

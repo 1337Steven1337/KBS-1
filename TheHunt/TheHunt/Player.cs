@@ -85,7 +85,7 @@ namespace TheHunt
             for (int i = 0; i < this.world.obstacles.Count; i++)
             {
                 Obstacle obj = this.world.obstacles[i];
-                obj.draw(g, this.Size);
+                obj.draw(g, this.Size,"Game");
             }
             //Teken NPC's
             for (int i = 0; i < this.world.npcs.Count; i++)

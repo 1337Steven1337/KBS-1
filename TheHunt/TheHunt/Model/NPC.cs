@@ -10,6 +10,7 @@ namespace TheHunt.Model
 {
     class Npc : Item
     {
+        private Label infoLabel;
         private World world = null;
         private Image image = null;
         private Highscore highscore = null;
@@ -23,16 +24,26 @@ namespace TheHunt.Model
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
-        private int isEersteDraw = 0;
+        //These variables will be used to make the bouncer NPC look like they're moving
+        private List<Bitmap> VBouncerList = new List<Bitmap> { Properties.Resources.VBouncer1, Properties.Resources.VBouncer2, Properties.Resources.VBouncer3, Properties.Resources.VBouncer4 };
+        private List<Bitmap> HBouncerList = new List<Bitmap> { Properties.Resources.HBouncer1, Properties.Resources.HBouncer2, Properties.Resources.HBouncer3, Properties.Resources.HBouncer4 };
+        private int currentSprite = 0;
 
         private int oldx, oldy, newRange;
 
-        //Enemy's start position
+        //Enemy's start position,
         private int randomPosition = 0;
        
         //Enemy's normal start range
         private int normalRange = 100;
 
+        //Maximum range of the enemy 
+        private int maximumRange = 200;
+
+        //Speed of the range when player is in it.
+        private int rangeSpeed = 10;
+
+        //Boolean player in range of the Enemy
         private Boolean playerIsInRange = false;
 
         //Bouncer objects booleans
@@ -57,30 +68,39 @@ namespace TheHunt.Model
         {
             if (this.type == Type.Enemy)
             {
-                world.substractScore(2);
+                world.getScore().subtract(20);
             }
             else if (this.type == Type.H_Bouncer)
             {
-                world.substractScore(4);
+                world.getScore().subtract(40);
             }
             else
             {
-                world.substractScore(4);
+                world.getScore().subtract(40);
+            }
+        }
+
+        public void animate()
+        {
+            if (currentSprite < 3)
+            {
+                currentSprite++;
+            }
+            else
+            {
+                currentSprite = 0;
             }
         }
 
         public void draw(Graphics g, Size screenSize, string drawMode)
         {
-            float screenWidth = getOnScreenHeight(screenSize);
-            float screenHeight = getOnScreenHeight(screenSize);
+            float screenWidth = (float)(screenSize.Width / 40.00);
+            float screenHeight = (float)(screenSize.Height / 20.00);
+
             Pen pen = new Pen(Color.Red, 1);
             SolidBrush myBrush = new SolidBrush(Color.FromArgb(50, Color.DarkRed));
 
-            if (isEersteDraw == 0 && drawMode == "Game") {
-                this.positions.current_position = new Point((int)(this.positions.current_position.x * screenSize.Width / 40.00), (int)(this.positions.current_position.y * screenSize.Height / 20.00));
-                isEersteDraw++;
-            }else if (isEersteDraw > 0 && drawMode == "Game")
-            {
+            if (drawMode == "Game") { 
                 if (type == Type.Enemy)
                 {
                     Rectangle radiusRect = new Rectangle(positions.current_position.x + sizeBreedte / 2 - (newRange * 2 / 2), positions.current_position.y + sizeHoogte / 2 - (newRange * 2 / 2), newRange * 2, newRange * 2);
@@ -91,12 +111,12 @@ namespace TheHunt.Model
             }
             else //Will be used in designer
             {
-                g.DrawImage(getImage(), (int)(positions.current_position.x * screenSize.Width/40.00), (int)(positions.current_position.y * screenSize.Height/20.00), sizeBreedte, sizeHoogte);
+                g.DrawImage(getImage(), (int)(positions.current_position.x * screenSize.Width / 40.00), (int)(positions.current_position.y * screenSize.Height / 20.00), sizeBreedte, sizeHoogte);
             }
 
             if (type == Type.V_Bouncer && drawHitAroundPlayer == true || type == Type.H_Bouncer && drawHitAroundPlayer == true)
             {
-                Rectangle radiusRect = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, sizeBreedte, sizeHoogte);
+                Rectangle radiusRect = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)screenWidth, (int)screenHeight);
                 g.FillRectangle(myBrush, radiusRect);
                 g.DrawRectangle(pen, radiusRect);
             }
@@ -107,8 +127,8 @@ namespace TheHunt.Model
         {
             this.world = world;
             npc = new Rectangle(positions.current_position.x, positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
-            oldx = positions.current_position.x;//OUDE X POSITIE NPC
-            oldy = positions.current_position.y;//OUDE Y POSITIE NPC
+            oldx = positions.current_position.x;//OLD X POSITION NPC
+            oldy = positions.current_position.y;//OLD Y POSITION NPC
 
             if (type == Type.Enemy)
             {
@@ -122,9 +142,9 @@ namespace TheHunt.Model
                     this.substractScore();
                     if (!npcIntersectsWithObjects())
                     {
-                        if (newRange < normalRange * 2)
+                        if (newRange < maximumRange)
                         {
-                            newRange += 3;
+                            newRange += rangeSpeed;
                         }
 
                         if (Game.isPlayerMoving)
@@ -152,12 +172,10 @@ namespace TheHunt.Model
                             else if (playerCurrentY > playerLastY && positions.current_position.y < playerCurrentY)
                             {
                                 positions.current_position.y += speed.y;
-
                             }
                             else if (playerCurrentY > playerLastY && positions.current_position.y > playerCurrentY)
                             {
                                 positions.current_position.y -= speed.y;
-
                             }
                             else if (playerCurrentY < playerLastY && positions.current_position.y > playerCurrentY)
                             {
@@ -189,15 +207,11 @@ namespace TheHunt.Model
                                 positions.current_position.y -= speed.y;
                             }
                         }
-
-
-
-
                     }
                 }
                 else
                 {
-                    newRange -= 2;
+                    newRange -= rangeSpeed / 5;
                     if (EnemyChooseNewRoute())
                     {
                         this.positions.current_position.x = oldx;
@@ -212,7 +226,8 @@ namespace TheHunt.Model
                 }
             }
 
-            if (type == Type.V_Bouncer){
+            if (type == Type.V_Bouncer)
+            {
                 if (v_bouncer_up)
                 {
                     positions.current_position.y -= speed.y;          
@@ -289,11 +304,13 @@ namespace TheHunt.Model
             }
 
                 //Check if player intersects with bouncer, yes draw a border around te player(visual)
-                if (playerIntersectWithBouncers()) {
+                if (playerIntersectWithBouncers())
+                {
                     this.substractScore();
                     drawHitAroundPlayer = true;
                 }
-                else {
+                else
+                {
                         drawHitAroundPlayer = false;
                 }
             }
@@ -302,7 +319,7 @@ namespace TheHunt.Model
         private bool playerIntersectWithBouncers()
         {
             //check if player intersects with Bouncers 
-            Rectangle newPlayerRectangle = new Rectangle(this.world.player.positions.current_position.x , this.world.player.positions.current_position.y, this.world.player.sizeBreedte, this.world.player.sizeHoogte);
+            Rectangle newPlayerRectangle = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, this.world.player.sizeBreedte, this.world.player.sizeHoogte);
 
             foreach (var item in this.world.npcs)
             {
@@ -328,7 +345,7 @@ namespace TheHunt.Model
             //check if NPC intersect with wall
             foreach (var item in this.world.obstacles)
             {
-                Rectangle wall = new Rectangle((int)(item.x * this.screenSize.Width/40), (int)(item.y * this.screenSize.Height/20), (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
+                Rectangle wall = new Rectangle(item.x, item.y, (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
 
                 if (npc.IntersectsWith(wall))
                 {
@@ -350,7 +367,7 @@ namespace TheHunt.Model
             {
                 if (item != this)
                 {
-                    Rectangle otherNPC = new Rectangle(item.positions.current_position.x, item.positions.current_position.y, (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
+                    Rectangle otherNPC = new Rectangle(item.positions.current_position.x + 20, item.positions.current_position.y + 5, item.width, item.height);
 
                     if (npc.IntersectsWith(otherNPC))
                     {
@@ -461,20 +478,17 @@ namespace TheHunt.Model
 
         public Image getImage()
         {
-            if (this.image == null)
-            {
                 if (this.type == Type.Enemy)
                 {
                     this.image = new Bitmap(TheHunt.Properties.Resources.Enemy);
                 }
                 else if (this.type == Type.H_Bouncer)
                 {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.H_bouncer);
+                    this.image = this.HBouncerList[currentSprite];
                 }
                 else if (this.type == Type.V_Bouncer)
                 {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.V_bouncer);
-                }
+                    this.image = this.VBouncerList[currentSprite];
             }
             return this.image;
         }
@@ -482,6 +496,34 @@ namespace TheHunt.Model
         public Npc clone()
         {
             return (Npc)this.MemberwiseClone();
+        }
+
+        //methode om te kijken of er een player in range is
+        public void checkForPlayer(World world, Game game)
+        {
+            //kijk of de informatie aan gezet is en of er een speler in range is
+            if (Properties.Settings.Default.enemyInformation && inRange(300))
+            {
+                //kijk of de label leeg is
+                if (this.infoLabel == null)
+                {
+                    //als de label leeg is doe dit
+                    this.infoLabel = new Label();
+                    this.infoLabel.AutoSize = true;
+                    this.infoLabel.Visible = true;
+                    //voeg de label toe aan het form
+                    game.Controls.Add(infoLabel);
+                }
+                //update de informatie en de locatie van het label zolang deze in range blijft
+                this.infoLabel.Location = new System.Drawing.Point((int)this.positions.current_position.x - 50, (int)(this.positions.current_position.y - 20));
+                this.infoLabel.Text = "X: " + this.positions.current_position.x + ", Y: " + this.positions.current_position.y + ", Speed:  " + this.speed.x;
+            }
+            else
+            {
+                //is hij niet in range of is het uit gezet verwijder dan het label van het form en maak het label leeg voor de volgende keer
+                game.Controls.Remove(infoLabel);
+                this.infoLabel = null;
+            }
         }
     }
 }

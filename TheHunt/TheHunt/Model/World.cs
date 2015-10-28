@@ -16,29 +16,18 @@ namespace TheHunt.Model
 
         public Player player = new Player();
         public Boss boss = new Boss();
+        public Finish finish = new Finish();
 
-        private int score = 100000;
+        private Score score = null;
 
-        public void addScore(int bonus)
+        public World()
         {
-            score += bonus;
+            this.score = new Score(10000, "World");
         }
 
-        public int getScore()
+        public Score getScore()
         {
             return this.score;
-        }
-
-        public void substractScore(int amount)
-        {
-            if (this.score > 0)
-            {
-                this.score -= amount;
-            }
-            else
-            {
-                this.score = (this.score < 0) ? 0 : this.score;
-            }
         }
     }
 

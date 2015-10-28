@@ -81,8 +81,8 @@
     <Compile Include="Controller\Highscore\Name.Designer.cs">
       <DependentUpon>Name.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\DetectPlayer.cs" />
     <Compile Include="Controller\Move.cs" />
+    <Compile Include="Controller\DetectPlayer.cs" />
     <Compile Include="Controller\Settings.cs" />
     <Compile Include="Controller\Sound.cs" />
     <Compile Include="Controller\verplaats.cs">
@@ -122,6 +122,7 @@
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Boss.cs" />
+    <Compile Include="Model\Finish.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Obstacle.cs" />
     <Compile Include="Model\Npc.cs" />
@@ -168,6 +169,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Levels.settings</DependentUpon>
     </Compile>
+    <Compile Include="Unittesttest.cs" />
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,7 +282,10 @@
     <None Include="Resources\fenceUpLeft.png" />
     <None Include="Resources\fenceLeft.png" />
     <None Include="Resources\Hand-Touch2-512.png" />
+    <None Include="Resources\emp.png" />
+    <None Include="Resources\Finish.png" />
     <Content Include="Resources\restartBtn.png" />
+    <None Include="Resources\SpeedUp.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

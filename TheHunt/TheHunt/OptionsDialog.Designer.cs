@@ -40,6 +40,8 @@ namespace TheHunt
             this.labelMaster = new System.Windows.Forms.Label();
             this.labelMusic = new System.Windows.Forms.Label();
             this.labelEffects = new System.Windows.Forms.Label();
+            this.displayEnemyInfo = new System.Windows.Forms.CheckBox();
+            this.showOnScreenControls = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMasterVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarEffectsVolume)).BeginInit();
@@ -54,7 +56,7 @@ namespace TheHunt
             this.trackBarMasterVolume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackBarMasterVolume.Maximum = 100;
             this.trackBarMasterVolume.Name = "trackBarMasterVolume";
-            this.trackBarMasterVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarMasterVolume.Size = new System.Drawing.Size(200, 57);
             this.trackBarMasterVolume.TabIndex = 18;
             this.trackBarMasterVolume.Value = 100;
             this.trackBarMasterVolume.Scroll += new System.EventHandler(this.trackBarMasterVolume_Scroll);
@@ -67,7 +69,7 @@ namespace TheHunt
             this.trackBarMusicVolume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackBarMusicVolume.Maximum = 100;
             this.trackBarMusicVolume.Name = "trackBarMusicVolume";
-            this.trackBarMusicVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarMusicVolume.Size = new System.Drawing.Size(200, 57);
             this.trackBarMusicVolume.TabIndex = 18;
             this.trackBarMusicVolume.Value = 100;
             this.trackBarMusicVolume.Scroll += new System.EventHandler(this.trackBarMusicVolume_Scroll);
@@ -80,15 +82,16 @@ namespace TheHunt
             this.trackBarEffectsVolume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackBarEffectsVolume.Maximum = 100;
             this.trackBarEffectsVolume.Name = "trackBarEffectsVolume";
-            this.trackBarEffectsVolume.Size = new System.Drawing.Size(200, 56);
+            this.trackBarEffectsVolume.Size = new System.Drawing.Size(200, 57);
             this.trackBarEffectsVolume.TabIndex = 18;
             this.trackBarEffectsVolume.Value = 100;
             this.trackBarEffectsVolume.Scroll += new System.EventHandler(this.trackBarEffectsVolume_Scroll);
             // 
             // buttonFullScreen
             // 
+            this.buttonFullScreen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonFullScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFullScreen.Location = new System.Drawing.Point(12, 392);
+            this.buttonFullScreen.Location = new System.Drawing.Point(12, 391);
             this.buttonFullScreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFullScreen.Name = "buttonFullScreen";
             this.buttonFullScreen.Size = new System.Drawing.Size(200, 50);
@@ -99,8 +102,9 @@ namespace TheHunt
             // 
             // buttonBackToMenu
             // 
+            this.buttonBackToMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBackToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBackToMenu.Location = new System.Drawing.Point(218, 392);
+            this.buttonBackToMenu.Location = new System.Drawing.Point(219, 391);
             this.buttonBackToMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBackToMenu.Name = "buttonBackToMenu";
             this.buttonBackToMenu.Size = new System.Drawing.Size(200, 50);
@@ -113,6 +117,7 @@ namespace TheHunt
             // 
             this.pictureBox1.Image = global::TheHunt.Properties.Resources.uitleg;
             this.pictureBox1.Location = new System.Drawing.Point(421, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(500, 500);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -159,12 +164,38 @@ namespace TheHunt
             this.labelEffects.TabIndex = 23;
             this.labelEffects.Text = "Effects Volume: ";
             // 
+            // displayEnemyInfo
+            // 
+            this.displayEnemyInfo.AutoSize = true;
+            this.displayEnemyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayEnemyInfo.Location = new System.Drawing.Point(21, 294);
+            this.displayEnemyInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayEnemyInfo.Name = "displayEnemyInfo";
+            this.displayEnemyInfo.Size = new System.Drawing.Size(328, 24);
+            this.displayEnemyInfo.TabIndex = 24;
+            this.displayEnemyInfo.Text = "Display info of the closest enemies";
+            this.displayEnemyInfo.UseVisualStyleBackColor = true;
+            // 
+            // showOnScreenControls
+            // 
+            this.showOnScreenControls.AutoSize = true;
+            this.showOnScreenControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showOnScreenControls.Location = new System.Drawing.Point(21, 327);
+            this.showOnScreenControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showOnScreenControls.Name = "showOnScreenControls";
+            this.showOnScreenControls.Size = new System.Drawing.Size(233, 24);
+            this.showOnScreenControls.TabIndex = 25;
+            this.showOnScreenControls.Text = "Show onscreen controls";
+            this.showOnScreenControls.UseVisualStyleBackColor = true;
+            // 
             // OptionsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(982, 453);
+            this.ClientSize = new System.Drawing.Size(981, 453);
+            this.Controls.Add(this.showOnScreenControls);
+            this.Controls.Add(this.displayEnemyInfo);
             this.Controls.Add(this.labelEffects);
             this.Controls.Add(this.labelMusic);
             this.Controls.Add(this.labelMaster);
@@ -210,5 +241,7 @@ namespace TheHunt
         private System.Windows.Forms.Label labelMaster;
         private System.Windows.Forms.Label labelMusic;
         private System.Windows.Forms.Label labelEffects;
+        private System.Windows.Forms.CheckBox displayEnemyInfo;
+        private System.Windows.Forms.CheckBox showOnScreenControls;
     }
 }

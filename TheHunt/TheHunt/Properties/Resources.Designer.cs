@@ -102,26 +102,6 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Boss {
-            get {
-                object obj = ResourceManager.GetObject("Boss", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Bouncer {
-            get {
-                object obj = ResourceManager.GetObject("Bouncer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap brockSprite1 {
             get {
                 object obj = ResourceManager.GetObject("brockSprite1", resourceCulture);
@@ -262,6 +242,16 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap emp {
+            get {
+                object obj = ResourceManager.GetObject("emp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Enemy {
             get {
                 object obj = ResourceManager.GetObject("Enemy", resourceCulture);
@@ -382,9 +372,49 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap H_bouncer {
+        internal static System.Drawing.Bitmap Finish {
             get {
-                object obj = ResourceManager.GetObject("H_bouncer", resourceCulture);
+                object obj = ResourceManager.GetObject("Finish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HBouncer1 {
+            get {
+                object obj = ResourceManager.GetObject("HBouncer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HBouncer2 {
+            get {
+                object obj = ResourceManager.GetObject("HBouncer2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HBouncer3 {
+            get {
+                object obj = ResourceManager.GetObject("HBouncer3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HBouncer4 {
+            get {
+                object obj = ResourceManager.GetObject("HBouncer4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -541,9 +571,9 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Speedboost {
+        internal static System.Drawing.Bitmap SpeedUp {
             get {
-                object obj = ResourceManager.GetObject("Speedboost", resourceCulture);
+                object obj = ResourceManager.GetObject("SpeedUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -581,9 +611,39 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap V_bouncer {
+        internal static System.Drawing.Bitmap VBouncer1 {
             get {
-                object obj = ResourceManager.GetObject("V_bouncer", resourceCulture);
+                object obj = ResourceManager.GetObject("VBouncer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VBouncer2 {
+            get {
+                object obj = ResourceManager.GetObject("VBouncer2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VBouncer3 {
+            get {
+                object obj = ResourceManager.GetObject("VBouncer3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VBouncer4 {
+            get {
+                object obj = ResourceManager.GetObject("VBouncer4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
