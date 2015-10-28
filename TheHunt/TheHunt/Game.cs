@@ -298,6 +298,7 @@ namespace TheHunt
                 foreach (var npc in this.world.npcs)
                 {
                     npc.moveNPC(this.world);
+                    npc.checkForPlayer(this.world, this);
                 }
 
                 // Decay score

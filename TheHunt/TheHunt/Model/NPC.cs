@@ -10,6 +10,7 @@ namespace TheHunt.Model
 {
     class Npc : Item
     {
+        private Label infoLabel;
         private World world = null;
         private Image image = null;
         private Highscore highscore = null;
@@ -29,7 +30,7 @@ namespace TheHunt.Model
 
         //Enemy's start position,
         private int randomPosition = 0;
-       
+
         //Enemy's normal start range
         private int normalRange = 100;
 
@@ -48,7 +49,7 @@ namespace TheHunt.Model
         private Boolean h_bouncer_left = true;
         private Boolean h_bouncer_right = false;
         private Boolean drawHitAroundPlayer = false;
-        
+
         public int width = 1;
         public int height = 1;
         public Type type;
@@ -84,7 +85,8 @@ namespace TheHunt.Model
             Pen pen = new Pen(Color.Red, 1);
             SolidBrush myBrush = new SolidBrush(Color.FromArgb(50, Color.DarkRed));
 
-            if (isEersteDraw == 0 && drawMode == "Game") { 
+            if (isEersteDraw == 0 && drawMode == "Game")
+            {
                 if (type == Type.Enemy)
                 {
                     Rectangle radiusRect = new Rectangle(positions.current_position.x + sizeBreedte / 2 - (newRange * 2 / 2), positions.current_position.y + sizeHoogte / 2 - (newRange * 2 / 2), newRange * 2, newRange * 2);
@@ -214,11 +216,11 @@ namespace TheHunt.Model
             {
                 if (v_bouncer_up)
                 {
-                    positions.current_position.y -= speed.y;          
-        }
+                    positions.current_position.y -= speed.y;
+                }
                 else if (v_bouncer_down)
                 {
-                    positions.current_position.y += speed.y;               
+                    positions.current_position.y += speed.y;
                 }
 
                 npc.X = positions.current_position.x;
@@ -226,7 +228,7 @@ namespace TheHunt.Model
 
                 //check of er intersect is met objecten als de positie wordt veranderd
                 if (npcIntersectsWithObjects())
-        {
+                {
                     if (v_bouncer_up)
                     {
                         v_bouncer_up = false;
@@ -272,12 +274,12 @@ namespace TheHunt.Model
                 if (npcIntersectsWithObjects())
                 {
                     if (h_bouncer_left)
-            {
+                    {
                         h_bouncer_left = false;
                         h_bouncer_right = true;
-            }
+                    }
                     else if (h_bouncer_right)
-            {
+                    {
                         h_bouncer_left = true;
                         h_bouncer_right = false;
                     }
@@ -285,7 +287,7 @@ namespace TheHunt.Model
                     //intersect verwacht dus zet oude coordinaten
                     this.positions.current_position.x = oldx;
                     this.positions.current_position.y = oldy;
-            }
+                }
 
                 //Check if player intersects with bouncer, yes draw a border around te player(visual)
                 if (playerIntersectWithBouncers())
@@ -295,7 +297,7 @@ namespace TheHunt.Model
                 }
                 else
                 {
-                        drawHitAroundPlayer = false;
+                    drawHitAroundPlayer = false;
                 }
             }
         }
@@ -310,8 +312,8 @@ namespace TheHunt.Model
                 if (item.type == Type.V_Bouncer | item.type == Type.H_Bouncer)
                 {
                     if (npc.IntersectsWith(newPlayerRectangle))
-            {
-                        
+                    {
+
                         return true;
                     }
                 }
@@ -364,7 +366,7 @@ namespace TheHunt.Model
 
 
         private bool EnemyChooseNewRoute()
-        {           
+        {
             switch (randomPosition)
             {
                 case 0:
@@ -483,6 +485,28 @@ namespace TheHunt.Model
         public Npc clone()
         {
             return (Npc)this.MemberwiseClone();
+        }
+
+        public void checkForPlayer(World world, Game game)
+        {
+            if (Properties.Settings.Default.enemyInformation && inRange(300))
+            {
+                if (this.infoLabel == null)
+                {
+                    this.infoLabel = new Label();
+                    this.infoLabel.AutoSize = true;
+                    this.infoLabel.Visible = true;
+                    game.Controls.Add(infoLabel);
+                }
+
+                this.infoLabel.Location = new System.Drawing.Point((int)this.positions.current_position.x - 50, (int)(this.positions.current_position.y - 20));
+                this.infoLabel.Text = "X: " + this.positions.current_position.x + ", Y: " + this.positions.current_position.y + ", Speed:  " + this.speed.x;
+            }
+            else
+            {
+                game.Controls.Remove(infoLabel);
+                this.infoLabel = null;
+            }
         }
     }
 }
