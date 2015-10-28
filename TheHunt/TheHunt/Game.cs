@@ -198,6 +198,8 @@ namespace TheHunt
                     (int)(npc.positions.current_position.x * ratioX),
                     (int)(npc.positions.current_position.y * ratioY)
                     );
+                npc.sizeBreedte = (int)(this.Size.Width/40.00) -5;
+                npc.sizeHoogte = (int)(this.Size.Height/20.00) - 5;
             }
         }
 
@@ -310,6 +312,11 @@ namespace TheHunt
         {
             // Animate the player
             this.world.player.animate(this.pressedKey, this.lastPressedKey);
+            foreach (Npc npc in this.world.npcs)
+            {
+                npc.animate();
+            }
+           
         }
 
         // Handle the keydown event

@@ -23,6 +23,8 @@ namespace TheHunt.Designer
         private object active = null;
         private Form form;
         private object selectedObject;
+        private EventHandler mouseHover;
+        private EventHandler mouseLeave;
 
         public Toolbox(Form Designform)
         {
@@ -61,6 +63,8 @@ namespace TheHunt.Designer
             PUScore.Click += Item_Click;
             PUScore.Tag = "PUScore";
             PUScore.Image = Properties.Resources.Scoreboost;
+            PUScore.Size = new Size(60,60);
+            PUScore.SizeMode = PictureBoxSizeMode.StretchImage;
 
             PUEMP.Click += Item_Click;
             PUEMP.Tag = "PUEMP";
@@ -78,11 +82,11 @@ namespace TheHunt.Designer
 
             HBouncerBox.Click += Item_Click;
             HBouncerBox.Tag = "HBouncer";
-            HBouncerBox.Image = Properties.Resources.H_bouncer;
+            HBouncerBox.Image = Properties.Resources.HBouncer1;
 
             VBouncerBox.Click += Item_Click;
             VBouncerBox.Tag = "VBouncer";
-            VBouncerBox.Image = Properties.Resources.V_bouncer;
+            VBouncerBox.Image = Properties.Resources.VBouncer1;
 
             enemyBox.Click += Item_Click;
             enemyBox.Tag = "Enemy";
@@ -173,7 +177,7 @@ namespace TheHunt.Designer
         public void setValueAfterSelectClick(object Object)
         {
             this.selectedObject = Object;
-            if (selectedObject.GetType() == typeof(Obstacle))
+            if (Object.GetType() == typeof(Obstacle))
             {
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Obstacle)selectedObject).getImage();
@@ -192,11 +196,16 @@ namespace TheHunt.Designer
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
-                this.previewObjectBox.MouseHover += delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
-                this.previewObjectBox.MouseLeave += delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Obstacle)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
+
+                this.previewObjectBox.MouseHover -= mouseHover;
+                this.previewObjectBox.MouseLeave -= mouseLeave;
+                mouseHover = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
+                mouseLeave = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Obstacle)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
+                this.previewObjectBox.MouseHover += mouseHover;
+                this.previewObjectBox.MouseLeave += mouseLeave;
             }
             else
-            if (selectedObject.GetType() == typeof(Npc))
+            if (Object.GetType() == typeof(Npc))
             {
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Npc)selectedObject).getImage();
@@ -218,12 +227,17 @@ namespace TheHunt.Designer
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
-                this.previewObjectBox.MouseHover += delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
-                this.previewObjectBox.MouseLeave += delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Npc)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
 
+                this.previewObjectBox.MouseHover -= mouseHover;
+                this.previewObjectBox.MouseLeave -= mouseLeave;
+                mouseHover = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
+                mouseLeave = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Npc)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
+                this.previewObjectBox.MouseHover += mouseHover;
+                this.previewObjectBox.MouseLeave += mouseLeave; 
+                
             }
             else
-            if (selectedObject.GetType() == typeof(Model.Player))
+            if (Object.GetType() == typeof(Model.Player))
             {
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Model.Player)selectedObject).getImage();
@@ -250,14 +264,18 @@ namespace TheHunt.Designer
                 this.numericWalkSpeed.Click += delegate (object se, EventArgs ea) { ((Model.Player)selectedObject).movement.walk = new Model.Point(int.Parse(this.numericWalkSpeed.Value.ToString()), int.Parse(this.numericWalkSpeed.Value.ToString()));};
                 this.numericRunSpeed.Click += delegate (object se, EventArgs ea) { ((Model.Player)selectedObject).movement.run = new Model.Point(int.Parse(this.numericRunSpeed.Value.ToString()), int.Parse(this.numericRunSpeed.Value.ToString()));};
 
-
-                //ADD SETTER FUNCTION
+               
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
-                this.previewObjectBox.MouseHover += delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
-                this.previewObjectBox.MouseLeave += delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Model.Player)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
 
+                this.previewObjectBox.MouseHover -= mouseHover;
+                this.previewObjectBox.MouseLeave -= mouseLeave;
+                mouseHover = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
+                mouseLeave = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Model.Player)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
+                this.previewObjectBox.MouseHover += mouseHover;
+                this.previewObjectBox.MouseLeave += mouseLeave;
+                
             }
         }
 

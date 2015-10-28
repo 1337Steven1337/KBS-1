@@ -22,8 +22,11 @@ namespace TheHunt.Model
 
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
-
-        private int isEersteDraw = 0;
+        
+        //These variables will be used to make the bouncer NPC look like they're moving
+        private List<Bitmap> VBouncerList = new List<Bitmap> { Properties.Resources.VBouncer1, Properties.Resources.VBouncer2, Properties.Resources.VBouncer3, Properties.Resources.VBouncer4 };
+        private List<Bitmap> HBouncerList = new List<Bitmap> { Properties.Resources.HBouncer1, Properties.Resources.HBouncer2, Properties.Resources.HBouncer3, Properties.Resources.HBouncer4 };
+        private int currentSprite = 0;
 
         private int oldx, oldy, newRange;
 
@@ -76,6 +79,18 @@ namespace TheHunt.Model
             }
         }
 
+        public void animate()
+        {
+            if (currentSprite < 3)
+            {
+                currentSprite++;
+            }
+            else
+            {
+                currentSprite = 0;
+            }
+        }
+
         public void draw(Graphics g, Size screenSize, string drawMode)
         {
             float screenWidth = (float)(screenSize.Width / 40.00);
@@ -84,14 +99,14 @@ namespace TheHunt.Model
             Pen pen = new Pen(Color.Red, 1);
             SolidBrush myBrush = new SolidBrush(Color.FromArgb(50, Color.DarkRed));
 
-            if (isEersteDraw == 0 && drawMode == "Game") { 
+            if (drawMode == "Game") { 
                 if (type == Type.Enemy)
                 {
                     Rectangle radiusRect = new Rectangle(positions.current_position.x + sizeBreedte / 2 - (newRange * 2 / 2), positions.current_position.y + sizeHoogte / 2 - (newRange * 2 / 2), newRange * 2, newRange * 2);
                     g.FillEllipse(myBrush, radiusRect);
                     g.DrawEllipse(pen, radiusRect);
                 }
-                g.DrawImage(getImage(), positions.current_position.x, positions.current_position.y, sizeBreedte, sizeHoogte);
+                    g.DrawImage(getImage(), positions.current_position.x, positions.current_position.y, sizeBreedte, sizeHoogte);
             }
             else //Will be used in designer
             {
@@ -111,8 +126,8 @@ namespace TheHunt.Model
         {
             this.world = world;
             npc = new Rectangle(positions.current_position.x, positions.current_position.y, (int)sizeBreedte, (int)sizeHoogte);
-            oldx = positions.current_position.x;//OUDE X POSITIE NPC
-            oldy = positions.current_position.y;//OUDE Y POSITIE NPC
+            oldx = positions.current_position.x;//OLD X POSITION NPC
+            oldy = positions.current_position.y;//OLD Y POSITION NPC
 
             if (type == Type.Enemy)
             {
@@ -345,13 +360,13 @@ namespace TheHunt.Model
             {
                 return true;
             }
-
+            
             //check if NPC intersect with other NPC
             foreach (var item in this.world.npcs)
             {
                 if (item != this)
                 {
-                    Rectangle otherNPC = new Rectangle(item.positions.current_position.x, item.positions.current_position.y, (int)item.getPixelWidth(this.screenSize), (int)item.getPixelHeight(this.screenSize));
+                    Rectangle otherNPC = new Rectangle(item.positions.current_position.x + 20, item.positions.current_position.y + 5, item.width, item.height);
 
                     if (npc.IntersectsWith(otherNPC))
                     {
@@ -462,21 +477,18 @@ namespace TheHunt.Model
 
         public Image getImage()
         {
-            if (this.image == null)
-            {
                 if (this.type == Type.Enemy)
                 {
                     this.image = new Bitmap(TheHunt.Properties.Resources.Enemy);
                 }
                 else if (this.type == Type.H_Bouncer)
                 {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.H_bouncer);
+                    this.image = this.HBouncerList[currentSprite];
                 }
                 else if (this.type == Type.V_Bouncer)
                 {
-                    this.image = new Bitmap(TheHunt.Properties.Resources.V_bouncer);
+                    this.image = this.VBouncerList[currentSprite];
                 }
-            }
             return this.image;
         }
 
