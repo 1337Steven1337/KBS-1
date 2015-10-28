@@ -128,6 +128,11 @@ namespace TheHunt.Model
 
             float percentage = ((float)this.score / (float)this._start) * 100;
 
+            if(percentage > 100)
+            {
+                percentage = 100;
+            }
+
             if (percentage >= 75)
             {
                 variableBrush = new SolidBrush(Color.Green);
