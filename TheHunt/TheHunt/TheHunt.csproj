@@ -122,6 +122,7 @@
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Boss.cs" />
+    <Compile Include="Model\Finish.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Obstacle.cs" />
     <Compile Include="Model\Npc.cs" />
@@ -285,6 +286,7 @@
     <None Include="Resources\HBouncer2.png" />
     <None Include="Resources\HBouncer3.png" />
     <None Include="Resources\HBouncer4.png" />
+    <None Include="Resources\Finish.png" />
     <Content Include="Resources\restartBtn.png" />
     <None Include="Resources\SpeedUp.png" />
     <None Include="Resources\VBouncer4.png" />

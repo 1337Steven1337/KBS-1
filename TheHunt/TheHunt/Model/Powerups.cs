@@ -11,9 +11,6 @@ namespace TheHunt.Model
     {
         private Boolean used = false;
 
-        public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
-        public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
-
         public int x = 0;
         public int y = 0;
         public int height = 1;

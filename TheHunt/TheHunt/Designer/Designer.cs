@@ -513,6 +513,8 @@ namespace TheHunt.Designer
                 if (Properties.Screen.Default.full)
                 {
                     this.Bounds = Screen.PrimaryScreen.Bounds;
+                    this.Size = new Size((int)(this.startForm.Size.Width * 0.8), this.startForm.Size.Height);
+                    this.TopMost = true;
                 }
                 else
                 {
@@ -565,8 +567,6 @@ namespace TheHunt.Designer
             for (int i = 0; i < this.world.powerups.Count; i++)
             {
                 Powerups powerUps = this.world.powerups[i];
-                powerUps.sizeBreedte = (int)cellSizeX;
-                powerUps.sizeHoogte = (int)cellSizeY;
                 powerUps.draw(graphics, this.Size,"Designer",powerUps.getUsed());
             }
 

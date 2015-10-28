@@ -372,6 +372,16 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Finish {
+            get {
+                object obj = ResourceManager.GetObject("Finish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HBouncer1 {
             get {
                 object obj = ResourceManager.GetObject("HBouncer1", resourceCulture);
