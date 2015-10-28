@@ -265,49 +265,59 @@ namespace TheHunt
         // Function to update the world
         private void updateWorld(object sender, EventArgs e)
         {
-            // Stop the timers
-            this.loop.Stop();
-            this.delta.Stop();
-        
-            // Check if player is moving
-            if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
+            if (this.finished)
             {
-                isPlayerMoving = true;
+                this.stopTimers(true);
+                Highscore.Instance.add(this.world.getScore());
+                this.Close();
+                this.startScreen.Show();
             }
             else
             {
-                isPlayerMoving = false;
-            }
+                // Stop the timers
+                this.loop.Stop();
+                this.delta.Stop();
 
-            // Calculate the delta time
-            double delta = this.delta.ElapsedMilliseconds / (1000 / this.targetFps);
+                // Check if player is moving
+                if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
+                {
+                    isPlayerMoving = true;
+                }
+                else
+                {
+                    isPlayerMoving = false;
+                }
 
-            // Move the player
-            this.world.player.move(this.pressedKey, this.run, delta, this);
+                // Calculate the delta time
+                double delta = this.delta.ElapsedMilliseconds / (1000 / this.targetFps);
 
-            // Move the NPCs
-            foreach (var npc in this.world.npcs)
-            {
-                npc.moveNPC(this.world);
-            }
+                // Move the player
+                this.world.player.move(this.pressedKey, this.run, delta, this);
 
-            // Decay score
-            this.world.getScore().subtract((int)Math.Round(1 * delta));
+                // Move the NPCs
+                foreach (var npc in this.world.npcs)
+                {
+                    npc.moveNPC(this.world);
+                }
 
-            // Redraw
-            this.Invalidate();
+                // Decay score
+                this.world.getScore().subtract((int)Math.Round(1 * delta));
 
-            // Check if the player is "dead"
-            if (this.world.getScore().score > 0)
-            {
-            // Restart the timers
-            this.delta.Reset();
-            this.delta.Start();
-            this.loop.Start();
-        }
-            else
-            {
-                this.toggleGameOver();
+                // Redraw
+                this.Invalidate();
+
+                // Check if the player is "dead"
+                if (this.world.getScore().score > 0)
+                {
+                    // Restart the timers
+                    this.delta.Reset();
+                    this.delta.Start();
+                    this.loop.Start();
+                }
+                else
+                {
+                    this.toggleGameOver();
+                }
             }
         }
 
@@ -416,9 +426,7 @@ namespace TheHunt
             Rectangle rFinish = new Rectangle(world.finish.x, world.finish.y, (int)world.finish.getPixelWidth(this.Size), (int)(world.finish.getPixelHeight(this.Size)));
             if (rectangle.IntersectsWith(rFinish))
             {
-                //MessageBox.Show("Finish");
-                Finish();
-
+                this.finished = true;
             }
 
 
@@ -436,17 +444,6 @@ namespace TheHunt
 
 
             return false;
-        }
-
-        private void Finish()
-        {
-            if (!finished)
-            {
-                finished = true;
-                Highscore.Instance.add(this.world.getScore());
-                this.Close();
-                this.startScreen.Show();
-            }
         }
 
         // Function to handle the full screen option
