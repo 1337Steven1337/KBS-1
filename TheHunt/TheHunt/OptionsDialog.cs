@@ -68,6 +68,9 @@ namespace TheHunt
             
             this.displayEnemyInfo.Checked = Properties.Settings.Default.enemyInformation;
             this.displayEnemyInfo.CheckedChanged += displayEnemyInfo_CheckedChanged;
+
+            this.showOnScreenControls.Checked = Properties.Settings.Default.onScreenControls;
+            this.showOnScreenControls.CheckedChanged += showOnScreenControls_CheckedChanged;
         }
 
         //Geeft teken van afsluiten opties
@@ -137,6 +140,12 @@ namespace TheHunt
         private void displayEnemyInfo_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.enemyInformation = this.displayEnemyInfo.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void showOnScreenControls_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.onScreenControls = this.showOnScreenControls.Checked;
             Properties.Settings.Default.Save();
         }
     }

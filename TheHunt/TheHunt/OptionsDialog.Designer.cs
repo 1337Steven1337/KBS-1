@@ -41,6 +41,7 @@ namespace TheHunt
             this.labelMusic = new System.Windows.Forms.Label();
             this.labelEffects = new System.Windows.Forms.Label();
             this.displayEnemyInfo = new System.Windows.Forms.CheckBox();
+            this.showOnScreenControls = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMasterVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarMusicVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarEffectsVolume)).BeginInit();
@@ -176,12 +177,24 @@ namespace TheHunt
             this.displayEnemyInfo.Text = "Display info of the closest enemies";
             this.displayEnemyInfo.UseVisualStyleBackColor = true;
             // 
+            // showOnScreenControls
+            // 
+            this.showOnScreenControls.AutoSize = true;
+            this.showOnScreenControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showOnScreenControls.Location = new System.Drawing.Point(12, 238);
+            this.showOnScreenControls.Name = "showOnScreenControls";
+            this.showOnScreenControls.Size = new System.Drawing.Size(200, 21);
+            this.showOnScreenControls.TabIndex = 25;
+            this.showOnScreenControls.Text = "Show onscreen controls";
+            this.showOnScreenControls.UseVisualStyleBackColor = true;
+            // 
             // OptionsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(736, 368);
+            this.Controls.Add(this.showOnScreenControls);
             this.Controls.Add(this.displayEnemyInfo);
             this.Controls.Add(this.labelEffects);
             this.Controls.Add(this.labelMusic);
@@ -229,5 +242,6 @@ namespace TheHunt
         private System.Windows.Forms.Label labelMusic;
         private System.Windows.Forms.Label labelEffects;
         private System.Windows.Forms.CheckBox displayEnemyInfo;
+        private System.Windows.Forms.CheckBox showOnScreenControls;
     }
 }
