@@ -61,7 +61,6 @@ namespace TheHunt.Model
             }
         }
         public int score;
-        private int maxScore;
         public DateTime dateTime
         {
             get
@@ -78,7 +77,6 @@ namespace TheHunt.Model
         public Score(int score, string world)
         {
             this.score = score;
-            this.maxScore = score;
             this.world = world;
 
             this._start = this.score;
@@ -86,13 +84,13 @@ namespace TheHunt.Model
 
         public void add(int bonus)
         {
-            if ((this.score += bonus) <= this.maxScore)
+            if ((this.score + bonus) <= this._start)
             {
                 score += bonus;
             }
             else
             {
-                score = maxScore;
+                score = this._start;
             }
         }
 
