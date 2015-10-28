@@ -54,7 +54,9 @@ namespace TheHunt
 
             if (inGame)
             {
-                this.Controls.Remove(buttonFullScreen);
+                this.Controls.Remove(this.buttonFullScreen);
+                this.Controls.Remove(this.showOnScreenControls);
+
                 buttonFullScreen.Enabled = false;
             }
         }

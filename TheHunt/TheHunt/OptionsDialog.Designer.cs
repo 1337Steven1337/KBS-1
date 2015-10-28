@@ -170,7 +170,7 @@ namespace TheHunt
             // 
             this.displayEnemyInfo.AutoSize = true;
             this.displayEnemyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayEnemyInfo.Location = new System.Drawing.Point(12, 211);
+            this.displayEnemyInfo.Location = new System.Drawing.Point(16, 239);
             this.displayEnemyInfo.Name = "displayEnemyInfo";
             this.displayEnemyInfo.Size = new System.Drawing.Size(280, 21);
             this.displayEnemyInfo.TabIndex = 24;
@@ -181,7 +181,7 @@ namespace TheHunt
             // 
             this.showOnScreenControls.AutoSize = true;
             this.showOnScreenControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showOnScreenControls.Location = new System.Drawing.Point(12, 238);
+            this.showOnScreenControls.Location = new System.Drawing.Point(16, 266);
             this.showOnScreenControls.Name = "showOnScreenControls";
             this.showOnScreenControls.Size = new System.Drawing.Size(200, 21);
             this.showOnScreenControls.TabIndex = 25;

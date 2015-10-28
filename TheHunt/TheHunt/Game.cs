@@ -105,10 +105,13 @@ namespace TheHunt
 
             // Set the initial size
             this.setFullScreenSize(this, null);
-          
 
-            // Add gamepad
-            this.addGamePad();
+            // Check if the onscreen controls have to be displayed
+            if (Properties.Settings.Default.onScreenControls)
+            {
+                // Add gamepad
+                this.addGamePad();
+            }
 
             // Subscribe to the events
             this.attachEvents();
