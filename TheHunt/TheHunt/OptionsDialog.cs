@@ -50,8 +50,6 @@ namespace TheHunt
 
             this.Text = string.Empty;
             this.ControlBox = false;
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
             if (inGame)
             {
                 this.Controls.Remove(this.buttonFullScreen);
