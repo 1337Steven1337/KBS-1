@@ -57,9 +57,11 @@ namespace TheHunt
         public Timer speedBoostTimer = new Timer();
         public int speedBoostLength = 0;
 
+
         // Emp
         public bool emp = false;
         private List<Model.Point> npcSpeed = new List<Model.Point>();
+        public Timer EMPTimer = new Timer();
 
         // Are we running?
         private bool run = false;
@@ -125,6 +127,10 @@ namespace TheHunt
             this.speedBoostTimer.Interval = 1000;
             this.speedBoostTimer.Tick += updateSpeedBoostLength;
 
+            // Set EMP timer
+            this.EMPTimer.Interval = 2000;
+            this.EMPTimer.Tick += EMPReset;
+
             // Set the stopwatch
             this.delta = new Stopwatch();
 
@@ -145,6 +151,18 @@ namespace TheHunt
                 this.run = false;
                 this.speedBoostTimer.Stop();
             }
+        }
+
+
+        public void EMPReset(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.world.npcs.Count; i++)
+            {
+                this.world.npcs[i].speed = npcSpeed[i];
+            }
+
+            EMPTimer.Stop();
+            emp = false;
         }
 
 
@@ -209,25 +227,18 @@ namespace TheHunt
 
         public void Emp()
         {
-
             if (emp)
-            {
-                foreach (Npc npc in this.world.npcs)
-                {
-                    for(int i = 0; i < this.world.npcs.Count; i++)
-                    {
-                        npc.speed = npcSpeed[i];
-                        npcSpeed.Remove(npcSpeed[i]);
-                    }
-                }
-            }
-            else
             {
                 foreach (Npc npc in this.world.npcs)
                 {
                     npcSpeed.Add(npc.speed);
                     npc.speed = new Model.Point(0,0);
                 }
+                EMPTimer.Start();
+            }
+            else
+            {
+                EMPTimer.Stop();
             }
         }
 

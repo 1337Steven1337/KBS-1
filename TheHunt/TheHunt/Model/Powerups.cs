@@ -49,6 +49,7 @@ namespace TheHunt.Model
             }
             if(type == Type.Emp)
             {
+                game.emp = true;
                 game.Emp();
         }
         }

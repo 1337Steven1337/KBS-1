@@ -226,6 +226,14 @@ namespace TheHunt.Designer
                     this.world.powerups.Add(powerUp);
                 }
 
+                if (this.items.getMode() == "PUEMP")
+                {
+                    Powerups powerUp = this.items.getActive<Powerups>().clone();
+                    powerUp.x = (int)(x);
+                    powerUp.y = (int)(y);
+                    this.world.powerups.Add(powerUp);
+                }
+
                 if (this.items.getMode() == "WorldGround")
                 {
                     Obstacle fieldObject = this.items.getActive<Obstacle>().clone();
