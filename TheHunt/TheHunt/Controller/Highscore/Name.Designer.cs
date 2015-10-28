@@ -34,18 +34,20 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 12);
+            this.txtName.Location = new System.Drawing.Point(16, 15);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(318, 20);
+            this.txtName.Size = new System.Drawing.Size(423, 22);
             this.txtName.TabIndex = 0;
             // 
             // buttonSave
             // 
+            this.buttonSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(95, 37);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSave.Location = new System.Drawing.Point(127, 46);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(150, 41);
+            this.buttonSave.Size = new System.Drawing.Size(200, 50);
             this.buttonSave.TabIndex = 6;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -53,12 +55,13 @@
             // 
             // Name
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 88);
+            this.ClientSize = new System.Drawing.Size(456, 108);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.txtName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Name";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Show";

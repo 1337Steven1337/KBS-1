@@ -54,16 +54,17 @@
             this.dataGrid.ShowCellToolTips = false;
             this.dataGrid.ShowEditingIcon = false;
             this.dataGrid.ShowRowErrors = false;
-            this.dataGrid.Size = new System.Drawing.Size(545, 483);
+            this.dataGrid.Size = new System.Drawing.Size(727, 594);
             this.dataGrid.TabIndex = 0;
             // 
             // buttonBackToMenu
             // 
+            this.buttonBackToMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBackToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBackToMenu.Location = new System.Drawing.Point(11, 496);
-            this.buttonBackToMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonBackToMenu.Location = new System.Drawing.Point(15, 610);
+            this.buttonBackToMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBackToMenu.Name = "buttonBackToMenu";
-            this.buttonBackToMenu.Size = new System.Drawing.Size(150, 41);
+            this.buttonBackToMenu.Size = new System.Drawing.Size(200, 50);
             this.buttonBackToMenu.TabIndex = 5;
             this.buttonBackToMenu.Text = "Back To Menu";
             this.buttonBackToMenu.UseVisualStyleBackColor = true;
@@ -71,11 +72,12 @@
             // 
             // btnChangeName
             // 
+            this.btnChangeName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChangeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeName.Location = new System.Drawing.Point(382, 496);
-            this.btnChangeName.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChangeName.Location = new System.Drawing.Point(509, 610);
+            this.btnChangeName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChangeName.Name = "btnChangeName";
-            this.btnChangeName.Size = new System.Drawing.Size(150, 41);
+            this.btnChangeName.Size = new System.Drawing.Size(200, 50);
             this.btnChangeName.TabIndex = 6;
             this.btnChangeName.Text = "Change Name";
             this.btnChangeName.UseVisualStyleBackColor = true;
@@ -83,14 +85,15 @@
             // 
             // Show
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(543, 548);
+            this.ClientSize = new System.Drawing.Size(724, 674);
             this.Controls.Add(this.btnChangeName);
             this.Controls.Add(this.buttonBackToMenu);
             this.Controls.Add(this.dataGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Show";
