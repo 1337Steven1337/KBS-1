@@ -513,6 +513,8 @@ namespace TheHunt.Designer
                 if (Properties.Screen.Default.full)
                 {
                     this.Bounds = Screen.PrimaryScreen.Bounds;
+                    this.Size = new Size((int)(this.startForm.Size.Width * 0.8), this.startForm.Size.Height);
+                    this.TopMost = true;
                 }
                 else
                 {

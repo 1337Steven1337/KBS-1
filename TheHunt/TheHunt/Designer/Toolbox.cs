@@ -225,7 +225,8 @@ namespace TheHunt.Designer
             else
             if (selectedObject.GetType() == typeof(Model.Player))
             {
-                //Setting Property Values
+                //Setting Property 
+
                 this.previewObjectBox.Image = ((Model.Player)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
                 this.previewObjectBox.BackColor = Color.DarkGray;
