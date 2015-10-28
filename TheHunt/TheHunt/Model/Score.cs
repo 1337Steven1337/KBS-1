@@ -122,32 +122,32 @@ namespace TheHunt.Model
 
             Rectangle backgroundHealthBar = new Rectangle(scoreX, scoreY, scoreWidth, scoreHeight);
             g.DrawRectangle(blackPen, backgroundHealthBar);
-            Brush variableBrush = new SolidBrush(Color.Black);
+            Brush variableBrush = new SolidBrush(Color.FromArgb(50, 0, 0, 0));
 
             g.FillRectangle(variableBrush, backgroundHealthBar);
 
             float percentage = ((float)this.score / (float)this._start) * 100;
 
-            if(percentage > 100)
+            if (percentage > 100)
             {
                 percentage = 100;
             }
 
             if (percentage >= 75)
             {
-                variableBrush = new SolidBrush(Color.Green);
+                variableBrush = new SolidBrush(Color.FromArgb(50, 0, 255, 0));
             }
             else if (percentage >= 50 && percentage < 75)
             {
-                variableBrush = new SolidBrush(Color.Yellow);
+                variableBrush = new SolidBrush(Color.FromArgb(50, 255, 255, 0));
             }
             else if (percentage >= 25 && percentage < 50)
             {
-                variableBrush = new SolidBrush(Color.Orange);
+                variableBrush = new SolidBrush(Color.FromArgb(50, 255, 127, 80));
             }
             else if (percentage >= 0 && percentage < 25)
             {
-                variableBrush = new SolidBrush(Color.Red);
+                variableBrush = new SolidBrush(Color.FromArgb(50, 255, 0, 0));
             }
 
             g.FillRectangle(variableBrush, scoreX + 1, scoreY + 1, (scoreWidth - 1) - ((scoreWidth - 1) - ((percentage / 100) * (scoreWidth - 1))), scoreHeight - 1);
@@ -159,7 +159,6 @@ namespace TheHunt.Model
             Font font = new Font("Microsoft Sans Serif", 10);
             SizeF stringSize = new SizeF();
             stringSize = g.MeasureString(this.score.ToString(), font, 200);
-
 
             RectangleF rectangle = new RectangleF((scoreX + (scoreWidth / 2)) - (stringSize.Width / 2), scoreY + ((scoreHeight / 2) - (stringSize.Height / 2)), stringSize.Width, stringSize.Height);
             g.DrawString(this.score.ToString(), font, Brushes.White, rectangle);
