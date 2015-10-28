@@ -565,8 +565,6 @@ namespace TheHunt.Designer
             for (int i = 0; i < this.world.powerups.Count; i++)
             {
                 Powerups powerUps = this.world.powerups[i];
-                powerUps.sizeBreedte = (int)cellSizeX;
-                powerUps.sizeHoogte = (int)cellSizeY;
                 powerUps.draw(graphics, this.Size,"Designer",powerUps.getUsed());
             }
 
