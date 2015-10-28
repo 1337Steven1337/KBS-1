@@ -20,8 +20,7 @@ namespace TheHunt.Model
         public int width = 1;
         public Type type;
 
-        private World world = null;
-        private Game game = null;
+
         private Image image = null;
 
 
@@ -35,9 +34,9 @@ namespace TheHunt.Model
             this.used = used;
         }
 
-        public void UsePowerup(Powerups pu)
+        public void UsePowerup(Game game)
         {
-            pu.used = true;
+            setUsed(true);
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
@@ -46,10 +45,11 @@ namespace TheHunt.Model
             }
             if(type == Type.Scoreboost)
             {
-                game.addScore(10000);
+                game.addScore(1000);
             }
             if(type == Type.Emp)
             {
+                game.emp = true;
                 game.Emp();
         }
         }
@@ -61,43 +61,34 @@ namespace TheHunt.Model
             Emp
         }
 
-        public void draw(Graphics g, Size screenSize, bool isUsed)
+        public void draw(Graphics g, Size screenSize, string drawMode, bool isUsed)
         {
-            if (isUsed == false)
-            {
                 float screenWidth = (float)(screenSize.Width / 40.00);
                 float screenHeight = (float)(screenSize.Height / 20.00);
-                g.DrawImage(getImage(), (int)(this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
-            }
-        }
-
-
-        public bool checkCollision(World world, Game game)
-        {
-            this.game = game;
-            this.world = world;
-
-            if (playerIntersectWithPowerup() != null)
+            if (drawMode == "Game")
             {
-                  UsePowerup(playerIntersectWithPowerup());
-                return true;
-            }
-            return false;
-        }
-
-        private Powerups playerIntersectWithPowerup()
-        {
-            Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00));
-            foreach (var pu in this.world.powerups)
-            {
-                if (playerCoords.IntersectsWith(new Rectangle(pu.x * (int)(this.game.Width/40.00), pu.y * (int)(this.game.Height / 20.00), (int)(this.game.Width / 40.00), (int)(this.game.Height / 20.00))))
+                if (isUsed == false)
                 {
-                    return pu;
-                }
+                    g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
             }
-            return null;
+        }
+            else if (drawMode == "Designer")
+            {
+                g.DrawImage(getImage(), (this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
+            }
+
         }
 
+
+        public float getPixelWidth(Size screenSize)
+            {
+            return this.width * screenSize.Width / 40;
+        }
+
+        public float getPixelHeight(Size screenSize)
+                {
+            return this.height * screenSize.Height / 20;
+        }
 
         private Image getImage()
         {

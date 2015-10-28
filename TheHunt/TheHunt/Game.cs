@@ -57,9 +57,11 @@ namespace TheHunt
         public Timer speedBoostTimer = new Timer();
         public int speedBoostLength = 0;
 
+
         // Emp
         public bool emp = false;
         private List<Model.Point> npcSpeed = new List<Model.Point>();
+        public Timer EMPTimer = new Timer();
 
         // Are we running?
         private bool run = false;
@@ -125,6 +127,10 @@ namespace TheHunt
             this.speedBoostTimer.Interval = 1000;
             this.speedBoostTimer.Tick += updateSpeedBoostLength;
 
+            // Set EMP timer
+            this.EMPTimer.Interval = 2000;
+            this.EMPTimer.Tick += EMPReset;
+
             // Set the stopwatch
             this.delta = new Stopwatch();
 
@@ -148,6 +154,18 @@ namespace TheHunt
         }
 
 
+        public void EMPReset(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.world.npcs.Count; i++)
+            {
+                this.world.npcs[i].speed = npcSpeed[i];
+            }
+
+            EMPTimer.Stop();
+            emp = false;
+        }
+
+
         // Normalizes the coordinates
         private void normalize()
         {
@@ -166,6 +184,12 @@ namespace TheHunt
             {
                 obstacle.x = (int)(obstacle.x * ratioX);
                 obstacle.y = (int)(obstacle.y * ratioY);
+            }
+
+            foreach (Powerups powerup in this.world.powerups)
+            {
+                powerup.x = (int)(powerup.x * ratioX);
+                powerup.y = (int)(powerup.y * ratioY);
             }
 
             foreach (Npc npc in this.world.npcs)
@@ -203,25 +227,18 @@ namespace TheHunt
 
         public void Emp()
         {
-
             if (emp)
-            {
-                foreach (Npc npc in this.world.npcs)
-                {
-                    for(int i = 0; i < this.world.npcs.Count; i++)
-                    {
-                        npc.speed = npcSpeed[i];
-                        npcSpeed.Remove(npcSpeed[i]);
-                    }
-                }
-            }
-            else
             {
                 foreach (Npc npc in this.world.npcs)
                 {
                     npcSpeed.Add(npc.speed);
                     npc.speed = new Model.Point(0,0);
                 }
+                EMPTimer.Start();
+            }
+            else
+            {
+                EMPTimer.Stop();
             }
         }
 
@@ -395,9 +412,11 @@ namespace TheHunt
 
             // Powerup check for collisions
             foreach (var powerup in this.world.powerups)
-            {
-                if(powerup.checkCollision(this.world, this))
+            { 
+                Rectangle playerCoords = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, (int)(this.world.player.sizeBreedte), (int)(this.world.player.sizeHoogte));
+                if (playerCoords.IntersectsWith(new Rectangle(powerup.x, powerup.y, (int)(powerup.getPixelWidth(this.Size)), (int)(powerup.getPixelHeight(this.Size)))))
                 {
+                    powerup.UsePowerup(this);
                     this.world.powerups.Remove(powerup);
                     return true;
                 }
@@ -446,7 +465,7 @@ namespace TheHunt
                 // Draw the obstacles
                 foreach (Obstacle obstacle in this.world.obstacles)
                 {
-                    obstacle.draw(graphics, this.Size);
+                    obstacle.draw(graphics, this.Size,"Game");
                 }
             }
             else
@@ -464,7 +483,7 @@ namespace TheHunt
                 // Draw the Powerups
                 foreach (Powerups powerup in this.world.powerups)
                 {
-                    powerup.draw(g, this.Size,powerup.getUsed());
+                    powerup.draw(g, this.Size,"Game",powerup.getUsed());
                 }
 
                 // Draw the player

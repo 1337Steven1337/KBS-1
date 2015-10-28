@@ -43,6 +43,7 @@ namespace TheHunt.Designer
             PictureBox wallBox = new PictureBox();
             PictureBox PURunBox = new PictureBox();
             PictureBox PUScore = new PictureBox();
+            PictureBox PUEMP = new PictureBox();
 
             PictureBox player1Box = new PictureBox();
             PictureBox HBouncerBox = new PictureBox();
@@ -60,6 +61,11 @@ namespace TheHunt.Designer
             PUScore.Click += Item_Click;
             PUScore.Tag = "PUScore";
             PUScore.Image = Properties.Resources.Scoreboost;
+
+            PUEMP.Click += Item_Click;
+            PUEMP.Tag = "PUEMP";
+            PUEMP.Image = Properties.Resources.emp;
+
 
 
 
@@ -92,6 +98,7 @@ namespace TheHunt.Designer
             this.worldPanel.Controls.Add(wallBox);
             this.worldPanel.Controls.Add(PURunBox);
             this.worldPanel.Controls.Add(PUScore);
+            this.worldPanel.Controls.Add(PUEMP);
 
             initPropertyPanel();
             initPlayerPanel();
@@ -117,6 +124,19 @@ namespace TheHunt.Designer
             if (this.mode == "PURun")
             {
                 powerUps.type = Powerups.Type.Speedboost;
+                powerUps.setUsed(false);
+                this.active = powerUps;
+            }
+            if (this.mode == "PUScore")
+            {
+                powerUps.type = Powerups.Type.Scoreboost;
+                powerUps.setUsed(false);
+                this.active = powerUps;
+            }
+
+            if(this.mode == "PUEMP")
+            {
+                powerUps.type = Powerups.Type.Emp;
                 powerUps.setUsed(false);
                 this.active = powerUps;
             }
@@ -178,8 +198,6 @@ namespace TheHunt.Designer
             else
             if (selectedObject.GetType() == typeof(Npc))
             {
-                MessageBox.Show("X:" + ((Npc)selectedObject).positions.current_position.x + " Y: " + ((Npc)selectedObject).positions.current_position.y);
-
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Npc)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
