@@ -169,6 +169,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Levels.settings</DependentUpon>
     </Compile>
+    <Compile Include="Unittesttest.cs" />
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </EmbeddedResource>
