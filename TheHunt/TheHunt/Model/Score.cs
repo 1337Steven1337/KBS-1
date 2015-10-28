@@ -54,6 +54,10 @@ namespace TheHunt.Model
 
                 return this._token;
             }
+            set
+            {
+                this._token = value;
+            }
         }
         public int score;
         private int maxScore;
