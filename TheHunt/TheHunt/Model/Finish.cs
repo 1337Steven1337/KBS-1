@@ -20,11 +20,19 @@ namespace TheHunt.Model
 
         private Image image = null;
 
-        public void draw(Graphics g, Size screenSize)
+        public void draw(Graphics g, Size screenSize, string drawMode)
         {
                 float screenWidth = (float)(screenSize.Width / 40.00);
                 float screenHeight = (float)(screenSize.Height / 20.00);
+            if (drawMode == "Game")
+            {
                 g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
+            }
+            else if (drawMode == "Designer")
+            {
+                g.DrawImage(getImage(), (int)(this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
+            }
+                
             
         }
 
@@ -38,13 +46,18 @@ namespace TheHunt.Model
             return this.height * screenSize.Height / 20;
         }
 
-        private Image getImage()
+        public Image getImage()
         {
             if (this.image == null)
             {
                 this.image = new Bitmap(TheHunt.Properties.Resources.Finish);
             }
             return this.image;
+        }
+
+        public Finish clone()
+        {
+            return (Finish)this.MemberwiseClone();
         }
     }
 }

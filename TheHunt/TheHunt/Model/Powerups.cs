@@ -10,6 +10,9 @@ namespace TheHunt.Model
     class Powerups : Item
     {
         private Boolean used = false;
+        public int speedBonusDuration = 5000;
+        public int EMPDuration = 2000;
+        public int ScoreBonus = 1000;
 
         public int x = 0;
         public int y = 0;
@@ -37,17 +40,17 @@ namespace TheHunt.Model
 
             if(type == Type.Speedboost) {
                 game.speedBoostActive = true;
-                game.speedBoostLength += 5000;
+                game.speedBoostLength += speedBonusDuration;
                 game.speedBoostTimer.Start();
             }
             if(type == Type.Scoreboost)
             {
-                game.addScore(1000);
+                game.addScore(ScoreBonus);
             }
             if(type == Type.Emp)
             {
                 game.emp = true;
-                game.Emp();
+                game.Emp(EMPDuration);
         }
         }
 
@@ -87,7 +90,7 @@ namespace TheHunt.Model
             return this.height * screenSize.Height / 20;
         }
 
-        private Image getImage()
+        public Image getImage()
         {
             if (this.image == null)
             {
