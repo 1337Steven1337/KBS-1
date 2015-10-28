@@ -16,6 +16,7 @@ namespace TheHunt.Model
 
         public Player player = new Player();
         public Boss boss = new Boss();
+        public Finish finish = new Finish();
 
         private Score score = null;
 
