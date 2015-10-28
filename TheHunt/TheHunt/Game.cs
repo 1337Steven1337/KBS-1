@@ -11,11 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheHunt.Model;
+using TheHunt.Controller.Highscore;
 
 namespace TheHunt
 {
     public partial class Game : Form
     {
+        // Variable to check if finished
+        private bool finished = false;
+
         // Keep the world data
         private World world = null;
 
@@ -174,11 +178,14 @@ namespace TheHunt
 
             this.world.player.sizeBreedte = this.Width / 40 - 5;
             this.world.player.sizeHoogte = this.Height / 20 - 5;
-
+            
             this.world.player.positions.current_position = new Model.Point(
                 (int)(this.world.player.positions.current_position.x * ratioX),
                 (int)(this.world.player.positions.current_position.y * ratioY)
                 );
+
+            this.world.finish.x = (int)(this.world.finish.x * ratioX);
+            this.world.finish.y = (int)(this.world.finish.y * ratioY);
 
             foreach (Obstacle obstacle in this.world.obstacles)
             {
@@ -204,6 +211,7 @@ namespace TheHunt
         // Load the world
         private void load()
         {
+
             // Assign the world variable
             this.world = JsonConvert.DeserializeObject<World>(levelString);
 
@@ -260,8 +268,6 @@ namespace TheHunt
             // Stop the timers
             this.loop.Stop();
             this.delta.Stop();
-
-
         
             // Check if player is moving
             if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
@@ -392,9 +398,6 @@ namespace TheHunt
             {
                 return true;
             }
-
-
-
             
             // Check for collision with obstacles
             foreach (Obstacle obstacle in this.world.obstacles)
@@ -407,6 +410,15 @@ namespace TheHunt
                 {
                     return true;
                 }
+            }
+
+            // Check for collision with finish
+            Rectangle rFinish = new Rectangle(world.finish.x, world.finish.y, (int)world.finish.getPixelWidth(this.Size), (int)(world.finish.getPixelHeight(this.Size)));
+            if (rectangle.IntersectsWith(rFinish))
+            {
+                //MessageBox.Show("Finish");
+                Finish();
+
             }
 
 
@@ -424,6 +436,17 @@ namespace TheHunt
 
 
             return false;
+        }
+
+        private void Finish()
+        {
+            if (!finished)
+            {
+                finished = true;
+                Highscore.Instance.add(this.world.getScore());
+                this.Close();
+                this.startScreen.Show();
+            }
         }
 
         // Function to handle the full screen option
@@ -488,6 +511,9 @@ namespace TheHunt
 
                 // Draw the player
                 this.world.player.draw(g, this.Size, "Game");
+
+                // Draw the finish
+                this.world.finish.draw(g, this.Size);
 
                 // Draw score bar
                 this.world.getScore().draw(g, this.Size);

@@ -20,14 +20,22 @@ namespace TheHunt.Model
 
         private Image image = null;
 
-        public void draw(Graphics g, Size screenSize, bool isUsed)
+        public void draw(Graphics g, Size screenSize)
         {
-            if (isUsed == false)
-            {
                 float screenWidth = (float)(screenSize.Width / 40.00);
                 float screenHeight = (float)(screenSize.Height / 20.00);
-                g.DrawImage(getImage(), (int)(this.x * screenWidth), (int)(this.y * screenHeight), screenWidth, screenHeight);
-            }
+                g.DrawImage(getImage(), this.x, this.y, screenWidth, screenHeight);
+            
+        }
+
+        public float getPixelWidth(Size screenSize)
+        {
+            return this.width * screenSize.Width / 40;
+        }
+
+        public float getPixelHeight(Size screenSize)
+        {
+            return this.height * screenSize.Height / 20;
         }
 
         private Image getImage()
