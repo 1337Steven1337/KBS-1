@@ -54,7 +54,9 @@ namespace TheHunt
 
             if (inGame)
             {
-                this.Controls.Remove(buttonFullScreen);
+                this.Controls.Remove(this.buttonFullScreen);
+                this.Controls.Remove(this.showOnScreenControls);
+
                 buttonFullScreen.Enabled = false;
             }
         }
@@ -65,6 +67,12 @@ namespace TheHunt
             trackBarMasterVolume.Value = (int)Properties.Sound.Default.master;
             trackBarMusicVolume.Value = (int)Properties.Sound.Default.music;
             trackBarEffectsVolume.Value = (int)Properties.Sound.Default.effects;
+            
+            this.displayEnemyInfo.Checked = Properties.Settings.Default.enemyInformation;
+            this.displayEnemyInfo.CheckedChanged += displayEnemyInfo_CheckedChanged;
+
+            this.showOnScreenControls.Checked = Properties.Settings.Default.onScreenControls;
+            this.showOnScreenControls.CheckedChanged += showOnScreenControls_CheckedChanged;
         }
 
         //Geeft teken van afsluiten opties
@@ -129,6 +137,18 @@ namespace TheHunt
         {
             Properties.Sound.Default.effects = trackBarEffectsVolume.Value;
             Properties.Sound.Default.Save();
+        }
+
+        private void displayEnemyInfo_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.enemyInformation = this.displayEnemyInfo.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void showOnScreenControls_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.onScreenControls = this.showOnScreenControls.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }

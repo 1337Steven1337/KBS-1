@@ -46,5 +46,29 @@ namespace TheHunt.Properties {
                 this["masterSound"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool enemyInformation {
+            get {
+                return ((bool)(this["enemyInformation"]));
+            }
+            set {
+                this["enemyInformation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool onScreenControls {
+            get {
+                return ((bool)(this["onScreenControls"]));
+            }
+            set {
+                this["onScreenControls"] = value;
+            }
+        }
     }
 }
