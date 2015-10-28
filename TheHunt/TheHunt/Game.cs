@@ -11,11 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheHunt.Model;
+using TheHunt.Controller.Highscore;
 
 namespace TheHunt
 {
     public partial class Game : Form
     {
+        // Variable to check if finished
+        private bool finished = false;
+
         // Keep the world data
         private World world = null;
 
@@ -413,8 +417,7 @@ namespace TheHunt
             if (rectangle.IntersectsWith(rFinish))
             {
                 //MessageBox.Show("Finish");
-                this.Close();
-                this.startScreen.Show();
+                Finish();
 
             }
 
@@ -433,6 +436,17 @@ namespace TheHunt
 
 
             return false;
+        }
+
+        private void Finish()
+        {
+            if (!finished)
+            {
+                finished = true;
+                Highscore.Instance.add(this.world.getScore());
+                this.Close();
+                this.startScreen.Show();
+            }
         }
 
         // Function to handle the full screen option
