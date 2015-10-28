@@ -18,6 +18,7 @@ namespace TheHunt.Designer
         private Obstacle fieldObjects = new Obstacle();
         private Powerups powerUps = new Powerups();
         private Model.Player player = new Model.Player();
+        private Finish finish = new Finish();
         private Npc npc = new Npc();
         private string mode = "";
         private object active = null;
@@ -25,6 +26,8 @@ namespace TheHunt.Designer
         private object selectedObject;
         private EventHandler mouseHover;
         private EventHandler mouseLeave;
+        private EventHandler walkNumericDown;
+        private EventHandler runNumericDown;
 
         public Toolbox(Form Designform)
         {
@@ -46,6 +49,7 @@ namespace TheHunt.Designer
             PictureBox PURunBox = new PictureBox();
             PictureBox PUScore = new PictureBox();
             PictureBox PUEMP = new PictureBox();
+            PictureBox endBox = new PictureBox();
 
             PictureBox player1Box = new PictureBox();
             PictureBox HBouncerBox = new PictureBox();
@@ -71,8 +75,9 @@ namespace TheHunt.Designer
             PUEMP.Image = Properties.Resources.emp;
 
 
-
-
+            endBox.Click += Item_Click;
+            endBox.Tag = "EndGame";
+            endBox.Image = Properties.Resources.Finish;
 
             player1Box.Click += Item_Click;
             player1Box.Tag = "Player";
@@ -103,6 +108,7 @@ namespace TheHunt.Designer
             this.worldPanel.Controls.Add(PURunBox);
             this.worldPanel.Controls.Add(PUScore);
             this.worldPanel.Controls.Add(PUEMP);
+            this.worldPanel.Controls.Add(endBox);
 
             initPropertyPanel();
             initPlayerPanel();
@@ -125,6 +131,11 @@ namespace TheHunt.Designer
                 fieldObjects.type = Obstacle.Type.wall;
                 this.active = fieldObjects;
             }
+            if(this.mode == "EndGame")
+            {
+                this.active = finish;
+            }
+
             if (this.mode == "PURun")
             {
                 powerUps.type = Powerups.Type.Speedboost;
@@ -197,6 +208,9 @@ namespace TheHunt.Designer
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
 
+                this.numericWalkSpeed.Click -= walkNumericDown;
+                this.numericRunSpeed.Click -= runNumericDown;
+
                 this.previewObjectBox.MouseHover -= mouseHover;
                 this.previewObjectBox.MouseLeave -= mouseLeave;
                 mouseHover = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
@@ -222,8 +236,10 @@ namespace TheHunt.Designer
                 this.numericWalkSpeed.Maximum = 15;
                 this.numericWalkSpeed.Value = ((Npc)selectedObject).speed.x;
 
+                this.numericWalkSpeed.Click -= walkNumericDown;
+                walkNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).speed.x = int.Parse(this.numericWalkSpeed.Value.ToString()); ((Npc)selectedObject).speed.y = int.Parse(this.numericWalkSpeed.Value.ToString()); };
+                this.numericWalkSpeed.Click += walkNumericDown;
 
-                this.numericWalkSpeed.Click += delegate (object se, EventArgs ea) { ((Npc)selectedObject).speed.x = int.Parse(this.numericWalkSpeed.Value.ToString()); ((Npc)selectedObject).speed.y = int.Parse(this.numericWalkSpeed.Value.ToString()); };
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
@@ -233,8 +249,8 @@ namespace TheHunt.Designer
                 mouseHover = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
                 mouseLeave = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Npc)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
                 this.previewObjectBox.MouseHover += mouseHover;
-                this.previewObjectBox.MouseLeave += mouseLeave; 
-                
+                this.previewObjectBox.MouseLeave += mouseLeave;
+
             }
             else
             if (Object.GetType() == typeof(Model.Player))
@@ -254,18 +270,21 @@ namespace TheHunt.Designer
                 this.numericWalkSpeed.Value = ((Model.Player)selectedObject).movement.walk.x;
                 this.walkSpeedLabel.Text = "Walk speed :";
                 this.numericRunSpeed.Value = ((Model.Player)selectedObject).movement.run.x;
-                
-                
+
+
 
                 this.numericWalkSpeed.Maximum = 5;
                 this.numericWalkSpeed.Minimum = 1;
                 this.numericRunSpeed.Maximum = 10;
                 this.numericRunSpeed.Minimum = 2;
 
-                this.numericWalkSpeed.Click += delegate (object se, EventArgs ea) { ((Model.Player)selectedObject).movement.walk = new Model.Point(int.Parse(this.numericWalkSpeed.Value.ToString()), int.Parse(this.numericWalkSpeed.Value.ToString()));};
-                this.numericRunSpeed.Click += delegate (object se, EventArgs ea) { ((Model.Player)selectedObject).movement.run = new Model.Point(int.Parse(this.numericRunSpeed.Value.ToString()), int.Parse(this.numericRunSpeed.Value.ToString()));};
+                this.numericWalkSpeed.Click -= walkNumericDown;
+                this.numericRunSpeed.Click -= runNumericDown;
+                walkNumericDown = delegate (object se, EventArgs ea) { ((Model.Player)selectedObject).movement.walk = new Model.Point(int.Parse(this.numericWalkSpeed.Value.ToString()), int.Parse(this.numericWalkSpeed.Value.ToString())); };
+                runNumericDown = delegate (object se, EventArgs ea) { ((Model.Player)selectedObject).movement.run = new Model.Point(int.Parse(this.numericRunSpeed.Value.ToString()), int.Parse(this.numericRunSpeed.Value.ToString())); };
+                this.numericWalkSpeed.Click += walkNumericDown;
+                this.numericRunSpeed.Click += runNumericDown;
 
-               
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
@@ -276,7 +295,91 @@ namespace TheHunt.Designer
                 mouseLeave = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Model.Player)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
                 this.previewObjectBox.MouseHover += mouseHover;
                 this.previewObjectBox.MouseLeave += mouseLeave;
+
+            }
+            else
+            if (Object.GetType() == typeof(Powerups))
+            {
+                //Setting Property 
+
+                this.previewObjectBox.Image = ((Powerups)selectedObject).getImage();
+                this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                this.previewObjectBox.BackColor = Color.DarkGray;
+                this.ObjectName.Text = "" + ((Powerups)Object).type.ToString();
+                this.ObjectCoords.Text = "X: " + ((Powerups)selectedObject).x + " Y: " + ((Powerups)selectedObject).y;
                 
+                this.numericWalkSpeed.Visible = true;
+                this.walkSpeedLabel.Visible = true;
+                this.runSpeedLabel.Visible = false;
+                this.numericRunSpeed.Visible = false;
+
+                this.numericWalkSpeed.Click -= walkNumericDown;
+
+                if (((Powerups)selectedObject).type == Powerups.Type.Speedboost)
+                {
+                    this.numericWalkSpeed.Value = ((Powerups)selectedObject).speedBonusDuration / 1000;
+                    this.walkSpeedLabel.Text = "Duration (sec):";
+                    this.numericWalkSpeed.Maximum = 10;
+                    this.numericWalkSpeed.Minimum = 1;
+                    walkNumericDown = delegate (object se, EventArgs ea) { ((Powerups)selectedObject).speedBonusDuration = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                }
+                if (((Powerups)selectedObject).type == Powerups.Type.Scoreboost)
+                {
+                    this.numericWalkSpeed.Value = ((Powerups)selectedObject).ScoreBonus / 1000;
+                    this.walkSpeedLabel.Text = "Bonus (x1000):";
+                    this.numericWalkSpeed.Maximum = 10;
+                    this.numericWalkSpeed.Minimum = 1;
+                    walkNumericDown += delegate (object se, EventArgs ea) { ((Powerups)selectedObject).ScoreBonus = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                }
+                if(((Powerups)selectedObject).type == Powerups.Type.Emp)
+                {
+                    this.numericWalkSpeed.Value = ((Powerups)selectedObject).EMPDuration /1000;
+                    this.walkSpeedLabel.Text = "Duration (sec):";
+                    this.numericWalkSpeed.Maximum = 5;
+                    this.numericWalkSpeed.Minimum = 1;
+                    walkNumericDown += delegate (object se, EventArgs ea) { ((Powerups)selectedObject).EMPDuration = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                }
+                this.numericWalkSpeed.Click += walkNumericDown;
+
+
+                this.mode = "Geen";
+                this.previewObjectBox.Click -= Item_Click;
+
+                this.previewObjectBox.MouseHover -= mouseHover;
+                this.previewObjectBox.MouseLeave -= mouseLeave;
+                mouseHover = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
+                mouseLeave = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Powerups)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
+                this.previewObjectBox.MouseHover += mouseHover;
+                this.previewObjectBox.MouseLeave += mouseLeave;
+
+            }
+            else
+            if (Object.GetType() == typeof(Finish))
+            {
+                //Setting Property 
+
+                this.previewObjectBox.Image = ((Finish)selectedObject).getImage();
+                this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                this.previewObjectBox.BackColor = Color.DarkGray;
+                this.ObjectName.Text = "Finish";
+                this.ObjectCoords.Text = "X: " + ((Finish)selectedObject).x + " Y: " + ((Finish)selectedObject).y;
+                this.runSpeedLabel.Visible = false;
+                this.walkSpeedLabel.Visible = false;
+                this.numericWalkSpeed.Visible = false;
+                this.numericRunSpeed.Visible = false;
+
+                this.mode = "Geen";
+                this.previewObjectBox.Click -= Item_Click;
+                this.numericWalkSpeed.Click -= walkNumericDown;
+                this.numericRunSpeed.Click -= runNumericDown;
+
+                this.previewObjectBox.MouseHover -= mouseHover;
+                this.previewObjectBox.MouseLeave -= mouseLeave;
+                mouseHover = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = Properties.Resources.selectBtn; this.previewObjectBox.Click += Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage; this.previewObjectBox.BackColor = SystemColors.Control; };
+                mouseLeave = delegate (object se, EventArgs ea) { this.previewObjectBox.Image = ((Finish)selectedObject).getImage(); this.previewObjectBox.Click -= Item_Click; this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage; this.previewObjectBox.BackColor = Color.DarkGray; };
+                this.previewObjectBox.MouseHover += mouseHover;
+                this.previewObjectBox.MouseLeave += mouseLeave;
+
             }
         }
 

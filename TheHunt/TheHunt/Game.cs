@@ -135,7 +135,6 @@ namespace TheHunt
             this.speedBoostTimer.Tick += updateSpeedBoostLength;
 
             // Set EMP timer
-            this.EMPTimer.Interval = 2000;
             this.EMPTimer.Tick += EMPReset;
 
             // Set the stopwatch
@@ -238,8 +237,9 @@ namespace TheHunt
             Controls.Add(right);
         }
 
-        public void Emp()
+        public void Emp(int duration)
         {
+            this.EMPTimer.Interval += duration;
             if (emp)
             {
                 foreach (Npc npc in this.world.npcs)
@@ -521,7 +521,7 @@ namespace TheHunt
                 this.world.player.draw(g, this.Size, "Game");
 
                 // Draw the finish
-                this.world.finish.draw(g, this.Size);
+                this.world.finish.draw(g, this.Size,"Game");
 
                 // Draw score bar
                 this.world.getScore().draw(g, this.Size);

@@ -27,8 +27,9 @@ namespace TheHunt.Designer
         private float cellSizeX = 32;
         private float cellSizeY = 32;
 
-        // Count amount of players set in the designer (max 1)
+        // Count amount of players/end-points set in the designer (max 1)
         private int playerCount = 0;
+        private int finishCount = 0;
 
         // Set an empty world
         private World world = null;
@@ -78,6 +79,10 @@ namespace TheHunt.Designer
                 this.world = JsonConvert.DeserializeObject<World>(levelString);
                 if (this.world.player != null){
                     playerCount = 1;
+                }
+                if (this.world.finish != null)
+                {
+                    finishCount = 1;
                 }
             }
 
@@ -132,21 +137,7 @@ namespace TheHunt.Designer
         {
             int x = (int)Math.Floor((Cursor.Position.X - this.Location.X) / (this.Size.Width / 40.00));
             int y = (int)Math.Floor((Cursor.Position.Y - this.Location.Y) / (this.Size.Height / 20.00));
-            if (this.world.player != null)
-            {
-                if (new Model.Point(x, y).Equals(this.world.player.positions.current_position))
-                {
-                    deleteSpecificObject(x, y);
-                }
-                else
-                {
-                    deleteSpecificObject(x, y);
-                }
-            }
-            else
-            {
-                deleteSpecificObject(x, y);
-            }
+            deleteSpecificObject(x, y);
             this.Invalidate();
         }
 
@@ -158,6 +149,8 @@ namespace TheHunt.Designer
 
             if (doesCoordsAlreadyContainObject(x, y))
             {
+
+                //Checks if player exists to prevent an Object not found error (3 lines down)
                 if (this.world.player != null)
                 {
                     if (new Model.Point(x, y).Equals(this.world.player.positions.current_position) && this.items.getMode() != "SelectTool")
@@ -264,6 +257,30 @@ namespace TheHunt.Designer
                     npc.positions.current_position = new Model.Point((int)(x), (int)(y));
                     npc.speed = new Model.Point(1, 1);
                     this.world.npcs.Add(npc);
+                }
+
+
+
+                if (this.items.getMode() == "EndGame" && this.finishCount == 0)
+                {
+                    Finish finish = this.items.getActive<Finish>().clone();
+                    finish.x = (int)(x);
+                    finish.y = (int)(y);
+                    this.world.finish = finish;
+                    this.finishCount = 1;
+                }
+                else if (this.items.getMode() == "EndGame" && this.finishCount > 0)
+                {
+                    this.MouseDownLeftTimer.Stop();
+                    DialogResult dialogResult = MessageBox.Show("Er bestaat al een eindpunt in dit level, wil je deze overschrijven", "Eindpunt overschrijven?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Finish finish = this.items.getActive<Finish>().clone();
+                        finish.x = (int)(x);
+                        finish.y = (int)(y);
+                        this.world.finish = finish;
+                    }
+
                 }
 
 
@@ -409,6 +426,15 @@ namespace TheHunt.Designer
                     UnknownObject = NPC;
                 }
             }
+
+            if (this.world.finish != null)
+            {
+                if (this.world.finish.x == x && this.world.finish.y ==  y)
+                {
+                    UnknownObject = this.world.finish;
+                }
+            }
+
             if (this.world.player != null)
             {
                 if (this.world.player.positions.current_position.Equals(new Model.Point(x, y)))
@@ -453,6 +479,13 @@ namespace TheHunt.Designer
                     return true;
                 }
             }
+            if (this.world.finish != null)
+            {
+                if (this.world.finish.x == x && this.world.finish.y == y)
+                {
+                    return true;
+                }
+            }
             if (this.world.player != null)
             {
                 if (this.world.player.positions.current_position.Equals(new Model.Point(x, y)))
@@ -488,6 +521,16 @@ namespace TheHunt.Designer
                 if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
                 {
                     this.world.npcs.Remove(NPC);
+                    return true;
+                }
+            }
+
+            if (this.world.finish != null)
+            {
+                if (this.world.finish.x == x && this.world.finish.y == y)
+                {
+                    this.world.finish = null;
+                    finishCount = 0;
                     return true;
                 }
             }
@@ -579,6 +622,15 @@ namespace TheHunt.Designer
                 npc.draw(graphics, this.Size, "Designer");
             }
 
+
+            //Draw the Finish, if a finish is set (max 1)
+            if (finishCount > 0)
+            {
+                Finish finish = this.world.finish;
+                finish.sizeBreedte = (int)cellSizeX;
+                finish.sizeHoogte = (int)cellSizeY;
+                finish.draw(graphics, this.Size, "Designer");
+            }
 
             //Draw the Player, if a player is set (max 1)
             if (playerCount > 0)
