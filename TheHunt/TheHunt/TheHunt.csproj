@@ -169,6 +169,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Levels.settings</DependentUpon>
     </Compile>
+    <Compile Include="Unittesttest.cs" />
     <EmbeddedResource Include="Charactertestform.resx">
       <DependentUpon>Charactertestform.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,18 +283,9 @@
     <None Include="Resources\fenceLeft.png" />
     <None Include="Resources\Hand-Touch2-512.png" />
     <None Include="Resources\emp.png" />
-    <None Include="Resources\HBouncer1.png" />
-    <None Include="Resources\HBouncer2.png" />
-    <None Include="Resources\HBouncer3.png" />
-    <None Include="Resources\HBouncer4.png" />
     <None Include="Resources\Finish.png" />
     <Content Include="Resources\restartBtn.png" />
     <None Include="Resources\SpeedUp.png" />
-    <None Include="Resources\VBouncer4.png" />
-    <None Include="Resources\VBouncer1.png" />
-    <None Include="Resources\VBouncer2.png" />
-    <None Include="Resources\VBouncer3.png" />
-    <None Include="Resources\Scoreboost.png" />
     <Content Include="Resources\wall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

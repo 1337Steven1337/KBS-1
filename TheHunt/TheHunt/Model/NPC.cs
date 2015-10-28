@@ -498,23 +498,29 @@ namespace TheHunt.Model
             return (Npc)this.MemberwiseClone();
         }
 
+        //methode om te kijken of er een player in range is
         public void checkForPlayer(World world, Game game)
         {
+            //kijk of de informatie aan gezet is en of er een speler in range is
             if (Properties.Settings.Default.enemyInformation && inRange(300))
             {
+                //kijk of de label leeg is
                 if (this.infoLabel == null)
                 {
+                    //als de label leeg is doe dit
                     this.infoLabel = new Label();
                     this.infoLabel.AutoSize = true;
                     this.infoLabel.Visible = true;
+                    //voeg de label toe aan het form
                     game.Controls.Add(infoLabel);
                 }
-
+                //update de informatie en de locatie van het label zolang deze in range blijft
                 this.infoLabel.Location = new System.Drawing.Point((int)this.positions.current_position.x - 50, (int)(this.positions.current_position.y - 20));
                 this.infoLabel.Text = "X: " + this.positions.current_position.x + ", Y: " + this.positions.current_position.y + ", Speed:  " + this.speed.x;
             }
             else
             {
+                //is hij niet in range of is het uit gezet verwijder dan het label van het form en maak het label leeg voor de volgende keer
                 game.Controls.Remove(infoLabel);
                 this.infoLabel = null;
             }

@@ -48,7 +48,7 @@ namespace TheHunt
         private Buttons gamepad = null;
 
         // Target FPS
-        private int targetFps = 120;
+        private int targetFps = 60;
 
         // Holds the pressed key
         private Keys pressedKey = Keys.None;
