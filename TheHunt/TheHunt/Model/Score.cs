@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -53,6 +54,10 @@ namespace TheHunt.Model
                 }
 
                 return this._token;
+            }
+            set
+            {
+                this._token = value;
             }
         }
         public int score;
@@ -108,14 +113,25 @@ namespace TheHunt.Model
 
         public void draw(Graphics g, Size size)
         {
+            int scoreX = 79;
+            int scoreY = size.Height - 61;
+            int scoreWidth = 201;
+            int scoreHeight = 31;
+
             Pen blackPen = new Pen(Color.Black);
-            Rectangle backgroundHealthBar = new Rectangle(79, size.Height - 61, 201, 31);
+
+            Rectangle backgroundHealthBar = new Rectangle(scoreX, scoreY, scoreWidth, scoreHeight);
             g.DrawRectangle(blackPen, backgroundHealthBar);
             Brush variableBrush = new SolidBrush(Color.Black);
 
             g.FillRectangle(variableBrush, backgroundHealthBar);
 
             float percentage = ((float)this.score / (float)this._start) * 100;
+
+            if(percentage > 100)
+            {
+                percentage = 100;
+            }
 
             if (percentage >= 75)
             {
@@ -134,7 +150,19 @@ namespace TheHunt.Model
                 variableBrush = new SolidBrush(Color.Red);
             }
 
-            g.FillRectangle(variableBrush, 80, size.Height - 60, 200 - (200 - ((percentage / 100) * 200)), 30);
+            g.FillRectangle(variableBrush, scoreX + 1, scoreY + 1, (scoreWidth - 1) - ((scoreWidth - 1) - ((percentage / 100) * (scoreWidth - 1))), scoreHeight - 1);
+
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+            Font font = new Font("Microsoft Sans Serif", 10);
+            SizeF stringSize = new SizeF();
+            stringSize = g.MeasureString(this.score.ToString(), font, 200);
+
+
+            RectangleF rectangle = new RectangleF((scoreX + (scoreWidth / 2)) - (stringSize.Width / 2), scoreY + ((scoreHeight / 2) - (stringSize.Height / 2)), stringSize.Width, stringSize.Height);
+            g.DrawString(this.score.ToString(), font, Brushes.White, rectangle);
         }
     }
 }
