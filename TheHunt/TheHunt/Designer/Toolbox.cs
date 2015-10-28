@@ -356,7 +356,7 @@ namespace TheHunt.Designer
             else
             if (Object.GetType() == typeof(Finish))
             {
-                //Setting Property 
+                //Setting Property
 
                 this.previewObjectBox.Image = ((Finish)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
