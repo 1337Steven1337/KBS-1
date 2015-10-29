@@ -557,7 +557,15 @@ namespace TheHunt.Designer
             {
                 if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
                 {
-                    this.world.npcs.Remove(NPC);
+                    if (NPC.type == Npc.Type.SuicideBomber)
+                    {
+                        bomberCount = 0;
+                        this.world.npcs.Remove(NPC);
+                    }
+                    else
+                    {
+                        this.world.npcs.Remove(NPC);
+                    }
                     return true;
                 }
             }

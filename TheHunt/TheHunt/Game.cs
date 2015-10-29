@@ -220,6 +220,7 @@ namespace TheHunt
 
         public void SSBTimerStop(object sender , EventArgs e)
         {
+            geluidjes.playIN();
             this.isSSBSpawned = true;
             this.SSBSpawnTimer.Stop();
         }
@@ -371,7 +372,8 @@ namespace TheHunt
 
                 if (SSBPlayerCollision && isSoundPlaying == false)
                 {
-                
+                    Model.Player.lastPositionsList.Clear();
+                this.geluidjes.stopLoopInfidel(this,null);
                 this.world.player.canMove = false;
                 this.geluidjes.playAA();
                 isSoundPlaying = true;
@@ -474,7 +476,10 @@ namespace TheHunt
                 {
                     if (isSSBSpawned)
                     {
-                        npc.animateSSB();
+                        if (!SSBPlayerCollision)
+                        {
+                            npc.animateSSB();
+                        }                        
                     }                    
                 }
                 else
@@ -584,6 +589,7 @@ namespace TheHunt
             Rectangle rFinish = new Rectangle(world.finish.x, world.finish.y, (int)world.finish.getPixelWidth(this.Size), (int)(world.finish.getPixelHeight(this.Size)));
             if (rectangle.IntersectsWith(rFinish))
             {
+                geluidjes.stopLoopInfidel(this, null);
                 this.finished = true;
             }
 
@@ -724,6 +730,7 @@ namespace TheHunt
         {
             if(pnlGameOver.Visible)
             {
+
                 // Reset the keys
                 lastPressedKey = Keys.None;
                 pressedKey = Keys.None;
@@ -739,6 +746,7 @@ namespace TheHunt
             }
             else
             {
+
                 // Pause the game
                 stopTimers(true);
 
@@ -754,6 +762,10 @@ namespace TheHunt
             {
             if (pnlMenu.Visible)
             {
+
+               
+                geluidjes.LoopInfidel(this, null);
+
                 // Reset the keys
                 lastPressedKey = Keys.None;
                 pressedKey = Keys.None;
@@ -766,8 +778,11 @@ namespace TheHunt
             }
             else
             {
-                // Pause the game
-                stopTimers(true);
+
+            geluidjes.pauseLoopInfidel(this, null);
+
+                    // Pause the game
+                    stopTimers(true);
 
                 // Show the menu
                 pnlMenu.Visible = true;
@@ -803,6 +818,8 @@ namespace TheHunt
         // Handle the click event of the back to menu button
         private void pictureBoxExitToMenu_Click(object sender, EventArgs e)
         {
+            geluidjes.stopLoopInfidel(this, null);
+            this.stopTimers(true);
             this.Close();
             this.startScreen.Show();
         }

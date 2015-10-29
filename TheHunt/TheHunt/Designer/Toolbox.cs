@@ -245,14 +245,29 @@ namespace TheHunt.Designer
                 this.walkSpeedLabel.Visible = true;
                 this.numericWalkSpeed.Visible = true;
                 this.numericRunSpeed.Visible = false;
-                this.walkSpeedLabel.Text = "Speed :";
-                this.numericWalkSpeed.Minimum = 0;
-                this.numericWalkSpeed.Maximum = 15;
-                this.numericWalkSpeed.Value = ((Npc)selectedObject).speed.x;
+                if (((Npc)selectedObject).type == Npc.Type.SuicideBomber)
+                {
+                    this.walkSpeedLabel.Text = "Spawn delay :";
+                    this.numericWalkSpeed.Minimum = 3;
+                    this.numericWalkSpeed.Maximum = 10;
+                    this.numericWalkSpeed.Value = (int)(((Npc)selectedObject).SSBspawnTimer / 1000);
 
-                this.numericWalkSpeed.Click -= walkNumericDown;
-                walkNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).speed.x = int.Parse(this.numericWalkSpeed.Value.ToString()); ((Npc)selectedObject).speed.y = int.Parse(this.numericWalkSpeed.Value.ToString()); };
-                this.numericWalkSpeed.Click += walkNumericDown;
+                    this.numericWalkSpeed.Click -= walkNumericDown;
+                    walkNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).SSBspawnTimer = (int)( 1000 * int.Parse(this.numericWalkSpeed.Value.ToString())); };
+                    this.numericWalkSpeed.Click += walkNumericDown;
+                }
+                else
+                {
+                    this.walkSpeedLabel.Text = "Speed :";
+                    this.numericWalkSpeed.Minimum = 0;
+                    this.numericWalkSpeed.Maximum = 15;
+                    this.numericWalkSpeed.Value = ((Npc)selectedObject).speed.x;
+
+                    this.numericWalkSpeed.Click -= walkNumericDown;
+                    walkNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).speed.x = int.Parse(this.numericWalkSpeed.Value.ToString()); ((Npc)selectedObject).speed.y = int.Parse(this.numericWalkSpeed.Value.ToString()); };
+                    this.numericWalkSpeed.Click += walkNumericDown;
+                }
+
 
                 switch (((Npc)selectedObject).type)
                 {
