@@ -32,6 +32,9 @@ namespace TheHunt
         // Creating empty bitmap for objects to be rendered in
         private Bitmap objectState;
 
+        // Sound instance used for playing SFX
+        Controller.Sound geluidjes = Controller.Sound.Instance;
+
         // Reference to the startScreen
         private form_startscreen startScreen = null;
 
@@ -61,6 +64,16 @@ namespace TheHunt
         public Timer speedBoostTimer = new Timer();
         public int speedBoostLength = 0;
 
+        // SSB timer / check
+        public Timer SSBSpawnTimer = new Timer();
+        public Timer SSBExplosion = new Timer();
+        private int explosionState = 0;
+        public bool isSSBSpawned = false;
+        public static bool SSBPlayerCollision = false;
+        private bool isExploding = false;
+        private bool isSoundPlaying = false;
+        public List<Bitmap> SSBExplosionSpriteList = new List<Bitmap> { Properties.Resources.exp1, Properties.Resources.exp2, Properties.Resources.exp3, Properties.Resources.exp4, Properties.Resources.exp5, Properties.Resources.exp6, Properties.Resources.exp7
+        , Properties.Resources.exp8, Properties.Resources.exp9, Properties.Resources.exp10, Properties.Resources.exp11, Properties.Resources.exp12, Properties.Resources.exp13, Properties.Resources.exp14};
 
         // Emp
         public bool emp = false;
@@ -99,7 +112,6 @@ namespace TheHunt
         private void Game_Load(object sender, EventArgs e)
         {
             this.world = new World();
-
             // Set initial location
             this.Location = this.startScreen.Location;
 
@@ -134,6 +146,11 @@ namespace TheHunt
             this.speedBoostTimer.Interval = 1000;
             this.speedBoostTimer.Tick += updateSpeedBoostLength;
 
+            // Set SSB timer
+            this.SSBSpawnTimer.Tick += SSBTimerStop;
+            this.SSBExplosion.Interval = 100;
+            this.SSBExplosion.Tick += playExplosion;
+
             // Set EMP timer
             this.EMPTimer.Tick += EMPReset;
 
@@ -159,6 +176,36 @@ namespace TheHunt
             }
         }
 
+        private void playExplosion(object sender, EventArgs e)
+        {
+            this.isExploding = true;
+
+            if (explosionState < this.SSBExplosionSpriteList.Count - 1)
+            {
+                this.explosionState++;
+                if (explosionState == 6)
+                {
+                    this.world.player.isVisible = false;
+                    Npc SSBer = new Npc();
+                    foreach (Npc npcs in this.world.npcs)
+                    {
+                        if (npcs.type == Npc.Type.SuicideBomber)
+                        {
+                            SSBer = npcs;
+                        }
+                    }
+                    this.world.npcs.Remove(SSBer);
+                }
+            }
+            else
+            {
+                this.isExploding = false;
+                this.world.getScore().score = 0;
+                this.SSBExplosion.Stop();
+            }
+            this.Invalidate();
+        }
+
 
         public void EMPReset(object sender, EventArgs e)
         {
@@ -169,6 +216,13 @@ namespace TheHunt
 
             EMPTimer.Stop();
             emp = false;
+        }
+
+        public void SSBTimerStop(object sender , EventArgs e)
+        {
+            geluidjes.playIN();
+            this.isSSBSpawned = true;
+            this.SSBSpawnTimer.Stop();
         }
 
 
@@ -219,6 +273,26 @@ namespace TheHunt
 
             // Assign the world variable
             this.world = JsonConvert.DeserializeObject<World>(data);
+
+
+            // Check if level contains an SSBer, if so start spawn timer.
+            foreach (Npc npcs in this.world.npcs)
+            {
+                if (npcs.type == Npc.Type.SuicideBomber)
+                {
+                    this.isSSBSpawned = false;
+                    this.explosionState = 0;
+                    Model.Player.lastPositionsList.Clear();
+                    geluidjes.AADone = false;
+                    geluidjes.EXDone = false;
+                    SSBPlayerCollision = false;
+                    this.isSoundPlaying = false;
+                    this.isExploding = false;
+                    this.SSBExplosion.Stop();
+                    this.SSBSpawnTimer.Interval = npcs.SSBspawnTimer;
+                    this.SSBSpawnTimer.Start();
+                }
+            }
 
             // Normalize
             this.normalize();
@@ -271,6 +345,8 @@ namespace TheHunt
         // Function to update the world
         private void updateWorld(object sender, EventArgs e)
         {
+
+
             if (this.finished)
             {
                 this.stopTimers(true);
@@ -294,6 +370,21 @@ namespace TheHunt
                 this.loop.Stop();
                 this.delta.Stop();
 
+                if (SSBPlayerCollision && isSoundPlaying == false)
+                {
+                    Model.Player.lastPositionsList.Clear();
+                this.geluidjes.stopLoopInfidel(this,null);
+                this.world.player.canMove = false;
+                this.geluidjes.playAA();
+                isSoundPlaying = true;
+                }
+
+                if (this.geluidjes.AADone)
+                {
+                    SSBExplosion.Start();
+
+                }
+
                 // Check if player is moving
                 if (pressedKey == Keys.Up || pressedKey == Keys.Left || pressedKey == Keys.Down || pressedKey == Keys.Right)
                 {
@@ -307,14 +398,29 @@ namespace TheHunt
                 // Calculate the delta time
                 double delta = this.delta.ElapsedMilliseconds / (1000 / this.targetFps);
 
-                // Move the player
-                this.world.player.move(this.pressedKey, this.run, delta, this);
+                // Move the player if he is able to
+                if (this.world.player.canMove)
+                {
+                    this.world.player.move(this.pressedKey, this.run, delta, this);
+                }
+                
 
                 // Move the NPCs
                 foreach (var npc in this.world.npcs)
                 {
-                    npc.moveNPC(this.world);
-                    npc.checkForPlayer(this.world, this);
+                    if (npc.type == Npc.Type.SuicideBomber)
+                    {
+                        if (isSSBSpawned == true)
+                        {
+                            npc.moveNPC(this.world);
+                        }
+                    }
+                    else
+                    {
+                        npc.moveNPC(this.world);
+                        npc.checkForPlayer(this.world, this);
+                    }
+
                 }
 
                 // Decay score
@@ -360,10 +466,27 @@ namespace TheHunt
         private void updateAnimations(object sender, EventArgs e)
         {
             // Animate the player
-            this.world.player.animate(this.pressedKey, this.lastPressedKey);
+            if (this.world.player != null && this.world.player.canMove)
+            {
+                this.world.player.animate(this.pressedKey, this.lastPressedKey);
+            }
             foreach (Npc npc in this.world.npcs)
             {
-                npc.animate();
+                if (npc.type == Npc.Type.SuicideBomber)
+                {
+                    if (isSSBSpawned)
+                    {
+                        if (!SSBPlayerCollision)
+                        {
+                            npc.animateSSB();
+                        }                        
+                    }                    
+                }
+                else
+                {
+                    npc.animateBouncers();
+                }
+                
             }
            
         }
@@ -466,6 +589,7 @@ namespace TheHunt
             Rectangle rFinish = new Rectangle(world.finish.x, world.finish.y, (int)world.finish.getPixelWidth(this.Size), (int)(world.finish.getPixelHeight(this.Size)));
             if (rectangle.IntersectsWith(rFinish))
             {
+                geluidjes.stopLoopInfidel(this, null);
                 this.finished = true;
             }
 
@@ -537,7 +661,18 @@ namespace TheHunt
                 // Draw the NPCs
                 foreach (Npc npc in this.world.npcs)
                 {
+                    if (npc.type == Npc.Type.SuicideBomber)
+                    {
+                        if (isSSBSpawned == true)
+                        {
+                            npc.draw(g, this.Size, "Game");
+                        }
+                    }
+                    else
+                    {
                         npc.draw(g, this.Size, "Game");
+                    }
+                        
                 }
 
                 // Draw the Powerups
@@ -546,8 +681,11 @@ namespace TheHunt
                     powerup.draw(g, this.Size,"Game",powerup.getUsed());
                 }
 
-                // Draw the player
-                this.world.player.draw(g, this.Size, "Game");
+                // Draw the player , if exists and is visible
+                if (this.world.player != null && this.world.player.isVisible)
+                {
+                    this.world.player.draw(g, this.Size, "Game");
+                }
 
                 // Draw the finish
                 this.world.finish.draw(g, this.Size,"Game");
@@ -555,8 +693,11 @@ namespace TheHunt
                 // Draw score bar
                 this.world.getScore().draw(g, this.Size);
 
-                // Draw the boss
-                //this.world.boss.draw(g, this.Size);
+                // Draw explosion
+                if (isExploding)
+                {
+                    g.DrawImage(SSBExplosionSpriteList[this.explosionState],(this.world.player.positions.current_position.x - (int)(this.Size.Width/40.00)), (this.world.player.positions.current_position.y - (int)(this.Size.Height/20.00)),this.world.player.sizeBreedte*3,this.world.player.sizeHoogte*3);
+                }
             }
         }
 
@@ -566,7 +707,6 @@ namespace TheHunt
             delta.Reset();
             delta.Start();
             loop.Start();
-
             if (iAnimate)
             {
                 animate.Start();
@@ -579,7 +719,7 @@ namespace TheHunt
             delta.Stop();
             delta.Reset();
             loop.Stop();
-
+                
             if (iAnimate)
             {
                 animate.Stop();
@@ -590,6 +730,7 @@ namespace TheHunt
         {
             if(pnlGameOver.Visible)
             {
+
                 // Reset the keys
                 lastPressedKey = Keys.None;
                 pressedKey = Keys.None;
@@ -597,11 +738,15 @@ namespace TheHunt
                 // Hide the menu
                 pnlGameOver.Visible = false;
 
-                // Start the game timers
+                //Start timers 
                 startTimers(true);
+
+                
+
             }
             else
             {
+
                 // Pause the game
                 stopTimers(true);
 
@@ -617,6 +762,10 @@ namespace TheHunt
             {
             if (pnlMenu.Visible)
             {
+
+               
+                geluidjes.LoopInfidel(this, null);
+
                 // Reset the keys
                 lastPressedKey = Keys.None;
                 pressedKey = Keys.None;
@@ -629,8 +778,11 @@ namespace TheHunt
             }
             else
             {
-                // Pause the game
-                stopTimers(true);
+
+            geluidjes.pauseLoopInfidel(this, null);
+
+                    // Pause the game
+                    stopTimers(true);
 
                 // Show the menu
                 pnlMenu.Visible = true;
@@ -666,6 +818,8 @@ namespace TheHunt
         // Handle the click event of the back to menu button
         private void pictureBoxExitToMenu_Click(object sender, EventArgs e)
         {
+            geluidjes.stopLoopInfidel(this, null);
+            this.stopTimers(true);
             this.Close();
             this.startScreen.Show();
         }
@@ -683,5 +837,6 @@ namespace TheHunt
             this.load();
             this.toggleGameOver();
         }
+
     }
 }

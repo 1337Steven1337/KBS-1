@@ -30,6 +30,7 @@
         {
             this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.propertiesPanel = new System.Windows.Forms.Panel();
+            this.PropertiesLabel = new System.Windows.Forms.Label();
             this.numericRunSpeed = new System.Windows.Forms.NumericUpDown();
             this.runSpeedLabel = new System.Windows.Forms.Label();
             this.numericWalkSpeed = new System.Windows.Forms.NumericUpDown();
@@ -37,10 +38,10 @@
             this.ObjectCoords = new System.Windows.Forms.Label();
             this.previewObjectBox = new System.Windows.Forms.PictureBox();
             this.ObjectName = new System.Windows.Forms.Label();
-            this.PropertiesLabel = new System.Windows.Forms.Label();
             this.playerPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.NPCPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.worldPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.ObjectDescription = new System.Windows.Forms.RichTextBox();
             this.flowLayout.SuspendLayout();
             this.propertiesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRunSpeed)).BeginInit();
@@ -64,6 +65,7 @@
             // 
             // propertiesPanel
             // 
+            this.propertiesPanel.Controls.Add(this.ObjectDescription);
             this.propertiesPanel.Controls.Add(this.PropertiesLabel);
             this.propertiesPanel.Controls.Add(this.numericRunSpeed);
             this.propertiesPanel.Controls.Add(this.runSpeedLabel);
@@ -76,6 +78,15 @@
             this.propertiesPanel.Name = "propertiesPanel";
             this.propertiesPanel.Size = new System.Drawing.Size(492, 176);
             this.propertiesPanel.TabIndex = 3;
+            // 
+            // PropertiesLabel
+            // 
+            this.PropertiesLabel.AutoSize = true;
+            this.PropertiesLabel.Location = new System.Drawing.Point(18, 0);
+            this.PropertiesLabel.Name = "PropertiesLabel";
+            this.PropertiesLabel.Size = new System.Drawing.Size(81, 20);
+            this.PropertiesLabel.TabIndex = 7;
+            this.PropertiesLabel.Text = "Properties";
             // 
             // numericRunSpeed
             // 
@@ -135,15 +146,6 @@
             this.ObjectName.TabIndex = 0;
             this.ObjectName.Text = "ObjectName";
             // 
-            // PropertiesLabel
-            // 
-            this.PropertiesLabel.AutoSize = true;
-            this.PropertiesLabel.Location = new System.Drawing.Point(18, 0);
-            this.PropertiesLabel.Name = "PropertiesLabel";
-            this.PropertiesLabel.Size = new System.Drawing.Size(81, 20);
-            this.PropertiesLabel.TabIndex = 7;
-            this.PropertiesLabel.Text = "Properties";
-            // 
             // playerPanel
             // 
             this.playerPanel.Location = new System.Drawing.Point(3, 185);
@@ -164,6 +166,17 @@
             this.worldPanel.Name = "worldPanel";
             this.worldPanel.Size = new System.Drawing.Size(492, 78);
             this.worldPanel.TabIndex = 6;
+            // 
+            // ObjectDescription
+            // 
+            this.ObjectDescription.BackColor = System.Drawing.SystemColors.Control;
+            this.ObjectDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ObjectDescription.Location = new System.Drawing.Point(170, 153);
+            this.ObjectDescription.Name = "ObjectDescription";
+            this.ObjectDescription.ReadOnly = true;
+            this.ObjectDescription.Size = new System.Drawing.Size(277, 96);
+            this.ObjectDescription.TabIndex = 8;
+            this.ObjectDescription.Text = "Select an object.";
             // 
             // Toolbox
             // 
@@ -206,5 +219,6 @@
         private System.Windows.Forms.FlowLayoutPanel playerPanel;
         private System.Windows.Forms.FlowLayoutPanel NPCPanel;
         private System.Windows.Forms.FlowLayoutPanel worldPanel;
+        private System.Windows.Forms.RichTextBox ObjectDescription;
     }
 }
