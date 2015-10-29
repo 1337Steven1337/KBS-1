@@ -27,7 +27,6 @@ namespace TheHunt
         {
             this.Size = formulier.Size;
             this.Location = formulier.Location;
-            
 
             if (nextStage == "spelen")
             {

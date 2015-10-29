@@ -104,7 +104,7 @@ namespace TheHunt
                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/SFX");
             }
 
-            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/AA.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/explosion.wav"))
+            if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/klikgeluid.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/bgm.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/AA.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/explosion.wav") || !File.Exists(Directory.GetCurrentDirectory() + "/SFX/infidel.wav"))
             {
                 MemoryStream memStream = new MemoryStream();
 
@@ -136,6 +136,13 @@ namespace TheHunt
                     Properties.Resources.explosion.CopyTo(memStream);
                     byte[] byteArray = memStream.ToArray();
                     File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/explosion.wav", byteArray);
+                    memStream.SetLength(0);
+                }
+                if (!File.Exists(Directory.GetCurrentDirectory() + "/SFX/infidel.wav"))
+                {
+                    Properties.Resources.infidel.CopyTo(memStream);
+                    byte[] byteArray = memStream.ToArray();
+                    File.WriteAllBytes(Directory.GetCurrentDirectory() + "/SFX/infidel.wav", byteArray);
                     memStream.SetLength(0);
                 }
             }

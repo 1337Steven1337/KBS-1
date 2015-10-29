@@ -18,14 +18,17 @@ namespace TheHunt.Controller
         private MediaPlayer player_click = new MediaPlayer();
         private MediaPlayer SSBAA = new MediaPlayer();
         private MediaPlayer SSBEX = new MediaPlayer();
+        private MediaPlayer SSBIN = new MediaPlayer();
         public bool AADone = false;
         public bool EXDone = false;
 
         public Sound()
         {
             Properties.Sound.Default.PropertyChanged += SettingChanged;
-            player_background.MediaEnded += LoopBackgroundMusic;
             player_background.MediaOpened += LoopBackgroundMusic;
+
+            player_background.MediaEnded += delegate (object sender, EventArgs e) { player_background.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/bgm.wav")); LoopBackgroundMusic(sender, e); };
+            SSBIN.MediaEnded += delegate (object sender ,EventArgs e) { SSBIN.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/infidel.wav")); LoopInfidel(sender,e);  };
             SSBAA.MediaEnded += delegate (object sender, EventArgs e) { this.AADone = true; playExplosionSound(sender, e); };
             SSBEX.MediaEnded += delegate (object sender, EventArgs e) { this.EXDone = true;};
 
@@ -37,6 +40,22 @@ namespace TheHunt.Controller
 
         }
 
+        public void stopLoopInfidel(object sender, EventArgs e)
+        {
+            SSBIN.Stop();
+        }
+
+        public void pauseLoopInfidel(object sender, EventArgs e)
+        {
+            SSBIN.Pause();
+        }
+
+        public void LoopInfidel(object sender, EventArgs e)
+        {
+            SSBIN.Play();
+        }
+
+
         private void LoopBackgroundMusic(object sender, EventArgs e)
         {
             player_background.Play();
@@ -47,6 +66,12 @@ namespace TheHunt.Controller
         {
             SSBAA.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/AA.wav"));
             SSBAA.Play();
+        }
+
+        public void playIN()
+        {
+            SSBIN.Open(new Uri(@"" + Directory.GetCurrentDirectory() + "/SFX/infidel.wav"));
+            SSBIN.Play();
         }
 
 
@@ -83,6 +108,7 @@ namespace TheHunt.Controller
             player_click.Volume = Properties.Sound.Default.effects / 100 * (Properties.Sound.Default.master / 100);
             SSBAA.Volume = Properties.Sound.Default.effects / 100 * (Properties.Sound.Default.master / 100);
             SSBEX.Volume = Properties.Sound.Default.effects / 100 * (Properties.Sound.Default.master / 100);
+            SSBIN.Volume = Properties.Sound.Default.effects / 100 * (Properties.Sound.Default.master / 100);
         }
 
         public void click()

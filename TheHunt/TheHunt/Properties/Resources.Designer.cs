@@ -590,6 +590,15 @@ namespace TheHunt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream infidel {
+            get {
+                return ResourceManager.GetStream("infidel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream klikgeluid {
             get {
                 return ResourceManager.GetStream("klikgeluid", resourceCulture);

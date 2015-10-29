@@ -220,6 +220,7 @@ namespace TheHunt
 
         public void SSBTimerStop(object sender , EventArgs e)
         {
+            geluidjes.playIN();
             this.isSSBSpawned = true;
             this.SSBSpawnTimer.Stop();
         }
@@ -349,16 +350,17 @@ namespace TheHunt
             if (this.finished)
             {
                 this.stopTimers(true);
+                SSBSpawnTimer.Stop();
                 Highscore.Instance.add(this.world.getScore());
 
                 if (levelString == "level5" || levelString.Substring(0, 6) == "custom")
                 {
                     //is dit zo -> ga dan terug naar het hoofdmenu
-                    this.Close();
-                    this.startScreen.Show();
-                }
-                else
-                {
+                this.Close();
+                this.startScreen.Show();
+            }
+            else
+            {
                     //is dit niet zo voer dan de volgende functie uit
                     this.loadNextLevel();
                 }
@@ -371,7 +373,8 @@ namespace TheHunt
 
                 if (SSBPlayerCollision && isSoundPlaying == false)
                 {
-                
+                    Model.Player.lastPositionsList.Clear();
+                this.geluidjes.stopLoopInfidel(this,null);
                 this.world.player.canMove = false;
                 this.geluidjes.playAA();
                 isSoundPlaying = true;
@@ -399,7 +402,7 @@ namespace TheHunt
                 // Move the player if he is able to
                 if (this.world.player.canMove)
                 {
-                    this.world.player.move(this.pressedKey, this.run, delta, this);
+                this.world.player.move(this.pressedKey, this.run, delta, this);
                 }
                 
 
@@ -415,9 +418,9 @@ namespace TheHunt
                     }
                     else
                     {
-                        npc.moveNPC(this.world);
-                        npc.checkForPlayer(this.world, this);
-                    }
+                    npc.moveNPC(this.world);
+                    npc.checkForPlayer(this.world, this);
+                }
 
                 }
 
@@ -466,7 +469,7 @@ namespace TheHunt
             // Animate the player
             if (this.world.player != null && this.world.player.canMove)
             {
-                this.world.player.animate(this.pressedKey, this.lastPressedKey);
+            this.world.player.animate(this.pressedKey, this.lastPressedKey);
             }
             foreach (Npc npc in this.world.npcs)
             {
@@ -474,16 +477,19 @@ namespace TheHunt
                 {
                     if (isSSBSpawned)
                     {
-                        npc.animateSSB();
-                    }                    
+                        if (!SSBPlayerCollision)
+                        {
+                            npc.animateSSB();
+                        }                        
+            }
                 }
                 else
                 {
                     npc.animateBouncers();
                 }
-                
-            }
            
+        }
+
         }
 
         // Handle the keydown event
@@ -584,6 +590,7 @@ namespace TheHunt
             Rectangle rFinish = new Rectangle(world.finish.x, world.finish.y, (int)world.finish.getPixelWidth(this.Size), (int)(world.finish.getPixelHeight(this.Size)));
             if (rectangle.IntersectsWith(rFinish))
             {
+                geluidjes.stopLoopInfidel(this, null);
                 this.finished = true;
             }
 
@@ -659,14 +666,14 @@ namespace TheHunt
                     {
                         if (isSSBSpawned == true)
                         {
-                            npc.draw(g, this.Size, "Game");
-                        }
+                        npc.draw(g, this.Size, "Game");
+                }
                     }
                     else
                     {
                         npc.draw(g, this.Size, "Game");
                     }
-                        
+
                 }
 
                 // Draw the Powerups
@@ -678,7 +685,7 @@ namespace TheHunt
                 // Draw the player , if exists and is visible
                 if (this.world.player != null && this.world.player.isVisible)
                 {
-                    this.world.player.draw(g, this.Size, "Game");
+                this.world.player.draw(g, this.Size, "Game");
                 }
 
                 // Draw the finish
@@ -713,7 +720,7 @@ namespace TheHunt
             delta.Stop();
             delta.Reset();
             loop.Stop();
-                
+
             if (iAnimate)
             {
                 animate.Stop();
@@ -724,6 +731,7 @@ namespace TheHunt
         {
             if(pnlGameOver.Visible)
             {
+
                 // Reset the keys
                 lastPressedKey = Keys.None;
                 pressedKey = Keys.None;
@@ -739,6 +747,7 @@ namespace TheHunt
             }
             else
             {
+
                 // Pause the game
                 stopTimers(true);
 
@@ -754,6 +763,10 @@ namespace TheHunt
             {
             if (pnlMenu.Visible)
             {
+
+               
+                geluidjes.LoopInfidel(this, null);
+
                 // Reset the keys
                 lastPressedKey = Keys.None;
                 pressedKey = Keys.None;
@@ -766,6 +779,9 @@ namespace TheHunt
             }
             else
             {
+
+            geluidjes.pauseLoopInfidel(this, null);
+
                 // Pause the game
                 stopTimers(true);
 
@@ -787,6 +803,7 @@ namespace TheHunt
             // Hide the menu
             pnlMenu.Visible = false;
 
+
             OptionsDialog Options = new OptionsDialog(true);
             Options.ShowDialog();
 
@@ -803,6 +820,12 @@ namespace TheHunt
         // Handle the click event of the back to menu button
         private void pictureBoxExitToMenu_Click(object sender, EventArgs e)
         {
+            geluidjes.stopLoopInfidel(this, null);
+            if (isSSBSpawned == false)
+            {
+                SSBSpawnTimer.Stop();
+            }
+            this.stopTimers(true);
             this.Close();
             this.startScreen.Show();
         }

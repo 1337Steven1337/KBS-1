@@ -301,6 +301,7 @@
     <None Include="Resources\AA.mp3" />
     <None Include="Resources\AA.wav" />
     <None Include="Resources\explosion.wav" />
+    <None Include="Resources\infidel.wav" />
     <Content Include="Resources\restartBtn.png" />
     <None Include="Resources\SpeedUp.png" />
     <None Include="Resources\Scoreboost.png" />

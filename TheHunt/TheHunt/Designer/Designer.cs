@@ -61,8 +61,8 @@ namespace TheHunt.Designer
             // Initialize Timer variables
             this.MouseDownLeftTimer = new Timer();
             this.MouseDownRightTimer = new Timer();
-            this.MouseDownLeftTimer.Interval = 10;
-            this.MouseDownRightTimer.Interval = 10;
+            this.MouseDownLeftTimer.Interval = 1;
+            this.MouseDownRightTimer.Interval = 1;
 
 
 
@@ -557,7 +557,15 @@ namespace TheHunt.Designer
             {
                 if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
                 {
-                    this.world.npcs.Remove(NPC);
+                    if (NPC.type == Npc.Type.SuicideBomber)
+                    {
+                        bomberCount = 0;
+                        this.world.npcs.Remove(NPC);
+                    }
+                    else
+                    {
+                        this.world.npcs.Remove(NPC);
+                    }
                     return true;
                 }
             }

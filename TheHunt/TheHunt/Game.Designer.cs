@@ -52,7 +52,7 @@
             // 
             // pnlMenu
             // 
-            this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMenu.BackColor = System.Drawing.SystemColors.Control;
             this.pnlMenu.Controls.Add(this.labelMenu);
             this.pnlMenu.Controls.Add(this.pictureBoxContinue);
             this.pnlMenu.Controls.Add(this.pictureBoxExitToMenu);
@@ -67,13 +67,14 @@
             // 
             // labelMenu
             // 
-            this.labelMenu.AutoSize = true;
-            this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
-            this.labelMenu.Location = new System.Drawing.Point(112, 2);
+            this.labelMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenu.Location = new System.Drawing.Point(0, 0);
             this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(223, 83);
+            this.labelMenu.Size = new System.Drawing.Size(451, 83);
             this.labelMenu.TabIndex = 0;
             this.labelMenu.Text = "Menu";
+            this.labelMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxContinue
             // 
@@ -129,7 +130,7 @@
             // 
             // pnlGameOver
             // 
-            this.pnlGameOver.BackColor = System.Drawing.Color.Transparent;
+            this.pnlGameOver.BackColor = System.Drawing.SystemColors.Control;
             this.pnlGameOver.Controls.Add(this.gameOverLabel);
             this.pnlGameOver.Controls.Add(this.gameOverReset);
             this.pnlGameOver.Controls.Add(this.gameOverExitMenu);
@@ -143,16 +144,19 @@
             // 
             // gameOverLabel
             // 
-            this.gameOverLabel.AutoSize = true;
-            this.gameOverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
-            this.gameOverLabel.Location = new System.Drawing.Point(19, 9);
+            this.gameOverLabel.BackColor = System.Drawing.Color.Transparent;
+            this.gameOverLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gameOverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameOverLabel.Location = new System.Drawing.Point(0, 0);
             this.gameOverLabel.Name = "gameOverLabel";
-            this.gameOverLabel.Size = new System.Drawing.Size(406, 83);
+            this.gameOverLabel.Size = new System.Drawing.Size(451, 110);
             this.gameOverLabel.TabIndex = 0;
             this.gameOverLabel.Text = "Game over";
+            this.gameOverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gameOverReset
             // 
+            this.gameOverReset.BackColor = System.Drawing.Color.Transparent;
             this.gameOverReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gameOverReset.Image = global::TheHunt.Properties.Resources.restartBtn;
             this.gameOverReset.Location = new System.Drawing.Point(8, 112);
@@ -166,6 +170,7 @@
             // 
             // gameOverExitMenu
             // 
+            this.gameOverExitMenu.BackColor = System.Drawing.Color.Transparent;
             this.gameOverExitMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gameOverExitMenu.Image = global::TheHunt.Properties.Resources.ExitToMenuButton;
             this.gameOverExitMenu.Location = new System.Drawing.Point(9, 228);
@@ -179,6 +184,7 @@
             // 
             // gameOverExitDesktop
             // 
+            this.gameOverExitDesktop.BackColor = System.Drawing.Color.Transparent;
             this.gameOverExitDesktop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gameOverExitDesktop.Image = global::TheHunt.Properties.Resources.ExitToDesktopButton;
             this.gameOverExitDesktop.Location = new System.Drawing.Point(9, 346);
@@ -204,13 +210,11 @@
             this.Text = "Game";
             this.Load += new System.EventHandler(this.Game_Load);
             this.pnlMenu.ResumeLayout(false);
-            this.pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContinue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExitToMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOptions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExitToDesktop)).EndInit();
             this.pnlGameOver.ResumeLayout(false);
-            this.pnlGameOver.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameOverReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameOverExitMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameOverExitDesktop)).EndInit();
@@ -227,9 +231,9 @@
         private System.Windows.Forms.PictureBox pictureBoxOptions;
         private System.Windows.Forms.PictureBox pictureBoxExitToDesktop;
         private System.Windows.Forms.Panel pnlGameOver;
-        private System.Windows.Forms.Label gameOverLabel;
-        private System.Windows.Forms.PictureBox gameOverReset;
-        private System.Windows.Forms.PictureBox gameOverExitMenu;
-        private System.Windows.Forms.PictureBox gameOverExitDesktop;
+        public System.Windows.Forms.Label gameOverLabel;
+        public System.Windows.Forms.PictureBox gameOverReset;
+        public System.Windows.Forms.PictureBox gameOverExitMenu;
+        public System.Windows.Forms.PictureBox gameOverExitDesktop;
     }
 }
