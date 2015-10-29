@@ -15,7 +15,7 @@ using TheHunt.Controller.Highscore;
 
 namespace TheHunt
 {
-    public partial class Game : Form
+    partial class Game : Form
     {
         // Variable to check if finished
         private bool finished = false;
@@ -37,6 +37,7 @@ namespace TheHunt
 
         // Declare the main timer
         private Timer loop = null;
+        public int tickAmount;
 
         // Declare the animation timer
         private Timer animate = null;
@@ -66,6 +67,8 @@ namespace TheHunt
         public bool emp = false;
         private List<Model.Point> npcSpeed = new List<Model.Point>();
         public Timer EMPTimer = new Timer();
+        public int momentOfUsage;
+        public int empDuration;
 
         // Are we running?
         private bool run = false;
@@ -80,6 +83,10 @@ namespace TheHunt
         {
             InitializeComponent();
 
+            //Unittest, (nog) niet verwijderen!
+            //level = "{\"powerups\":[{\"x\":3,\"y\":3,\"height\":1,\"width\":1,\"type\":2}],\"player\":{\"img\":null,\"positions\":{\"current_position\":{\"x\":1,\"y\":1},\"last_position\":{\"x\":0,\"y\":0}},\"speed\":{\"x\":3,\"y\":3},\"movement\":{\"walk\":{\"x\":3,\"y\":3},\"run\":{\"x\":5,\"y\":5}},\"sizeBreedte\":34,\"sizeHoogte\":55}}";
+            //Console.Write(level);
+            
             // Set the start form
             this.startScreen = start;
 
@@ -93,6 +100,11 @@ namespace TheHunt
         public void addScore(int bonus)
         {
             world.getScore().add(bonus);
+        }
+
+        public World getWorld()
+        {
+            return this.world;
         }
 
         // Prepare the game
@@ -123,6 +135,9 @@ namespace TheHunt
             this.loop = new Timer();
             this.loop.Interval = 1000 / targetFps;
             this.loop.Tick += updateWorld;
+            tickAmount = 0;
+
+            
 
             // Set the animation timer
             this.animate = new Timer();
@@ -242,6 +257,8 @@ namespace TheHunt
             this.EMPTimer.Interval += duration;
             if (emp)
             {
+                this.momentOfUsage = tickAmount;
+
                 foreach (Npc npc in this.world.npcs)
                 {
                     npcSpeed.Add(npc.speed);
@@ -251,6 +268,7 @@ namespace TheHunt
             }
             else
             {
+                empDuration = tickAmount - momentOfUsage;
                 EMPTimer.Stop();
             }
         }
@@ -270,6 +288,7 @@ namespace TheHunt
         // Function to update the world
         private void updateWorld(object sender, EventArgs e)
         {
+            tickAmount++;
             if (this.finished)
             {
                 this.stopTimers(true);
@@ -653,6 +672,11 @@ namespace TheHunt
         {
             this.load();
             this.toggleGameOver();
+        }
+
+        public int getEmpDuration()
+        {
+            return empDuration;
         }
     }
 }

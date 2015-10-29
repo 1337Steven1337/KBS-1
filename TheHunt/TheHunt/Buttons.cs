@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace TheHunt
 {
-    public partial class Buttons : Form
+    partial class Buttons : Form
     {
         //Player p = new Player();
         private Timer timer = new Timer();

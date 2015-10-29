@@ -20,6 +20,7 @@ namespace TheHunt.Model
         public int width = 1;
         public Type type;
 
+        private int momentOfUsage;
 
         private Image image = null;
 
