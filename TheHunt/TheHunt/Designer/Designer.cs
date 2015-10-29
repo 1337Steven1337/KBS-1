@@ -30,6 +30,7 @@ namespace TheHunt.Designer
         // Count amount of players/end-points set in the designer (max 1)
         private int playerCount = 0;
         private int finishCount = 0;
+        private int bomberCount = 0;
 
         // Set an empty world
         private World world = null;
@@ -83,6 +84,13 @@ namespace TheHunt.Designer
                 if (this.world.finish != null)
                 {
                     finishCount = 1;
+                }
+                foreach (Npc npc in this.world.npcs)
+                {
+                    if (npc.type == Npc.Type.SuicideBomber)
+                    {
+                        this.bomberCount = 1;
+                    }
                 }
             }
 
@@ -257,6 +265,35 @@ namespace TheHunt.Designer
                     npc.positions.current_position = new Model.Point((int)(x), (int)(y));
                     npc.speed = new Model.Point(1, 1);
                     this.world.npcs.Add(npc);
+                }
+
+                if (this.items.getMode() == "SSB" && this.bomberCount == 0)
+                {
+                    Npc npc = this.items.getActive<Npc>().clone();
+                    npc.positions.current_position = new Model.Point((int)(x), (int)(y));
+                    npc.speed = new Model.Point(1, 1);
+                    this.world.npcs.Add(npc);
+                    this.bomberCount = 1;
+                }else if (this.items.getMode() == "SSB" && this.bomberCount > 0)
+                {
+                    this.MouseDownLeftTimer.Stop();
+                    DialogResult dialogResult = MessageBox.Show("This level already contains a suicide bomber.", "Overwrite?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Npc tempnpc = new Npc();
+                        foreach (Npc ssber in this.world.npcs)
+                        {
+                            if (ssber.type == Npc.Type.SuicideBomber)
+                            {
+                                tempnpc = ssber;
+                            }
+                        }
+                        this.world.npcs.Remove(tempnpc);
+                        Npc npc = this.items.getActive<Npc>().clone();
+                        npc.positions.current_position = new Model.Point((int)(x), (int)(y));
+                        npc.speed = new Model.Point(1, 1);
+                        this.world.npcs.Add(npc);
+                    }
                 }
 
 
@@ -520,7 +557,15 @@ namespace TheHunt.Designer
             {
                 if (NPC.positions.current_position.Equals(new Model.Point(x, y)))
                 {
-                    this.world.npcs.Remove(NPC);
+                    if (NPC.type == Npc.Type.SuicideBomber)
+                    {
+                        bomberCount = 0;
+                        this.world.npcs.Remove(NPC);
+                    }
+                    else
+                    {
+                        this.world.npcs.Remove(NPC);
+                    }
                     return true;
                 }
             }
