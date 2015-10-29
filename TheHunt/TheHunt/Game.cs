@@ -215,9 +215,10 @@ namespace TheHunt
         // Load the world
         private void load()
         {
+            string data = (string)Properties.Levels.Default[levelString];
 
             // Assign the world variable
-            this.world = JsonConvert.DeserializeObject<World>(levelString);
+            this.world = JsonConvert.DeserializeObject<World>(data);
 
             // Normalize
             this.normalize();
@@ -274,8 +275,18 @@ namespace TheHunt
             {
                 this.stopTimers(true);
                 Highscore.Instance.add(this.world.getScore());
-                this.Close();
-                this.startScreen.Show();
+
+                if (levelString == "level5" || levelString.Substring(0, 6) == "custom")
+                {
+                    //is dit zo -> ga dan terug naar het hoofdmenu
+                    this.Close();
+                    this.startScreen.Show();
+                }
+                else
+                {
+                    //is dit niet zo voer dan de volgende functie uit
+                    this.loadNextLevel();
+                }
             }
             else
             {
@@ -325,6 +336,24 @@ namespace TheHunt
                     this.toggleGameOver();
                 }
             }
+        }
+
+        //kijk welk level volgende is
+        private void loadNextLevel()
+        {
+            Dictionary<string, string> levels = new Dictionary<string, string>()
+            {
+                { "level1", "level2" },
+                { "level2", "level3" },
+                { "level3", "level4" },
+                { "level4", "level5" }
+            };
+
+            this.finished = false;
+            this.objectState = null;
+            this.levelString = levels[this.levelString];
+            this.load();
+            this.startTimers(true);
         }
 
         // Function to update the animations
