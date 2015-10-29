@@ -84,7 +84,7 @@ namespace TheHunt.Designer
             player1Box.Tag = "Player";
             player1Box.Image = Properties.Resources.brockSprite1;
             player1Box.SizeMode = PictureBoxSizeMode.StretchImage;
-            player1Box.Size = new Size(50, 60);
+            player1Box.Size = new Size(60, 60);
 
             HBouncerBox.Click += Item_Click;
             HBouncerBox.Tag = "HBouncer";
@@ -199,9 +199,11 @@ namespace TheHunt.Designer
 
         public void setValueAfterSelectClick(object Object)
         {
-            this.selectedObject = Object;
+
+
             if (Object.GetType() == typeof(Obstacle))
             {
+                this.selectedObject = (Obstacle)Object;
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Obstacle)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -222,8 +224,7 @@ namespace TheHunt.Designer
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
 
-                this.numericWalkSpeed.Click -= walkNumericDown;
-                this.numericRunSpeed.Click -= runNumericDown;
+
 
                 this.previewObjectBox.MouseHover -= mouseHover;
                 this.previewObjectBox.MouseLeave -= mouseLeave;
@@ -232,9 +233,12 @@ namespace TheHunt.Designer
                 this.previewObjectBox.MouseHover += mouseHover;
                 this.previewObjectBox.MouseLeave += mouseLeave;
             }
-            else
+
             if (Object.GetType() == typeof(Npc))
             {
+                
+                this.selectedObject = (Npc)Object;
+                MessageBox.Show(selectedObject.GetType().ToString());
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Npc)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -302,10 +306,11 @@ namespace TheHunt.Designer
                 this.previewObjectBox.MouseLeave += mouseLeave;
 
             }
-            else
+
             if (Object.GetType() == typeof(Model.Player))
             {
-                //Setting Property 
+                this.selectedObject = (Model.Player)Object;
+                //Setting Property
 
                 this.previewObjectBox.Image = ((Model.Player)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -348,9 +353,12 @@ namespace TheHunt.Designer
                 this.previewObjectBox.MouseLeave += mouseLeave;
 
             }
-            else
+
+
             if (Object.GetType() == typeof(Powerups))
             {
+                this.selectedObject = (Powerups)Object;
+                MessageBox.Show(selectedObject.GetType().ToString());
                 //Setting Property 
 
                 this.previewObjectBox.Image = ((Powerups)selectedObject).getImage();
@@ -364,7 +372,7 @@ namespace TheHunt.Designer
                 this.runSpeedLabel.Visible = false;
                 this.numericRunSpeed.Visible = false;
 
-                this.numericWalkSpeed.Click -= walkNumericDown;
+                
 
                 if (((Powerups)selectedObject).type == Powerups.Type.Speedboost)
                 {
@@ -372,7 +380,9 @@ namespace TheHunt.Designer
                     this.walkSpeedLabel.Text = "Duration (sec):";
                     this.numericWalkSpeed.Maximum = 10;
                     this.numericWalkSpeed.Minimum = 1;
+                    this.numericWalkSpeed.Click -= walkNumericDown;
                     walkNumericDown = delegate (object se, EventArgs ea) { ((Powerups)selectedObject).speedBonusDuration = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.numericWalkSpeed.Click += walkNumericDown;
                     this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
                     this.ObjectDescription.Text = "This is an powerup, which enables you to run for a certain amount of time.";
                 }
@@ -382,7 +392,9 @@ namespace TheHunt.Designer
                     this.walkSpeedLabel.Text = "Bonus (x1000):";
                     this.numericWalkSpeed.Maximum = 10;
                     this.numericWalkSpeed.Minimum = 1;
-                    walkNumericDown += delegate (object se, EventArgs ea) { ((Powerups)selectedObject).ScoreBonus = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.numericWalkSpeed.Click -= walkNumericDown;
+                    walkNumericDown = delegate (object se, EventArgs ea) { ((Powerups)selectedObject).ScoreBonus = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.numericWalkSpeed.Click += walkNumericDown;
                     this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
                     this.ObjectDescription.Text = "This is an powerup, which will add a certain amount to your current score.";
                 }
@@ -392,11 +404,13 @@ namespace TheHunt.Designer
                     this.walkSpeedLabel.Text = "Duration (sec):";
                     this.numericWalkSpeed.Maximum = 5;
                     this.numericWalkSpeed.Minimum = 1;
-                    walkNumericDown += delegate (object se, EventArgs ea) { ((Powerups)selectedObject).EMPDuration = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.numericWalkSpeed.Click -= walkNumericDown;
+                    walkNumericDown = delegate (object se, EventArgs ea) { ((Powerups)selectedObject).EMPDuration = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.numericWalkSpeed.Click += walkNumericDown;
                     this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
                     this.ObjectDescription.Text = "This is an powerup, which will freeze all enemies for a certain time.";
                 }
-                this.numericWalkSpeed.Click += walkNumericDown;
+                
 
 
                 this.mode = "Geen";
@@ -410,9 +424,10 @@ namespace TheHunt.Designer
                 this.previewObjectBox.MouseLeave += mouseLeave;
 
             }
-            else
+
             if (Object.GetType() == typeof(Finish))
             {
+                this.selectedObject = (Finish)Object;
                 //Setting Property 
 
                 this.previewObjectBox.Image = ((Finish)selectedObject).getImage();

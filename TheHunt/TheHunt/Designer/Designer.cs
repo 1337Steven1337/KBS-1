@@ -61,8 +61,8 @@ namespace TheHunt.Designer
             // Initialize Timer variables
             this.MouseDownLeftTimer = new Timer();
             this.MouseDownRightTimer = new Timer();
-            this.MouseDownLeftTimer.Interval = 10;
-            this.MouseDownRightTimer.Interval = 10;
+            this.MouseDownLeftTimer.Interval = 1;
+            this.MouseDownRightTimer.Interval = 1;
 
 
 

@@ -350,6 +350,7 @@ namespace TheHunt
             if (this.finished)
             {
                 this.stopTimers(true);
+                SSBSpawnTimer.Stop();
                 Highscore.Instance.add(this.world.getScore());
 
                 if (levelString == "level5" || levelString.Substring(0, 6) == "custom")
@@ -802,6 +803,7 @@ namespace TheHunt
             // Hide the menu
             pnlMenu.Visible = false;
 
+
             OptionsDialog Options = new OptionsDialog(true);
             Options.ShowDialog();
 
@@ -819,6 +821,10 @@ namespace TheHunt
         private void pictureBoxExitToMenu_Click(object sender, EventArgs e)
         {
             geluidjes.stopLoopInfidel(this, null);
+            if (isSSBSpawned == false)
+            {
+                SSBSpawnTimer.Stop();
+            }
             this.stopTimers(true);
             this.Close();
             this.startScreen.Show();
