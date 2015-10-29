@@ -13,16 +13,18 @@ namespace TheHunt.Model
         public string img;
         public Positions positions;
         public Point speed;
+        public bool isVisible = true;
+        public bool canMove = true;
         public Movement movement;
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;
 
         public static Bitmap bitmap;
         public static List<Bitmap> PlayerSprites = new List<Bitmap>();
+        public static List<Point> lastPositionsList = new List<Point>(); //used by SuicideBomber NPC
 
         private int lastPositionCounter = 0;
         private int spriteAnimationCounter = 0;
-        private int isEersteDraw = 0;
 
         private Bitmap sprite = null;
         private List<Bitmap> sprites = null;
@@ -80,7 +82,9 @@ namespace TheHunt.Model
                     this.positions.last_position = this.positions.current_position;
                     lastPositionCounter = 0;
                 }
-
+                if(!this.positions.last_position.Equals(this.positions.current_position)){
+                    lastPositionsList.Add(this.positions.current_position);
+                }
                 this.positions.current_position = newPosition;
             }
         }

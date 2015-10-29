@@ -35,19 +35,19 @@
             this.pictureBoxOptions = new System.Windows.Forms.PictureBox();
             this.pictureBoxExitToDesktop = new System.Windows.Forms.PictureBox();
             this.pnlGameOver = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.gameOverLabel = new System.Windows.Forms.Label();
+            this.gameOverReset = new System.Windows.Forms.PictureBox();
+            this.gameOverExitMenu = new System.Windows.Forms.PictureBox();
+            this.gameOverExitDesktop = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContinue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExitToMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOptions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExitToDesktop)).BeginInit();
             this.pnlGameOver.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOverReset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOverExitMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOverExitDesktop)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -58,10 +58,10 @@
             this.pnlMenu.Controls.Add(this.pictureBoxExitToMenu);
             this.pnlMenu.Controls.Add(this.pictureBoxOptions);
             this.pnlMenu.Controls.Add(this.pictureBoxExitToDesktop);
-            this.pnlMenu.Location = new System.Drawing.Point(3, 7);
+            this.pnlMenu.Location = new System.Drawing.Point(3, 9);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(401, 448);
+            this.pnlMenu.Size = new System.Drawing.Size(451, 560);
             this.pnlMenu.TabIndex = 2;
             this.pnlMenu.Visible = false;
             // 
@@ -69,9 +69,9 @@
             // 
             this.labelMenu.AutoSize = true;
             this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
-            this.labelMenu.Location = new System.Drawing.Point(100, 2);
+            this.labelMenu.Location = new System.Drawing.Point(112, 2);
             this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(187, 70);
+            this.labelMenu.Size = new System.Drawing.Size(223, 83);
             this.labelMenu.TabIndex = 0;
             this.labelMenu.Text = "Menu";
             // 
@@ -79,10 +79,10 @@
             // 
             this.pictureBoxContinue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxContinue.Image = global::TheHunt.Properties.Resources.Continuebutton;
-            this.pictureBoxContinue.Location = new System.Drawing.Point(9, 73);
+            this.pictureBoxContinue.Location = new System.Drawing.Point(10, 91);
             this.pictureBoxContinue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxContinue.Name = "pictureBoxContinue";
-            this.pictureBoxContinue.Size = new System.Drawing.Size(391, 87);
+            this.pictureBoxContinue.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxContinue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxContinue.TabIndex = 3;
             this.pictureBoxContinue.TabStop = false;
@@ -92,10 +92,10 @@
             // 
             this.pictureBoxExitToMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxExitToMenu.Image = global::TheHunt.Properties.Resources.ExitToMenuButton;
-            this.pictureBoxExitToMenu.Location = new System.Drawing.Point(9, 260);
+            this.pictureBoxExitToMenu.Location = new System.Drawing.Point(10, 325);
             this.pictureBoxExitToMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxExitToMenu.Name = "pictureBoxExitToMenu";
-            this.pictureBoxExitToMenu.Size = new System.Drawing.Size(391, 87);
+            this.pictureBoxExitToMenu.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxExitToMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxExitToMenu.TabIndex = 4;
             this.pictureBoxExitToMenu.TabStop = false;
@@ -105,10 +105,10 @@
             // 
             this.pictureBoxOptions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxOptions.Image = global::TheHunt.Properties.Resources.optionsBtn;
-            this.pictureBoxOptions.Location = new System.Drawing.Point(9, 166);
+            this.pictureBoxOptions.Location = new System.Drawing.Point(10, 208);
             this.pictureBoxOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxOptions.Name = "pictureBoxOptions";
-            this.pictureBoxOptions.Size = new System.Drawing.Size(391, 87);
+            this.pictureBoxOptions.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxOptions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxOptions.TabIndex = 5;
             this.pictureBoxOptions.TabStop = false;
@@ -118,10 +118,10 @@
             // 
             this.pictureBoxExitToDesktop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxExitToDesktop.Image = global::TheHunt.Properties.Resources.ExitToDesktopButton;
-            this.pictureBoxExitToDesktop.Location = new System.Drawing.Point(9, 354);
+            this.pictureBoxExitToDesktop.Location = new System.Drawing.Point(10, 442);
             this.pictureBoxExitToDesktop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxExitToDesktop.Name = "pictureBoxExitToDesktop";
-            this.pictureBoxExitToDesktop.Size = new System.Drawing.Size(391, 87);
+            this.pictureBoxExitToDesktop.Size = new System.Drawing.Size(440, 109);
             this.pictureBoxExitToDesktop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxExitToDesktop.TabIndex = 6;
             this.pictureBoxExitToDesktop.TabStop = false;
@@ -130,75 +130,75 @@
             // pnlGameOver
             // 
             this.pnlGameOver.BackColor = System.Drawing.Color.Transparent;
-            this.pnlGameOver.Controls.Add(this.label1);
-            this.pnlGameOver.Controls.Add(this.pictureBox1);
-            this.pnlGameOver.Controls.Add(this.pictureBox2);
-            this.pnlGameOver.Controls.Add(this.pictureBox4);
-            this.pnlGameOver.Location = new System.Drawing.Point(415, 12);
+            this.pnlGameOver.Controls.Add(this.gameOverLabel);
+            this.pnlGameOver.Controls.Add(this.gameOverReset);
+            this.pnlGameOver.Controls.Add(this.gameOverExitMenu);
+            this.pnlGameOver.Controls.Add(this.gameOverExitDesktop);
+            this.pnlGameOver.Location = new System.Drawing.Point(467, 15);
             this.pnlGameOver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlGameOver.Name = "pnlGameOver";
-            this.pnlGameOver.Size = new System.Drawing.Size(401, 369);
+            this.pnlGameOver.Size = new System.Drawing.Size(451, 461);
             this.pnlGameOver.TabIndex = 7;
             this.pnlGameOver.Visible = false;
             // 
-            // label1
+            // gameOverLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(17, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 70);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Game over";
+            this.gameOverLabel.AutoSize = true;
+            this.gameOverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.2F, System.Drawing.FontStyle.Bold);
+            this.gameOverLabel.Location = new System.Drawing.Point(19, 9);
+            this.gameOverLabel.Name = "gameOverLabel";
+            this.gameOverLabel.Size = new System.Drawing.Size(406, 83);
+            this.gameOverLabel.TabIndex = 0;
+            this.gameOverLabel.Text = "Game over";
             // 
-            // pictureBox1
+            // gameOverReset
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::TheHunt.Properties.Resources.restartBtn;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 90);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(391, 87);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBoxRestart_Click);
+            this.gameOverReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gameOverReset.Image = global::TheHunt.Properties.Resources.restartBtn;
+            this.gameOverReset.Location = new System.Drawing.Point(8, 112);
+            this.gameOverReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gameOverReset.Name = "gameOverReset";
+            this.gameOverReset.Size = new System.Drawing.Size(440, 109);
+            this.gameOverReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gameOverReset.TabIndex = 3;
+            this.gameOverReset.TabStop = false;
+            this.gameOverReset.Click += new System.EventHandler(this.pictureBoxRestart_Click);
             // 
-            // pictureBox2
+            // gameOverExitMenu
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::TheHunt.Properties.Resources.ExitToMenuButton;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 182);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(391, 87);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBoxExitToMenu_Click);
+            this.gameOverExitMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gameOverExitMenu.Image = global::TheHunt.Properties.Resources.ExitToMenuButton;
+            this.gameOverExitMenu.Location = new System.Drawing.Point(9, 228);
+            this.gameOverExitMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gameOverExitMenu.Name = "gameOverExitMenu";
+            this.gameOverExitMenu.Size = new System.Drawing.Size(440, 109);
+            this.gameOverExitMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gameOverExitMenu.TabIndex = 4;
+            this.gameOverExitMenu.TabStop = false;
+            this.gameOverExitMenu.Click += new System.EventHandler(this.pictureBoxExitToMenu_Click);
             // 
-            // pictureBox4
+            // gameOverExitDesktop
             // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::TheHunt.Properties.Resources.ExitToDesktopButton;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 277);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(391, 87);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 6;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBoxExitToDesktop_Click);
+            this.gameOverExitDesktop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gameOverExitDesktop.Image = global::TheHunt.Properties.Resources.ExitToDesktopButton;
+            this.gameOverExitDesktop.Location = new System.Drawing.Point(9, 346);
+            this.gameOverExitDesktop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gameOverExitDesktop.Name = "gameOverExitDesktop";
+            this.gameOverExitDesktop.Size = new System.Drawing.Size(440, 109);
+            this.gameOverExitDesktop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gameOverExitDesktop.TabIndex = 6;
+            this.gameOverExitDesktop.TabStop = false;
+            this.gameOverExitDesktop.Click += new System.EventHandler(this.pictureBoxExitToDesktop_Click);
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 620);
+            this.ClientSize = new System.Drawing.Size(926, 775);
             this.Controls.Add(this.pnlGameOver);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
@@ -211,9 +211,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExitToDesktop)).EndInit();
             this.pnlGameOver.ResumeLayout(false);
             this.pnlGameOver.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOverReset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOverExitMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOverExitDesktop)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,9 +227,9 @@
         private System.Windows.Forms.PictureBox pictureBoxOptions;
         private System.Windows.Forms.PictureBox pictureBoxExitToDesktop;
         private System.Windows.Forms.Panel pnlGameOver;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label gameOverLabel;
+        private System.Windows.Forms.PictureBox gameOverReset;
+        private System.Windows.Forms.PictureBox gameOverExitMenu;
+        private System.Windows.Forms.PictureBox gameOverExitDesktop;
     }
 }

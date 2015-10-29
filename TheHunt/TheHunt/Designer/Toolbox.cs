@@ -55,6 +55,7 @@ namespace TheHunt.Designer
             PictureBox HBouncerBox = new PictureBox();
             PictureBox VBouncerBox = new PictureBox();
             PictureBox enemyBox = new PictureBox();
+            PictureBox SSBBox = new PictureBox();
 
             wallBox.Click += Item_Click;
             wallBox.Tag = "FieldObject";
@@ -97,12 +98,17 @@ namespace TheHunt.Designer
             enemyBox.Tag = "Enemy";
             enemyBox.Image = Properties.Resources.Enemy;
 
+            SSBBox.Click += Item_Click;
+            SSBBox.Tag = "SSB";
+            SSBBox.Image = Properties.Resources.SSB1;
+
 
             this.playerPanel.Controls.Add(player1Box);
 
             this.NPCPanel.Controls.Add(enemyBox);
             this.NPCPanel.Controls.Add(HBouncerBox);
             this.NPCPanel.Controls.Add(VBouncerBox);
+            this.NPCPanel.Controls.Add(SSBBox);
 
             this.worldPanel.Controls.Add(wallBox);
             this.worldPanel.Controls.Add(PURunBox);
@@ -183,6 +189,12 @@ namespace TheHunt.Designer
                 this.active = npc;
             }
 
+            if (this.mode == "SSB")
+            {
+                npc.type = Npc.Type.SuicideBomber;
+                this.active = npc;
+            }
+
         }
 
         public void setValueAfterSelectClick(object Object)
@@ -202,6 +214,8 @@ namespace TheHunt.Designer
                     this.numericRunSpeed.Visible = false;
                     this.walkSpeedLabel.Visible = false;
                     this.numericWalkSpeed.Visible = false;
+                    this.ObjectDescription.Location = new System.Drawing.Point(this.ObjectCoords.Location.X, this.ObjectCoords.Location.Y + 20);
+                    this.ObjectDescription.Text = "This is a wall.";
                 }
 
 
@@ -240,6 +254,27 @@ namespace TheHunt.Designer
                 walkNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).speed.x = int.Parse(this.numericWalkSpeed.Value.ToString()); ((Npc)selectedObject).speed.y = int.Parse(this.numericWalkSpeed.Value.ToString()); };
                 this.numericWalkSpeed.Click += walkNumericDown;
 
+                switch (((Npc)selectedObject).type)
+                {
+                    case Npc.Type.Enemy:
+                        this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                        this.ObjectDescription.Text = "This guy will chase the shit outta you.";
+                        break;
+                    case Npc.Type.H_Bouncer:
+                        this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                        this.ObjectDescription.Text = "This guy will penetrate the shit outta you. (Horizontally)";
+                        break;
+                    case Npc.Type.V_Bouncer:
+                        this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                        this.ObjectDescription.Text = "This guy will penetrate the shit outta you. (Vertically)";
+                        break;
+                    case Npc.Type.SuicideBomber:
+                        this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                        this.ObjectDescription.Text = "Allahu akbar!";
+                        break;
+
+                }
+
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
@@ -270,7 +305,8 @@ namespace TheHunt.Designer
                 this.numericWalkSpeed.Value = ((Model.Player)selectedObject).movement.walk.x;
                 this.walkSpeedLabel.Text = "Walk speed :";
                 this.numericRunSpeed.Value = ((Model.Player)selectedObject).movement.run.x;
-
+                this.ObjectDescription.Location = new System.Drawing.Point(this.runSpeedLabel.Location.X, this.runSpeedLabel.Location.Y + 20);
+                this.ObjectDescription.Text = "This is the player you'll be controlling.";
 
 
                 this.numericWalkSpeed.Maximum = 5;
@@ -322,6 +358,8 @@ namespace TheHunt.Designer
                     this.numericWalkSpeed.Maximum = 10;
                     this.numericWalkSpeed.Minimum = 1;
                     walkNumericDown = delegate (object se, EventArgs ea) { ((Powerups)selectedObject).speedBonusDuration = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                    this.ObjectDescription.Text = "This is an powerup, which enables you to run for a certain amount of time.";
                 }
                 if (((Powerups)selectedObject).type == Powerups.Type.Scoreboost)
                 {
@@ -330,6 +368,8 @@ namespace TheHunt.Designer
                     this.numericWalkSpeed.Maximum = 10;
                     this.numericWalkSpeed.Minimum = 1;
                     walkNumericDown += delegate (object se, EventArgs ea) { ((Powerups)selectedObject).ScoreBonus = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                    this.ObjectDescription.Text = "This is an powerup, which will add a certain amount to your current score.";
                 }
                 if(((Powerups)selectedObject).type == Powerups.Type.Emp)
                 {
@@ -338,6 +378,8 @@ namespace TheHunt.Designer
                     this.numericWalkSpeed.Maximum = 5;
                     this.numericWalkSpeed.Minimum = 1;
                     walkNumericDown += delegate (object se, EventArgs ea) { ((Powerups)selectedObject).EMPDuration = (int.Parse(this.numericWalkSpeed.Value.ToString()) * 1000); };
+                    this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                    this.ObjectDescription.Text = "This is an powerup, which will freeze all enemies for a certain time.";
                 }
                 this.numericWalkSpeed.Click += walkNumericDown;
 
@@ -367,6 +409,9 @@ namespace TheHunt.Designer
                 this.walkSpeedLabel.Visible = false;
                 this.numericWalkSpeed.Visible = false;
                 this.numericRunSpeed.Visible = false;
+
+                this.ObjectDescription.Location = new System.Drawing.Point(this.ObjectCoords.Location.X, this.ObjectCoords.Location.Y + 20);
+                this.ObjectDescription.Text = "This is the finish.";
 
                 this.mode = "Geen";
                 this.previewObjectBox.Click -= Item_Click;
@@ -415,6 +460,17 @@ namespace TheHunt.Designer
             this.previewObjectBox.Image = Properties.Resources.selectBtn;
             this.previewObjectBox.Size = new Size((int)(this.propertiesPanel.Width * 0.3),(int)(this.propertiesPanel.Height * 0.3));
             this.previewObjectBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            this.ObjectName.Location = new System.Drawing.Point(this.previewObjectBox.Location.X + this.previewObjectBox.Width,this.previewObjectBox.Location.Y);
+            this.ObjectCoords.Location = new System.Drawing.Point(this.ObjectName.Location.X, this.ObjectName.Location.Y + 20);
+            this.walkSpeedLabel.Location = new System.Drawing.Point(this.ObjectCoords.Location.X, this.ObjectCoords.Location.Y + 20);
+            this.numericWalkSpeed.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X + 125, this.walkSpeedLabel.Location.Y);
+            this.numericWalkSpeed.Width = this.Width / 10;
+            this.numericRunSpeed.Width = this.Width / 10;
+            this.runSpeedLabel.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X,this.walkSpeedLabel.Location.Y + 20);
+            this.numericRunSpeed.Location = new System.Drawing.Point(this.numericWalkSpeed.Location.X, this.runSpeedLabel.Location.Y);
+            this.ObjectDescription.Location = new System.Drawing.Point(this.runSpeedLabel.Location.X, this.runSpeedLabel.Location.Y + 20);
+
             
             
             this.propertiesPanel.Controls.Add(this.previewObjectBox);
@@ -425,6 +481,7 @@ namespace TheHunt.Designer
             this.propertiesPanel.Controls.Add(this.walkSpeedLabel);
             this.propertiesPanel.Controls.Add(this.numericWalkSpeed);
             this.propertiesPanel.Controls.Add(this.numericRunSpeed);
+            this.propertiesPanel.Controls.Add(this.ObjectDescription);
 
         }
 
