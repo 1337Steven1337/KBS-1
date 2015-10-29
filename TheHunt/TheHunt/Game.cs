@@ -356,11 +356,11 @@ namespace TheHunt
                 if (levelString == "level5" || levelString.Substring(0, 6) == "custom")
                 {
                     //is dit zo -> ga dan terug naar het hoofdmenu
-                    this.Close();
-                    this.startScreen.Show();
-                }
-                else
-                {
+                this.Close();
+                this.startScreen.Show();
+            }
+            else
+            {
                     //is dit niet zo voer dan de volgende functie uit
                     this.loadNextLevel();
                 }
@@ -402,7 +402,7 @@ namespace TheHunt
                 // Move the player if he is able to
                 if (this.world.player.canMove)
                 {
-                    this.world.player.move(this.pressedKey, this.run, delta, this);
+                this.world.player.move(this.pressedKey, this.run, delta, this);
                 }
                 
 
@@ -418,9 +418,9 @@ namespace TheHunt
                     }
                     else
                     {
-                        npc.moveNPC(this.world);
-                        npc.checkForPlayer(this.world, this);
-                    }
+                    npc.moveNPC(this.world);
+                    npc.checkForPlayer(this.world, this);
+                }
 
                 }
 
@@ -469,7 +469,7 @@ namespace TheHunt
             // Animate the player
             if (this.world.player != null && this.world.player.canMove)
             {
-                this.world.player.animate(this.pressedKey, this.lastPressedKey);
+            this.world.player.animate(this.pressedKey, this.lastPressedKey);
             }
             foreach (Npc npc in this.world.npcs)
             {
@@ -481,15 +481,15 @@ namespace TheHunt
                         {
                             npc.animateSSB();
                         }                        
-                    }                    
+            }
                 }
                 else
                 {
                     npc.animateBouncers();
                 }
-                
-            }
            
+        }
+
         }
 
         // Handle the keydown event
@@ -666,14 +666,14 @@ namespace TheHunt
                     {
                         if (isSSBSpawned == true)
                         {
-                            npc.draw(g, this.Size, "Game");
-                        }
+                        npc.draw(g, this.Size, "Game");
+                }
                     }
                     else
                     {
                         npc.draw(g, this.Size, "Game");
                     }
-                        
+
                 }
 
                 // Draw the Powerups
@@ -685,7 +685,7 @@ namespace TheHunt
                 // Draw the player , if exists and is visible
                 if (this.world.player != null && this.world.player.isVisible)
                 {
-                    this.world.player.draw(g, this.Size, "Game");
+                this.world.player.draw(g, this.Size, "Game");
                 }
 
                 // Draw the finish
@@ -720,7 +720,7 @@ namespace TheHunt
             delta.Stop();
             delta.Reset();
             loop.Stop();
-                
+
             if (iAnimate)
             {
                 animate.Stop();
@@ -782,8 +782,8 @@ namespace TheHunt
 
             geluidjes.pauseLoopInfidel(this, null);
 
-                    // Pause the game
-                    stopTimers(true);
+                // Pause the game
+                stopTimers(true);
 
                 // Show the menu
                 pnlMenu.Visible = true;
