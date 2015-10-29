@@ -1,0 +1,6 @@
+C:\Users\Gideon\Documents\GitHubVisualStudio\KBS-1\TheHunt\TheHuntUnitTests\bin\Debug\TheHuntUnitTests.dll
+C:\Users\Gideon\Documents\GitHubVisualStudio\KBS-1\TheHunt\TheHuntUnitTests\bin\Debug\TheHuntUnitTests.pdb
+C:\Users\Gideon\Documents\GitHubVisualStudio\KBS-1\TheHunt\TheHuntUnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Gideon\Documents\GitHubVisualStudio\KBS-1\TheHunt\TheHuntUnitTests\obj\Debug\TheHuntUnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Gideon\Documents\GitHubVisualStudio\KBS-1\TheHunt\TheHuntUnitTests\obj\Debug\TheHuntUnitTests.dll
+C:\Users\Gideon\Documents\GitHubVisualStudio\KBS-1\TheHunt\TheHuntUnitTests\obj\Debug\TheHuntUnitTests.pdb
