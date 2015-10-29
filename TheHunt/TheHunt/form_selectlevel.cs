@@ -227,64 +227,65 @@ namespace TheHunt
             string levelToLoad = "";
             if (sender == this.level1Btn)
             {
-                levelToLoad = Properties.Levels.Default.level1;
+                levelToLoad = "level1";
             }
             else if (sender == this.level2Btn)
             {
-                levelToLoad = Properties.Levels.Default.level2;
+                levelToLoad = "level2";
             }
             else if (sender == this.level3Btn)
             {
-                levelToLoad = Properties.Levels.Default.level3;
+                levelToLoad = "level3";
             }
             else if (sender == this.level4Btn)
             {
-                levelToLoad = Properties.Levels.Default.level4;
+                levelToLoad = "level4";
             }
             else if (sender == this.level5Btn)
             {
-                levelToLoad = Properties.Levels.Default.level5;
+                levelToLoad = "level5";
             }
             else if (sender == this.custom1Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv1;
+                levelToLoad = "customlv1";
             }
             else if (sender == this.custom2Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv2;
+                levelToLoad = "customlv2";
             }
             else if (sender == this.custom3Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv3;
+                levelToLoad = "customlv3";
             }
             else if (sender == this.custom4Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv4;
+                levelToLoad = "customlv4";
             }
             else if (sender == this.custom5Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv5;
+                levelToLoad = "customlv5";
             }
             else if (sender == this.custom6Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv6;
+                levelToLoad = "customlv6";
             }
             else if (sender == this.custom7Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv7;
+                levelToLoad = "customlv7";
             }
             else if (sender == this.custom8Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv8;
+                levelToLoad = "customlv8";
             }
             else if (sender == this.custom9Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv9;
+                levelToLoad = "customlv9";
             }
             else if (sender == this.custom10Btn)
             {
-                levelToLoad = Properties.Levels.Default.customlv10;
+                levelToLoad = "customlv10";
             }
+
             this.Close();
             Game game = new Game(formulier, levelToLoad);
             game.Show();
