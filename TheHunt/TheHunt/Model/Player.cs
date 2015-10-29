@@ -70,7 +70,10 @@ namespace TheHunt.Model
                     break;
             }
 
-            if (!game.intersects(newPosition, new Size(sizeBreedte, sizeHoogte)))
+            Point collisionPosition = new Point(newPosition.x + 7, newPosition.y + 1);
+            Size collisionSize = new Size(sizeBreedte - 6, sizeHoogte - 3);
+
+            if (!game.intersects(newPosition, collisionSize))
             {
                 lastPositionCounter++;
 
