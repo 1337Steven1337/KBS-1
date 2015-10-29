@@ -276,7 +276,7 @@ namespace TheHunt
                 this.stopTimers(true);
                 Highscore.Instance.add(this.world.getScore());
 
-                if (levelString == "level5" || levelString.Substring(0, 4) == "custom")
+                if (levelString == "level5" || levelString.Substring(0, 6) == "custom")
                 {
                     //is dit zo -> ga dan terug naar het hoofdmenu
                     this.Close();
