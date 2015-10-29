@@ -27,7 +27,16 @@ namespace TheHunt.Model
         //These variables will be used to make the bouncer NPC look like they're moving
         private List<Bitmap> VBouncerList = new List<Bitmap> { Properties.Resources.VBouncer1, Properties.Resources.VBouncer2, Properties.Resources.VBouncer3, Properties.Resources.VBouncer4 };
         private List<Bitmap> HBouncerList = new List<Bitmap> { Properties.Resources.HBouncer1, Properties.Resources.HBouncer2, Properties.Resources.HBouncer3, Properties.Resources.HBouncer4 };
-        private int currentSprite = 0;
+        private int currentBouncerSprite = 0;
+
+        //This will set the spawntime for the SuicideBomberNPC
+        private List<Bitmap> SSBSpriteList = new List<Bitmap> { Properties.Resources.SSB1, Properties.Resources.SSB2, Properties.Resources.SSB3, Properties.Resources.SSB4, Properties.Resources.SSB5, Properties.Resources.SSB6, Properties.Resources.SSB7, Properties.Resources.SSB8, Properties.Resources.SSB9, Properties.Resources.SSB10, Properties.Resources.SSB11, Properties.Resources.SSB12 };
+        private int currentSSBSprite = 0;
+        private int spriteRichtingCount = 0;
+        private string richting = "";
+        public int SSBspawnTimer = 3000;
+        private int lastPosCount = Player.lastPositionsList.Count; //Used for SSB Movement.
+        private int currentSSBpos = 0;
 
         private int oldx, oldy, newRange;
 
@@ -61,7 +70,8 @@ namespace TheHunt.Model
         {
             Enemy,
             H_Bouncer,
-            V_Bouncer
+            V_Bouncer,
+            SuicideBomber
         }
 
         private void substractScore()
@@ -80,16 +90,121 @@ namespace TheHunt.Model
             }
         }
 
-        public void animate()
+        public void animateBouncers()
         {
-            if (currentSprite < 3)
+            if (currentBouncerSprite < 3)
             {
-                currentSprite++;
+                currentBouncerSprite++;
             }
             else
             {
-                currentSprite = 0;
+                currentBouncerSprite = 0;
             }
+        }
+
+
+        public void animateSSB()
+        {
+            string tempRichting = "";
+            if (this.positions.current_position.x < Player.lastPositionsList[currentSSBpos].x)
+            {
+                tempRichting = "rechts";
+                currentSSBSprite = 7;
+            }
+            else if (this.positions.current_position.x > Player.lastPositionsList[currentSSBpos].x)
+            {
+                tempRichting = "links";
+                currentSSBSprite = 10;
+            }
+            else if (this.positions.current_position.y > Player.lastPositionsList[currentSSBpos].y)
+            {
+                tempRichting = "boven";
+                currentSSBSprite = 4;
+            }
+            else if (this.positions.current_position.y < Player.lastPositionsList[currentSSBpos].y)
+            {
+                tempRichting = "beneden";
+                currentSSBSprite = 1;
+            }
+            richting = tempRichting;
+
+
+            if (tempRichting == richting)
+            {
+                if (spriteRichtingCount + 1 < 3)
+                {
+                    spriteRichtingCount++;
+                }
+                else
+                {
+                    spriteRichtingCount = 0;
+                }
+                switch (richting)
+                {
+                    case "links":
+                        switch (spriteRichtingCount)
+                        {
+                            case 0:
+                                currentSSBSprite = 9;
+                                break;
+                            case 1:
+                                currentSSBSprite = 10;
+                                break;
+                            case 2:
+                                currentSSBSprite = 11;
+                                break;
+                        }
+                        break;
+                    case "rechts":
+                        switch (spriteRichtingCount)
+                        {
+                            case 0:
+                                currentSSBSprite = 6;
+                                break;
+                            case 1:
+                                currentSSBSprite = 7;
+                                break;
+                            case 2:
+                                currentSSBSprite = 8;
+                                break;
+                        }
+                        break;
+                    case "boven":
+                        switch (spriteRichtingCount)
+                        {
+                            case 0:
+                                currentSSBSprite = 3;
+                                break;
+                            case 1:
+                                currentSSBSprite = 4;
+                                break;
+                            case 2:
+                                currentSSBSprite = 5;
+                                break;
+                        }
+                        break;
+                    case "beneden":
+                        switch (spriteRichtingCount)
+                        {
+                            case 0:
+                                currentSSBSprite = 0;
+                                break;
+                            case 1:
+                                currentSSBSprite = 1;
+                                break;
+                            case 2:
+                                currentSSBSprite = 2;
+                                break;
+                        }
+                        break;
+
+                }
+            }
+            else
+            {
+                spriteRichtingCount = 0;
+            }
+
         }
 
         public void draw(Graphics g, Size screenSize, string drawMode)
@@ -314,6 +429,27 @@ namespace TheHunt.Model
                         drawHitAroundPlayer = false;
                 }
             }
+            if (type == Type.SuicideBomber)
+            {
+                if (Player.lastPositionsList.Count > 0)
+                {
+                    Rectangle PlayerRectangle = new Rectangle(this.world.player.positions.current_position.x, this.world.player.positions.current_position.y, this.world.player.sizeBreedte, this.world.player.sizeHoogte);
+                    Rectangle SSBRectangle = new Rectangle(this.positions.current_position.x,this.positions.current_position.y,this.sizeBreedte,this.sizeHoogte);
+                    if (SSBRectangle.IntersectsWith(PlayerRectangle))
+                    {
+                        Game.SSBPlayerCollision = true;
+                    }
+                    this.positions.current_position.x = Player.lastPositionsList[currentSSBpos].x;
+                    this.positions.current_position.y = Player.lastPositionsList[currentSSBpos].y;
+                    if (currentSSBpos < Player.lastPositionsList.Count -1)
+                    {
+                        currentSSBpos++;
+                    }
+                    
+                }                
+            }
+
+
         }
 
         private bool playerIntersectWithBouncers()
@@ -484,11 +620,14 @@ namespace TheHunt.Model
                 }
                 else if (this.type == Type.H_Bouncer)
                 {
-                    this.image = this.HBouncerList[currentSprite];
+                    this.image = this.HBouncerList[currentBouncerSprite];
                 }
                 else if (this.type == Type.V_Bouncer)
                 {
-                    this.image = this.VBouncerList[currentSprite];
+                    this.image = this.VBouncerList[currentBouncerSprite];
+                }else if (this.type == Type.SuicideBomber)
+            {
+                this.image = this.SSBSpriteList[currentSSBSprite];
             }
             return this.image;
         }

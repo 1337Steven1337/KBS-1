@@ -99,9 +99,6 @@ namespace TheHunt.Model
             if (this.score > 0)
             {
                 this.score -= amount;
-
-                //Console.WriteLine(this.score + "/" + this._start);
-                //Console.WriteLine((this.score / this._start) * 100);
             }
             else
             {
