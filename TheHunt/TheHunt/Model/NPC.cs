@@ -71,6 +71,11 @@ namespace TheHunt.Model
             SuicideBomber
         }
 
+        public Npc ()
+        {
+            this.randomPosition = (new Random()).Next(0, 3);
+        }
+
         private void substractScore()
         {
             if (this.type == Type.Enemy)
