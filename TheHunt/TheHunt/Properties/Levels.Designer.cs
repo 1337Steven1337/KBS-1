@@ -27,117 +27,188 @@ namespace TheHunt.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("{\"obstacles\":[{\"x\":3,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":1,\"height\":1" +
             ",\"width\":1,\"type\":0},{\"x\":3,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":3,\"h" +
-            "eight\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":0," +
-            "\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":6,\"height\":1,\"width\":1,\"type\":0}" +
-            ",{\"x\":2,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":6,\"height\":1,\"width\":1,\"" +
-            "type\":0},{\"x\":5,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":6,\"height\":1,\"wi" +
-            "dth\":1,\"type\":0},{\"x\":7,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":5,\"heigh" +
-            "t\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":" +
-            "3,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"" +
-            "x\":14,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":2,\"height\":1,\"width\":1,\"t" +
-            "ype\":0},{\"x\":14,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":4,\"height\":1,\"w" +
-            "idth\":1,\"type\":0},{\"x\":14,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":6,\"he" +
-            "ight\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":14" +
-            ",\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":9,\"height\":1,\"width\":1,\"type\":" +
-            "0},{\"x\":14,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":11,\"height\":1,\"widt" +
-            "h\":1,\"type\":0},{\"x\":14,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":12,\"hei" +
-            "ght\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":11" +
-            ",\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":12,\"height\":1,\"width\":1,\"type" +
-            "\":0},{\"x\":9,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":12,\"height\":1,\"widt" +
-            "h\":1,\"type\":0},{\"x\":7,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":12,\"heigh" +
-            "t\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"" +
-            "y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":12,\"height\":1,\"width\":1,\"type\":" +
-            "0},{\"x\":18,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":12,\"height\":1,\"widt" +
-            "h\":1,\"type\":0},{\"x\":20,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":12,\"hei" +
-            "ght\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":23" +
-            ",\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":12,\"height\":1,\"width\":1,\"type" +
-            "\":0},{\"x\":25,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":12,\"height\":1,\"wi" +
-            "dth\":1,\"type\":0},{\"x\":27,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":12,\"h" +
-            "eight\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
-            "30,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":11,\"height\":1,\"width\":1,\"ty" +
-            "pe\":0},{\"x\":30,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":9,\"height\":1,\"w" +
-            "idth\":1,\"type\":0},{\"x\":30,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":7,\"he" +
-            "ight\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":39" +
-            ",\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":6,\"height\":1,\"width\":1,\"type\":" +
-            "0},{\"x\":37,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":6,\"height\":1,\"width\"" +
-            ":1,\"type\":0},{\"x\":32,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":6,\"height\"" +
-            ":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":" +
-            "0,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"" +
-            "x\":30,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":5,\"height\":1,\"width\":1,\"t" +
-            "ype\":0},{\"x\":22,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":8,\"height\":1,\"w" +
-            "idth\":1,\"type\":0},{\"x\":23,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":8,\"he" +
-            "ight\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":21" +
-            ",\"y\":7,\"height\":1,\"width\":1,\"type\":0}],\"npcs\":[{\"speed\":{\"x\":1,\"y\":1},\"positions" +
-            "\":{\"current_position\":{\"x\":10,\"y\":6},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\"" +
-            ":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"hei" +
-            "ght\":1,\"type\":2},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current_position\":{\"x\":10," +
-            "\"y\":2},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, " +
-            "0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\"" +
-            ":1,\"y\":1},\"positions\":{\"current_position\":{\"x\":7,\"y\":9},\"last_position\":{\"x\":0,\"" +
-            "y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte" +
-            "\":55,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current" +
-            "_position\":{\"x\":2,\"y\":14},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 110" +
-            "4\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"typ" +
-            "e\":0},{\"speed\":{\"x\":10,\"y\":10},\"positions\":{\"current_position\":{\"x\":33,\"y\":12},\"" +
-            "last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"size" +
-            "Breedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":3,\"y\":3" +
-            "},\"positions\":{\"current_position\":{\"x\":36,\"y\":2},\"last_position\":{\"x\":0,\"y\":0}}," +
-            "\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"w" +
-            "idth\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":5,\"y\":5},\"positions\":{\"current_positi" +
-            "on\":{\"x\":34,\"y\":16},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"np" +
-            "c\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":0}," +
-            "{\"speed\":{\"x\":10,\"y\":10},\"positions\":{\"current_position\":{\"x\":23,\"y\":16},\"last_p" +
-            "osition\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedt" +
-            "e\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":0,\"y\":0},\"pos" +
-            "itions\":{\"current_position\":{\"x\":27,\"y\":10},\"last_position\":{\"x\":0,\"y\":0}},\"scre" +
-            "enSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\"" +
-            ":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":0,\"y\":0},\"positions\":{\"current_position\":{" +
-            "\"x\":17,\"y\":10},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0" +
-            ", 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":0},{\"spe" +
-            "ed\":{\"x\":0,\"y\":0},\"positions\":{\"current_position\":{\"x\":17,\"y\":1},\"last_position\"" +
-            ":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"s" +
-            "izeHoogte\":55,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":0,\"y\":0},\"positions\":" +
-            "{\"current_position\":{\"x\":27,\"y\":1},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"" +
-            "1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"heigh" +
-            "t\":1,\"type\":0},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current_position\":{\"x\":34,\"y" +
-            "\":11},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0" +
-            "\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":" +
-            "1,\"y\":1},\"positions\":{\"current_position\":{\"x\":35,\"y\":10},\"last_position\":{\"x\":0," +
-            "\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogt" +
-            "e\":55,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"curren" +
-            "t_position\":{\"x\":36,\"y\":9},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 11" +
-            "04\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"ty" +
-            "pe\":1},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current_position\":{\"x\":37,\"y\":8},\"la" +
-            "st_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBr" +
-            "eedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":1,\"y\":1}," +
-            "\"positions\":{\"current_position\":{\"x\":38,\"y\":7},\"last_position\":{\"x\":0,\"y\":0}},\"s" +
-            "creenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"wid" +
-            "th\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position" +
-            "\":{\"x\":21,\"y\":14},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\"" +
-            ":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":2},{\"" +
-            "speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":20,\"y\":15},\"last_posit" +
-            "ion\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":3" +
-            "4,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":3,\"y\":3},\"positio" +
-            "ns\":{\"current_position\":{\"x\":19,\"y\":16},\"last_position\":{\"x\":0,\"y\":0}},\"screenSi" +
-            "ze\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"" +
-            "height\":1,\"type\":2},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":" +
-            "18,\"y\":17},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0," +
-            " 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":2},{\"speed\":" +
-            "{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":17,\"y\":18},\"last_position\":{\"" +
-            "x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"size" +
-            "Hoogte\":55,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"c" +
-            "urrent_position\":{\"x\":16,\"y\":19},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"13" +
-            "82, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\"" +
-            ":1,\"type\":2},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":22,\"y\":" +
-            "13},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\"," +
-            "\"sizeBreedte\":34,\"sizeHoogte\":55,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":3," +
-            "\"y\":3},\"positions\":{\"current_position\":{\"x\":3,\"y\":12},\"last_position\":{\"x\":0,\"y\"" +
-            ":0}},\"screenSize\":\"1382, 1104\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":34,\"sizeHoogte\":" +
-            "55,\"width\":1,\"height\":1,\"type\":1}],\"player\":{\"img\":null,\"positions\":{\"current_po" +
-            "sition\":{\"x\":1,\"y\":1},\"last_position\":{\"x\":0,\"y\":0}},\"speed\":{\"x\":3,\"y\":3},\"move" +
-            "ment\":{\"walk\":{\"x\":3,\"y\":3},\"run\":{\"x\":5,\"y\":5}},\"sizeBreedte\":34,\"sizeHoogte\":5" +
-            "5},\"boss\":{\"position\":{\"x\":0,\"y\":0},\"speed\":{\"x\":0,\"y\":0},\"movement\":{\"walk\":{\"x" +
-            "\":0,\"y\":0},\"run\":{\"x\":0,\"y\":0}},\"sizeBreedte\":54,\"sizeHoogte\":72}}")]
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":3," +
+            "\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":6,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":3,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":8,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":3,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":10,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":3,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":11,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":6," +
+            "\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":11,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":8,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":14,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":4,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":14,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":1" +
+            "4,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":3,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":17,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":5,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":17,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":7,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":17,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":3," +
+            "\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":16,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":12,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":14,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":12,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":12,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":1" +
+            "2,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":17,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":18,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":17,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":20,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":17,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":23,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":18,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":23,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":14,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":14,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":14" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":17,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":14,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":19,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":14,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":21,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":" +
+            "14,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":14,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":7,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":8,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":9,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":8,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":11,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":8,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":14," +
+            "\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":8,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":16,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":8,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":18,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":0,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":7,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":3,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":7," +
+            "\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":1,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":11,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":4,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":11,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":2,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":12,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":2," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":15,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":5,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":17,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":5,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":16,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":11,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":1" +
+            "9,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":11,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":21,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":11,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":23,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":12,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":19,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":5,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":19,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":3,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":19,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":2,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":23," +
+            "\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":8,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":23,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":6,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":23,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":4,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":23,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":2" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":27,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":1,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":27,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":3,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":27,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":8,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":31" +
+            ",\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":8,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":31,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":12,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":35,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":10,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"" +
+            "y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":7,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":35,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":4,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":35,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":3,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":29,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":3," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":35,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":6,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":27,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":12,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":25,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":12,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "31,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":12,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":33,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":12,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":27,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":15," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":30,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":15,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":32,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":15,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":39,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":40,\"y\":8," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":36,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":5,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":36,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":12,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":35,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":1,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":3" +
+            "7,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":17,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":37,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":18,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":35,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":18,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":32,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":18,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":30,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":18,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":28,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":18" +
+            ",\"height\":1,\"width\":1,\"type\":0}],\"npcs\":[{\"speed\":{\"x\":7,\"y\":7},\"positions\":{\"cu" +
+            "rrent_position\":{\"x\":4,\"y\":18},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150" +
+            ", 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000" +
+            ",\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":7,\"y\":7},\"positions\":{\"current_pos" +
+            "ition\":{\"x\":18,\"y\":19},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\"," +
+            "\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\"" +
+            ":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":7,\"y\":7},\"positions\":{\"current_position\":{" +
+            "\"x\":28,\"y\":2},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0," +
+            " 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"heigh" +
+            "t\":1,\"type\":1},{\"speed\":{\"x\":7,\"y\":7},\"positions\":{\"current_position\":{\"x\":33,\"y" +
+            "\":0},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\"" +
+            ",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"typ" +
+            "e\":2},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":16,\"y\":1},\"las" +
+            "t_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBre" +
+            "edte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"s" +
+            "peed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":11,\"y\":7},\"last_positio" +
+            "n\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53," +
+            "\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x" +
+            "\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":39,\"y\":19},\"last_position\":{\"x\":" +
+            "0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoo" +
+            "gte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":2,\"y\":" +
+            "2},\"positions\":{\"current_position\":{\"x\":13,\"y\":15},\"last_position\":{\"x\":0,\"y\":0}" +
+            "},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81," +
+            "\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":3,\"y\":3},\"posi" +
+            "tions\":{\"current_position\":{\"x\":8,\"y\":0},\"last_position\":{\"x\":0,\"y\":0}},\"screenS" +
+            "ize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnT" +
+            "imer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"c" +
+            "urrent_position\":{\"x\":36,\"y\":17},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"21" +
+            "50, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":30" +
+            "00,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_p" +
+            "osition\":{\"x\":4,\"y\":10},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\"" +
+            ",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width" +
+            "\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":7,\"y\":7},\"positions\":{\"current_position\":" +
+            "{\"x\":9,\"y\":16},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0" +
+            ", 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"heig" +
+            "ht\":1,\"type\":1},{\"speed\":{\"x\":7,\"y\":7},\"positions\":{\"current_position\":{\"x\":6,\"y" +
+            "\":15},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0" +
+            "\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"ty" +
+            "pe\":1},{\"speed\":{\"x\":6,\"y\":6},\"positions\":{\"current_position\":{\"x\":29,\"y\":7},\"la" +
+            "st_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBr" +
+            "eedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"" +
+            "speed\":{\"x\":6,\"y\":6},\"positions\":{\"current_position\":{\"x\":25,\"y\":7},\"last_positi" +
+            "on\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53" +
+            ",\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"" +
+            "x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":33,\"y\":7},\"last_position\":{\"x\":" +
+            "0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoo" +
+            "gte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":7,\"y\":" +
+            "7},\"positions\":{\"current_position\":{\"x\":32,\"y\":13},\"last_position\":{\"x\":0,\"y\":0}" +
+            "},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81," +
+            "\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"posi" +
+            "tions\":{\"current_position\":{\"x\":37,\"y\":8},\"last_position\":{\"x\":0,\"y\":0}},\"screen" +
+            "Size\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawn" +
+            "Timer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"" +
+            "current_position\":{\"x\":38,\"y\":5},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"21" +
+            "50, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":30" +
+            "00,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_p" +
+            "osition\":{\"x\":34,\"y\":11},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635" +
+            "\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"widt" +
+            "h\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_position\"" +
+            ":{\"x\":22,\"y\":13},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":" +
+            "\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"he" +
+            "ight\":1,\"type\":0}],\"powerups\":[{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"Sc" +
+            "oreBonus\":1000,\"x\":0,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\"" +
+            ":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":21,\"y\":15,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":25,\"" +
+            "y\":4,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":200" +
+            "0,\"ScoreBonus\":1000,\"x\":4,\"y\":0,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDurat" +
+            "ion\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":24,\"y\":19,\"height\":1,\"width\":" +
+            "1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":" +
+            "22,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration" +
+            "\":2000,\"ScoreBonus\":1000,\"x\":36,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBon" +
+            "usDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":36,\"y\":4,\"height\":1,\"w" +
+            "idth\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":100" +
+            "0,\"x\":9,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDur" +
+            "ation\":2000,\"ScoreBonus\":1000,\"x\":18,\"y\":4,\"height\":1,\"width\":1,\"type\":2},{\"spee" +
+            "dBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":24,\"y\":13,\"height\"" +
+            ":1,\"width\":1,\"type\":2},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus" +
+            "\":1000,\"x\":13,\"y\":13,\"height\":1,\"width\":1,\"type\":2}],\"player\":{\"img\":null,\"posit" +
+            "ions\":{\"current_position\":{\"x\":1,\"y\":0},\"last_position\":{\"x\":0,\"y\":0}},\"speed\":{" +
+            "\"x\":3,\"y\":3},\"isVisible\":true,\"canMove\":true,\"movement\":{\"walk\":{\"x\":3,\"y\":3},\"r" +
+            "un\":{\"x\":8,\"y\":8}},\"sizeBreedte\":53,\"sizeHoogte\":81},\"boss\":{\"position\":{\"x\":0,\"" +
+            "y\":0},\"speed\":{\"x\":0,\"y\":0},\"movement\":{\"walk\":{\"x\":0,\"y\":0},\"run\":{\"x\":0,\"y\":0}" +
+            "},\"sizeBreedte\":84,\"sizeHoogte\":105},\"finish\":{\"sizeBreedte\":53,\"sizeHoogte\":81," +
+            "\"x\":39,\"y\":0,\"height\":1,\"width\":1}}\r\n")]
         public string level1 {
             get {
                 return ((string)(this["level1"]));
@@ -149,247 +220,233 @@ namespace TheHunt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{\r\n  \"finish\": \r\n        {\r\n      \"x\": 1,\r\n      \"y\": 15,\r\n      \"height\": 1,\r\n  " +
-            "    \"width\": 1\r\n    },\r\n  \"powerups\": [\r\n    {\r\n      \"sizeBreedte\": 30,\r\n      " +
-            "\"sizeHoogte\": 43,\r\n      \"x\": 23,\r\n      \"y\": 9,\r\n      \"height\": 1,\r\n      \"wid" +
-            "th\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 5,\r\n      \"y\": 5,\r\n      \"he" +
-            "ight\": 3,\r\n      \"width\": 3,\r\n      \"type\": 1\r\n    }\r\n  ],\r\n  \"obstacles\": [\r\n  " +
-            "  {\r\n      \"x\": 0,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      " +
-            "\"type\": 0\r\n    },\r\n    {\r\n      \"x\": 1,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n    " +
-            "  \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 2,\r\n      \"y\": 6,\r\n   " +
-            "   \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 4" +
-            ",\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    }," +
-            "\r\n    {\r\n      \"x\": 5,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n  " +
-            "    \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 6,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n" +
-            "      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 7,\r\n      \"y\": 6,\r" +
-            "\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x" +
-            "\": 7,\r\n      \"y\": 5,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n  " +
-            "  },\r\n    {\r\n      \"x\": 7,\r\n      \"y\": 4,\r\n      \"height\": 1,\r\n      \"width\": 1," +
-            "\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 7,\r\n      \"y\": 3,\r\n      \"height\": " +
-            "1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\"" +
-            ": 0,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n   " +
-            "   \"x\": 14,\r\n      \"y\": 1,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\":" +
-            " 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 2,\r\n      \"height\": 1,\r\n      \"wid" +
-            "th\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 3,\r\n      \"h" +
-            "eight\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n " +
-            "     \"y\": 4,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n  " +
-            "  {\r\n      \"x\": 14,\r\n      \"y\": 5,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n     " +
-            " \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n  " +
-            "    \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 7,\r\n" +
-            "      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\"" +
-            ": 14,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n  " +
-            "  },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 9,\r\n      \"height\": 1,\r\n      \"width\": 1" +
-            ",\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      \"y\": 10,\r\n      \"height" +
-            "\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 14,\r\n      " +
-            "\"y\": 11,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r" +
-            "\n      \"x\": 14,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"t" +
-            "ype\": 0\r\n    },\r\n    {\r\n      \"x\": 13,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n    " +
-            "  \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 12,\r\n      \"y\": 12,\r\n " +
-            "     \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\":" +
-            " 11,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n  " +
-            "  },\r\n    {\r\n      \"x\": 10,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": " +
-            "1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 9,\r\n      \"y\": 12,\r\n      \"height" +
-            "\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 8,\r\n      \"" +
-            "y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n" +
-            "      \"x\": 7,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"typ" +
-            "e\": 0\r\n    },\r\n    {\r\n      \"x\": 6,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"" +
-            "width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 15,\r\n      \"y\": 12,\r\n    " +
-            "  \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 16" +
-            ",\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    }" +
-            ",\r\n    {\r\n      \"x\": 17,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r" +
-            "\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 18,\r\n      \"y\": 12,\r\n      \"height\":" +
-            " 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 19,\r\n      \"y" +
-            "\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n " +
-            "     \"x\": 20,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"typ" +
-            "e\": 0\r\n    },\r\n    {\r\n      \"x\": 21,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      " +
-            "\"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 22,\r\n      \"y\": 12,\r\n   " +
-            "   \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 2" +
-            "3,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    " +
-            "},\r\n    {\r\n      \"x\": 24,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1," +
-            "\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 25,\r\n      \"y\": 12,\r\n      \"height\"" +
-            ": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 26,\r\n      \"" +
-            "y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n" +
-            "      \"x\": 27,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"ty" +
-            "pe\": 0\r\n    },\r\n    {\r\n      \"x\": 28,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n     " +
-            " \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 29,\r\n      \"y\": 12,\r\n  " +
-            "    \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": " +
-            "30,\r\n      \"y\": 12,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n   " +
-            " },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 11,\r\n      \"height\": 1,\r\n      \"width\": 1" +
-            ",\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 10,\r\n      \"height" +
-            "\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      " +
-            "\"y\": 9,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n" +
-            "      \"x\": 30,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"typ" +
-            "e\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 7,\r\n      \"height\": 1,\r\n      \"" +
-            "width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 6,\r\n     " +
-            " \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 39," +
-            "\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r" +
-            "\n    {\r\n      \"x\": 38,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n  " +
-            "    \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 37,\r\n      \"y\": 6,\r\n      \"height\": 1,\r" +
-            "\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 31,\r\n      \"y\": 6" +
-            ",\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      " +
-            "\"x\": 32,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r" +
-            "\n    },\r\n    {\r\n      \"x\": 33,\r\n      \"y\": 6,\r\n      \"height\": 1,\r\n      \"width\"" +
-            ": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 34,\r\n      \"y\": 6,\r\n      \"heig" +
-            "ht\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n    " +
-            "  \"y\": 0,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {" +
-            "\r\n      \"x\": 30,\r\n      \"y\": 1,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"t" +
-            "ype\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 2,\r\n      \"height\": 1,\r\n     " +
-            " \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 30,\r\n      \"y\": 5,\r\n   " +
-            "   \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 2" +
-            "2,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    }" +
-            ",\r\n    {\r\n      \"x\": 21,\r\n      \"y\": 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n" +
-            "      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 23,\r\n      \"y\": 8,\r\n      \"height\": 1" +
-            ",\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"x\": 24,\r\n      \"y\":" +
-            " 8,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n    " +
-            "  \"x\": 24,\r\n      \"y\": 7,\r\n      \"height\": 1,\r\n      \"width\": 1,\r\n      \"type\": " +
-            "0\r\n    },\r\n    {\r\n      \"x\": 21,\r\n      \"y\": 7,\r\n      \"height\": 1,\r\n      \"widt" +
-            "h\": 1,\r\n      \"type\": 0\r\n    }\r\n  ],\r\n  \"npcs\": [\r\n    {\r\n      \"speed\": {\r\n    " +
-            "    \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"current_po" +
-            "sition\": {\r\n          \"x\": 10,\r\n          \"y\": 6\r\n        },\r\n        \"last_posi" +
-            "tion\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"scree" +
-            "nSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n   " +
-            "   \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n  " +
-            "  },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      " +
-            "\"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 10,\r\n          \"y\"" +
-            ": 2\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0" +
-            "\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0," +
-            " 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n    " +
-            "  \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1" +
-            ",\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {" +
-            "\r\n          \"x\": 7,\r\n          \"y\": 9\r\n        },\r\n        \"last_position\": {\r\n " +
-            "         \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"13" +
-            "82, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoo" +
-            "gte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {" +
-            "\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\"" +
-            ": {\r\n        \"current_position\": {\r\n          \"x\": 2,\r\n          \"y\": 14\r\n      " +
-            "  },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }" +
-            "\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n     " +
-            " \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\":" +
-            " 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 10,\r\n       " +
-            " \"y\": 10\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n       " +
-            "   \"x\": 33,\r\n          \"y\": 12\r\n        },\r\n        \"last_position\": {\r\n        " +
-            "  \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 110" +
-            "4\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 5" +
-            "5,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n     " +
-            " \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {\r\n  " +
-            "      \"current_position\": {\r\n          \"x\": 36,\r\n          \"y\": 2\r\n        },\r\n " +
-            "       \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n     " +
-            " },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeB" +
-            "reedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n  " +
-            "    \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 5,\r\n        \"y\": 5\r" +
-            "\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 3" +
-            "4,\r\n          \"y\": 16\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0," +
-            "\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n    " +
-            "  \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n     " +
-            " \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\":" +
-            " {\r\n        \"x\": 10,\r\n        \"y\": 10\r\n      },\r\n      \"positions\": {\r\n        \"" +
-            "current_position\": {\r\n          \"x\": 23,\r\n          \"y\": 16\r\n        },\r\n       " +
-            " \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n " +
-            "     \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte" +
-            "\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"t" +
-            "ype\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n     " +
-            " },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 27,\r\n  " +
-            "        \"y\": 10\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n    " +
-            "      \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc" +
-            "\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"widt" +
-            "h\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n  " +
-            "      \"x\": 0,\r\n        \"y\": 0\r\n      },\r\n      \"positions\": {\r\n        \"current_" +
-            "position\": {\r\n          \"x\": 17,\r\n          \"y\": 10\r\n        },\r\n        \"last_p" +
-            "osition\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"sc" +
-            "reenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n" +
-            "      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r" +
-            "\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n      },\r\n   " +
-            "   \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 17,\r\n          " +
-            "\"y\": 1\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\"" +
-            ": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0," +
-            " 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n " +
-            "     \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\"" +
-            ": 0,\r\n        \"y\": 0\r\n      },\r\n      \"positions\": {\r\n        \"current_position\"" +
-            ": {\r\n          \"x\": 27,\r\n          \"y\": 1\r\n        },\r\n        \"last_position\": " +
-            "{\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\":" +
-            " \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"siz" +
-            "eHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 0\r\n    },\r\n " +
-            "   {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positi" +
-            "ons\": {\r\n        \"current_position\": {\r\n          \"x\": 34,\r\n          \"y\": 11\r\n " +
-            "       },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n    " +
-            "    }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n" +
-            "      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"hei" +
-            "ght\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n   " +
-            "     \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n    " +
-            "      \"x\": 35,\r\n          \"y\": 10\r\n        },\r\n        \"last_position\": {\r\n     " +
-            "     \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, " +
-            "1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\"" +
-            ": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n  " +
-            "    \"speed\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r" +
-            "\n        \"current_position\": {\r\n          \"x\": 36,\r\n          \"y\": 9\r\n        }," +
-            "\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n  " +
-            "    },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"si" +
-            "zeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r" +
-            "\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 1,\r\n        \"y\":" +
-            " 1\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\"" +
-            ": 37,\r\n          \"y\": 8\r\n        },\r\n        \"last_position\": {\r\n          \"x\": " +
-            "0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n  " +
-            "    \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n   " +
-            "   \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    },\r\n    {\r\n      \"speed" +
-            "\": {\r\n        \"x\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"positions\": {\r\n        \"" +
-            "current_position\": {\r\n          \"x\": 38,\r\n          \"y\": 7\r\n        },\r\n        " +
-            "\"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n  " +
-            "    \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\"" +
-            ": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"ty" +
-            "pe\": 1\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      " +
-            "},\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 21,\r\n   " +
-            "       \"y\": 14\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n     " +
-            "     \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\"" +
-            ": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width" +
-            "\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n   " +
-            "     \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_p" +
-            "osition\": {\r\n          \"x\": 20,\r\n          \"y\": 15\r\n        },\r\n        \"last_po" +
-            "sition\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"scr" +
-            "eenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n " +
-            "     \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n" +
-            "    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n    " +
-            "  \"positions\": {\r\n        \"current_position\": {\r\n          \"x\": 19,\r\n          \"" +
-            "y\": 16\r\n        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\"" +
-            ": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0," +
-            " 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n " +
-            "     \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\"" +
-            ": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_position\"" +
-            ": {\r\n          \"x\": 18,\r\n          \"y\": 17\r\n        },\r\n        \"last_position\":" +
-            " {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\"" +
-            ": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"si" +
-            "zeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n" +
-            "    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"posit" +
-            "ions\": {\r\n        \"current_position\": {\r\n          \"x\": 17,\r\n          \"y\": 18\r\n" +
-            "        },\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n   " +
-            "     }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r" +
-            "\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"he" +
-            "ight\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n  " +
-            "      \"y\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n   " +
-            "       \"x\": 16,\r\n          \"y\": 19\r\n        },\r\n        \"last_position\": {\r\n    " +
-            "      \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382," +
-            " 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte" +
-            "\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 2\r\n    },\r\n    {\r\n " +
-            "     \"speed\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r\n      \"positions\": {" +
-            "\r\n        \"current_position\": {\r\n          \"x\": 22,\r\n          \"y\": 13\r\n        " +
-            "},\r\n        \"last_position\": {\r\n          \"x\": 0,\r\n          \"y\": 0\r\n        }\r\n" +
-            "      },\r\n      \"screenSize\": \"1382, 1104\",\r\n      \"npc\": \"0, 0, 0, 0\",\r\n      \"" +
-            "sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n      \"width\": 1,\r\n      \"height\": 1" +
-            ",\r\n      \"type\": 2\r\n    },\r\n    {\r\n      \"speed\": {\r\n        \"x\": 3,\r\n        \"y" +
-            "\": 3\r\n      },\r\n      \"positions\": {\r\n        \"current_position\": {\r\n          \"" +
-            "x\": 3,\r\n          \"y\": 12\r\n        },\r\n        \"last_position\": {\r\n          \"x\"" +
-            ": 0,\r\n          \"y\": 0\r\n        }\r\n      },\r\n      \"screenSize\": \"1382, 1104\",\r\n" +
-            "      \"npc\": \"0, 0, 0, 0\",\r\n      \"sizeBreedte\": 34,\r\n      \"sizeHoogte\": 55,\r\n " +
-            "     \"width\": 1,\r\n      \"height\": 1,\r\n      \"type\": 1\r\n    }\r\n  ],\r\n  \"player\": " +
-            "{\r\n    \"img\": null,\r\n    \"positions\": {\r\n      \"current_position\": {\r\n        \"x" +
-            "\": 1,\r\n        \"y\": 1\r\n      },\r\n      \"last_position\": {\r\n        \"x\": 0,\r\n    " +
-            "    \"y\": 0\r\n      }\r\n    },\r\n    \"speed\": {\r\n      \"x\": 3,\r\n      \"y\": 3\r\n    }," +
-            "\r\n    \"movement\": {\r\n      \"walk\": {\r\n        \"x\": 3,\r\n        \"y\": 3\r\n      },\r" +
-            "\n      \"run\": {\r\n        \"x\": 5,\r\n        \"y\": 5\r\n      }\r\n    },\r\n    \"sizeBree" +
-            "dte\": 34,\r\n    \"sizeHoogte\": 55\r\n  },\r\n  \"boss\": {\r\n    \"position\": {\r\n      \"x\"" +
-            ": 0,\r\n      \"y\": 0\r\n    },\r\n    \"speed\": {\r\n      \"x\": 0,\r\n      \"y\": 0\r\n    },\r" +
-            "\n    \"movement\": {\r\n      \"walk\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n      },\r\n" +
-            "      \"run\": {\r\n        \"x\": 0,\r\n        \"y\": 0\r\n      }\r\n    },\r\n    \"sizeBreed" +
-            "te\": 54,\r\n    \"sizeHoogte\": 72\r\n  }\r\n}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{\"obstacles\":[{\"x\":3,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":2,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":3,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":4,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":3," +
+            "\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":9,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":3,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":11,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":3,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":13,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":6,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":4,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":6," +
+            "\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":2,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":8,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":2,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":10,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":8,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":6,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":10,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"" +
+            "y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":13,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":3,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":17,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":4,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":17,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":6,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":17" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":9,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":17,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":11,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":17,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":13,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":17" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":16,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":15,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":9,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":13,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":10,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":13," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":13,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":13,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":11,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":15,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":13,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":1" +
+            "5,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":16,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":14,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":16,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":10,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":10,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":" +
+            "10,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":10,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":13,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":10,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":15,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":7,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":9,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":5,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "11,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":5,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":13,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":5,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":15,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":9,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y" +
+            "\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":9,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":16,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":2,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":12,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":5,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":16,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":1," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":13,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":0,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":19,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":3,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":19,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":5,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y" +
+            "\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":10,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":19,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":12,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":19,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":14,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"" +
+            "y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":17,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":22,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":18,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":22,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":16,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":24" +
+            ",\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":16,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":26,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":16,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":22,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":13,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "22,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":10,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":25,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":13,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":25,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":10," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":20,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":5,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":21,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":6,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":22,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":0,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":22," +
+            "\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":14,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":31,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":14,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":32,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":12,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":32" +
+            ",\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":12,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":28,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":10,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":28,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":8,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":30," +
+            "\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":8,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":32,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":8,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":25,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":7,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":25,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":2" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":30,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":2,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":27,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":2,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":29,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":4,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":29," +
+            "\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":5,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":33,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":5,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":31,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":5,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":34,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":3" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":33,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":16,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":35,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":14,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":35,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":1" +
+            "2,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":28,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":14,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":28,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":14,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\"" +
+            ":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":16,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":32,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":16,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":34,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":19,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"" +
+            "y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":19,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":29,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":19,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":31,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":19,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":35" +
+            ",\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":18,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":37,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":18,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":39,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":16,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "39,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":13,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":39,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":11,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":39,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":9,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "38,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":8,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":36,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":13,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":36,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":15,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":3" +
+            "7,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":1,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":37,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":3,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":37,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":5,\"height" +
+            "\":1,\"width\":1,\"type\":0}],\"npcs\":[{\"speed\":{\"x\":6,\"y\":6},\"positions\":{\"current_po" +
+            "sition\":{\"x\":3,\"y\":18},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\"," +
+            "\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\"" +
+            ":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":6,\"y\":6},\"positions\":{\"current_position\":{" +
+            "\"x\":13,\"y\":19},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0" +
+            ", 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"heig" +
+            "ht\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":1,\"y" +
+            "\":10},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0" +
+            "\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"ty" +
+            "pe\":0},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":4,\"y\":0},\"las" +
+            "t_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBre" +
+            "edte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"s" +
+            "peed\":{\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\":4,\"y\":16},\"last_positio" +
+            "n\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53," +
+            "\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x" +
+            "\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":14,\"y\":2},\"last_position\":{\"x\":0" +
+            ",\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoog" +
+            "te\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":4,\"y\":4" +
+            "},\"positions\":{\"current_position\":{\"x\":10,\"y\":6},\"last_position\":{\"x\":0,\"y\":0}}," +
+            "\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"S" +
+            "SBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"positi" +
+            "ons\":{\"current_position\":{\"x\":21,\"y\":16},\"last_position\":{\"x\":0,\"y\":0}},\"screenS" +
+            "ize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnT" +
+            "imer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"c" +
+            "urrent_position\":{\"x\":20,\"y\":9},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"215" +
+            "0, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":300" +
+            "0,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current_po" +
+            "sition\":{\"x\":24,\"y\":11},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\"" +
+            ",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width" +
+            "\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current_position\":" +
+            "{\"x\":27,\"y\":11},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"" +
+            "0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"hei" +
+            "ght\":1,\"type\":2},{\"speed\":{\"x\":6,\"y\":6},\"positions\":{\"current_position\":{\"x\":29," +
+            "\"y\":11},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0," +
+            " 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"" +
+            "type\":2},{\"speed\":{\"x\":6,\"y\":6},\"positions\":{\"current_position\":{\"x\":31,\"y\":11}," +
+            "\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"siz" +
+            "eBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2}" +
+            ",{\"speed\":{\"x\":8,\"y\":8},\"positions\":{\"current_position\":{\"x\":36,\"y\":19},\"last_po" +
+            "sition\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte" +
+            "\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed" +
+            "\":{\"x\":6,\"y\":6},\"positions\":{\"current_position\":{\"x\":23,\"y\":18},\"last_position\":" +
+            "{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"si" +
+            "zeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":5" +
+            ",\"y\":5},\"positions\":{\"current_position\":{\"x\":32,\"y\":17},\"last_position\":{\"x\":0,\"" +
+            "y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte" +
+            "\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4}," +
+            "\"positions\":{\"current_position\":{\"x\":39,\"y\":0},\"last_position\":{\"x\":0,\"y\":0}},\"s" +
+            "creenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSB" +
+            "spawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"position" +
+            "s\":{\"current_position\":{\"x\":25,\"y\":1},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize" +
+            "\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTime" +
+            "r\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"curr" +
+            "ent_position\":{\"x\":31,\"y\":0},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, " +
+            "1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"" +
+            "width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_posit" +
+            "ion\":{\"x\":26,\"y\":7},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"np" +
+            "c\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1," +
+            "\"height\":1,\"type\":0},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\"" +
+            ":34,\"y\":15},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0" +
+            ", 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\"" +
+            ":1,\"type\":0},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\":32,\"y\":" +
+            "6},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"" +
+            "sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\"" +
+            ":1},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\":18,\"y\":11},\"last" +
+            "_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBree" +
+            "dte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"sp" +
+            "eed\":{\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\":25,\"y\":15},\"last_positio" +
+            "n\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53," +
+            "\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x" +
+            "\":1,\"y\":1},\"positions\":{\"current_position\":{\"x\":4,\"y\":5},\"last_position\":{\"x\":0," +
+            "\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogt" +
+            "e\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":1,\"y\":1}" +
+            ",\"positions\":{\"current_position\":{\"x\":33,\"y\":8},\"last_position\":{\"x\":0,\"y\":0}},\"" +
+            "screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SS" +
+            "BspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":2,\"y\":2},\"positio" +
+            "ns\":{\"current_position\":{\"x\":13,\"y\":14},\"last_position\":{\"x\":0,\"y\":0}},\"screenSi" +
+            "ze\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTi" +
+            "mer\":3000,\"width\":1,\"height\":1,\"type\":0}],\"powerups\":[{\"speedBonusDuration\":5000" +
+            ",\"EMPDuration\":2000,\"ScoreBonus\":2000,\"x\":8,\"y\":18,\"height\":1,\"width\":1,\"type\":1" +
+            "},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":8,\"y\":19,\"" +
+            "height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"Sco" +
+            "reBonus\":1000,\"x\":1,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5" +
+            "000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":19,\"y\":0,\"height\":1,\"width\":1,\"type" +
+            "\":2},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":19,\"y\":" +
+            "19,\"height\":1,\"width\":1,\"type\":2},{\"speedBonusDuration\":5000,\"EMPDuration\":2000," +
+            "\"ScoreBonus\":1000,\"x\":30,\"y\":12,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDurat" +
+            "ion\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":30,\"y\":10,\"height\":1,\"width\":" +
+            "1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":" +
+            "33,\"y\":14,\"height\":1,\"width\":1,\"type\":2},{\"speedBonusDuration\":5000,\"EMPDuration" +
+            "\":2000,\"ScoreBonus\":1000,\"x\":30,\"y\":15,\"height\":1,\"width\":1,\"type\":1},{\"speedBon" +
+            "usDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":29,\"y\":15,\"height\":1,\"" +
+            "width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":10" +
+            "00,\"x\":30,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDu" +
+            "ration\":2000,\"ScoreBonus\":1000,\"x\":15,\"y\":0,\"height\":1,\"width\":1,\"type\":1},{\"spe" +
+            "edBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":7,\"y\":3,\"height\":" +
+            "1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\"" +
+            ":1000,\"x\":4,\"y\":10,\"height\":1,\"width\":1,\"type\":0}],\"player\":{\"img\":null,\"positio" +
+            "ns\":{\"current_position\":{\"x\":1,\"y\":0},\"last_position\":{\"x\":0,\"y\":0}},\"speed\":{\"x" +
+            "\":3,\"y\":3},\"isVisible\":true,\"canMove\":true,\"movement\":{\"walk\":{\"x\":3,\"y\":3},\"run" +
+            "\":{\"x\":8,\"y\":8}},\"sizeBreedte\":53,\"sizeHoogte\":81},\"boss\":{\"position\":{\"x\":0,\"y\"" +
+            ":0},\"speed\":{\"x\":0,\"y\":0},\"movement\":{\"walk\":{\"x\":0,\"y\":0},\"run\":{\"x\":0,\"y\":0}}," +
+            "\"sizeBreedte\":84,\"sizeHoogte\":105},\"finish\":{\"sizeBreedte\":53,\"sizeHoogte\":81,\"x" +
+            "\":24,\"y\":19,\"height\":1,\"width\":1}}\r\n")]
         public string level2 {
             get {
                 return ((string)(this["level2"]));
@@ -401,46 +458,216 @@ namespace TheHunt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"{
-  ""powerups"": [
-    {
-      ""x"": 3,
-      ""y"": 3,
-      ""height"": 1,
-      ""width"": 1,
-      ""type"": 2
-    }
-  ],
-  ""player"": {
-    ""img"": null,
-    ""positions"": {
-      ""current_position"": {
-        ""x"": 1,
-        ""y"": 1
-      },
-      ""last_position"": {
-        ""x"": 0,
-        ""y"": 0
-      }
-    },
-    ""speed"": {
-      ""x"": 3,
-      ""y"": 3
-    },
-    ""movement"": {
-      ""walk"": {
-        ""x"": 3,
-        ""y"": 3
-      },
-      ""run"": {
-        ""x"": 5,
-        ""y"": 5
-      }
-    },
-    ""sizeBreedte"": 34,
-    ""sizeHoogte"": 55
-  }
-}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{\"obstacles\":[{\"x\":0,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":17,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":0,\"y\":2" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":2,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":2,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":4,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":2,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":6,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":2,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":7,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":4,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":10" +
+            ",\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":2,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":10,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":4,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":4,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":6,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":6,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":6,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":9," +
+            "\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":6,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":11,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":6,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":13,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":0,\"y\":9,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":1,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":9,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":4," +
+            "\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":9,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":9,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":9,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":11,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":9,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":13,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":9,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "16,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":9,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":6,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":12,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":5,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":12,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":" +
+            "12,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":10,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":16,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":2,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":15,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":4,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":15,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "7,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":15,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":9,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":16,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":8,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":17,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\"" +
+            ":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":17,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":10,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":17,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":12,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":17,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\"" +
+            ":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":13,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":3,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":15,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":3,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":20,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":3,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":1" +
+            "7,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":7,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":17,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":15,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":11,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":15,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":13" +
+            ",\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":13,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":13,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":12,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":15,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":12,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "18,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":12,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":20,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":17,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":16,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":15," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":16,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":12,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":22,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":12,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":23,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":1" +
+            "3,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":19,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":16,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":22,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":18,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\"" +
+            ":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":15,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":10,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":12,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":25,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":19,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"" +
+            "y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":15,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":32,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":17,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":25,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":14,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":28" +
+            ",\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":17,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":26,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":17,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":28,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":17,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "32,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":11,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":35,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":18,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":35,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":17," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":38,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":17,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":40,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":15,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":34,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":1" +
+            "5,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":36,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":13,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":36,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":11,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":" +
+            "8,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":34,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":8,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":32,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":8,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":30,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":11,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "29,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":11,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":20,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":8,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":22,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":8,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":20," +
+            "\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":5,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":23,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":1,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":23,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":4,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":24,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":4" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":24,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":1,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":26,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":4,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":27,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":1,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":30," +
+            "\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":3,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":30,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":5,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":17,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":9,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":24,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":" +
+            "11,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":29,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":8,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":27,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":8,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":35,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":5,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":3" +
+            "3,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":3,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":37,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":3,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":37,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":1,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\"" +
+            ":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":33,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":7,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":34,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":3,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":31,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":6,\"h" +
+            "eight\":1,\"width\":1,\"type\":0}],\"npcs\":[{\"speed\":{\"x\":8,\"y\":8},\"positions\":{\"curre" +
+            "nt_position\":{\"x\":3,\"y\":4},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 16" +
+            "35\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"wi" +
+            "dth\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_positio" +
+            "n\":{\"x\":11,\"y\":0},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\"" +
+            ":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"h" +
+            "eight\":1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":0" +
+            ",\"y\":8},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0," +
+            " 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"" +
+            "type\":0},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":12,\"y\":5},\"" +
+            "last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"size" +
+            "Breedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1}," +
+            "{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":33,\"y\":12},\"last_pos" +
+            "ition\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\"" +
+            ":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\"" +
+            ":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":35,\"y\":12},\"last_position\":{" +
+            "\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"siz" +
+            "eHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":6," +
+            "\"y\":6},\"positions\":{\"current_position\":{\"x\":29,\"y\":14},\"last_position\":{\"x\":0,\"y" +
+            "\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\"" +
+            ":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":4,\"y\":4},\"" +
+            "positions\":{\"current_position\":{\"x\":6,\"y\":14},\"last_position\":{\"x\":0,\"y\":0}},\"sc" +
+            "reenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBs" +
+            "pawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"positions" +
+            "\":{\"current_position\":{\"x\":6,\"y\":11},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\"" +
+            ":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer" +
+            "\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":7,\"y\":7},\"positions\":{\"curre" +
+            "nt_position\":{\"x\":15,\"y\":6},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1" +
+            "635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"w" +
+            "idth\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":5,\"y\":5},\"positions\":{\"current_positi" +
+            "on\":{\"x\":26,\"y\":6},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc" +
+            "\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"" +
+            "height\":1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":" +
+            "20,\"y\":10},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0," +
+            " 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":" +
+            "1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":30,\"y\":9" +
+            "},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"s" +
+            "izeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":" +
+            "0},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current_position\":{\"x\":13,\"y\":18},\"last_" +
+            "position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreed" +
+            "te\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"spe" +
+            "ed\":{\"x\":8,\"y\":8},\"positions\":{\"current_position\":{\"x\":5,\"y\":19},\"last_position\"" +
+            ":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"s" +
+            "izeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":" +
+            "1,\"y\":1},\"positions\":{\"current_position\":{\"x\":39,\"y\":16},\"last_position\":{\"x\":0," +
+            "\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogt" +
+            "e\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":2,\"y\":2}" +
+            ",\"positions\":{\"current_position\":{\"x\":26,\"y\":15},\"last_position\":{\"x\":0,\"y\":0}}," +
+            "\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"S" +
+            "SBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":5,\"y\":5},\"positi" +
+            "ons\":{\"current_position\":{\"x\":19,\"y\":17},\"last_position\":{\"x\":0,\"y\":0}},\"screenS" +
+            "ize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnT" +
+            "imer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"c" +
+            "urrent_position\":{\"x\":39,\"y\":3},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"215" +
+            "0, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":300" +
+            "0,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_po" +
+            "sition\":{\"x\":32,\"y\":10},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\"" +
+            ",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width" +
+            "\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":" +
+            "{\"x\":28,\"y\":19},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"" +
+            "0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"hei" +
+            "ght\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":32," +
+            "\"y\":18},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0," +
+            " 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"" +
+            "type\":1},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":20,\"y\":2},\"" +
+            "last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"size" +
+            "Breedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0}]" +
+            ",\"powerups\":[{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\"" +
+            ":0,\"y\":3,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\"" +
+            ":2000,\"ScoreBonus\":1000,\"x\":6,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusD" +
+            "uration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":2000,\"x\":8,\"y\":16,\"height\":1,\"widt" +
+            "h\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"" +
+            "x\":19,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDurat" +
+            "ion\":3000,\"ScoreBonus\":1000,\"x\":11,\"y\":16,\"height\":1,\"width\":1,\"type\":2},{\"speed" +
+            "BonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":34,\"y\":14,\"height\":" +
+            "1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\"" +
+            ":1000,\"x\":25,\"y\":0,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EM" +
+            "PDuration\":2000,\"ScoreBonus\":1000,\"x\":24,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":17,\"y\":4,\"heig" +
+            "ht\":1,\"width\":1,\"type\":2},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBo" +
+            "nus\":1000,\"x\":23,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":500" +
+            "0,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":23,\"y\":19,\"height\":1,\"width\":1,\"type\"" +
+            ":1}],\"player\":{\"img\":null,\"positions\":{\"current_position\":{\"x\":1,\"y\":0},\"last_po" +
+            "sition\":{\"x\":0,\"y\":0}},\"speed\":{\"x\":3,\"y\":3},\"isVisible\":true,\"canMove\":true,\"mo" +
+            "vement\":{\"walk\":{\"x\":2,\"y\":2},\"run\":{\"x\":5,\"y\":5}},\"sizeBreedte\":53,\"sizeHoogte\"" +
+            ":81},\"boss\":{\"position\":{\"x\":0,\"y\":0},\"speed\":{\"x\":0,\"y\":0},\"movement\":{\"walk\":{" +
+            "\"x\":0,\"y\":0},\"run\":{\"x\":0,\"y\":0}},\"sizeBreedte\":84,\"sizeHoogte\":105},\"finish\":{\"" +
+            "sizeBreedte\":53,\"sizeHoogte\":81,\"x\":1,\"y\":19,\"height\":1,\"width\":1}}\r\n")]
         public string level3 {
             get {
                 return ((string)(this["level3"]));
@@ -452,7 +679,241 @@ namespace TheHunt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{\"obstacles\":[{\"x\":27,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":1,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":" +
+            "2,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":24,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":2,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":37,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":3,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":37,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":3,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":19" +
+            ",\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":2,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":20,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":2,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":23,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":4,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":" +
+            "4,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":18,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":4,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":17,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":2,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":17,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":0,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":15" +
+            ",\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":3,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":15,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":4,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":13,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":4,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":" +
+            "7,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":16,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":6,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":17,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":8,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":12,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":2,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":10" +
+            ",\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":3,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":10,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":4,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":8,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":4,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":6,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":2,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":2," +
+            "\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":4,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":2,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":6,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":1,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":0,\"y\":6,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":3,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":2,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":" +
+            "2,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":8,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":0,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":10,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":6,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":4,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":6,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":6," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "9,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":6,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":2,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":9,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":2,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":8,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":4,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":8,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":7," +
+            "\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":8,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":9,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":8,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":11,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":8,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":13,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":8,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "20,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":6,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":18,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":8,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":20,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":8,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y" +
+            "\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":7,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":23,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":6,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":25,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":6,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":26,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":5,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "28,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":5,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":28,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":4,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":30,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":5,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y" +
+            "\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":2,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":32,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":3,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":32,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":5,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":32,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":0,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "34,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":7,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":32,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":9,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":32,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":10,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":30," +
+            "\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":7,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":28,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":8,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":32,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":12,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y" +
+            "\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":13,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":30,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":11,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":28,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":10,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"" +
+            "y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":12,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":26,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":12,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":24,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":12,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":21" +
+            ",\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":12,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":20,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":10,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":25,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":10,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "21,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":10,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":19,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":10,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":17,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":10," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":12,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":12,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":13,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":12,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":15,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":1" +
+            "2,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":34,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":9,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":34,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":11,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":34,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":13" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":35,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":15,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":33,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":15,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":31,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":" +
+            "15,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":35,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":5,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":37,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":7,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":36,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":9,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "36,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":11,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":38,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":12,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":40,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":7,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":3" +
+            "8,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":39,\"y\":15,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":38,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":18,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":38,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":17,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":35,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":17,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":32,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":17,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":35,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":18" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":30,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":18,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":28,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":16,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":29,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":0,\"y\":1" +
+            "3,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":2,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":13,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":6,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":13,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":5,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":13,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":4," +
+            "\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":11,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":6,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":11,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":8,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":11,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":" +
+            "10,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":10,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":9,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":12,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":10,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":14,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":" +
+            "15,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":6,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":15,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":4,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":15,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":2,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":15,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":2" +
+            ",\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":17,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":5,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":17,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":7,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":17,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":" +
+            "17,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":19,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":13,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":16,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":13,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":14,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y" +
+            "\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":14,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":19,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":14,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":18,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":18,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":15," +
+            "\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":15,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":15,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":17,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":15,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":18,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":1" +
+            "7,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":18,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":18,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":16,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":20,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":16,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":23,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":16,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":17,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":17,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":24,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":18" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":24,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":14,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":27,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":14,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":26,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":" +
+            "17,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":18,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":26,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":13,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":35,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":13,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y" +
+            "\":17,\"height\":1,\"width\":1,\"type\":0}],\"npcs\":[{\"speed\":{\"x\":2,\"y\":2},\"positions\":" +
+            "{\"current_position\":{\"x\":28,\"y\":3},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"" +
+            "2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":" +
+            "3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current" +
+            "_position\":{\"x\":10,\"y\":9},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 163" +
+            "5\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"wid" +
+            "th\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":5,\"y\":5},\"positions\":{\"current_position" +
+            "\":{\"x\":19,\"y\":9},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":" +
+            "\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"he" +
+            "ight\":1,\"type\":1},{\"speed\":{\"x\":5,\"y\":5},\"positions\":{\"current_position\":{\"x\":35" +
+            ",\"y\":9},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0," +
+            " 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"" +
+            "type\":2},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":5,\"y\":18},\"" +
+            "last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"size" +
+            "Breedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0}," +
+            "{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_position\":{\"x\":0,\"y\":9},\"last_posit" +
+            "ion\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":5" +
+            "3,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{" +
+            "\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\":16,\"y\":5},\"last_position\":{\"x\"" +
+            ":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHo" +
+            "ogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":6,\"y\"" +
+            ":6},\"positions\":{\"current_position\":{\"x\":17,\"y\":12},\"last_position\":{\"x\":0,\"y\":0" +
+            "}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81" +
+            ",\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":3,\"y\":3},\"pos" +
+            "itions\":{\"current_position\":{\"x\":30,\"y\":17},\"last_position\":{\"x\":0,\"y\":0}},\"scre" +
+            "enSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspa" +
+            "wnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":1,\"y\":1},\"positions\":" +
+            "{\"current_position\":{\"x\":36,\"y\":6},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"" +
+            "2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":" +
+            "3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current" +
+            "_position\":{\"x\":25,\"y\":13},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 16" +
+            "35\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"wi" +
+            "dth\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_positio" +
+            "n\":{\"x\":22,\"y\":14},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc" +
+            "\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"" +
+            "height\":1,\"type\":2}],\"powerups\":[{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"" +
+            "ScoreBonus\":1000,\"x\":0,\"y\":0,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration" +
+            "\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":6,\"y\":0,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":31,\"y" +
+            "\":0,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":2000" +
+            ",\"ScoreBonus\":1000,\"x\":39,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDurat" +
+            "ion\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":26,\"y\":7,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":7" +
+            ",\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":" +
+            "2000,\"ScoreBonus\":1000,\"x\":3,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDu" +
+            "ration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":28,\"y\":17,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":2000,\"" +
+            "x\":13,\"y\":5,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDurati" +
+            "on\":2000,\"ScoreBonus\":2000,\"x\":27,\"y\":5,\"height\":1,\"width\":1,\"type\":1},{\"speedBo" +
+            "nusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":2000,\"x\":37,\"y\":1,\"height\":1,\"" +
+            "width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":10" +
+            "00,\"x\":33,\"y\":8,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDu" +
+            "ration\":2000,\"ScoreBonus\":1000,\"x\":27,\"y\":19,\"height\":1,\"width\":1,\"type\":1},{\"sp" +
+            "eedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":0,\"y\":19,\"height" +
+            "\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonu" +
+            "s\":1000,\"x\":7,\"y\":12,\"height\":1,\"width\":1,\"type\":1}],\"player\":{\"img\":null,\"posit" +
+            "ions\":{\"current_position\":{\"x\":22,\"y\":0},\"last_position\":{\"x\":0,\"y\":0}},\"speed\":" +
+            "{\"x\":3,\"y\":3},\"isVisible\":true,\"canMove\":true,\"movement\":{\"walk\":{\"x\":2,\"y\":2},\"" +
+            "run\":{\"x\":5,\"y\":5}},\"sizeBreedte\":53,\"sizeHoogte\":81},\"boss\":{\"position\":{\"x\":0," +
+            "\"y\":0},\"speed\":{\"x\":0,\"y\":0},\"movement\":{\"walk\":{\"x\":0,\"y\":0},\"run\":{\"x\":0,\"y\":0" +
+            "}},\"sizeBreedte\":84,\"sizeHoogte\":105},\"finish\":{\"sizeBreedte\":53,\"sizeHoogte\":81" +
+            ",\"x\":22,\"y\":19,\"height\":1,\"width\":1}}\r\n")]
         public string level4 {
             get {
                 return ((string)(this["level4"]));
@@ -464,7 +925,301 @@ namespace TheHunt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{\"obstacles\":[{\"x\":13,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":1,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":" +
+            "1,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":18,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":1,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":20,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":1,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":22,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":1,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":11" +
+            ",\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":1,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":11,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":3,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":25,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":3,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":" +
+            "3,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":13,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":3,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":15,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":3,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":17,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":5,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":16" +
+            ",\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":5,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":14,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":5,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":12,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":5,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":5" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":7,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":5,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":21,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":5,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":23,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":5,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\"" +
+            ":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":28,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":5,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":30,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":5,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":31,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":2,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":7," +
+            "\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":2,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":9,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":3,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":21,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":7,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":23,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":7,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":2" +
+            "6,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":7,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":28,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":7,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":30,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":7,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\"" +
+            ":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":35,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":2,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":37,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":2,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":39,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":4,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":3" +
+            "6,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":7,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":17,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":7,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":15,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":7,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\"" +
+            ":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":10,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":7,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":8,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":7,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":6,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":7,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":" +
+            "4,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":19,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":5,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":27,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":1,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":27,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":3,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":29" +
+            ",\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":7,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":34,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":5,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":34,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":3,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":5,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":" +
+            "4,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":32,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":7,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":6,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":3,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":4,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":5,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":3" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":25,\"y\":1,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":2,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":2,\"y\":2,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":2,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":0,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":4,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":2,\"y\":4,\"height\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":5,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":6,\"height\":1,\"width\":1,\"type\":0},{\"x\":2," +
+            "\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":9,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":19,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":9,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":17,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":9,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":15,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":9" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":22,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":9,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":24,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":9,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":26,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":9,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":12," +
+            "\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":11,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":26,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":12,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":24,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":12,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":2" +
+            "1,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":12,\"y\":12,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":13,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":12,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":15,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":12,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":18,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":12,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":27,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":10,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":27,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":12," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":2,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "3,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":14,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":19,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":14,\"height\":1,\"wi" +
+            "dth\":1,\"type\":0},{\"x\":13,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\":14,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":21,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "24,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":26,\"y\":14,\"height\":1,\"width\":1,\"ty" +
+            "pe\":0},{\"x\":25,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":23,\"y\":14,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":20,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":14," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":15,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":14,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":27,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":14,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":29,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":9" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":10,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":12,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":10,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":13,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":29,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":" +
+            "11,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":10,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":29,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":30,\"y\":9,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":31,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":9,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":33,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":9,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":" +
+            "36,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":6,\"height\":1,\"width\":1,\"type" +
+            "\":0},{\"x\":38,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":9,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":38,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":11,\"hei" +
+            "ght\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":36" +
+            ",\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":7,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":37,\"y\":7,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":7,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":39,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":13,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":37," +
+            "\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":13,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":34,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":9,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":37,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":12,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":31," +
+            "\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":34,\"y\":11,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":33,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":12,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":31,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":14,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":31,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":8" +
+            ",\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":9,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"x\":8,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":11,\"height\":1,\"width\":" +
+            "1,\"type\":0},{\"x\":8,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":10,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":3,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":12" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":11,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":5,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":10,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":5,\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":9,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":0,\"y\":9,\"height\":1,\"width\":1,\"type\":0},{\"x\":-1,\"y\":9,\"height" +
+            "\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":3,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":" +
+            "14,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":5,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":14,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":4,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":14,\"height\":1,\"" +
+            "width\":1,\"type\":0},{\"x\":2,\"y\":14,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":14,\"h" +
+            "eight\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":1" +
+            ",\"y\":12,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":11,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":7,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":16,\"height\":1,\"width" +
+            "\":1,\"type\":0},{\"x\":9,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":16,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":11,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":6,\"y" +
+            "\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":16,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":0,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":16,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":2,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":1,\"y\":18,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":2,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":3,\"y\":18," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":4,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":5,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":18,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":7,\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":7,\"y\":18,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":8,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":9,\"y\":18,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":10," +
+            "\"y\":19,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":16,\"height\":1,\"width\":1,\"type\"" +
+            ":0},{\"x\":13,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":14,\"y\":18,\"height\":1,\"wid" +
+            "th\":1,\"type\":0},{\"x\":15,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":16,\"y\":18,\"he" +
+            "ight\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":1" +
+            "8,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":15,\"height\":1,\"width\":1,\"typ" +
+            "e\":0},{\"x\":34,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":15,\"height\":1,\"w" +
+            "idth\":1,\"type\":0},{\"x\":36,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":15,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":15,\"height\":1,\"width\":1,\"type\":0},{\"x\"" +
+            ":38,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":38,\"y\":17,\"height\":1,\"width\":1,\"t" +
+            "ype\":0},{\"x\":38,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":37,\"y\":18,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":36,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":36,\"y\":17" +
+            ",\"height\":1,\"width\":1,\"type\":0},{\"x\":35,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"" +
+            "x\":34,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":33,\"y\":17,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":31,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":32,\"y\":17,\"height\":" +
+            "1,\"width\":1,\"type\":0},{\"x\":29,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":" +
+            "17,\"height\":1,\"width\":1,\"type\":0},{\"x\":29,\"y\":15,\"height\":1,\"width\":1,\"type\":0}," +
+            "{\"x\":29,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":5,\"y\":0,\"height\":1,\"width\":1," +
+            "\"type\":0},{\"x\":33,\"y\":0,\"height\":1,\"width\":1,\"type\":0},{\"x\":8,\"y\":15,\"height\":1," +
+            "\"width\":1,\"type\":0},{\"x\":5,\"y\":13,\"height\":1,\"width\":1,\"type\":0},{\"x\":28,\"y\":18," +
+            "\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x" +
+            "\":27,\"y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":27,\"y\":16,\"height\":1,\"width\":1,\"" +
+            "type\":0},{\"x\":25,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":17,\"height\":1" +
+            ",\"width\":1,\"type\":0},{\"x\":25,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":25,\"y\":1" +
+            "9,\"height\":1,\"width\":1,\"type\":0},{\"x\":24,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{" +
+            "\"x\":23,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":16,\"height\":1,\"width\":1" +
+            ",\"type\":0},{\"x\":21,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":16,\"height\"" +
+            ":1,\"width\":1,\"type\":0},{\"x\":19,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":18,\"y\"" +
+            ":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":17,\"y\":16,\"height\":1,\"width\":1,\"type\":0}" +
+            ",{\"x\":16,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":15,\"y\":16,\"height\":1,\"width\"" +
+            ":1,\"type\":0},{\"x\":19,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":18,\"heigh" +
+            "t\":1,\"width\":1,\"type\":0},{\"x\":22,\"y\":18,\"height\":1,\"width\":1,\"type\":0},{\"x\":22,\"" +
+            "y\":17,\"height\":1,\"width\":1,\"type\":0},{\"x\":20,\"y\":19,\"height\":1,\"width\":1,\"type\":" +
+            "0},{\"x\":12,\"y\":16,\"height\":1,\"width\":1,\"type\":0},{\"x\":13,\"y\":15,\"height\":1,\"widt" +
+            "h\":1,\"type\":0},{\"x\":10,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"x\":10,\"y\":15,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0}],\"npcs\":[{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_" +
+            "position\":{\"x\":20,\"y\":12},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 163" +
+            "5\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"wid" +
+            "th\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":0,\"y\":0},\"positions\":{\"current_position" +
+            "\":{\"x\":20,\"y\":13},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\"" +
+            ":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"h" +
+            "eight\":1,\"type\":1},{\"speed\":{\"x\":5,\"y\":5},\"positions\":{\"current_position\":{\"x\":2" +
+            "3,\"y\":18},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, " +
+            "0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1" +
+            ",\"type\":1},{\"speed\":{\"x\":1,\"y\":1},\"positions\":{\"current_position\":{\"x\":19,\"y\":0}" +
+            ",\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"si" +
+            "zeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":9000,\"width\":1,\"height\":1,\"type\":3" +
+            "},{\"speed\":{\"x\":6,\"y\":6},\"positions\":{\"current_position\":{\"x\":11,\"y\":4},\"last_po" +
+            "sition\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte" +
+            "\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed" +
+            "\":{\"x\":5,\"y\":5},\"positions\":{\"current_position\":{\"x\":27,\"y\":4},\"last_position\":{" +
+            "\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"siz" +
+            "eHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4," +
+            "\"y\":4},\"positions\":{\"current_position\":{\"x\":27,\"y\":6},\"last_position\":{\"x\":0,\"y\"" +
+            ":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":" +
+            "81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":4,\"y\":4},\"p" +
+            "ositions\":{\"current_position\":{\"x\":11,\"y\":6},\"last_position\":{\"x\":0,\"y\":0}},\"scr" +
+            "eenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBsp" +
+            "awnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":2,\"y\":2},\"positions\"" +
+            ":{\"current_position\":{\"x\":20,\"y\":5},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":" +
+            "\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\"" +
+            ":3000,\"width\":1,\"height\":1,\"type\":2},{\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"curren" +
+            "t_position\":{\"x\":37,\"y\":5},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 16" +
+            "35\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"wi" +
+            "dth\":1,\"height\":1,\"type\":1},{\"speed\":{\"x\":4,\"y\":4},\"positions\":{\"current_positio" +
+            "n\":{\"x\":5,\"y\":1},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":" +
+            "\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"he" +
+            "ight\":1,\"type\":2},{\"speed\":{\"x\":5,\"y\":5},\"positions\":{\"current_position\":{\"x\":5," +
+            "\"y\":8},\"last_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, " +
+            "0\",\"sizeBreedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"t" +
+            "ype\":1},{\"speed\":{\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\":3,\"y\":16},\"l" +
+            "ast_position\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeB" +
+            "reedte\":53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":2},{" +
+            "\"speed\":{\"x\":3,\"y\":3},\"positions\":{\"current_position\":{\"x\":14,\"y\":15},\"last_posi" +
+            "tion\":{\"x\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":" +
+            "53,\"sizeHoogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":" +
+            "{\"x\":2,\"y\":2},\"positions\":{\"current_position\":{\"x\":7,\"y\":11},\"last_position\":{\"x" +
+            "\":0,\"y\":0}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeH" +
+            "oogte\":81,\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0},{\"speed\":{\"x\":2,\"y" +
+            "\":2},\"positions\":{\"current_position\":{\"x\":6,\"y\":17},\"last_position\":{\"x\":0,\"y\":0" +
+            "}},\"screenSize\":\"2150, 1635\",\"npc\":\"0, 0, 0, 0\",\"sizeBreedte\":53,\"sizeHoogte\":81" +
+            ",\"SSBspawnTimer\":3000,\"width\":1,\"height\":1,\"type\":0}],\"powerups\":[{\"speedBonusDu" +
+            "ration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":14,\"y\":10,\"height\":1,\"widt" +
+            "h\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"" +
+            "x\":15,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDurat" +
+            "ion\":2000,\"ScoreBonus\":1000,\"x\":18,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speed" +
+            "BonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":17,\"y\":10,\"height\":" +
+            "1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\"" +
+            ":1000,\"x\":19,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"E" +
+            "MPDuration\":2000,\"ScoreBonus\":1000,\"x\":16,\"y\":10,\"height\":1,\"width\":1,\"type\":1}," +
+            "{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":20,\"y\":10,\"h" +
+            "eight\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"Scor" +
+            "eBonus\":1000,\"x\":21,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":" +
+            "5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":22,\"y\":10,\"height\":1,\"width\":1,\"ty" +
+            "pe\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":23,\"y" +
+            "\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":200" +
+            "0,\"ScoreBonus\":1000,\"x\":24,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDur" +
+            "ation\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":25,\"y\":10,\"height\":1,\"width" +
+            "\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x" +
+            "\":26,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDurati" +
+            "on\":2000,\"ScoreBonus\":1000,\"x\":26,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedB" +
+            "onusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":25,\"y\":11,\"height\":1" +
+            ",\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":" +
+            "1000,\"x\":24,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EM" +
+            "PDuration\":2000,\"ScoreBonus\":1000,\"x\":23,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{" +
+            "\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":22,\"y\":11,\"he" +
+            "ight\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"Score" +
+            "Bonus\":1000,\"x\":21,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5" +
+            "000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":20,\"y\":11,\"height\":1,\"width\":1,\"typ" +
+            "e\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":19,\"y\"" +
+            ":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000" +
+            ",\"ScoreBonus\":1000,\"x\":18,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDura" +
+            "tion\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":17,\"y\":11,\"height\":1,\"width\"" +
+            ":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\"" +
+            ":16,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuratio" +
+            "n\":2000,\"ScoreBonus\":1000,\"x\":15,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBo" +
+            "nusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":14,\"y\":11,\"height\":1," +
+            "\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1" +
+            "000,\"x\":13,\"y\":11,\"height\":1,\"width\":1,\"type\":1},{\"speedBonusDuration\":5000,\"EMP" +
+            "Duration\":2000,\"ScoreBonus\":1000,\"x\":13,\"y\":10,\"height\":1,\"width\":1,\"type\":1},{\"" +
+            "speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":20,\"y\":3,\"heig" +
+            "ht\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBo" +
+            "nus\":1000,\"x\":37,\"y\":8,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000" +
+            ",\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":9,\"y\":12,\"height\":1,\"width\":1,\"type\":0" +
+            "},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":3,\"y\":19,\"" +
+            "height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"Sco" +
+            "reBonus\":1000,\"x\":36,\"y\":10,\"height\":1,\"width\":1,\"type\":0},{\"speedBonusDuration\"" +
+            ":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":28,\"y\":0,\"height\":1,\"width\":1,\"ty" +
+            "pe\":2},{\"speedBonusDuration\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":32,\"y" +
+            "\":12,\"height\":1,\"width\":1,\"type\":2},{\"speedBonusDuration\":5000,\"EMPDuration\":200" +
+            "0,\"ScoreBonus\":1000,\"x\":0,\"y\":10,\"height\":1,\"width\":1,\"type\":2},{\"speedBonusDura" +
+            "tion\":5000,\"EMPDuration\":2000,\"ScoreBonus\":1000,\"x\":28,\"y\":17,\"height\":1,\"width\"" +
+            ":1,\"type\":2}],\"player\":{\"img\":null,\"positions\":{\"current_position\":{\"x\":20,\"y\":0" +
+            "},\"last_position\":{\"x\":0,\"y\":0}},\"speed\":{\"x\":3,\"y\":3},\"isVisible\":true,\"canMove" +
+            "\":true,\"movement\":{\"walk\":{\"x\":2,\"y\":2},\"run\":{\"x\":5,\"y\":5}},\"sizeBreedte\":53,\"s" +
+            "izeHoogte\":81},\"boss\":{\"position\":{\"x\":0,\"y\":0},\"speed\":{\"x\":0,\"y\":0},\"movement\"" +
+            ":{\"walk\":{\"x\":0,\"y\":0},\"run\":{\"x\":0,\"y\":0}},\"sizeBreedte\":84,\"sizeHoogte\":105},\"" +
+            "finish\":{\"sizeBreedte\":53,\"sizeHoogte\":81,\"x\":24,\"y\":17,\"height\":1,\"width\":1}}\r\n" +
+            "")]
         public string level5 {
             get {
                 return ((string)(this["level5"]));
