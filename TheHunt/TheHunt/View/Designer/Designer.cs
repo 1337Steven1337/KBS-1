@@ -37,9 +37,6 @@ namespace TheHunt.View.Designer
         // Set levelID (used for saving)
         private string levelID;
 
-        // Set world variables
-        private string name = null;
-
         public Designer(Form startform, string level, string levelID)
         {
             InitializeComponent();

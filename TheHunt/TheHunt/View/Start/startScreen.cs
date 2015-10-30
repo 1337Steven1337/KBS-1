@@ -1,13 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using TheHunt.Service;
 using TheHunt.View.Highscore;
+using TheHunt.View.Options;
 
-namespace TheHunt
+namespace TheHunt.View.Start
 {
     public partial class startScreen : Form
     {
@@ -191,7 +191,7 @@ namespace TheHunt
             exitBtn.Visible = false;
 
             //Aanmaken optionsdialog, hoofdprogramma wordt hierdoor stilgezet terwijl gewacht wordt op reactie
-            OptionsDialog Options = new OptionsDialog(false);
+            Dialog Options = new Dialog(false);
             Options.ShowDialog();
             if (Options.getChangeFullScreen())
             {

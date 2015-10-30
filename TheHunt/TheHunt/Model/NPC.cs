@@ -14,7 +14,6 @@ namespace TheHunt.Model
         private Label infoLabel;
         private World world = null;
         private Image image = null;
-        private Highscore highscore = null;
         public Point speed;
         public Positions positions;
         public Size screenSize;
@@ -38,7 +37,7 @@ namespace TheHunt.Model
         public int SSBspawnTimer = 3000;
         private int lastPosCount = Player.lastPositionsList.Count; //Used for SSB Movement.
         private int currentSSBpos = 0;
-        private Game game;
+        private View.Game.Player game;
 
         private int oldx, oldy, newRange;
 
@@ -264,7 +263,7 @@ namespace TheHunt.Model
                             newRange += rangeSpeed;
                         }
 
-                        if (Game.isPlayerMoving)
+                        if (View.Game.Player.isPlayerMoving)
                         {
                             var playerCurrentX = (int)(this.world.player.positions.current_position.x);
                             var playerCurrentY = (int)(this.world.player.positions.current_position.y);
@@ -439,7 +438,7 @@ namespace TheHunt.Model
                     Rectangle SSBRectangle = new Rectangle(this.positions.current_position.x,this.positions.current_position.y,this.sizeBreedte,this.sizeHoogte);
                     if (SSBRectangle.IntersectsWith(PlayerRectangle))
                     {
-                        Game.SSBPlayerCollision = true;
+                        View.Game.Player.SSBPlayerCollision = true;
                     }
                     this.positions.current_position.x = Player.lastPositionsList[currentSSBpos].x;
                     this.positions.current_position.y = Player.lastPositionsList[currentSSBpos].y;
@@ -649,7 +648,7 @@ namespace TheHunt.Model
         }
         
         //methode om te kijken of er een player in range is
-        public void checkForPlayer(World world, Game game)
+        public void checkForPlayer(World world, View.Game.Player game)
         {
             //kijk of de informatie aan gezet is en of er een speler in range is
             if (Properties.Settings.Default.enemyInformation && inRange(300))

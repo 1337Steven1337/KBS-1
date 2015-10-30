@@ -1,4 +1,4 @@
-﻿namespace TheHunt
+﻿namespace TheHunt.View.Start
 {
     partial class selectLevel
     {

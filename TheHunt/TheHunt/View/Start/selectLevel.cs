@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using TheHunt.View.Designer;
 
-namespace TheHunt
+namespace TheHunt.View.Start
 {
     public partial class selectLevel : Form
     {
@@ -280,7 +280,7 @@ namespace TheHunt
             }
 
             this.Close();
-            Game game = new Game(formulier, levelToLoad);
+            View.Game.Player game = new View.Game.Player(formulier, levelToLoad);
             game.Show();
 
         }
@@ -340,7 +340,7 @@ namespace TheHunt
                 levelID = "customlv10";
             }
             this.Close();
-            Designer design = new Designer(formulier, levelToLoad,levelID);
+            Designer.Designer design = new Designer.Designer(formulier, levelToLoad,levelID);
             design.Show();
         }
 

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace TheHunt
+namespace TheHunt.View.Start
 {
     partial class startScreen
     {
