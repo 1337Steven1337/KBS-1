@@ -9,7 +9,6 @@ C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.csprojResol
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.Charactertestform.resources
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.Designer.Designer.resources
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.form_startscreen.resources
-C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.Player.resources
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.Properties.Resources.resources
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.csproj.GenerateResource.Cache
 C:\Users\Steven\Desktop\KBS1\KBS-1\TheHunt\TheHunt\obj\Debug\TheHunt.exe

@@ -84,8 +84,7 @@ namespace TheHunt
         private void buttonFullScreen_Click(object sender, EventArgs e)
         {
             Properties.Screen.Default.full = !Properties.Screen.Default.full;
-
-            Console.WriteLine(Properties.Screen.Default.full);
+            
             Properties.Screen.Default.Save();
 
             changeFullScreen = true;

@@ -47,6 +47,9 @@ namespace TheHunt
         // Declare the stopwatch to maintain delta time
         private Stopwatch delta = null;
 
+        // Declare the stopwatch to count the amount of ms ticks (used for SSBomber)
+        private Stopwatch MSticks = new Stopwatch();
+
         // Declare the gamepad
         private Buttons gamepad = null;
 
@@ -80,7 +83,7 @@ namespace TheHunt
         private List<Model.Point> npcSpeed = new List<Model.Point>();
         public Timer EMPTimer = new Timer();
 
-        // Are we running?
+        // Are we running?   
         private bool run = false;
 
         // Movement keys
@@ -708,6 +711,7 @@ namespace TheHunt
             delta.Reset();
             delta.Start();
             loop.Start();
+            MSticks.Start();
             if (iAnimate)
             {
                 animate.Start();
@@ -720,6 +724,8 @@ namespace TheHunt
             delta.Stop();
             delta.Reset();
             loop.Stop();
+            MSticks.Reset();
+            MSticks.Stop();
 
             if (iAnimate)
             {
@@ -763,9 +769,18 @@ namespace TheHunt
             {
             if (pnlMenu.Visible)
             {
-
-               
-                geluidjes.LoopInfidel(this, null);
+                    if (!isSSBSpawned && (int)(this.MSticks.ElapsedMilliseconds) < SSBSpawnTimer.Interval)
+                    {
+                        SSBSpawnTimer.Interval -= (int)(this.MSticks.ElapsedMilliseconds);
+                        SSBSpawnTimer.Start();
+                    }
+                    else
+                    {
+                        geluidjes.LoopInfidel(this, null);
+                    }
+                    
+                    
+                    
 
                 // Reset the keys
                 lastPressedKey = Keys.None;
@@ -778,12 +793,16 @@ namespace TheHunt
                 startTimers(true);
             }
             else
-            {
+                {
+                    if (!isSSBSpawned && (int)(this.MSticks.ElapsedMilliseconds) < SSBSpawnTimer.Interval)
+                {
+                    SSBSpawnTimer.Stop();;
+                }
+                geluidjes.pauseLoopInfidel(this, null);
+                    
 
-            geluidjes.pauseLoopInfidel(this, null);
-
-                // Pause the game
-                stopTimers(true);
+                    // Pause the game
+                    stopTimers(true);
 
                 // Show the menu
                 pnlMenu.Visible = true;

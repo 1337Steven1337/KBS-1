@@ -60,10 +60,14 @@ namespace TheHunt.Designer
             wallBox.Click += Item_Click;
             wallBox.Tag = "FieldObject";
             wallBox.Image = Properties.Resources.wall;
+            wallBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            wallBox.Size = new Size(60, 60);
 
             PURunBox.Click += Item_Click;
             PURunBox.Tag = "PURun";
             PURunBox.Image = Properties.Resources.SpeedUp;
+            PURunBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            PURunBox.Size = new Size(60, 60);
 
             PUScore.Click += Item_Click;
             PUScore.Tag = "PUScore";
@@ -74,11 +78,16 @@ namespace TheHunt.Designer
             PUEMP.Click += Item_Click;
             PUEMP.Tag = "PUEMP";
             PUEMP.Image = Properties.Resources.emp;
+            PUEMP.SizeMode = PictureBoxSizeMode.StretchImage;
+            PUEMP.Size = new Size(60, 60);
 
 
             endBox.Click += Item_Click;
             endBox.Tag = "EndGame";
             endBox.Image = Properties.Resources.Finish;
+            endBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            endBox.Size = new Size(60, 60);
+
 
             player1Box.Click += Item_Click;
             player1Box.Tag = "Player";
@@ -89,18 +98,27 @@ namespace TheHunt.Designer
             HBouncerBox.Click += Item_Click;
             HBouncerBox.Tag = "HBouncer";
             HBouncerBox.Image = Properties.Resources.HBouncer1;
+            HBouncerBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            HBouncerBox.Size = new Size(60, 60);
+
 
             VBouncerBox.Click += Item_Click;
             VBouncerBox.Tag = "VBouncer";
             VBouncerBox.Image = Properties.Resources.VBouncer1;
+            VBouncerBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            VBouncerBox.Size = new Size(60, 60);
 
             enemyBox.Click += Item_Click;
             enemyBox.Tag = "Enemy";
             enemyBox.Image = Properties.Resources.Enemy;
+            enemyBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            enemyBox.Size = new Size(60, 60);
 
             SSBBox.Click += Item_Click;
             SSBBox.Tag = "SSB";
             SSBBox.Image = Properties.Resources.SSB1;
+            SSBBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            SSBBox.Size = new Size(60, 60);
 
 
             this.playerPanel.Controls.Add(player1Box);
@@ -238,7 +256,6 @@ namespace TheHunt.Designer
             {
                 
                 this.selectedObject = (Npc)Object;
-                MessageBox.Show(selectedObject.GetType().ToString());
                 //Setting Property Values
                 this.previewObjectBox.Image = ((Npc)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -358,7 +375,6 @@ namespace TheHunt.Designer
             if (Object.GetType() == typeof(Powerups))
             {
                 this.selectedObject = (Powerups)Object;
-                MessageBox.Show(selectedObject.GetType().ToString());
                 //Setting Property 
 
                 this.previewObjectBox.Image = ((Powerups)selectedObject).getImage();

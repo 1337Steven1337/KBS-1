@@ -118,15 +118,7 @@ namespace TheHunt
         }
         private void Button_push(object sender, EventArgs e)
         {
-            if (!Player.isMoving)
-            {
             timer.Enabled = true;
-        }
-            else
-            {
-                timer.Enabled = false;
-            }
-
         }
         private Control upButton(int width, int heigt)
         {

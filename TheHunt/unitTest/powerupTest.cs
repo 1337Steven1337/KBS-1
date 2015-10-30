@@ -35,8 +35,8 @@ namespace unitTest
             powerupEmp.type = TheHunt.Model.Powerups.Type.Emp;
             powerupEmp.UsePowerup(game);*/
 
-            Powerups powerUp = this.game.getWorld().powerups[0];
-            powerUp.UsePowerup(this.game);
+            //Powerups powerUp = this.game.getWorld().powerups[0];
+           // powerUp.UsePowerup(this.game);
             /*
             Timer loop = new Timer();
             loop.Interval = 2000;

@@ -309,7 +309,7 @@ namespace TheHunt.Designer
                 else if (this.items.getMode() == "EndGame" && this.finishCount > 0)
                 {
                     this.MouseDownLeftTimer.Stop();
-                    DialogResult dialogResult = MessageBox.Show("Er bestaat al een eindpunt in dit level, wil je deze overschrijven", "Eindpunt overschrijven?", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("This level already contains an finish, do you want to overwrite it?", "Overwrite finish?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         Finish finish = this.items.getActive<Finish>().clone();
@@ -335,7 +335,7 @@ namespace TheHunt.Designer
                 else if (this.items.getMode() == "Player" && this.playerCount > 0)
                 {
                     this.MouseDownLeftTimer.Stop();
-                    DialogResult dialogResult = MessageBox.Show("Er bestaat al een player in het veld, wil je deze overschrijven?", "Player toevoegen?", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("This level already contains an player, do you want to overwrite?", "Overwrite player?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         this.world.player = this.items.getActive<Model.Player>().clone();
@@ -424,7 +424,7 @@ namespace TheHunt.Designer
             }
             
 
-            DialogResult dialogResult = MessageBox.Show("Wil je dit design opslaan?", "Opslaan", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Save this design?", "Save", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Properties.Levels.Default.Save();
