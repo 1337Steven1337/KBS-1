@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 namespace TheHunt.Model
 {
     class World
@@ -15,7 +9,6 @@ namespace TheHunt.Model
         public List<Model.Powerups> powerups = new List<Model.Powerups>();
 
         public Player player = new Player();
-        public Boss boss = new Boss();
         public Finish finish = new Finish();
 
         private Score score = null;

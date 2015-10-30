@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheHunt.Service;
 
 namespace TheHunt.Model
 {
-    class Npc : Item
+    class Npc
     {
         private Label infoLabel;
         private World world = null;
@@ -490,15 +486,6 @@ namespace TheHunt.Model
                 }
             }
 
-            //check if NPC intersect with Boss
-
-            Rectangle boss = new Rectangle(world.boss.position.x, world.boss.position.y, world.boss.sizeBreedte, world.boss.sizeHoogte);
-
-            if (npc.IntersectsWith(boss))
-            {
-                return true;
-            }
-
             //check if NPC intersect with other NPC
             foreach (var item in this.world.npcs)
             {
@@ -598,19 +585,6 @@ namespace TheHunt.Model
                 inrange = true;
             }
             return inrange;
-        }
-
-        public float getPixelWidth(Size screenSize)
-        {
-            double getScreenRatio = screenSize.Width / screenSize.Height;
-            float screenWidth = 32;
-            float screenHeight = (float)(screenWidth * getScreenRatio);
-            return this.width * this.getOnScreenHeight(screenSize);
-        }
-
-        public float getPixelHeight(Size screenSize)
-        {
-            return this.height * this.getOnScreenWidth(screenSize);
         }
 
         public Image getImage()

@@ -106,9 +106,7 @@
     <Compile Include="View\Game\Player.designer.cs">
       <DependentUpon>Player.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Boss.cs" />
     <Compile Include="Model\Finish.cs" />
-    <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Obstacle.cs" />
     <Compile Include="Model\Npc.cs" />
     <Compile Include="Model\Player.cs" />
