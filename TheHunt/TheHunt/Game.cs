@@ -451,6 +451,11 @@ namespace TheHunt
         //kijk welk level volgende is
         private void loadNextLevel()
         {
+            foreach (Npc npc in this.world.npcs)
+            {
+                npc.removeLabel();
+            }
+
             Dictionary<string, string> levels = new Dictionary<string, string>()
             {
                 { "level1", "level2" },
