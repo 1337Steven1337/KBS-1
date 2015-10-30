@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheHunt.View.Designer;
 
 namespace TheHunt
 {
@@ -346,7 +340,7 @@ namespace TheHunt
                 levelID = "customlv10";
             }
             this.Close();
-            Designer.Designer design = new Designer.Designer(formulier, levelToLoad,levelID);
+            Designer design = new Designer(formulier, levelToLoad,levelID);
             design.Show();
         }
 

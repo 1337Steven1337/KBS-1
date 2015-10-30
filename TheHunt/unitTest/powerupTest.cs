@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheHunt.Model;
-using TheHunt.Controller.Highscore;
+using TheHunt.View.Highscore;
 
 namespace unitTest
 {

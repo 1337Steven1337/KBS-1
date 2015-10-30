@@ -63,29 +63,29 @@
       <DependentUpon>Buttons.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\Highscore.cs" />
-    <Compile Include="Controller\Highscore\Show.cs">
+    <Compile Include="View\Highscore\Show.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controller\Highscore\Show.Designer.cs">
+    <Compile Include="View\Highscore\Show.Designer.cs">
       <DependentUpon>Show.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Highscore\Name.cs">
+    <Compile Include="View\Highscore\Name.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controller\Highscore\Name.Designer.cs">
+    <Compile Include="View\Highscore\Name.Designer.cs">
       <DependentUpon>Name.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\Sound.cs" />
-    <Compile Include="Designer\Designer.cs">
+    <Compile Include="View\Designer\Designer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Designer\Designer.Designer.cs">
+    <Compile Include="View\Designer\Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Designer\Toolbox.cs">
+    <Compile Include="View\Designer\Toolbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Designer\Toolbox.Designer.cs">
+    <Compile Include="View\Designer\Toolbox.Designer.cs">
       <DependentUpon>Toolbox.cs</DependentUpon>
     </Compile>
     <Compile Include="form_selectlevel.cs">
@@ -149,16 +149,16 @@
       <DependentUpon>Screen.settings</DependentUpon>
     </Compile>
     <Compile Include="Unittesttest.cs" />
-    <EmbeddedResource Include="Controller\Highscore\Show.resx">
+    <EmbeddedResource Include="View\Highscore\Show.resx">
       <DependentUpon>Show.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\Highscore\Name.resx">
+    <EmbeddedResource Include="View\Highscore\Name.resx">
       <DependentUpon>Name.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Designer\Designer.resx">
+    <EmbeddedResource Include="View\Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Designer\Toolbox.resx">
+    <EmbeddedResource Include="View\Designer\Toolbox.resx">
       <DependentUpon>Toolbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_selectlevel.resx">
@@ -203,15 +203,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Screen.Designer.cs</LastGenOutput>
     </None>
-    <None Include="World\World1.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PlayerSprites\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\worldground.png" />
     <None Include="Resources\uitleg.png" />

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using TheHunt.Controller.Highscore;
+using TheHunt.View.Highscore;
 
 namespace TheHunt.Model
 {
