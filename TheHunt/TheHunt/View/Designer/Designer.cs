@@ -356,8 +356,19 @@ namespace TheHunt.View.Designer
 
         private void Items_Disposed(object sender, EventArgs e)
         {
-            this.save();
-            this.startForm.Show();
+            if (this.world.finish == null)
+            {
+                this.items = new Toolbox(this);
+                this.items.Show();
+                items.Disposed += Items_Disposed;
+                DialogResult dialogResult = MessageBox.Show("This level does not have a finish yet, please add a finish", "Error", MessageBoxButtons.OK);
+            }
+            else
+            {
+                this.save();
+                this.startForm.Show();
+            }
+
         }
 
         private void save()

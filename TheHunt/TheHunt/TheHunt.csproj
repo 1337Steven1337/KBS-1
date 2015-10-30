@@ -234,17 +234,6 @@
     <None Include="Resources\Template.png" />
     <None Include="Resources\Hoe-maak-ik-een-POP.jpg" />
     <None Include="Resources\Enemy.gif" />
-    <None Include="Resources\Bouncer.gif" />
-    <None Include="Resources\H_bouncer.png" />
-    <None Include="Resources\V_bouncer.png" />
-    <None Include="Resources\fenceDownLeft.png" />
-    <None Include="Resources\fenceUp.png" />
-    <None Include="Resources\fenceDown.png" />
-    <None Include="Resources\fenceUpRight.png" />
-    <None Include="Resources\fenceRight.png" />
-    <None Include="Resources\fenceDownRight.png" />
-    <None Include="Resources\fenceUpLeft.png" />
-    <None Include="Resources\fenceLeft.png" />
     <None Include="Resources\Hand-Touch2-512.png" />
     <None Include="Resources\emp.png" />
     <None Include="Resources\Finish.png" />
@@ -262,7 +251,6 @@
     <None Include="Resources\Exp\exp1.png" />
     <None Include="Resources\Exp\exp2.png" />
     <None Include="Resources\Exp\exp3.png" />
-    <None Include="Resources\AA.mp3" />
     <None Include="Resources\AA.wav" />
     <None Include="Resources\explosion.wav" />
     <None Include="Resources\infidel.wav" />

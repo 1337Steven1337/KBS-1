@@ -82,11 +82,13 @@ namespace TheHunt.Model
                     this.positions.last_position = this.positions.current_position;
                     lastPositionCounter = 0;
                 }
-                if(!this.positions.last_position.Equals(this.positions.current_position)){
-                    lastPositionsList.Add(this.positions.current_position);
-                }
                 this.positions.current_position = newPosition;
             }
+            if (!this.positions.last_position.Equals(this.positions.current_position))
+            {
+                lastPositionsList.Add(this.positions.current_position);
+            }
+
         }
 
         public void animate(Keys current, Keys last)

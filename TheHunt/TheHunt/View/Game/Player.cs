@@ -87,6 +87,7 @@ namespace TheHunt.View.Game
         public static bool SSBPlayerCollision = false;
         private bool isExploding = false;
         private bool isSoundPlaying = false;
+        private bool isSSBVisible = true;
         public List<Bitmap> SSBExplosionSpriteList = new List<Bitmap> { Properties.Resources.exp1, Properties.Resources.exp2, Properties.Resources.exp3, Properties.Resources.exp4, Properties.Resources.exp5, Properties.Resources.exp6, Properties.Resources.exp7
         , Properties.Resources.exp8, Properties.Resources.exp9, Properties.Resources.exp10, Properties.Resources.exp11, Properties.Resources.exp12, Properties.Resources.exp13, Properties.Resources.exp14};
 
@@ -196,6 +197,9 @@ namespace TheHunt.View.Game
         private void playExplosion(object sender, EventArgs e)
         {
             this.isExploding = true;
+            this.world.player.isVisible = false;
+            isSSBVisible = false;
+
 
             if (explosionState < this.SSBExplosionSpriteList.Count - 1)
             {
@@ -303,6 +307,7 @@ namespace TheHunt.View.Game
                     geluidjes.AADone = false;
                     geluidjes.EXDone = false;
                     SSBPlayerCollision = false;
+                    isSSBVisible = true;
                     this.isSoundPlaying = false;
                     this.isExploding = false;
                     this.SSBExplosion.Stop();
@@ -390,7 +395,7 @@ namespace TheHunt.View.Game
 
                 if (SSBPlayerCollision && isSoundPlaying == false)
                 {
-                    Model.Player.lastPositionsList.Clear();
+                Model.Player.lastPositionsList.Clear();
                 this.geluidjes.stopLoopInfidel(this,null);
                 this.world.player.canMove = false;
                 this.geluidjes.playAA();
@@ -400,7 +405,6 @@ namespace TheHunt.View.Game
                 if (this.geluidjes.AADone)
                 {
                     SSBExplosion.Start();
-
                 }
 
                 // Check if player is moving
@@ -688,7 +692,11 @@ namespace TheHunt.View.Game
                     {
                         if (isSSBSpawned == true)
                         {
-                        npc.draw(g, this.Size, "Game");
+                            if (isSSBVisible == true)
+                            {
+                                npc.draw(g, this.Size, "Game");
+                            }
+                        
                 }
                     }
                     else

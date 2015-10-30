@@ -254,12 +254,14 @@ namespace TheHunt.View.Designer
                 this.previewObjectBox.BackColor = Color.DarkGray;
                 this.ObjectName.Text = ((Npc)selectedObject).type.ToString();
                 this.ObjectCoords.Text = "X: " + ((Npc)selectedObject).positions.current_position.x + " Y: " + ((Npc)selectedObject).positions.current_position.y;
-                this.runSpeedLabel.Visible = false;
-                this.walkSpeedLabel.Visible = true;
-                this.numericWalkSpeed.Visible = true;
-                this.numericRunSpeed.Visible = false;
+
                 if (((Npc)selectedObject).type == Npc.Type.SuicideBomber)
                 {
+                    this.runSpeedLabel.Visible = false;
+                    this.walkSpeedLabel.Visible = true;
+                    this.numericWalkSpeed.Visible = true;
+                    this.numericRunSpeed.Visible = false;
+
                     this.walkSpeedLabel.Text = "Spawn delay :";
                     this.numericWalkSpeed.Minimum = 3;
                     this.numericWalkSpeed.Maximum = 10;
@@ -269,8 +271,39 @@ namespace TheHunt.View.Designer
                     walkNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).SSBspawnTimer = (int)( 1000 * int.Parse(this.numericWalkSpeed.Value.ToString())); };
                     this.numericWalkSpeed.Click += walkNumericDown;
                 }
+                else if (((Npc)selectedObject).type == Npc.Type.Enemy)
+                {
+                    this.runSpeedLabel.Visible = true;
+                    this.walkSpeedLabel.Visible = true;
+                    this.numericWalkSpeed.Visible = true;
+                    this.numericRunSpeed.Visible = true;
+
+                    this.walkSpeedLabel.Text = "Speed :";
+                    this.numericWalkSpeed.Minimum = 0;
+                    this.numericWalkSpeed.Maximum = 15;
+                    this.numericWalkSpeed.Value = ((Npc)selectedObject).speed.x;
+
+                    this.numericWalkSpeed.Click -= walkNumericDown;
+                    walkNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).speed.x = int.Parse(this.numericWalkSpeed.Value.ToString()); ((Npc)selectedObject).speed.y = int.Parse(this.numericWalkSpeed.Value.ToString()); };
+                    this.numericWalkSpeed.Click += walkNumericDown;
+
+
+                    this.runSpeedLabel.Text = "Max. Radius :";
+                    this.numericRunSpeed.Minimum = 10;
+                    this.numericRunSpeed.Maximum = 20;
+                    this.numericRunSpeed.Value = ((Npc)selectedObject).maximumRange / 10;
+
+                    this.numericRunSpeed.Click -= runNumericDown;
+                    runNumericDown = delegate (object se, EventArgs ea) { ((Npc)selectedObject).maximumRange = int.Parse(this.numericRunSpeed.Value.ToString()) * 10; };
+                    this.numericRunSpeed.Click += runNumericDown;
+                }
                 else
                 {
+                    this.runSpeedLabel.Visible = false;
+                    this.walkSpeedLabel.Visible = true;
+                    this.numericWalkSpeed.Visible = true;
+                    this.numericRunSpeed.Visible = false;
+
                     this.walkSpeedLabel.Text = "Speed :";
                     this.numericWalkSpeed.Minimum = 0;
                     this.numericWalkSpeed.Maximum = 15;
@@ -285,7 +318,7 @@ namespace TheHunt.View.Designer
                 switch (((Npc)selectedObject).type)
                 {
                     case Npc.Type.Enemy:
-                        this.ObjectDescription.Location = new System.Drawing.Point(this.walkSpeedLabel.Location.X, this.walkSpeedLabel.Location.Y + 20);
+                        this.ObjectDescription.Location = new System.Drawing.Point(this.runSpeedLabel.Location.X, this.runSpeedLabel.Location.Y + 20);
                         this.ObjectDescription.Text = "This guy will chase the shit outta you.";
                         break;
                     case Npc.Type.H_Bouncer:

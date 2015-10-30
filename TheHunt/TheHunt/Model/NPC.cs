@@ -44,7 +44,7 @@ namespace TheHunt.Model
         private int normalRange = 100;
 
         //Maximum range of the enemy 
-        private int maximumRange = 200;
+        public int maximumRange = 200;
 
         //Speed of the range when player is in it.
         private int rangeSpeed = 10;
@@ -602,7 +602,15 @@ namespace TheHunt.Model
                     this.image = this.VBouncerList[currentBouncerSprite];
                 }else if (this.type == Type.SuicideBomber)
             {
-                this.image = this.SSBSpriteList[currentSSBSprite];
+                if (!View.Game.Player.SSBPlayerCollision)
+                {
+                    this.image = this.SSBSpriteList[currentSSBSprite];
+                }
+                else
+                {
+                    this.image = this.SSBSpriteList[0];
+                }
+                
             }
             return this.image;
         }
@@ -620,7 +628,7 @@ namespace TheHunt.Model
                 this.infoLabel = null;
             }
         }
-        
+
         //methode om te kijken of er een player in range is
         public void checkForPlayer(World world, View.Game.Player game)
         {
