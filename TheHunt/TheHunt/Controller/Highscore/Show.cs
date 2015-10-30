@@ -28,7 +28,7 @@ namespace TheHunt.Controller.Highscore
             DataTable data = new DataTable();
             data.Columns.Add("Score", typeof(int));
             data.Columns.Add("User", typeof(string));
-            data.Columns.Add("World", typeof(string));
+            data.Columns.Add("Level", typeof(string));
 
             List<Score> list = Highscore.Instance.getScores().OrderByDescending(x => x.score).ToList<Score>();
 

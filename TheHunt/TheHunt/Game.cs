@@ -62,6 +62,21 @@ namespace TheHunt
         // Holds the last pressed key
         private Keys lastPressedKey = Keys.None;
 
+        // Converts internal lvl names to readable names for the highscore
+        private Dictionary<string, string> lvlNames = new Dictionary<string, string>()
+            {
+                { "level1", "Level 1" },
+                { "level2", "Level 2" },
+                { "level3", "Level 3" },
+                { "level4", "Level 4" },
+                { "level5", "Level 5" },
+                { "customlv1", "Custom level 1" },
+                { "customlv2", "Custom level 2" },
+                { "customlv3", "Custom level 3" },
+                { "customlv4", "Custom level 4" },
+                { "customlv5", "Custom level 5" }
+            };
+
         // is Speedboost Active?
         public bool speedBoostActive = false;
         public Timer speedBoostTimer = new Timer();
@@ -114,7 +129,6 @@ namespace TheHunt
         // Prepare the game
         private void Game_Load(object sender, EventArgs e)
         {
-            this.world = new World();
             // Set initial location
             this.Location = this.startScreen.Location;
 
@@ -133,6 +147,9 @@ namespace TheHunt
 
             // Load the world
             this.load();
+
+            // Set highscore name
+            this.world.getScore().world = lvlNames[this.levelString];
 
             // Set the main timer
             this.loop = new Timer();
