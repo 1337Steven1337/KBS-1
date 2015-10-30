@@ -375,7 +375,7 @@ namespace TheHunt.Designer
             if (Object.GetType() == typeof(Powerups))
             {
                 this.selectedObject = (Powerups)Object;
-                //Setting Property 
+                //Setting Property
 
                 this.previewObjectBox.Image = ((Powerups)selectedObject).getImage();
                 this.previewObjectBox.SizeMode = PictureBoxSizeMode.CenterImage;
