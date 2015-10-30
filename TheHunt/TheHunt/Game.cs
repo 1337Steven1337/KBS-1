@@ -36,7 +36,7 @@ namespace TheHunt
         Service.Sound geluidjes = Service.Sound.Instance;
 
         // Reference to the startScreen
-        private form_startscreen startScreen = null;
+        private startScreen startScreen = null;
 
         // Declare the main timer
         private Timer loop = null;
@@ -107,7 +107,7 @@ namespace TheHunt
         // Shift keys
         private List<Keys> shiftKeys = new List<Keys>() { Keys.Shift, Keys.LShiftKey, Keys.RShiftKey, Keys.ShiftKey };
 
-        public Game(form_startscreen start, string level)
+        public Game(startScreen start, string level)
         {
             InitializeComponent();
 
