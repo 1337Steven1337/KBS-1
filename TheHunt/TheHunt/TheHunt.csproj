@@ -148,11 +148,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Sound.settings</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Screen.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Screen.settings</DependentUpon>
-    </Compile>
     <Compile Include="Properties\User.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -162,6 +157,11 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Levels.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Screen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Screen.settings</DependentUpon>
     </Compile>
     <Compile Include="Unittesttest.cs" />
     <EmbeddedResource Include="Charactertestform.resx">
@@ -212,10 +212,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Sound.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Properties\Screen.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Screen.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Properties\User.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
@@ -223,6 +219,10 @@
     <None Include="Properties\Levels.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Levels.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Screen.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Screen.Designer.cs</LastGenOutput>
     </None>
     <None Include="World\World1.json" />
   </ItemGroup>
