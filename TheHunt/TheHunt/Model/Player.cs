@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class Player : Item
+    class Player
     {
         public string img;
         public Positions positions;

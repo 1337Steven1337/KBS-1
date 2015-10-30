@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class Finish : Item
+    class Finish
     {
         public int sizeBreedte = Screen.PrimaryScreen.Bounds.Width / 40;
         public int sizeHoogte = Screen.PrimaryScreen.Bounds.Height / 20;

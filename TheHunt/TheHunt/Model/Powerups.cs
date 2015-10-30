@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Windows.Forms;
 namespace TheHunt.Model
 {
-    class Powerups : Item
+    class Powerups
     {
         private Boolean used = false;
         public int speedBonusDuration = 5000;

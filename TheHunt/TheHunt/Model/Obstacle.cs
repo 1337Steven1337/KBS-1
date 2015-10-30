@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TheHunt.Model
 {
-    class Obstacle : Item
+    class Obstacle
     {
         private Image image = null;
 
@@ -24,15 +24,7 @@ namespace TheHunt.Model
         public enum Type
         {
             wall,
-            worldground,
-            fenceLeft,
-            fenceRight,
-            fenceUp,
-            fenceDown,
-            fenceUpLeft,
-            fenceUpRight,
-            fenceDownLeft,
-            fenceDownRight
+            worldground
         }
 
         public void draw(Graphics g, Size screenSize, string drawMode)
