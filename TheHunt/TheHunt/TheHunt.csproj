@@ -56,85 +56,68 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons.cs">
+    <Compile Include="View\Game\Gamepad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buttons.Designer.cs">
-      <DependentUpon>Buttons.cs</DependentUpon>
+    <Compile Include="View\Game\Gamepad.Designer.cs">
+      <DependentUpon>Gamepad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Charactertestform.cs">
+    <Compile Include="Service\Highscore.cs" />
+    <Compile Include="View\Highscore\Show.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Charactertestform.Designer.cs">
-      <DependentUpon>Charactertestform.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\Highscore\Highscore.cs" />
-    <Compile Include="Controller\Highscore\Show.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controller\Highscore\Show.Designer.cs">
+    <Compile Include="View\Highscore\Show.Designer.cs">
       <DependentUpon>Show.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Highscore\Name.cs">
+    <Compile Include="View\Highscore\Name.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controller\Highscore\Name.Designer.cs">
+    <Compile Include="View\Highscore\Name.Designer.cs">
       <DependentUpon>Name.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Move.cs" />
-    <Compile Include="Controller\DetectPlayer.cs" />
-    <Compile Include="Controller\Settings.cs" />
-    <Compile Include="Controller\Sound.cs" />
-    <Compile Include="Controller\verplaats.cs">
+    <Compile Include="Service\Sound.cs" />
+    <Compile Include="View\Designer\Designer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controller\verplaats.Designer.cs">
-      <DependentUpon>verplaats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Designer\Designer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Designer\Designer.Designer.cs">
+    <Compile Include="View\Designer\Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Designer\Toolbox.cs">
+    <Compile Include="View\Designer\Toolbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Designer\Toolbox.Designer.cs">
+    <Compile Include="View\Designer\Toolbox.Designer.cs">
       <DependentUpon>Toolbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="form_selectlevel.cs">
+    <Compile Include="View\Start\selectLevel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form_selectlevel.Designer.cs">
-      <DependentUpon>form_selectlevel.cs</DependentUpon>
+    <Compile Include="View\Start\selectLevel.Designer.cs">
+      <DependentUpon>selectLevel.cs</DependentUpon>
     </Compile>
-    <Compile Include="form_startscreen.cs">
+    <Compile Include="View\Start\startScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form_startscreen.Designer.cs">
-      <DependentUpon>form_startscreen.cs</DependentUpon>
+    <Compile Include="View\Start\startScreen.Designer.cs">
+      <DependentUpon>startScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs">
+    <Compile Include="View\Game\Player.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game.designer.cs">
-      <DependentUpon>Game.cs</DependentUpon>
+    <Compile Include="View\Game\Player.designer.cs">
+      <DependentUpon>Player.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Boss.cs" />
     <Compile Include="Model\Finish.cs" />
-    <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Obstacle.cs" />
     <Compile Include="Model\Npc.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Powerups.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\World.cs" />
-    <Compile Include="OptionsDialog.cs">
+    <Compile Include="View\Options\Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OptionsDialog.Designer.cs">
-      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    <Compile Include="View\Options\Dialog.Designer.cs">
+      <DependentUpon>Dialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,11 +131,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Sound.settings</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Screen.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Screen.settings</DependentUpon>
-    </Compile>
     <Compile Include="Properties\User.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -163,36 +141,35 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Levels.settings</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Screen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Screen.settings</DependentUpon>
+    </Compile>
     <Compile Include="Unittesttest.cs" />
-    <EmbeddedResource Include="Charactertestform.resx">
-      <DependentUpon>Charactertestform.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controller\Highscore\Show.resx">
+    <EmbeddedResource Include="View\Highscore\Show.resx">
       <DependentUpon>Show.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\Highscore\Name.resx">
+    <EmbeddedResource Include="View\Highscore\Name.resx">
       <DependentUpon>Name.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\verplaats.resx">
-      <DependentUpon>verplaats.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Designer\Designer.resx">
+    <EmbeddedResource Include="View\Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Designer\Toolbox.resx">
+    <EmbeddedResource Include="View\Designer\Toolbox.resx">
       <DependentUpon>Toolbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form_selectlevel.resx">
-      <DependentUpon>form_selectlevel.cs</DependentUpon>
+    <EmbeddedResource Include="View\Start\selectLevel.resx">
+      <DependentUpon>selectLevel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form_startscreen.resx">
-      <DependentUpon>form_startscreen.cs</DependentUpon>
+    <EmbeddedResource Include="View\Start\startScreen.resx">
+      <DependentUpon>startScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game.resx">
-      <DependentUpon>Game.cs</DependentUpon>
+    <EmbeddedResource Include="View\Game\Player.resx">
+      <DependentUpon>Player.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionsDialog.resx">
-      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    <EmbeddedResource Include="View\Options\Dialog.resx">
+      <DependentUpon>Dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -212,10 +189,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Sound.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Properties\Screen.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Screen.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Properties\User.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
@@ -224,15 +197,15 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Levels.Designer.cs</LastGenOutput>
     </None>
-    <None Include="World\World1.json" />
+    <None Include="Properties\Screen.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Screen.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PlayerSprites\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\worldground.png" />
     <None Include="Resources\uitleg.png" />

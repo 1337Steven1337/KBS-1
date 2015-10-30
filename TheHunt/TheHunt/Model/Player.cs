@@ -49,7 +49,7 @@ namespace TheHunt.Model
             sprites = PlayerSprites;
         }
 
-        public void move(Keys key, bool run, double delta, Game game)
+        public void move(Keys key, bool run, double delta, View.Game.Player game)
         {
             Point speed = (run) ? this.movement.run : this.movement.walk;
             Point newPosition = new Point(this.positions.current_position.x, this.positions.current_position.y);

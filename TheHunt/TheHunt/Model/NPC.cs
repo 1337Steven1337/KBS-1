@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheHunt.Controller.Highscore;
+
 namespace TheHunt.Model
 {
-    class Npc : Item
+    class Npc
     {
         private Label infoLabel;
         private World world = null;
         private Image image = null;
-        private Highscore highscore = null;
         public Point speed;
         public Positions positions;
         public Size screenSize;
@@ -37,7 +33,7 @@ namespace TheHunt.Model
         public int SSBspawnTimer = 3000;
         private int lastPosCount = Player.lastPositionsList.Count; //Used for SSB Movement.
         private int currentSSBpos = 0;
-        private Game game;
+        private View.Game.Player game;
 
         private int oldx, oldy, newRange;
 
@@ -263,7 +259,7 @@ namespace TheHunt.Model
                             newRange += rangeSpeed;
                         }
 
-                        if (Game.isPlayerMoving)
+                        if (View.Game.Player.isPlayerMoving)
                         {
                             var playerCurrentX = (int)(this.world.player.positions.current_position.x);
                             var playerCurrentY = (int)(this.world.player.positions.current_position.y);
@@ -438,7 +434,7 @@ namespace TheHunt.Model
                     Rectangle SSBRectangle = new Rectangle(this.positions.current_position.x,this.positions.current_position.y,this.sizeBreedte,this.sizeHoogte);
                     if (SSBRectangle.IntersectsWith(PlayerRectangle))
                     {
-                        Game.SSBPlayerCollision = true;
+                        View.Game.Player.SSBPlayerCollision = true;
                     }
                     this.positions.current_position.x = Player.lastPositionsList[currentSSBpos].x;
                     this.positions.current_position.y = Player.lastPositionsList[currentSSBpos].y;
@@ -488,15 +484,6 @@ namespace TheHunt.Model
                 {
                     return true;
                 }
-            }
-
-            //check if NPC intersect with Boss
-
-            Rectangle boss = new Rectangle(world.boss.position.x, world.boss.position.y, world.boss.sizeBreedte, world.boss.sizeHoogte);
-
-            if (npc.IntersectsWith(boss))
-            {
-                return true;
             }
 
             //check if NPC intersect with other NPC
@@ -600,19 +587,6 @@ namespace TheHunt.Model
             return inrange;
         }
 
-        public float getPixelWidth(Size screenSize)
-        {
-            double getScreenRatio = screenSize.Width / screenSize.Height;
-            float screenWidth = 32;
-            float screenHeight = (float)(screenWidth * getScreenRatio);
-            return this.width * this.getOnScreenHeight(screenSize);
-        }
-
-        public float getPixelHeight(Size screenSize)
-        {
-            return this.height * this.getOnScreenWidth(screenSize);
-        }
-
         public Image getImage()
         {
                 if (this.type == Type.Enemy)
@@ -648,7 +622,7 @@ namespace TheHunt.Model
         }
         
         //methode om te kijken of er een player in range is
-        public void checkForPlayer(World world, Game game)
+        public void checkForPlayer(World world, View.Game.Player game)
         {
             //kijk of de informatie aan gezet is en of er een speler in range is
             if (Properties.Settings.Default.enemyInformation && inRange(300))

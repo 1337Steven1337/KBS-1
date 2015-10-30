@@ -20,8 +20,6 @@ namespace TheHunt.Model
         public int width = 1;
         public Type type;
 
-        private int momentOfUsage;
-
         private Image image = null;
 
 
@@ -35,7 +33,7 @@ namespace TheHunt.Model
             this.used = used;
         }
 
-        public void UsePowerup(Game game)
+        public void UsePowerup(View.Game.Player game)
         {
             setUsed(true);
 
