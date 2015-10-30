@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheHunt.Model;
 
@@ -30,8 +26,8 @@ namespace TheHunt.Controller.Highscore
             data.Columns.Add("User", typeof(string));
             data.Columns.Add("Level", typeof(string));
 
-            List<Score> list = Highscore.Instance.getScores().OrderByDescending(x => x.score).ToList<Score>();
-
+            List<Score> list = Service.Highscore.Instance.getScores().OrderByDescending(x => x.score).ToList<Score>();
+            
             for (int i = 0; i < list.Count; i++)
             {
                 List<object> d = new List<object>();

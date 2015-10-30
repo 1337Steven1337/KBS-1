@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheHunt.Model;
-using TheHunt.Controller.Highscore;
+using TheHunt.Service;
 
 namespace TheHunt
 {
@@ -33,7 +33,7 @@ namespace TheHunt
         private Bitmap objectState;
 
         // Sound instance used for playing SFX
-        Controller.Sound geluidjes = Controller.Sound.Instance;
+        Service.Sound geluidjes = Service.Sound.Instance;
 
         // Reference to the startScreen
         private form_startscreen startScreen = null;
@@ -322,10 +322,10 @@ namespace TheHunt
         private void addGamePad()
         {
             this.gamepad = new Buttons(this);
-            Control up = gamepad.AddButton(Direction.up, Width, Height);
-            Control left = gamepad.AddButton(Direction.left, Width, Height);
-            Control down = gamepad.AddButton(Direction.down, Width, Height);
-            Control right = gamepad.AddButton(Direction.right, Width, Height);
+            Control up = gamepad.AddButton(Buttons.Direction.up, Width, Height);
+            Control left = gamepad.AddButton(Buttons.Direction.left, Width, Height);
+            Control down = gamepad.AddButton(Buttons.Direction.down, Width, Height);
+            Control right = gamepad.AddButton(Buttons.Direction.right, Width, Height);
             Controls.Add(up);
             Controls.Add(left);
             Controls.Add(down);

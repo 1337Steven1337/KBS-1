@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using TheHunt.Controller;
+using TheHunt.Service;
 using TheHunt.Controller.Highscore;
 
 namespace TheHunt

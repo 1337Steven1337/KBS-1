@@ -62,13 +62,7 @@
     <Compile Include="Buttons.Designer.cs">
       <DependentUpon>Buttons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Charactertestform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Charactertestform.Designer.cs">
-      <DependentUpon>Charactertestform.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\Highscore\Highscore.cs" />
+    <Compile Include="Service\Highscore.cs" />
     <Compile Include="Controller\Highscore\Show.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,16 +75,7 @@
     <Compile Include="Controller\Highscore\Name.Designer.cs">
       <DependentUpon>Name.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Move.cs" />
-    <Compile Include="Controller\DetectPlayer.cs" />
-    <Compile Include="Controller\Settings.cs" />
-    <Compile Include="Controller\Sound.cs" />
-    <Compile Include="Controller\verplaats.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controller\verplaats.Designer.cs">
-      <DependentUpon>verplaats.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Service\Sound.cs" />
     <Compile Include="Designer\Designer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,17 +149,11 @@
       <DependentUpon>Screen.settings</DependentUpon>
     </Compile>
     <Compile Include="Unittesttest.cs" />
-    <EmbeddedResource Include="Charactertestform.resx">
-      <DependentUpon>Charactertestform.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controller\Highscore\Show.resx">
       <DependentUpon>Show.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controller\Highscore\Name.resx">
       <DependentUpon>Name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controller\verplaats.resx">
-      <DependentUpon>verplaats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Designer\Designer.resx">
       <DependentUpon>Designer.cs</DependentUpon>

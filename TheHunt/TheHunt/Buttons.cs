@@ -15,6 +15,14 @@ namespace TheHunt
 {
     partial class Buttons : Form
     {
+        public enum Direction
+        {
+            up,
+            left,
+            right,
+            down
+        }
+
         //Player p = new Player();
         private Timer timer = new Timer();
         World world = new World();

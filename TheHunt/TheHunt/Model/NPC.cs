@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheHunt.Controller.Highscore;
+using TheHunt.Service;
+
 namespace TheHunt.Model
 {
     class Npc : Item

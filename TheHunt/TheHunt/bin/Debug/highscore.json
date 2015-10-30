@@ -1,142 +1,23 @@
 [
   {
-    "world": "World",
-    "score": 7443,
-    "name": "Steven",
-    "token": "9429cb40284911ba16289277a6d18c50",
-    "dateTime": "2015-10-30T08:42:10.4717954Z"
+    "world": "Level 1",
+    "score": 9887,
+    "name": "Remco",
+    "token": "18e190d6dee15232253350e94c3828e4",
+    "dateTime": "2015-10-30T09:38:39.3277379Z"
   },
   {
-    "world": "World",
-    "score": 9991,
-    "name": "Steven",
-    "token": "ef449ee83b4dd67ca64f130dac05bb41",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
+    "world": "Level 1",
+    "score": 9940,
+    "name": "Remco",
+    "token": "4b9636eb7e0089ba17330b7f92a81075",
+    "dateTime": "2015-10-30T09:38:39.3657058Z"
   },
   {
-    "world": "World",
-    "score": 9994,
-    "name": "Steven",
-    "token": "c6aeb2a05f2814e6efa51ddc1788be1a",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 3636,
-    "name": "Steven",
-    "token": "b38fab4496dc3327d810253471feb811",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 9168,
-    "name": "Hoi",
-    "token": "af6ed56e32067ff6c8939943807dedb0",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 9170,
-    "name": "Hoi",
-    "token": "fcac6d7c561967fdbec3de6d05edec91",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 9787,
-    "name": "Hoi",
-    "token": "fc404e10dcefef03266441804a5b0649",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 3195,
-    "name": "Hoi",
-    "token": "86a1e4cb72ab9c034074de34fcc89117",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 3828,
-    "name": "Hoi",
-    "token": "bc5780691f3316d3a14181940d9de883",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 9251,
-    "name": "Hoi",
-    "token": "657a17bb5073d7fe2c7d176993c3f14f",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 6111,
-    "name": "Hoi",
-    "token": "0fd51f7d1c09251772cc249d8a612857",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 8385,
-    "name": "Hoi",
-    "token": "70c932bad96adbfc062f82f6b62718b1",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 7703,
-    "name": "Hoi",
-    "token": "e1452333df19589088ee3c1a247284af",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 2297,
-    "name": "Hoi",
-    "token": "784912aa3b8343e36afe4d8d023a2108",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 6152,
-    "name": "Hoi",
-    "token": "f828f5d57341ff2bbdcf7d5e1f3eed1b",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 6877,
-    "name": "Hoi",
-    "token": "c3b85c69f93aab95e01b4f6a00516672",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 4523,
-    "name": "Hoi",
-    "token": "357ea3c945b6d8e7179adaadbbbb440b",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 9211,
-    "name": "Hoi",
-    "token": "b8670661b6b59528decf643a17f3f538",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 3679,
-    "name": "Hoi",
-    "token": "67359a488afa2afd3e954643990f1280",
-    "dateTime": "2015-10-30T08:42:10.4848052Z"
-  },
-  {
-    "world": "World",
-    "score": 3838,
-    "name": "Hoi",
-    "token": "bf91df6335cb6afab35e70930a8d3dc9",
-    "dateTime": "2015-10-30T08:41:44.7557743Z"
+    "world": "Level 1",
+    "score": 9767,
+    "name": "Remco",
+    "token": "d2c296810db5cade9dc189d9eb0f44a6",
+    "dateTime": "2015-10-30T09:38:42.2326731Z"
   }
 ]
