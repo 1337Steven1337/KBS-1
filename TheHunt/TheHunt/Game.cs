@@ -859,6 +859,11 @@ namespace TheHunt
         // Handle the click event of the restart button
         private void pictureBoxRestart_Click(object sender, EventArgs e)
         {
+            foreach(Npc npc in this.world.npcs)
+            {
+                npc.removeLabel();
+            }
+
             this.load();
             this.toggleGameOver();
         }

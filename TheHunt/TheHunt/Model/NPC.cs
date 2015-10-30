@@ -37,6 +37,7 @@ namespace TheHunt.Model
         public int SSBspawnTimer = 3000;
         private int lastPosCount = Player.lastPositionsList.Count; //Used for SSB Movement.
         private int currentSSBpos = 0;
+        private Game game;
 
         private int oldx, oldy, newRange;
 
@@ -637,6 +638,15 @@ namespace TheHunt.Model
             return (Npc)this.MemberwiseClone();
         }
 
+        public void removeLabel()
+        {
+            if(this.infoLabel != null && this.game != null)
+            {
+                this.game.Controls.Remove(infoLabel);
+                this.infoLabel = null;
+            }
+        }
+        
         //methode om te kijken of er een player in range is
         public void checkForPlayer(World world, Game game)
         {
@@ -646,6 +656,7 @@ namespace TheHunt.Model
                 //kijk of de label leeg is
                 if (this.infoLabel == null)
                 {
+                    this.game = game;
                     //als de label leeg is doe dit
                     this.infoLabel = new Label();
                     this.infoLabel.AutoSize = true;
